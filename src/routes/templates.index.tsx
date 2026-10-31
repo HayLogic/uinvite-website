@@ -1,3 +1,4 @@
+import { NewYearSection } from "@/components/NewYearSection";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { Eye, MessageCircle, Crown, Tag, Sparkles, Gift } from "lucide-react";
@@ -23,7 +24,7 @@ export const Route = createFileRoute("/templates/")({
       {
         name: "description",
         content:
-          "Դիտեք uInvite-ի ամբողջ տեսականին՝ հարսանիք, նշանադրություն, կնունք, ծնունդ, մանկական և կորպորատիվ վեբ հրավիրատոմսեր՝ 4,900֏-ից։",
+          "Դիտեք uInvite-ի ամբողջ տեսականին՝ հարսանիք, նշանադրություն, կնունք, ծնունդ, մանկական, ամանորյա և կորպորատիվ վեբ հրավիրատոմսեր՝ 4,900֏-ից։",
       },
       { property: "og:title", content: "Տեսականի — 50+ վեբ հրավիրատոմսերի ձևանմուշ | uInvite" },
       {
@@ -51,6 +52,7 @@ const FILTERS: { id: Filter; label: string }[] = [
   { id: "birthday", label: categoryLabels.birthday },
   { id: "childrens", label: categoryLabels.childrens },
   { id: "baptism", label: categoryLabels.baptism },
+  { id: "new-year", label: categoryLabels["new-year"] },
   { id: "commercial", label: categoryLabels.commercial },
   { id: "other", label: categoryLabels.other },
 ];
@@ -81,6 +83,11 @@ function TemplatesPage() {
   useEffect(() => {
     const applyHashFilter = () => {
       const hash = window.location.hash;
+      const category = hash.replace("#category-", "");
+      if (hash.startsWith("#category-") && FILTERS.some((f) => f.id === category)) {
+        setFilter(category as Filter);
+        setTierFilter("all");
+      }
       if (hash === "#tier-start") setTierFilter("start");
       else if (hash === "#tier-plus") setTierFilter("plus");
       else if (hash === "#tier-premium") setTierFilter("premium");
@@ -123,15 +130,17 @@ function TemplatesPage() {
             {FILTERS.map((f) => (
               <button
                 key={f.id}
-                className={`tpl-tab ${filter === f.id ? "active" : ""}`}
+                className={`tpl-tab ${f.id === "new-year" ? "new-year-tab" : ""} ${filter === f.id ? "active" : ""}`}
+                aria-pressed={filter === f.id}
                 onClick={() => setFilter(f.id)}
               >
+                {f.id === "new-year" && <Sparkles size={14} aria-hidden="true" />}
                 {f.label}
               </button>
             ))}
           </div>
 
-          <div className="tpl-tiers">
+          {filter !== "new-year" && <div className="tpl-tiers">
             {TIER_FILTERS.map((f) => (
               <button
                 key={f.id}
@@ -141,7 +150,9 @@ function TemplatesPage() {
                 {f.label}
               </button>
             ))}
-          </div>
+          </div>}
+
+          {filter === "new-year" && <NewYearSection />}
 
           <div className="tpl-grid">
             {list.map((t) => (
@@ -149,7 +160,7 @@ function TemplatesPage() {
             ))}
           </div>
 
-          {list.length === 0 && (
+          {filter !== "new-year" && list.length === 0 && (
             <p className="tpl-empty">Այս ֆիլտրով թեմփլեյթներ չկան։</p>
           )}
         </div>

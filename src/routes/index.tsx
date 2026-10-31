@@ -1,3 +1,4 @@
+import { NewYearSection } from "@/components/NewYearSection";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
@@ -40,6 +41,7 @@ const CATEGORIES = [
   { id: "birthday", label: "Ծնունդ" },
   { id: "childrens", label: "Մանկական" },
   { id: "other", label: "Այլ" },
+  { id: "new-year", label: "Նոր տարի" },
   { id: "commercial", label: "Կոմերցիոն" },
 ];
 
@@ -507,7 +509,7 @@ function IndexInner() {
           <div>
             <h5>Կատեգորիաներ</h5>
             {CATEGORIES.map((c) => (
-              <a key={c.id} href="#catalog" onClick={() => setActive(c.id)}>{c.label}</a>
+              <Link key={c.id} to="/templates" hash={`category-${c.id}`}>{c.label}</Link>
             ))}
           </div>
           <div>
@@ -1025,6 +1027,7 @@ function CatalogTemplates() {
     { id: "birthday", label: TPL_CAT_LABELS.birthday },
     { id: "childrens", label: TPL_CAT_LABELS.childrens },
     { id: "baptism", label: TPL_CAT_LABELS.baptism },
+    { id: "new-year", label: TPL_CAT_LABELS["new-year"] },
     { id: "commercial", label: TPL_CAT_LABELS.commercial },
     { id: "other", label: TPL_CAT_LABELS.other },
   ];
@@ -1066,13 +1069,17 @@ function CatalogTemplates() {
         {FILTERS.map((f) => (
           <button
             key={f.id}
-            className={`ct-tab ${cat === f.id ? "active" : ""}`}
+            className={`ct-tab ${f.id === "new-year" ? "new-year-tab" : ""} ${cat === f.id ? "active" : ""}`}
+            aria-pressed={cat === f.id}
             onClick={() => setCat(f.id)}
           >
+            {f.id === "new-year" && <Sparkles size={14} aria-hidden="true" />}
             {f.label}
           </button>
         ))}
       </div>
+
+      {cat === "new-year" && <NewYearSection />}
 
       <div className="ct-grid">
         {(showAll ? list : list.slice(0, 15)).map((t) => {

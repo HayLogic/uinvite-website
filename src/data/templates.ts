@@ -67,6 +67,7 @@ export type TemplateCategory =
   | "birthday"
   | "childrens"
   | "baptism"
+  | "new-year"
   | "commercial"
   | "other";
 
@@ -216,6 +217,7 @@ export const categoryLabels: Record<TemplateCategory, string> = {
   birthday: "Ծնունդ",
   childrens: "Մանկական",
   baptism: "Կնունք",
+  "new-year": "Նոր տարի",
   commercial: "Կոմերցիոն",
   other: "Այլ",
 };

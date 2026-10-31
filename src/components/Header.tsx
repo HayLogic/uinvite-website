@@ -5,6 +5,7 @@ import logoUrl from "@/assets/logo-full.png";
 const NAV = [
   { id: "home", label: "Գլխավոր" },
   { id: "templates", label: "Տեսականի", to: "/templates" as const },
+  { id: "new-year", label: "Նոր տարի", to: "/templates" as const, hash: "category-new-year" },
   { id: "pricing", label: "Փաթեթներ" },
   { id: "why", label: "Ինչու մենք" },
   { id: "steps", label: "Աշխատանքի փուլեր" },
@@ -32,6 +33,8 @@ export function Header() {
                   <Link
                     key={item.id}
                     to={item.to}
+                    className={item.id === "new-year" ? "new-year-nav-link" : undefined}
+                    hash={"hash" in item ? item.hash : undefined}
                     onClick={() => setOpen(false)}
                     activeProps={{ className: "active" }}
                     activeOptions={{ exact: false }}
