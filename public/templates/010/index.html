@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Հայկ և Անի - Հարսանյաց հրավիրատոմս</title>
+  <meta name="description" content="Հայկի և Անիի հարսանյաց հրավիրատոմսը - 15 հունիսի 2025">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500&family=Noto+Sans+Armenian:wght@400;500;600&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+
+  <!-- Toast notification -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="assets/couple-portrait.webp" alt="Couple" class="hero-bg-image">
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-flower hero-flower-left animate-fade-in"></div>
+    <div class="hero-flower hero-flower-right animate-fade-in-delay"></div>
+
+    <div class="hero-content animate-slide-up">
+      <p class="hero-subtitle">Հարսանյաց Հրավեր</p>
+      <div class="hero-names">
+        <h1 class="hero-name">Հայկ</h1>
+        <div class="hero-heart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"
+            stroke="currentColor" stroke-width="2">
+            <path
+              d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
+          </svg>
+        </div>
+        <h1 class="hero-name">Անի</h1>
+      </div>
+      <div class="hero-divider"></div>
+      <p class="hero-date">15 հունիսի 2025</p>
+      <p class="hero-message">Սիրով հրավիրում ենք Ձեզ կիսելու մեզ հետ մեր կյանքի ամենաերջանիկ օրը</p>
+
+    </div>
+  </section>
+
+  <!-- Countdown Section -->
+  <section id="countdown" class="countdown-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Մինչև մեր հարսանիքը</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="countdown-grid">
+        <div class="countdown-item animate-on-scroll">
+          <span class="countdown-value" id="days">00</span>
+          <span class="countdown-label">օր</span>
+        </div>
+        <div class="countdown-item animate-on-scroll" style="animation-delay: 0.1s">
+          <span class="countdown-value" id="hours">00</span>
+          <span class="countdown-label">ժամ</span>
+        </div>
+        <div class="countdown-item animate-on-scroll" style="animation-delay: 0.2s">
+          <span class="countdown-value" id="minutes">00</span>
+          <span class="countdown-label">րոպե</span>
+        </div>
+        <div class="countdown-item animate-on-scroll" style="animation-delay: 0.3s">
+          <span class="countdown-value" id="seconds">00</span>
+          <span class="countdown-label">վայրկյան</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Couple Gallery Section -->
+  <section class="gallery-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">
+          <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
+            <circle cx="12" cy="13" r="3" />
+          </svg>
+          Մենք միասին
+        </h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item animate-on-scroll">
+          <div class="gallery-image-wrapper">
+            <img src="assets/couple-portrait.webp" alt="Ռոմանտիկ դիմանկար">
+          </div>
+          <p class="gallery-caption">Ռոմանտիկ դիմանկար</p>
+        </div>
+        <div class="gallery-item animate-on-scroll" style="animation-delay: 0.15s">
+          <div class="gallery-image-wrapper">
+            <img src="assets/couple-walking.webp" alt="Զբոսանք այգում">
+          </div>
+          <p class="gallery-caption">Զբոսանք այգում</p>
+        </div>
+        <div class="gallery-item animate-on-scroll" style="animation-delay: 0.3s">
+          <div class="gallery-image-wrapper">
+            <img src="assets/couple-intimate.webp" alt="Նուրբ պահ">
+          </div>
+          <p class="gallery-caption">Նուրբ պահ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story Section -->
+  <section class="story-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Մեր պատմությունը</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="story-timeline">
+        <div class="story-item animate-on-scroll">
+          <div class="story-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"
+              stroke="currentColor" stroke-width="2">
+              <path
+                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
+            </svg>
+          </div>
+          <div class="story-content">
+            <span class="story-date">Օգոստոս 2020</span>
+            <h3 class="story-title">Առաջին հանդիպում</h3>
+            <p class="story-description">Մենք ծանոթացել ենք ընդհանուր ընկերների երեկույթին: Դա սեր էր առաջին հայացքից:
+            </p>
+          </div>
+        </div>
+
+        <div class="story-item story-item-reverse animate-on-scroll">
+          <div class="story-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+              <line x1="16" x2="16" y1="2" y2="6" />
+              <line x1="8" x2="8" y1="2" y2="6" />
+              <line x1="3" x2="21" y1="10" y2="10" />
+            </svg>
+          </div>
+          <div class="story-content story-content-right">
+            <span class="story-date">Փետրվար 2021</span>
+            <h3 class="story-title">Առաջին ժամադրություն</h3>
+            <p class="story-description">Մեր առաջին պաշտոնական ժամադրությունը տեղի ունեցավ քաղաքի կենտրոնի հարմարավետ
+              սրճարաններից մեկում:</p>
+          </div>
+        </div>
+
+        <div class="story-item animate-on-scroll">
+          <div class="story-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"
+              stroke="currentColor" stroke-width="2">
+              <path
+                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
+            </svg>
+          </div>
+          <div class="story-content">
+            <span class="story-date">Դեկտեմբեր 2024</span>
+            <h3 class="story-title">Առաջարկություն</h3>
+            <p class="story-description">Հայկը ամուսնության առաջարկություն արեց ռոմանտիկ ընթրիքի ժամանակ:
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Venue Gallery Section -->
+  <section class="gallery-section venue-gallery">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">
+          <svg class="section-icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          Հարսանյաց հանդիսություն
+        </h2>
+        <div class="section-divider"></div>
+        <p class="venue-subtitle">«Փարավոն» համալիր • Երևան</p>
+      </div>
+
+      <div class="gallery-grid venue-grid">
+        <div class="gallery-item venue-item animate-on-scroll">
+          <div class="gallery-image-wrapper venue-image-wrapper">
+            <img src="assets/ceremony-setup.webp" alt="Արարողություն">
+            <div class="venue-overlay">
+              <span class="venue-title">Արարողություն</span>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item venue-item animate-on-scroll" style="animation-delay: 0.15s">
+          <div class="gallery-image-wrapper venue-image-wrapper">
+            <img src="assets/venue-exterior.webp" alt="«Փարավոն» համալիր">
+            <div class="venue-overlay">
+              <span class="venue-title">Համալիր</span>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item venue-item animate-on-scroll" style="animation-delay: 0.3s">
+          <div class="gallery-image-wrapper venue-image-wrapper">
+            <img src="assets/venue-interior.webp" alt="Հանդիսությունների սրահ">
+            <div class="venue-overlay">
+              <span class="venue-title">Հանդիսությունների սրահ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Details Section -->
+  <section class="details-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Միջոցառման մանրամասները</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="details-grid">
+        <div class="details-card animate-on-scroll">
+          <div class="details-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+              <line x1="16" x2="16" y1="2" y2="6" />
+              <line x1="8" x2="8" y1="2" y2="6" />
+              <line x1="3" x2="21" y1="10" y2="10" />
+            </svg>
+          </div>
+          <h3 class="details-title">Ամսաթիվ և ժամ</h3>
+          <div class="details-list">
+            <p>15 հունիսի 2025</p>
+            <p>Հյուրերի ժամանում՝ 14:30</p>
+            <p>Արարողության սկիզբ՝ 15:00</p>
+          </div>
+        </div>
+
+        <div class="details-card animate-on-scroll" style="animation-delay: 0.1s">
+          <div class="details-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+              <circle cx="12" cy="10" r="3" />
+            </svg>
+          </div>
+          <h3 class="details-title">Վայրը</h3>
+          <div class="details-list">
+            <p>«Փարավոն» համալիր</p>
+            <p>Երևան-Աշտարակ խճուղի</p>
+            <p>Առկա է ավտոկայանատեղի</p>
+          </div>
+        </div>
+
+        <div class="details-card animate-on-scroll" style="animation-delay: 0.2s">
+          <div class="details-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+              <path d="M7 2v20" />
+              <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+            </svg>
+          </div>
+          <h3 class="details-title">Խնջույք</h3>
+          <div class="details-list">
+            <p>Հարսանյաց ընթրիք</p>
+            <p>Հեղինակային խոհանոց</p>
+            <p>Բաց բար</p>
+          </div>
+        </div>
+
+        <div class="details-card animate-on-scroll" style="animation-delay: 0.3s">
+          <div class="details-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18V5l12-2v13" />
+              <circle cx="6" cy="18" r="3" />
+              <circle cx="18" cy="16" r="3" />
+            </svg>
+          </div>
+          <h3 class="details-title">Ծրագիր</h3>
+          <div class="details-list">
+            <p>Կենդանի երաժշտություն</p>
+            <p>DJ վինիլային երեկո</p>
+            <p>Ֆոտոգոտի</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dress Code Section -->
+  <section class="dresscode-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Դրեսս-կոդ</h2>
+        <div class="section-divider"></div>
+        <p class="dresscode-text">Մենք ուրախ կլինենք տեսնել Ձեզ բաց գույների էլեգանտ հագուստով</p>
+      </div>
+
+      <div class="color-palette animate-on-scroll">
+        <div class="color-item">
+          <div class="color-circle" style="background-color: hsl(350, 50%, 85%);"></div>
+          <span class="color-name">Փոշոտ վարդ</span>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background-color: hsl(140, 25%, 75%);"></div>
+          <span class="color-name">Շալֆեյ</span>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background-color: hsl(45, 70%, 75%);"></div>
+          <span class="color-name">Ոսկեգույն</span>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background-color: hsl(40, 30%, 95%);"></div>
+          <span class="color-name">Փղոսկրյա</span>
+        </div>
+        <div class="color-item">
+          <div class="color-circle" style="background-color: hsl(30, 15%, 90%);"></div>
+          <span class="color-name">Բեժ</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP Form Section -->
+  <section class="rsvp-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h2 class="section-title">Հաստատեք Ձեր մասնակցությունը</h2>
+        <div class="section-divider"></div>
+        <p class="rsvp-text">Խնդրում ենք հաստատել Ձեր ներկայությունը մինչև հունիսի 1-ը</p>
+      </div>
+
+      <form id="rsvp-form" class="rsvp-form animate-on-scroll">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Ձեր անունը *</label>
+            <input type="text" id="name" name="name" placeholder="Հարութ Հարությունյան" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Էլ. փոստ *</label>
+            <input type="email" id="email" name="email" placeholder="email@example.com" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="guests">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+              Հյուրերի քանակը
+            </label>
+            <select id="guests" name="guests">
+              <option value="1">1 հյուր</option>
+              <option value="2">2 հյուր</option>
+              <option value="3">3 հյուր</option>
+              <option value="4">4 հյուր</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="dietary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
+                <path d="M7 2v20" />
+                <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" />
+              </svg>
+              Նախընտրելի ուտեստներ
+            </label>
+            <input type="text" id="dietary" name="dietary" placeholder="Վեգետարիանական, ալերգիաներ...">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Բարեմաղթանքներ նորապսակներին</label>
+          <textarea id="message" name="message" placeholder="Ձեր ջերմ խոսքերը..." rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submit-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" x2="11" y1="2" y2="13" />
+            <polygon points="22 2 15 22 11 13 2 9 22 2" />
+          </svg>
+          Ուղարկել հաստատումը
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content animate-on-scroll">
+      <img src="assets/wedding-flowers.webp" alt="Flowers" class="footer-flower">
+      <h2 class="footer-names">Հայկ և Անի</h2>
+      <p class="footer-date">15 հունիսի 2025 • Երևան</p>
+      <div class="footer-hearts">
+        <span class="footer-star">✦</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"
+          stroke="currentColor" stroke-width="2">
+          <path
+            d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z" />
+        </svg>
+        <span class="footer-star">✦</span>
+      </div>
+      <p class="footer-message">Սիրով սպասում ենք Ձեզ: 💕</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

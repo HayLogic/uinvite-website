@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation 004 - Birthday Party</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Noto+Sans+Armenian:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="birthday-template">
+        <!-- Hero Section -->
+        <section class="template-hero">
+            <div class="hero-container">
+                <!-- Background Image -->
+                <div class="hero-bg">
+                    <img src="assets/hero-bg.webp" alt="Background">
+                </div>
+
+                <!-- Hero Photo with rounded top -->
+                <div class="hero-photo-wrapper">
+                    <img id="hero-photo" src="assets/hero-photo.webp" alt="Hero Photo">
+                </div>
+
+                <!-- Age Number -->
+                <div class="age-wrapper">
+                    <span id="age-number" class="age-number">30</span>
+                </div>
+
+                <!-- Birthday Party Text -->
+                <div class="title-wrapper">
+                    <h1 id="party-title" class="party-title">Birthday Party</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section class="rsvp-section">
+            <!-- Background with blur -->
+            <div class="rsvp-bg">
+                <img src="assets/hero-bg.webp" alt="Background">
+            </div>
+
+            <div class="rsvp-content">
+                <!-- Invitation Text Block -->
+                <div class="invitation-block">
+                    <h2 class="invitation-title">Սիրելի Ընկերներ և Բարեկամենր</h2>
+                    <p class="invitation-description">Սիրով հրավիրում եմ Ձեզ իմ ծննդյան տարեդարձի երեկույթին</p>
+                </div>
+
+                <!-- Date and Venue -->
+                <div class="event-details">
+                    <div class="event-date">26.01</div>
+                    <div class="event-venue">Park Bridge Restaurant & Music Hub</div>
+                </div>
+
+                <!-- Location Button -->
+                <a href="https://maps.app.goo.gl/xLm1YSC2SQhqdD648" target="_blank" rel="noopener noreferrer"
+                    class="location-btn">Location</a>
+
+                <!-- Dress Code Section -->
+                <div class="dress-code-section">
+                    <h3 class="dress-code-title">Dress Code</h3>
+                    <div class="color-circles">
+                        <div class="color-circle color-brown"></div>
+                        <div class="color-circle color-gold"></div>
+                        <div class="color-circle color-beige"></div>
+                    </div>
+                </div>
+
+                <!-- RSVP Notice -->
+                <div class="rsvp-notice">
+                    խնդրում եմ Նախապես Հաստատեք Ձեր Ներկայությունը մինչև 20.01.2026
+                </div>
+
+                <!-- RSVP Form -->
+                <form id="template-rsvp-form" class="rsvp-form">
+                    <div class="form-group-radio">
+                        <label class="question-label">Կկարողանա՞ք ներկա գտնվել միջոցառմանը</label>
+                        <div class="radio-options">
+                            <label class="custom-radio">
+                                <input type="radio" name="attendance" value="yes" checked>
+                                <span class="radio-mark">
+                                    <span class="radio-inner"></span>
+                                </span>
+                                <span class="radio-label">Այո, իհարկե</span>
+                            </label>
+                            <label class="custom-radio">
+                                <input type="radio" name="attendance" value="no">
+                                <span class="radio-mark">
+                                    <span class="radio-inner"></span>
+                                </span>
+                                <span class="radio-label">Ցավոք, ոչ</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group-input">
+                        <input type="text" name="guest_name" placeholder="Անուն Ազգանուն" required class="text-input">
+                    </div>
+
+                    <button type="submit" class="rsvp-submit">Ուղարկել</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

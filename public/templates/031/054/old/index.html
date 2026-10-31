@@ -1,0 +1,3631 @@
+<!doctype html>
+<html lang="hy">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Աննա & Դավիթ · 07.07.2027</title>
+
+<meta
+  name="description"
+  content="Հարսանեկան հրավեր՝ 7 հուլիսի 2027, ժամը 15:00։"
+/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;500&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root {
+  --brown: #2a201b;
+  --white: #ffffff;
+
+  --fg: #f3ece0;
+  --muted: #bdae9c;
+  --accent: #d9b98a;
+
+  --border: rgba(243,236,224,.3);
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  margin: 0;
+
+  background: var(--white);
+
+  color: var(--fg);
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================================
+   PHOTO
+========================================= */
+
+.photo {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  line-height: 0;
+}
+
+
+.photo img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  filter:
+    sepia(.3)
+    saturate(.9)
+    contrast(1.02);
+}
+
+
+/* =========================================
+   DARK OVERLAY
+========================================= */
+
+.veil {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+      background: linear-gradient(to bottom, rgba(42, 32, 27, .42), rgb(42 32 27 / 39%));
+}
+
+
+/* =========================================
+   WAVES
+========================================= */
+
+.wave {
+  position: absolute;
+
+  left: 0;
+
+  width: 100%;
+
+  height:
+    clamp(
+      65px,
+      10vw,
+      140px
+    );
+
+  display: block;
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+
+/* =========================================
+   FIRST PHOTO
+   ONLY BOTTOM WAVE
+========================================= */
+
+.first-photo .wave.bottom {
+  bottom: -1px;
+
+  transform: rotate(180deg);
+}
+
+
+/* =========================================
+   SECOND PHOTO
+   TOP WAVE
+========================================= */
+
+.second-photo .wave.top {
+  top: -1px;
+}
+
+
+/* =========================================
+   SECOND PHOTO
+   BOTTOM WAVE
+========================================= */
+
+.second-photo .wave.bottom {
+  bottom: -1px;
+
+  transform: rotate(180deg);
+}
+
+
+/* =========================================
+   NAMES
+========================================= */
+
+.names {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 4;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0 1.25rem;
+
+  color: var(--fg);
+
+  font-family:
+    "Great Vibes",
+    cursive;
+
+  font-size:
+    clamp(
+      3rem,
+      9vw,
+      6rem
+    );
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  gap: 16px;
+
+  text-align: center;
+
+  text-shadow:
+    0 2px 12px rgba(0,0,0,.45);
+ background: rgb(42 32 27 / 42%);
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    padding-top: 1.2rem;
+    padding-bottom: 4.5rem;
+
+}
+
+
+.names span {
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  color: var(--fg);
+
+  font-size: .65em;
+
+  line-height: 1;
+}
+
+
+/* =========================================
+   DATE
+========================================= */
+
+.date-section {
+  width: 100%;
+
+  min-height: 160px;
+
+  padding:
+    2.5rem
+    1rem;
+
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: var(--white);
+
+  text-align: center;
+}
+
+.date-invite {
+
+  color: var(--brown);
+  font-size: 1.5rem;
+  margin: 20px;
+}
+
+
+
+.date {
+  color: var(--brown);
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      1.4rem,
+      4vw,
+      2.2rem
+    );
+
+  font-weight: 400;
+
+  letter-spacing: .35em;
+
+  line-height: 2;
+}
+
+
+/* =========================================
+   COUNTDOWN OVERLAY
+========================================= */
+
+.overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 4;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: end;
+
+  padding:
+    0
+    1.25rem;
+
+  text-align: center;
+
+  color: var(--fg);
+  padding-bottom: 5rem;
+}
+
+
+.overlay-title {
+  font-family:
+    "Great Vibes",
+    cursive;
+
+  font-size:
+    clamp(
+      2rem,
+      6vw,
+      4rem
+    );
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  text-shadow:
+    0 2px 12px rgba(0,0,0,.4);
+}
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+.countdown {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  margin-top: 2rem;
+}
+
+
+.unit {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: .35rem;
+
+  min-width: 4.5rem;
+
+  padding:
+    0
+    .9rem;
+
+  border-left:
+  0;
+}
+
+
+.unit:first-child {
+  border-left: 0;
+}
+
+
+.unit .num {
+  font-size:
+    clamp(
+      2rem,
+      6vw,
+      4rem
+    );
+
+  font-weight: 300;
+
+  line-height: 1;
+
+  font-variant-numeric:
+    tabular-nums;
+}
+
+
+.unit .lbl {
+  color: var(--muted);
+
+  font-size: .6rem;
+
+  line-height: 1.2;
+
+  letter-spacing: .35em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   AFTER SECOND PHOTO
+========================================= */
+
+.after-photo {
+  background: var(--white);
+
+  padding:
+    3rem
+    1.25rem;
+
+  text-align: center;
+
+  color: var(--brown);
+}
+
+
+.after-photo h2 {
+  font-family:
+    "Great Vibes",
+    cursive;
+
+  font-size:
+    clamp(
+      3rem,
+      9vw,
+      5rem
+    );
+
+  font-weight: 400;
+}
+
+
+.after-photo p {
+  margin-top: 1rem;
+
+  color: #8f8275;
+
+  font-size: .9rem;
+
+  letter-spacing: .25em;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:639px) {
+
+  .wave {
+    height: 75px;
+  }
+
+
+  .names {
+    font-size:
+      clamp(
+        2.8rem,
+        17vw,
+        5rem
+      );
+
+    gap: 14px;
+  }
+
+
+  .date-section {
+    min-height: 130px;
+
+    padding:
+      2rem
+      1rem;
+  }
+
+
+  .date {
+           font-size: 3rem;
+        letter-spacing: 0.2em;
+        font-weight: bold;
+  }
+
+
+  .overlay-title {
+    font-size: 2.4rem;
+  }
+
+
+  .countdown {
+    margin-top: 1.5rem;
+  }
+
+
+  .unit {
+    min-width: 4rem;
+
+    padding:
+      0
+      .6rem;
+  }
+
+
+  .unit .num {
+    font-size: 2.5rem;
+  }
+
+
+  .unit .lbl {
+    font-size: .7rem;
+
+    letter-spacing: .25em;
+  }
+
+}
+
+
+/* =========================================
+   DESKTOP
+========================================= */
+
+@media(min-width:640px) {
+
+  .unit {
+    min-width: 6rem;
+
+    padding:
+      0
+      1.5rem;
+  }
+
+}
+/* =========================================
+   CALENDAR
+========================================= */
+
+.calendar-section {
+  width: 100%;
+
+  background: #ffffff;
+
+  color: #2a201b;
+
+  padding:
+    4rem
+    1.25rem
+    5rem;
+
+  text-align: center;
+}
+
+
+.calendar-wrap {
+  width: min(100%, 420px);
+
+  margin: 0 auto;
+}
+
+
+.calendar-kicker {
+  margin-bottom: .8rem;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .65rem;
+
+  letter-spacing: .45em;
+
+  color: #9b8b7a;
+}
+
+
+.calendar-title {
+  margin: 0;
+
+  font-family:
+    "Great Vibes",
+    cursive;
+
+  font-size:
+    clamp(
+      3rem,
+      10vw,
+      4.5rem
+    );
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  color: #2a201b;
+}
+
+
+.calendar-year {
+  margin-top: .5rem;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .9rem;
+
+  letter-spacing: .4em;
+
+  color: #a69482;
+}
+
+
+.calendar {
+  margin-top: 2.5rem;
+}
+
+
+.weekdays {
+  display: grid;
+
+  grid-template-columns:
+    repeat(7, 1fr);
+
+  margin-bottom: 1rem;
+}
+
+
+.weekdays span {
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .75rem;
+
+  color: #a59482;
+
+  letter-spacing: .05em;
+}
+
+
+.days {
+  display: grid;
+
+  grid-template-columns:
+    repeat(7, 1fr);
+
+  row-gap: 1.1rem;
+
+  align-items: center;
+}
+
+
+.day {
+  position: relative;
+
+  width: 42px;
+  height: 42px;
+
+  margin: 0 auto;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 1rem;
+
+  color: #4a3d34;
+
+  z-index: 1;
+}
+
+
+/* Empty calendar cells */
+
+.day.empty {
+  visibility: hidden;
+}
+
+
+/* =========================================
+   HEART DATE
+========================================= */
+
+.day.event-day {
+
+ position: relative;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #ffffff;
+
+  font-weight: 500;
+
+  z-index: 1;
+}
+
+
+
+
+
+
+.day.event-day::before {
+   content: "♥";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  font-family: Arial, sans-serif;
+
+  font-size: 46px;
+
+  line-height: 1;
+
+  color: #d9b98a;
+
+  z-index: -1;
+}
+
+
+
+
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 639px) {
+
+  .calendar-section {
+    padding:
+      3.5rem
+      1rem
+      4rem;
+  }
+
+
+  .calendar {
+    margin-top: 2rem;
+  }
+
+
+  .days {
+    row-gap: .9rem;
+  }
+
+
+  .day {
+    width: 38px;
+    height: 38px;
+
+    font-size: .95rem;
+  }
+
+
+
+
+  
+
+}
+
+
+
+/* =========================================
+   WEDDING DAY TIMELINE
+========================================= */
+
+.timeline-section {
+  width: 100%;
+  background: #ffffff;
+  color: var(--brown);
+  padding: 4.5rem 1rem;
+  overflow: hidden;
+}
+
+.timeline-wrap {
+  position: relative;
+  width: min(100%, 680px);
+  height: 900px;
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   CURVED LINE
+========================================= */
+
+.timeline-svg {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  z-index: 1;
+}
+
+.timeline-svg path {
+  fill: none;
+
+  stroke: #d9b98a;
+  stroke-width: 1.25;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* =========================================
+   DOTS
+========================================= */
+
+.timeline-dot {
+  fill: #d9b98a;
+}
+
+
+/* =========================================
+   HEART
+========================================= */
+
+.timeline-heart {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.timeline-heart path {
+  fill: var(--brown);
+}
+
+
+/* =========================================
+   EVENTS
+========================================= */
+
+.timeline-event {
+  position: absolute;
+
+  z-index: 3;
+
+  width: 230px;
+
+  text-align: center;
+
+  transform: translateY(-50%);
+
+  opacity: 0;
+
+  animation:
+    timelineFade .8s ease forwards;
+}
+
+
+/* LEFT / RIGHT */
+
+
+.timeline-event.right {
+  right: 44%;
+}
+
+
+/* EVENT POSITIONS */
+
+.timeline-event-1 {
+  top: 14%;
+  animation-delay: .1s;
+}
+
+.timeline-event-2 {
+  top: 34%;
+  animation-delay: .25s;
+}
+
+.timeline-event-3 {
+  top: 56%;
+  animation-delay: .4s;
+}
+
+.timeline-event-4 {
+  top: 78%;
+  animation-delay: .55s;
+}
+
+
+/* =========================================
+   TIME
+========================================= */
+
+.timeline-time {
+  color: var(--brown);
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      2rem,
+      5vw,
+      2.8rem
+    );
+
+  font-weight: 500;
+
+  font-style: italic;
+
+  line-height: 1;
+
+  letter-spacing: -.02em;
+}
+
+
+/* =========================================
+   EVENT NAME
+========================================= */
+
+.timeline-name {
+  margin-top: .45rem;
+
+  color: #d9b98a;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      .9rem,
+      2vw,
+      1.05rem
+    );
+
+  line-height: 1.35;
+
+  letter-spacing: .04em;
+}
+
+
+/* =========================================
+   PLACE
+========================================= */
+
+.timeline-place {
+  margin-top: .15rem;
+
+  color: #8f8275;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .82rem;
+
+  line-height: 1.3;
+}
+
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes timelineFade {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(
+        calc(-50% + 16px)
+      );
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(-50%);
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 639px) {
+
+  .timeline-section {
+    padding:
+      3.5rem
+      .5rem;
+  }
+
+
+  .timeline-wrap {
+    width:
+      min(
+        100%,
+        430px
+      );
+
+    height: 760px;
+  }
+
+
+  .timeline-event {
+    width: 155px;
+  }
+
+
+  
+
+
+  .timeline-event.right {
+    right: 40%;
+  }
+
+
+  .timeline-time {
+    font-size: 1.9rem;
+  }
+
+
+  .timeline-name {
+    font-size: .78rem;
+
+    letter-spacing: .02em;
+  }
+
+
+  .timeline-place {
+    font-size: .68rem;
+  }
+
+
+  .timeline-svg path {
+    stroke-width: 1.15;
+  }
+
+}
+
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+
+  .timeline-wrap {
+    height: 700px;
+  }
+
+
+  .timeline-event {
+    width: 140px;
+  }
+
+
+  .timeline-time {
+    font-size: 1.7rem;
+  }
+
+
+  .timeline-name {
+    font-size: .7rem;
+  }
+
+}
+.timeline-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .timeline-event {
+    animation: none;
+    opacity: 1;
+  }
+
+}
+
+/* =========================================
+   TIMELINE
+   SCROLL DRAW / UN-DRAW
+========================================= */
+
+.timeline-section {
+  width: 100%;
+  background: #fff;
+  color: var(--brown);
+
+  padding: 4.5rem 1rem;
+  overflow: hidden;
+}
+
+.timeline-wrap {
+  position: relative;
+
+  width: min(100%, 680px);
+  height: 900px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   SVG LINE
+========================================= */
+
+.timeline-svg {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  z-index: 1;
+}
+
+
+.timeline-svg path {
+  fill: none;
+
+  stroke: var(--brown);
+
+  stroke-width: 1.25;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  /*
+    JS will control these values
+  */
+
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+
+
+/* =========================================
+   REMOVE DOTS
+========================================= */
+
+.timeline-dot {
+  display: none;
+}
+
+
+/* =========================================
+   REMOVE HEART
+========================================= */
+
+.timeline-heart {
+  display: none !important;
+}
+
+
+/* =========================================
+   EVENT TEXT
+========================================= */
+
+.timeline-event {
+  position: absolute;
+
+  z-index: 3;
+
+  width: 230px;
+
+  text-align: center;
+
+  transform: translateY(-50%);
+}
+
+
+/* LEFT */
+
+.timeline-event.left {
+  left: 25%;
+}
+
+
+/* RIGHT */
+
+
+
+/* =========================================
+   EVENT POSITIONS
+========================================= */
+
+.timeline-event-1 {
+  top: 14%;
+}
+
+.timeline-event-2 {
+  top: 34%;
+}
+
+.timeline-event-3 {
+  top: 56%;
+}
+
+.timeline-event-4 {
+  top: 78%;
+}
+
+
+/* =========================================
+   TIME
+========================================= */
+
+.timeline-time {
+  color: #d9b98a;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      2rem,
+      5vw,
+      2.8rem
+    );
+
+  font-weight: 500;
+
+  font-style: italic;
+
+  line-height: 1;
+
+  letter-spacing: -.02em;
+}
+
+
+/* =========================================
+   NAME
+========================================= */
+
+.timeline-name {
+  margin-top: .45rem;
+
+  color: var(--brown);
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    clamp(
+      .9rem,
+      2vw,
+      1.05rem
+    );
+
+  line-height: 1.35;
+
+  letter-spacing: .04em;
+}
+
+
+/* =========================================
+   PLACE
+========================================= */
+
+.timeline-place {
+  margin-top: .15rem;
+
+  color: #8f8275;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .82rem;
+
+  line-height: 1.3;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 639px) {
+
+  .timeline-section {
+    padding:
+      3.5rem
+      .5rem;
+  }
+
+
+  .timeline-wrap {
+    width:
+      min(
+        100%,
+        430px
+      );
+
+    height: 760px;
+  }
+
+
+  .timeline-event {
+    width: 155px;
+  }
+
+
+  .timeline-time {
+    font-size: 1.9rem;
+  }
+
+
+  .timeline-name {
+    font-size: .78rem;
+  }
+
+
+  .timeline-place {
+    font-size: .68rem;
+  }
+
+}
+
+/* =========================================
+   LOCATION SECTION
+========================================= */
+
+.location-section {
+  width: 100%;
+
+  background: var(--white);
+
+  color: var(--brown);
+
+  padding:
+    5rem
+    1.25rem
+    5.5rem;
+
+  text-align: center;
+}
+
+
+.location-wrap {
+  width:
+    min(
+      100%,
+      520px
+    );
+
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   KICKER
+========================================= */
+
+.location-kicker {
+
+  margin-bottom: .8rem;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .65rem;
+
+  letter-spacing: .45em;
+
+  color: #9b8b7a;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.location-title {
+
+  font-family:
+    "Great Vibes",
+    cursive;
+
+  font-size:
+    clamp(
+      3rem,
+      10vw,
+      4.5rem
+    );
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  color: var(--brown);
+}
+
+
+/* =========================================
+   LOCATIONS
+========================================= */
+
+.locations {
+
+  margin-top: 3rem;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.location-card {
+
+  width: 100%;
+
+  text-align: center;
+
+  padding:
+    1rem
+    0;
+}
+
+
+/* =========================================
+   TIME
+========================================= */
+
+.location-time {
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 2rem;
+
+  font-style: italic;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  color: var(--accent);
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.location-label {
+
+  margin-top: .7rem;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .65rem;
+
+  letter-spacing: .28em;
+
+  color: #9b8b7a;
+}
+
+
+/* =========================================
+   NAME
+========================================= */
+
+.location-name {
+
+  margin-top: .55rem;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: 1.35rem;
+
+  letter-spacing: .04em;
+
+  color: var(--brown);
+}
+
+
+/* =========================================
+   ADDRESS
+========================================= */
+
+.location-address {
+
+  margin-top: .25rem;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .85rem;
+
+  color: #9b8b7a;
+}
+
+
+/* =========================================
+   MAP BUTTON
+========================================= */
+
+.location-map {
+
+  display: inline-block;
+
+  margin-top: 1rem;
+
+  padding:
+    .55rem
+    1.25rem;
+
+  border:
+    1px solid
+    rgba(42,32,27,.35);
+
+  border-radius: 999px;
+
+  color: var(--brown);
+
+  text-decoration: none;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .8rem;
+
+  letter-spacing: .08em;
+
+  transition:
+    all .3s ease;
+}
+
+
+.location-map:hover {
+
+  background: var(--brown);
+
+  color: var(--white);
+
+}
+
+
+/* =========================================
+   DIVIDER
+========================================= */
+
+.location-line {
+
+  width: 1px;
+
+  height: 70px;
+
+  margin: .5rem 0;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      var(--accent),
+      transparent
+    );
+
+  position: relative;
+}
+
+
+/* small decorative dot */
+
+.location-line::after {
+
+  content: "✦";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  background: var(--white);
+
+  padding: .5rem 0;
+
+  color: var(--accent);
+
+  font-size: .65rem;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 639px) {
+
+  .location-section {
+
+    padding:
+      4rem
+      1rem
+      4.5rem;
+
+  }
+
+  .locations {
+
+    margin-top: 2.5rem;
+
+  }
+
+  .location-name {
+
+    font-size: 1.2rem;
+
+  }
+
+}
+
+/* =========================================
+   RSVP SECTION
+========================================= */
+
+.rsvp-section {
+  width: 100%;
+
+  background: #ffffff;
+
+  
+
+  display: flex;
+
+  justify-content: center;
+}
+
+
+/* =========================================
+   RSVP CARD
+========================================= */
+
+.rsvp-card {
+
+  position: relative;
+
+  width: min(
+    100%,
+    390px
+  );
+
+  padding:
+    2rem
+    2rem
+    4.5rem;
+
+  background:
+    var(--white);
+
+  color:
+    var(--brown);
+
+  text-align: left;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 15px 45px
+    rgba(42,32,27,.12);
+}
+
+
+/* =========================================
+   TOP SCRIPT
+========================================= */
+
+.rsvp-script {
+
+  text-align: center;
+
+  margin-bottom: 1.2rem;
+
+  font-family:
+    "Great Vibes",
+    cursive;
+
+  font-size: 1.8rem;
+
+  color:
+    var(--accent);
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.rsvp-title {
+
+  margin: 0;
+
+  text-align: center;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size:
+    1.25rem;
+
+  font-weight: 500;
+
+  line-height: 1.15;
+
+  letter-spacing:
+    .18em;
+
+  color:
+    var(--brown);
+}
+
+
+/* =========================================
+   SUBTITLE
+========================================= */
+
+.rsvp-subtitle {
+
+  max-width: 290px;
+
+  margin:
+    1rem auto 1.8rem;
+
+  text-align: center;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .8rem;
+
+  line-height: 1.4;
+
+  color:
+    var(--muted);
+}
+
+
+/* =========================================
+   FIELD
+========================================= */
+
+.rsvp-field {
+
+  margin-bottom:
+    1.15rem;
+}
+
+
+.rsvp-field label {
+
+  display: block;
+
+  margin-bottom: .35rem;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .75rem;
+
+  color:
+    var(--brown);
+}
+
+
+.rsvp-field input[type="text"],
+.rsvp-field input[type="number"] {
+
+  width: 100%;
+
+  height: 32px;
+
+  padding:
+    .25rem
+    .45rem;
+
+  border:
+    1px solid
+    rgba(243,236,224,.55);
+
+  border-radius: 0;
+
+  outline: none;
+
+  background:
+    transparent;
+
+  color:
+    var(--brown);
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .9rem;
+
+  transition:
+    border-color .25s ease;
+}
+
+
+.rsvp-field input:focus {
+
+  border-color:
+    var(--accent);
+}
+
+
+/* =========================================
+   QUESTION
+========================================= */
+
+.rsvp-question {
+
+  margin-top:
+    1.4rem;
+
+  margin-bottom:
+    .8rem;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .8rem;
+
+  line-height: 1.35;
+
+  color:
+    var(--brown);
+}
+
+
+/* =========================================
+   RADIO OPTIONS
+========================================= */
+
+.rsvp-options {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: .55rem;
+
+  margin-bottom:
+    1rem;
+}
+
+
+.rsvp-option {
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: .5rem;
+
+  cursor: pointer;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .78rem;
+
+  color:
+    var(--brown);
+}
+
+
+.rsvp-option input {
+
+  position: absolute;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+
+.rsvp-radio {
+
+  width: 12px;
+  height: 12px;
+
+  border:
+    1px solid
+    var(--muted);
+
+  border-radius:
+    50%;
+
+  position: relative;
+}
+
+
+.rsvp-option input:checked
++ .rsvp-radio {
+
+  border-color:
+    var(--accent);
+}
+
+
+.rsvp-option input:checked
++ .rsvp-radio::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    var(--accent);
+}
+
+
+/* =========================================
+   CHECKBOX
+========================================= */
+
+.rsvp-check {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: .5rem;
+
+  cursor: pointer;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .72rem;
+
+  line-height: 1.3;
+
+  color:
+    var(--muted);
+
+  margin-bottom:
+    1.5rem;
+}
+
+
+.rsvp-check input {
+
+  position: absolute;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+
+.rsvp-square {
+
+  flex:
+    0 0 auto;
+
+  width: 12px;
+  height: 12px;
+
+  border:
+    1px solid
+    var(--muted);
+
+  margin-top: 2px;
+
+  position: relative;
+}
+
+
+.rsvp-check input:checked
++ .rsvp-square {
+
+  border-color:
+    var(--accent);
+
+  background:
+    var(--accent);
+}
+
+
+.rsvp-check input:checked
++ .rsvp-square::after {
+
+  content: "✓";
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -55%);
+
+  color:
+    var(--brown);
+
+  font-size: 9px;
+}
+
+
+/* =========================================
+   SUBMIT
+========================================= */
+
+.rsvp-submit {
+
+  width: 100%;
+
+  height: 38px;
+
+  border: none;
+
+  border-radius: 0;
+
+  background:
+    var(--brown);
+
+  color:
+    var(--fg);
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .75rem;
+
+  letter-spacing:
+    .2em;
+
+  cursor: pointer;
+
+  transition:
+    background .25s ease,
+    color .25s ease;
+    margin-top: 10px;
+}
+
+
+.rsvp-submit:hover {
+
+  background:
+    var(--accent);
+
+  color:
+    var(--brown);
+}
+
+
+/* =========================================
+   SUCCESS
+========================================= */
+
+.rsvp-success {
+
+  min-height: 20px;
+
+  margin-top:
+    1rem;
+
+  text-align: center;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .85rem;
+
+  color:
+    var(--accent);
+}
+
+
+/* =========================================
+   BOTTOM WAVE
+========================================= */
+
+
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 639px) {
+
+
+
+
+  .rsvp-card {
+
+    width: 100%;
+
+   
+
+  }
+
+
+  .rsvp-title {
+
+    font-size:
+      1.1rem;
+
+  }
+
+
+  .rsvp-script {
+
+    font-size:
+      1.65rem;
+
+  }
+
+}
+
+/* =========================================
+   INVITED BY
+========================================= */
+
+.rsvp-side-question {
+  margin-top: 1.2rem;
+  margin-bottom: .75rem;
+}
+
+
+.rsvp-side-options {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: .55rem;
+
+  margin-bottom: 1.2rem;
+}
+
+
+.rsvp-side-option {
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: .5rem;
+
+  cursor: pointer;
+
+  font-family:
+    "Cormorant Garamond",
+    serif;
+
+  font-size: .78rem;
+
+  color: var(--brown);
+}
+
+
+/* hide native radio */
+
+.rsvp-side-option input {
+
+  position: absolute;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+
+/* custom circle */
+
+.rsvp-side-radio {
+
+  width: 12px;
+  height: 12px;
+
+  flex: 0 0 12px;
+
+  border:
+    1px solid
+    var(--muted);
+
+  border-radius: 50%;
+
+  position: relative;
+
+  transition:
+    border-color .25s ease,
+    transform .25s ease;
+}
+
+
+/* selected */
+
+.rsvp-side-option input:checked
++ .rsvp-side-radio {
+
+  border-color:
+    var(--accent);
+
+  transform:
+    scale(1.05);
+}
+
+
+/* inner dot */
+
+.rsvp-side-option input:checked
++ .rsvp-side-radio::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    var(--accent);
+}
+</style>
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     PHOTO 1
+     BOTTOM WAVE ONLY
+================================================== -->
+
+<section class="photo first-photo">
+
+  <img
+    src="assets/couple.jpg"
+    alt="Աննա և Դավիթ"
+  >
+
+  <div class="veil"></div>
+
+
+  <!-- BOTTOM WAVE -->
+
+  <svg
+    class="wave bottom"
+    viewBox="0 0 1440 120"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+
+    <path
+      d="
+        M0,0
+        L1440,0
+        L1440,42
+        C1200,120 1040,4 780,44
+        C560,78 380,120 160,72
+        C104,60 48,44 0,44
+        Z
+      "
+
+      fill="var(--white)"
+    />
+
+  </svg>
+
+
+  <!-- NAMES -->
+
+  <div class="names">
+
+    <span>Աննա</span>
+
+    <span>&amp;</span>
+
+    <span>Դավիթ</span>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     DATE
+     WHITE BACKGROUND
+================================================== -->
+
+<section class="date-section">
+
+  <p class="date">
+    07 · 07 · 2027
+  </p>
+  <p class="date-invite">Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր կյանքի նոր ու գեղեցիկ էջի բացմանը՝ կիսելու մեզ հետ մեր սիրո, երջանկության և ամուսնության օրը։</p>
+
+</section>
+
+
+
+<!-- ==================================================
+     PHOTO 2
+     TOP + BOTTOM WAVE
+================================================== -->
+
+<section class="photo second-photo">
+
+  <img
+    src="assets/couple.jpg"
+    alt="Աննա և Դավիթ"
+  >
+
+  <div class="veil"></div>
+
+
+  <!-- ==========================================
+       TOP WAVE
+  =========================================== -->
+
+  <svg
+    class="wave top"
+    viewBox="0 0 1440 120"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+
+    <path
+      d="
+        M0,0
+        L1440,0
+        L1440,42
+        C1200,120 1040,4 780,44
+        C560,78 380,120 160,72
+        C104,60 48,44 0,44
+        Z
+      "
+
+      fill="var(--white)"
+    />
+
+  </svg>
+
+
+  <!-- ==========================================
+       BOTTOM WAVE
+  =========================================== -->
+
+  <svg
+    class="wave bottom"
+    viewBox="0 0 1440 120"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+
+    <path
+      d="
+        M0,0
+        L1440,0
+        L1440,42
+        C1200,120 1040,4 780,44
+        C560,78 380,120 160,72
+        C104,60 48,44 0,44
+        Z
+      "
+
+      fill="var(--white)"
+    />
+
+  </svg>
+
+
+  <!-- COUNTDOWN -->
+
+  <div class="overlay">
+
+    <p class="overlay-title">
+      Մինչ մեր մեծ օրը
+    </p>
+
+
+    <div class="countdown">
+
+
+      <div class="unit">
+
+        <span
+          class="num"
+          id="d"
+        >
+          00
+        </span>
+
+        <span class="lbl">
+          օր
+        </span>
+
+      </div>
+
+
+      <div class="unit">
+
+        <span
+          class="num"
+          id="h"
+        >
+          00
+        </span>
+
+        <span class="lbl">
+          ժամ
+        </span>
+
+      </div>
+
+
+      <div class="unit">
+
+        <span
+          class="num"
+          id="m"
+        >
+          00
+        </span>
+
+        <span class="lbl">
+          րոպե
+        </span>
+
+      </div>
+
+
+      <div class="unit">
+
+        <span
+          class="num"
+          id="s"
+        >
+          00
+        </span>
+
+        <span class="lbl">
+          վրկ
+        </span>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     CONTENT AFTER PHOTO 2
+================================================== -->
+
+
+
+<!-- ================================
+     DYNAMIC CALENDAR
+================================ -->
+
+<section class="calendar-section">
+
+  <div class="calendar-wrap">
+
+    <p class="calendar-kicker">
+      ՄԵՐ ՄԵԾ ՕՐԸ
+    </p>
+
+    <h2
+      class="calendar-title"
+      id="calendarMonth"
+    >
+      Հուլիս
+    </h2>
+
+    <div
+      class="calendar-year"
+      id="calendarYear"
+    >
+      2027
+    </div>
+
+    <div class="calendar">
+
+      <div class="weekdays">
+        <span>Երկ</span>
+        <span>Երք</span>
+        <span>Չրք</span>
+        <span>Հնգ</span>
+        <span>Ուրբ</span>
+        <span>Շբթ</span>
+        <span>Կիր</span>
+      </div>
+
+      <div
+        class="days"
+        id="calendarDays"
+      ></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================
+     WEDDING DAY TIMELINE
+========================================= -->
+
+<section class="timeline-section">
+  <h2 >Ժամանակացույց</h2>
+
+  <div class="timeline-wrap" id="weddingTimeline">
+
+    <svg
+      class="timeline-svg"
+      id="timelineSvg"
+      viewBox="0 0 400 900"
+      preserveAspectRatio="none"
+      aria-hidden="true"
+    >
+
+      <path
+        id="timelinePath"
+        d="
+          M200 0
+          C190 85 65 105 95 185
+          C125 265 335 260 305 350
+          C275 440 55 455 80 545
+          C105 635 340 635 315 725
+          C290 810 170 830 120 900
+        "
+      />
+
+      <circle id="timelineDot1" class="timeline-dot" r="4"/>
+      <circle id="timelineDot2" class="timeline-dot" r="4"/>
+      <circle id="timelineDot3" class="timeline-dot" r="4"/>
+      <circle id="timelineDot4" class="timeline-dot" r="4"/>
+
+      <!-- HEART -->
+
+      <g id="timelineHeart" class="timeline-heart">
+
+        <path d="
+          M10 18
+          C8 16.5 2 13 2 8
+          C2 5 4 3 6.5 3
+          C8.2 3 9.5 4 10 5.5
+          C10.5 4 11.8 3 13.5 3
+          C16 3 18 5 18 8
+          C18 13 12 16.5 10 18Z
+        "/>
+
+      </g>
+
+    </svg>
+
+
+    <!-- 11:00 -->
+
+    <div class="timeline-event timeline-event-1 right">
+
+      <div class="timeline-time">
+        11:00
+      </div>
+
+      <div class="timeline-name">
+        Փեսայի Տուն
+      </div>
+
+    </div>
+
+
+    <!-- 12:30 -->
+
+    <div class="timeline-event timeline-event-2 left">
+
+      <div class="timeline-time">
+        12:30
+      </div>
+
+      <div class="timeline-name">
+        Հարսի Տուն
+      </div>
+
+    </div>
+
+
+    <!-- 15:00 -->
+
+    <div class="timeline-event timeline-event-3 right">
+
+      <div class="timeline-time">
+        15:00
+      </div>
+
+      <div class="timeline-name">
+        ՊՍԱԿԱԴՐՈՒԹՅՈՒՆ
+      </div>
+
+      <div class="timeline-place">
+        Սաղմոսավանք
+      </div>
+
+    </div>
+
+
+    <!-- 17:30 -->
+
+    <div class="timeline-event timeline-event-4 left">
+
+      <div class="timeline-time">
+        17:30
+      </div>
+
+      <div class="timeline-name">
+        Հարսանյաց Հանդիսություն
+      </div>
+
+      <div class="timeline-place">
+        ՌԵՍՏՈՐԱՆ «ԱՐԱՐԱՏ»
+      </div>
+
+    </div>
+
+  </div>
+</section>
+  <section class="photo second-photo">
+
+  <img
+    src="assets/couple.jpg"
+    alt="Աննա և Դավիթ"
+  >
+
+  <div class="veil"></div>
+
+
+  <!-- ==========================================
+       TOP WAVE
+  =========================================== -->
+
+  <svg
+    class="wave top"
+    viewBox="0 0 1440 120"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+
+    <path
+      d="
+        M0,0
+        L1440,0
+        L1440,42
+        C1200,120 1040,4 780,44
+        C560,78 380,120 160,72
+        C104,60 48,44 0,44
+        Z
+      "
+
+      fill="var(--white)"
+    />
+
+  </svg>
+
+
+  <!-- ==========================================
+       BOTTOM WAVE
+  =========================================== -->
+
+  <svg
+    class="wave bottom"
+    viewBox="0 0 1440 120"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+
+    <path
+      d="
+        M0,0
+        L1440,0
+        L1440,42
+        C1200,120 1040,4 780,44
+        C560,78 380,120 160,72
+        C104,60 48,44 0,44
+        Z
+      "
+
+      fill="var(--white)"
+    />
+
+  </svg>
+
+
+  <!-- COUNTDOWN -->
+
+  <div class="overlay">
+
+    <p class="overlay-title">
+     Երկու սիրտ, մեկ սեր, մեկ ամբողջ կյանք։
+    </p>
+
+  </div>
+
+</section>
+
+<!-- =========================================
+     ՏԵՂԱԿԱՅՈՒՄ
+========================================= -->
+
+<section class="location-section">
+
+  <div class="location-wrap">
+
+    <p class="location-kicker">
+      ՏԵՂԱԿԱՅՈՒՄ
+    </p>
+
+    <h2 class="location-title">
+      Մեր օրվա վայրերը
+    </h2>
+
+
+    <div class="locations">
+
+
+      <!-- ՊՍԱԿԱԴՐՈՒԹՅՈՒՆ -->
+
+      <div class="location-card">
+
+        <div class="location-time">
+          15:00
+        </div>
+
+        <div class="location-label">
+          ՊՍԱԿԱԴՐՈՒԹՅՈՒՆ
+        </div>
+
+        <div class="location-name">
+          Սաղմոսավանք
+        </div>
+
+        <p class="location-address">
+          Երևան
+        </p>
+<img src="assets/ekexeci.jpg" width="100%">
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Սուրբ%20Գևորգ%20Եկեղեցի%20Երևան"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="location-map"
+        >
+          Բացել քարտեզը
+        </a>
+  
+      </div>
+  
+
+
+      <!-- DIVIDER -->
+
+      <div class="location-line"></div>
+
+
+      <!-- ՀԱՆԴԻՍՈՒԹՅՈՒՆ -->
+
+      <div class="location-card">
+
+        <div class="location-time">
+          17:30
+        </div>
+
+        <div class="location-label">
+          ՀԱՐՍԱՆՅԱՑ ՀԱՆԴԻՍՈՒԹՅՈՒՆ
+        </div>
+
+        <div class="location-name">
+          ՌԵՍՏՈՐԱՆ «ԱՐԱՐԱՏ»
+        </div>
+
+        <p class="location-address">
+          Երևան
+        </p>
+  <img src="assets/restorant.webp" width="100%">
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=Ռեստորան%20Արարատ%20Երևան"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="location-map"
+        >
+          Բացել քարտեզը
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================
+     RSVP
+========================================= -->
+<section class="photo second-photo">
+
+  <img
+    src="assets/couple.jpg"
+    alt="Աննա և Դավիթ"
+  >
+
+  <div class="veil"></div>
+
+
+  <!-- ==========================================
+       TOP WAVE
+  =========================================== -->
+
+  <svg
+    class="wave top"
+    viewBox="0 0 1440 120"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+
+    <path
+      d="
+        M0,0
+        L1440,0
+        L1440,42
+        C1200,120 1040,4 780,44
+        C560,78 380,120 160,72
+        C104,60 48,44 0,44
+        Z
+      "
+
+      fill="var(--white)"
+    />
+
+  </svg>
+
+
+  <!-- ==========================================
+       BOTTOM WAVE
+  =========================================== -->
+
+  <svg
+    class="wave bottom"
+    viewBox="0 0 1440 120"
+    preserveAspectRatio="none"
+    aria-hidden="true"
+  >
+
+    <path
+      d="
+        M0,0
+        L1440,0
+        L1440,42
+        C1200,120 1040,4 780,44
+        C560,78 380,120 160,72
+        C104,60 48,44 0,44
+        Z
+      "
+
+      fill="var(--white)"
+    />
+
+  </svg>
+
+
+
+</section>
+<section class="rsvp-section">
+
+  <div class="rsvp-card">
+
+   
+
+    <h2 class="rsvp-title">
+      ՀԱՍՏԱՏԵՔ<br>
+      ՁԵՐ ՆԵՐԿԱՅՈՒԹՅՈՒՆԸ
+    </h2>
+
+    <p class="rsvp-subtitle">
+      Մեր օրը մեզ հետ կիսելու համար
+      խնդրում ենք հաստատել Ձեր ներկայությունը։
+    </p>
+
+
+    <form id="weddingRsvpForm">
+
+
+      <div class="rsvp-question">
+
+        Կկարողանա՞ք ներկա գտնվել
+        մեր հարսանիքին։
+
+      </div>
+           <!-- ATTENDANCE -->
+
+
+      <div class="rsvp-options">
+
+        <label class="rsvp-option">
+
+          <input
+            type="radio"
+            name="attendance"
+            value="yes"
+            checked
+          >
+
+          <span class="rsvp-radio"></span>
+
+          <span>Այո</span>
+
+        </label>
+
+
+        <label class="rsvp-option">
+
+          <input
+            type="radio"
+            name="attendance"
+            value="no"
+          >
+
+          <span class="rsvp-radio"></span>
+
+          <span>Ոչ</span>
+
+        </label>
+
+      </div>
+
+      <!-- NAME -->
+
+      <div class="rsvp-field">
+
+        <label for="rsvpName">
+          Ձեր անունը
+        </label>
+
+        <input
+          type="text"
+          id="rsvpName"
+          name="name"
+          autocomplete="name"
+          required
+        >
+
+      </div>
+
+
+      <!-- GUESTS -->
+
+      <div class="rsvp-field">
+
+        <label for="rsvpGuests">
+          Հյուրերի քանակը
+        </label>
+
+        <input
+          type="number"
+          id="rsvpGuests"
+          name="guests"
+          min="1"
+          max="10"
+          value="1"
+          required
+        >
+
+      </div>
+
+
+ 
+
+
+    <!-- INVITED BY -->
+
+<div class="rsvp-question rsvp-side-question">
+  Ում կողմից եք հրավիրված։
+</div>
+
+<div class="rsvp-side-options">
+
+  <label class="rsvp-side-option">
+
+    <input
+      type="radio"
+      name="invitedBy"
+      value="bride"
+      checked
+    >
+
+    <span class="rsvp-side-radio"></span>
+
+    <span>Հարսի կողմ</span>
+
+  </label>
+
+
+  <label class="rsvp-side-option">
+
+    <input
+      type="radio"
+      name="invitedBy"
+      value="groom"
+    >
+
+    <span class="rsvp-side-radio"></span>
+
+    <span>Փեսայի կողմ</span>
+
+  </label>
+
+</div>
+
+      <!-- SUBMIT -->
+
+      <button
+        type="submit"
+        class="rsvp-submit"
+      >
+        ՈՒՂԱՐԿԵԼ
+      </button>
+
+
+      <!-- MESSAGE -->
+
+      <p
+        class="rsvp-success"
+        id="rsvpSuccess"
+      >
+      </p>
+
+    </form>
+  
+ <div class="rsvp-script">
+      Աննա &nbsp;<span>&</span>&nbsp;  Դավիթ
+    </div>
+  </div>
+
+</section>
+
+<script>
+
+/* =========================================
+   EVENT DATE
+========================================= */
+
+const TARGET =
+  new Date(
+    "2027-07-07T15:00:00+04:00"
+  ).getTime();
+
+
+/* =========================================
+   PAD
+========================================= */
+
+function pad(number) {
+
+  return String(number)
+    .padStart(2, "0");
+
+}
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
+function updateCountdown() {
+
+  let difference =
+    TARGET - Date.now();
+
+
+  if (difference < 0) {
+
+    difference = 0;
+
+  }
+
+
+  const totalSeconds =
+    Math.floor(
+      difference / 1000
+    );
+
+
+  const days =
+    Math.floor(
+      totalSeconds / 86400
+    );
+
+
+  const hours =
+    Math.floor(
+      (totalSeconds % 86400)
+      / 3600
+    );
+
+
+  const minutes =
+    Math.floor(
+      (totalSeconds % 3600)
+      / 60
+    );
+
+
+  const seconds =
+    totalSeconds % 60;
+
+
+  document
+    .getElementById("d")
+    .textContent =
+    pad(days);
+
+
+  document
+    .getElementById("h")
+    .textContent =
+    pad(hours);
+
+
+  document
+    .getElementById("m")
+    .textContent =
+    pad(minutes);
+
+
+  document
+    .getElementById("s")
+    .textContent =
+    pad(seconds);
+
+}
+
+
+/* =========================================
+   START
+========================================= */
+
+updateCountdown();
+
+
+setInterval(
+  updateCountdown,
+  1000
+);
+
+/* =========================================
+   ONLY CHANGE THIS DATE
+========================================= */
+
+const EVENT_DATE = "2027-07-07";
+
+
+/* =========================================
+   ARMENIAN MONTHS
+========================================= */
+
+const ARMENIAN_MONTHS = [
+  "Հունվար",
+  "Փետրվար",
+  "Մարտ",
+  "Ապրիլ",
+  "Մայիս",
+  "Հունիս",
+  "Հուլիս",
+  "Օգոստոս",
+  "Սեպտեմբեր",
+  "Հոկտեմբեր",
+  "Նոյեմբեր",
+  "Դեկտեմբեր"
+];
+
+
+/* =========================================
+   GET DATE PARTS
+========================================= */
+
+const [year, month, day] =
+  EVENT_DATE
+    .split("-")
+    .map(Number);
+
+
+/*
+  month is 1-12
+  JavaScript uses 0-11
+*/
+
+const monthIndex =
+  month - 1;
+
+
+/* =========================================
+   UPDATE MONTH / YEAR
+========================================= */
+
+document
+  .getElementById("calendarMonth")
+  .textContent =
+  ARMENIAN_MONTHS[monthIndex];
+
+
+document
+  .getElementById("calendarYear")
+  .textContent =
+  year;
+
+
+/* =========================================
+   CALENDAR ELEMENT
+========================================= */
+
+const calendarDays =
+  document.getElementById(
+    "calendarDays"
+  );
+
+
+/* =========================================
+   FIRST DAY OF MONTH
+========================================= */
+
+/*
+  JS:
+  Sunday = 0
+  Monday = 1
+  ...
+  Saturday = 6
+*/
+
+const firstDay =
+  new Date(
+    year,
+    monthIndex,
+    1
+  ).getDay();
+
+
+/*
+  Convert to Monday-first
+*/
+
+const mondayStart =
+  firstDay === 0
+    ? 6
+    : firstDay - 1;
+
+
+/* =========================================
+   NUMBER OF DAYS
+========================================= */
+
+const daysInMonth =
+  new Date(
+    year,
+    monthIndex + 1,
+    0
+  ).getDate();
+
+
+/* =========================================
+   EMPTY DAYS BEFORE DAY 1
+========================================= */
+
+for (
+  let i = 0;
+  i < mondayStart;
+  i++
+) {
+
+  const empty =
+    document.createElement("div");
+
+  empty.className =
+    "day empty";
+
+  calendarDays.appendChild(
+    empty
+  );
+
+}
+
+
+/* =========================================
+   CREATE DAYS
+========================================= */
+
+for (
+  let currentDay = 1;
+  currentDay <= daysInMonth;
+  currentDay++
+) {
+
+  const dayElement =
+    document.createElement("div");
+
+  dayElement.className =
+    "day";
+
+
+  dayElement.textContent =
+    currentDay;
+
+
+  /*
+    Highlight EVENT_DATE
+  */
+
+  if (
+    currentDay === day
+  ) {
+
+    dayElement.classList.add(
+      "event-day"
+    );
+
+  }
+
+
+  calendarDays.appendChild(
+    dayElement
+  );
+
+}
+
+/* =========================================
+   SCROLL DRAW TIMELINE
+========================================= */
+
+(function () {
+
+  const timeline =
+    document.getElementById(
+      "weddingTimeline"
+    );
+
+  const path =
+    document.getElementById(
+      "timelinePath"
+    );
+
+  if (!timeline || !path) {
+    return;
+  }
+
+
+  let pathLength = 0;
+
+
+  /* =========================================
+     PREPARE LINE
+  ========================================= */
+
+  function prepareLine() {
+
+    pathLength =
+      path.getTotalLength();
+
+
+    /*
+      Hide the complete line.
+    */
+
+    path.style.strokeDasharray =
+      pathLength;
+
+
+    path.style.strokeDashoffset =
+      pathLength;
+
+  }
+
+
+  /* =========================================
+     DRAW LINE BASED ON SCROLL
+  ========================================= */
+
+  function updateTimeline() {
+
+    const rect =
+      timeline.getBoundingClientRect();
+
+
+    const viewportHeight =
+      window.innerHeight;
+
+
+    /*
+      Animation begins when
+      timeline enters the viewport.
+    */
+
+    const start =
+      viewportHeight * 0.85;
+
+
+    /*
+      Animation finishes when
+      timeline reaches this position.
+    */
+
+    const finish =
+      viewportHeight * 0.15;
+
+
+    /*
+      Convert position to
+      0 → 1.
+    */
+
+    let progress =
+      (
+        start -
+        rect.top
+      ) /
+      (
+        rect.height +
+        start -
+        finish
+      );
+
+
+    progress =
+      Math.max(
+        0,
+        Math.min(
+          1,
+          progress
+        )
+      );
+
+
+    /*
+      Draw the line.
+    */
+
+    const offset =
+      pathLength *
+      (1 - progress);
+
+
+    path.style.strokeDashoffset =
+      offset;
+
+  }
+
+
+  /* =========================================
+     SCROLL PERFORMANCE
+  ========================================= */
+
+  let ticking = false;
+
+
+  function onScroll() {
+
+    if (ticking) {
+      return;
+    }
+
+
+    ticking = true;
+
+
+    requestAnimationFrame(
+      function () {
+
+        updateTimeline();
+
+        ticking = false;
+
+      }
+    );
+
+  }
+
+
+  /* =========================================
+     RESIZE
+  ========================================= */
+
+  window.addEventListener(
+    "resize",
+    function () {
+
+      prepareLine();
+
+      updateTimeline();
+
+    },
+    {
+      passive: true
+    }
+  );
+
+
+  /* =========================================
+     SCROLL
+  ========================================= */
+
+  window.addEventListener(
+    "scroll",
+    onScroll,
+    {
+      passive: true
+    }
+  );
+
+
+  /* =========================================
+     START
+  ========================================= */
+
+  prepareLine();
+
+  updateTimeline();
+
+})();
+</script>
+
+</body>
+</html>

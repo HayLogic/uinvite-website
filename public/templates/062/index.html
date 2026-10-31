@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ալենի Սուրբ Մկրտություն">
+<meta property="og:description" content="Սիրով հրավիրում ենք Ալենի Սուրբ Մկրտությանը՝ 16․12․2026, ժամը 14:00։">
+<meta property="og:url" content="">
+<meta property="og:image" content="">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:locale" content="hy_AM">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ալենի Սուրբ Մկրտություն">
+<meta name="twitter:description" content="Սիրով հրավիրում ենք Ալենի Սուրբ Մկրտությանը՝ 16․12․2026, ժամը 14:00։">
+
+
+<title>Ալենի Սուրբ Մկրտություն</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   COLORS
+========================================================= */
+
+:root{
+    --blue:#86afd0;
+    --blue-dark:#7098b9;
+    --blue-soft:#eef6fb;
+    --blue-line:#d5e5ef;
+
+    --text:#555d63;
+    --muted:#8b949a;
+
+    --white:#ffffff;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+html,
+body{
+    margin:0;
+    padding:0;
+    min-height:100%;
+}
+
+body{
+    color:var(--text);
+    font-family:"Cormorant Garamond", Georgia, serif;
+    overflow-x:hidden;
+    background:#fff;
+}
+
+button,
+input{
+    font:inherit;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* =========================================================
+   FIXED PAGE BACKGROUND
+   IMPORTANT:
+   We use a real fixed layer instead of background-attachment.
+   This behaves much better on mobile browsers.
+========================================================= */
+
+.page-background{
+    position:absolute;
+    inset:0;
+    z-index:-10;
+
+    background-image:url("assets/hero.png");
+    background-repeat:no-repeat;
+
+    /*
+      100% 100% keeps the COMPLETE hero artwork visible
+      on both desktop and mobile instead of cropping it.
+    */
+    background-size:100% 100%;
+    background-position:center center;
+
+    pointer-events:none;
+}
+
+.page-background::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:rgba(255,255,255,.02);
+
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container{
+    width:100%;
+    max-width:520px;
+
+    margin:0 auto;
+
+    overflow:hidden;
+
+    /*
+      Transparent so the fixed hero artwork remains visible
+      between sections.
+    */
+    background:transparent;
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.section{
+    width:100%;
+    padding:10px 15px;
+
+    position:relative;
+
+    background:transparent;
+}
+
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.music-btn{
+    position:fixed;
+
+    top:16px;
+    right:16px;
+
+    width:44px;
+    height:44px;
+
+    border:1px solid var(--blue-line);
+    border-radius:50%;
+
+    background:rgba(255,255,255,.94);
+
+    color:var(--blue);
+
+    font-size:18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    box-shadow:0 5px 18px rgba(90,120,140,.12);
+
+    z-index:1000;
+
+    cursor:pointer;
+}
+
+.music-btn.playing{
+    animation:pulse 1.8s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{
+        box-shadow:0 5px 18px rgba(90,120,140,.12);
+    }
+
+    50%{
+        box-shadow:0 5px 25px rgba(134,175,208,.38);
+    }
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+  
+
+    padding:70px 18px 45px;
+
+    display:flex;
+    align-items:start;
+    justify-content:center;
+
+    text-align:center;
+
+    position:relative;
+    overflow:hidden;
+    margin-top: 100px;
+
+    /*
+      No background here.
+      The fixed page background is used for the whole page.
+    */
+    background:transparent;
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255,255,255,.02) 0%,
+            rgba(255,255,255,.02) 65%,
+            rgba(255,255,255,.16) 100%
+        );
+
+    z-index:0;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+
+    width:100%;
+
+    padding:20px 8px;
+}
+
+
+/* =========================================================
+   BABY PHOTO
+========================================================= */
+
+.baby-photo{
+    width:255px;
+    height:255px;
+
+    border-radius:50%;
+    overflow:hidden;
+
+    margin:0 auto 25px;
+
+    border:5px solid rgba(255,255,255,.96);
+
+    background:#fff;
+
+    box-shadow:
+        0 8px 30px rgba(90,120,140,.15);
+}
+
+.baby-photo img{
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+}
+
+
+/* =========================================================
+   HERO TEXT
+========================================================= */
+
+.hero-kicker{
+    font-family:"Montserrat",sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:2.5px;
+
+    color:var(--blue);
+
+    margin-bottom:8px;
+
+    font-weight:500;
+}
+
+.hero-title{
+    font-family:"Great Vibes",cursive;
+
+    font-size:68px;
+
+    line-height:1;
+
+    font-weight:400;
+
+    color:var(--blue);
+
+    margin:4px 0 9px;
+}
+
+.hero-subtitle{
+    font-size:18px;
+
+    color:var(--text);
+
+    line-height:1.6;
+}
+
+.hero-date{
+    margin:16px auto 0;
+
+    display:inline-flex;
+    align-items:center;
+
+    gap:9px;
+
+    padding:8px 16px;
+
+    border:1px solid var(--blue-line);
+    border-radius:30px;
+
+    background:rgba(255,255,255,.90);
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:12px;
+
+    color:var(--text);
+}
+
+.hero-date span{
+    color:var(--blue);
+}
+
+
+/* =========================================================
+   WHITE CARDS
+========================================================= */
+
+.soft-card{
+    background:rgba(255,255,255,.96);
+
+    border:1px solid var(--blue-line);
+
+    border-radius:20px;
+
+    box-shadow:
+        0 7px 24px rgba(90,120,140,.07);
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section-title{
+    margin:0 0 25px;
+
+    text-align:center;
+
+    font-size:28px;
+
+    font-weight:500;
+
+    color:var(--blue);
+}
+
+
+/* =========================================================
+   DETAILS
+========================================================= */
+
+.details{
+    padding-top:10px;
+    text-align:center;
+}
+
+.detail{
+    padding:25px 20px;
+}
+
+.icon{
+    width:45px;
+    height:45px;
+
+    margin:0 auto 10px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:var(--blue-soft);
+
+    color:var(--blue);
+
+    font-size:22px;
+}
+
+.detail-value{
+    color:var(--text);
+
+    line-height:1.6;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:11px;
+
+    letter-spacing:1px;
+}
+
+.detail-value strong{
+    font-family:"Cormorant Garamond",Georgia,serif;
+
+    font-size:42px;
+
+    font-weight:500;
+
+    color:var(--blue);
+
+    line-height:1;
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.message-card{
+    padding:30px 22px;
+
+    text-align:center;
+}
+
+.message-card p{
+    margin:0;
+
+    color:var(--muted);
+
+    font-size:16px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline{
+    position:relative;
+
+    padding-left:28px;
+}
+
+.timeline::before{
+    content:"";
+
+    position:absolute;
+
+    left:8px;
+    top:8px;
+    bottom:8px;
+
+    width:1px;
+
+    background:var(--blue-line);
+}
+
+.timeline-item{
+    position:relative;
+
+    margin-bottom:28px;
+}
+
+.timeline-item:last-child{
+    margin-bottom:0;
+}
+
+.timeline-dot{
+    position:absolute;
+
+    left:-24px;
+    top:3px;
+
+    width:13px;
+    height:13px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    border:2px solid var(--blue);
+}
+
+.timeline-time{
+    font-family:"Montserrat",sans-serif;
+
+    font-size:20px;
+
+    color:var(--blue);
+
+    letter-spacing:1px;
+
+    margin-bottom:4px;
+}
+
+.timeline-title{
+    font-size:19px;
+
+    color:var(--text);
+
+    margin-bottom:3px;
+}
+
+.timeline-text{
+    font-size:14px;
+
+    color:var(--muted);
+
+    line-height:1.6;
+}
+
+
+/* =========================================================
+   LOCATION
+========================================================= */
+
+.location-card{
+    padding:23px 18px;
+
+    text-align:center;
+}
+
+.location{
+    margin-bottom:25px;
+}
+
+.location:last-child{
+    margin-bottom:0;
+}
+
+.location img{
+    width:100%;
+
+    display:block;
+
+    margin-bottom:15px;
+
+    opacity:.88;
+}
+
+.location h3{
+    font-size:17px;
+
+    font-weight:500;
+
+    color:var(--text);
+
+    line-height:1.5;
+
+    margin:0 0 4px;
+}
+
+.location p{
+    font-size:20px;
+
+    color:var(--muted);
+
+    line-height:1.7;
+
+    margin:0;
+}
+
+.map-btn{
+    display:inline-block;
+
+    margin-top:10px;
+
+    padding:8px 17px;
+
+    border:1px solid var(--blue-line);
+
+    border-radius:30px;
+
+    background:#fff;
+
+    color:var(--blue);
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:10px;
+}
+
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.baptism-gallery{
+    width:100%;
+    max-width:480px;
+
+    margin:30px auto 0;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    grid-template-rows:175px 175px;
+
+    gap:12px;
+
+    position:relative;
+}
+
+.gallery-photo{
+    width:100%;
+    height:175px;
+
+    overflow:hidden;
+
+    border-radius:17px;
+
+    border:1px solid var(--blue-line);
+
+    background:#f5faff;
+
+    box-shadow:
+        0 6px 18px rgba(90,120,140,.07);
+}
+
+.gallery-photo img{
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    transition:transform .4s ease;
+}
+
+.gallery-photo:hover img{
+    transform:scale(1.04);
+}
+
+
+
+
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+.rsvp-section{
+    width:100%;
+
+    padding:65px 20px 75px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.96);
+}
+
+.rsvp-title{
+    margin:0 auto 38px;
+
+    max-width:470px;
+
+    font-size:25px;
+
+    line-height:1.4;
+
+    font-weight:500;
+
+    color:var(--blue);
+}
+
+.rsvp-form{
+    width:100%;
+
+    max-width:480px;
+
+    margin:0 auto;
+}
+
+.form-group-radio{
+    margin-bottom:35px;
+}
+
+.question-label{
+    display:block;
+
+    margin-bottom:20px;
+
+    font-size:19px;
+
+    line-height:1.4;
+
+    color:var(--text);
+}
+
+.radio-options{
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+}
+
+.custom-radio{
+    position:relative;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    cursor:pointer;
+
+    font-size:17px;
+
+    color:var(--muted);
+}
+
+.custom-radio input{
+    position:absolute;
+
+    opacity:0;
+
+    pointer-events:none;
+}
+
+.radio-mark{
+    width:20px;
+    height:20px;
+
+    border:1px solid var(--blue-line);
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+}
+
+.radio-inner{
+    width:9px;
+    height:9px;
+
+    border-radius:50%;
+
+    background:var(--blue);
+
+    transform:scale(0);
+
+    transition:transform .2s ease;
+}
+
+.custom-radio input:checked + .radio-mark{
+    border-color:var(--blue);
+}
+
+.custom-radio input:checked + .radio-mark .radio-inner{
+    transform:scale(1);
+}
+
+.form-group-input{
+    width:100%;
+
+    margin-bottom:25px;
+}
+
+.bottom-border-input{
+    width:100%;
+
+    height:50px;
+
+    padding:8px 4px;
+
+    border:none;
+
+    border-bottom:1px solid var(--blue-line);
+
+    outline:none;
+
+    background:transparent;
+
+    font-family:"Cormorant Garamond",Georgia,serif;
+
+    font-size:19px;
+
+    color:var(--text);
+}
+
+.bottom-border-input::placeholder{
+    color:#a5b5bf;
+
+    opacity:1;
+}
+
+.bottom-border-input:focus{
+    border-bottom-color:var(--blue);
+}
+
+.rsvp-submit{
+    margin-top:12px;
+
+    min-width:190px;
+
+    padding:13px 35px;
+
+    border:1px solid var(--blue);
+
+    border-radius:30px;
+
+    background:var(--blue);
+
+    color:#fff;
+
+    font-family:"Cormorant Garamond",Georgia,serif;
+
+    font-size:19px;
+
+    cursor:pointer;
+
+    transition:.25s ease;
+}
+
+.rsvp-submit:hover{
+    background:#fff;
+
+    color:var(--blue);
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 22px rgba(134,175,208,.18);
+}
+
+
+/* =========================================================
+   MUSIC CARD
+========================================================= */
+
+.music-player{
+    padding:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+.music-icon{
+    width:43px;
+    height:43px;
+
+    border-radius:13px;
+
+    background:var(--blue-soft);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    color:var(--blue);
+
+    font-size:19px;
+}
+
+.music-info{
+    flex:1;
+}
+
+.music-info strong{
+    display:block;
+
+    font-size:13px;
+
+    color:var(--text);
+
+    margin-bottom:3px;
+}
+
+.music-info span{
+    font-family:"Montserrat",sans-serif;
+
+    font-size:9px;
+
+    color:var(--muted);
+}
+
+.music-control{
+    border:1px solid var(--blue-line);
+
+    width:39px;
+    height:39px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    color:var(--blue);
+
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer{
+    text-align:center;
+
+    padding:34px 20px 55px;
+
+    background:transparent;
+}
+
+.footer-heart{
+    color:var(--blue);
+
+    font-size:18px;
+
+    margin-bottom:8px;
+}
+
+.footer-text{
+    font-family:"Great Vibes",cursive;
+
+    font-size:35px;
+
+    color:var(--blue);
+}
+
+.footer-small{
+    margin-top:7px;
+
+    font-family:"Montserrat",sans-serif;
+
+    font-size:9px;
+
+    color:var(--muted);
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(18px);
+
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.reveal.show{
+    opacity:1;
+
+    transform:none;
+}
+
+
+/* =========================================================
+   MOBILE
+   IMPORTANT:
+   NO separate background rules here.
+   The exact same fixed layer is used.
+========================================================= */
+
+@media(max-width:600px){
+
+    .page-background{
+        /*
+          Same rule as desktop.
+          Do NOT use background-attachment here.
+        */
+        background-size:100% auto;
+        background-position:top center;
+    }
+
+    .hero{
+      
+        padding:
+            48px 14px 32px;
+    }
+
+    .baby-photo{
+        width:min(255px,68vw);
+        height:min(255px,68vw);
+
+        margin-bottom:22px;
+    }
+
+    .hero-title{
+        font-size:58px;
+    }
+
+    .hero-subtitle{
+        font-size:17px;
+    }
+
+    .hero-date{
+        font-size:18px;
+
+        padding:8px 14px;
+    }
+
+   
+
+    .section-title{
+        font-size:26px;
+    }
+
+    .rsvp-section{
+        padding:
+            58px 18px 70px;
+    }
+
+    .rsvp-title{
+        font-size:23px;
+    }
+
+    .radio-options{
+        gap:18px 25px;
+    }
+
+    .baptism-gallery{
+        grid-template-rows:
+            145px 145px;
+
+        gap:9px;
+    }
+
+    .gallery-photo{
+        height:145px;
+    }
+
+  
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media(max-width:380px){
+
+    .hero{
+        padding:
+            42px 10px 28px;
+    }
+
+    .baby-photo{
+        width:215px;
+        height:215px;
+    }
+
+    .hero-title{
+        font-size:54px;
+    }
+
+    .hero-subtitle{
+        font-size:16px;
+    }
+
+    .gallery-photo{
+        height:135px;
+    }
+
+    .baptism-gallery{
+        grid-template-rows:
+            135px 135px;
+    }
+
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- =========================================================
+     FIXED HERO BACKGROUND
+========================================================= -->
+
+<div class="page-background" aria-hidden="true"></div>
+
+
+<!-- =========================================================
+     MUSIC
+========================================================= -->
+
+<audio id="music" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button
+    class="music-btn"
+    id="musicBtn"
+    aria-label="Երաժշտություն">
+    ♫
+</button>
+
+
+<main class="container">
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-content reveal">
+
+        <div class="baby-photo">
+            <img
+                src="assets/baby.png"
+                alt="Ալեն">
+        </div>
+
+        <div class="hero-kicker">
+            ՔՐԻՍՏՈՍԻ ԱՆՈՒՆՈՎ
+        </div>
+
+        <div class="hero-title">
+            Ալեն
+        </div>
+
+        <div class="hero-subtitle">
+            Սուրբ Մկրտության առիթով
+        </div>
+
+        <div class="hero-date">
+            <span>♡</span>
+            16․12․2026
+            &nbsp;•&nbsp;
+            14:00
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DETAILS
+========================================================= -->
+
+<section class="section details reveal">
+
+    <div class="detail soft-card">
+
+        <div class="icon">
+            ♡
+        </div>
+
+        <div class="detail-value">
+            <strong>16</strong><br>
+            ԴԵԿՏԵՄԲԵՐ<br>
+            2026
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MESSAGE
+========================================================= -->
+
+<section class="section reveal">
+
+    <div class="soft-card message-card">
+
+        <h2 class="section-title">
+            Սիրով հրավիրում ենք
+        </h2>
+
+        <p>
+            Մեր փոքրիկ Ալենի կյանքի այս
+            կարևոր և օրհնյալ օրը ցանկանում ենք
+            կիսել Ձեզ հետ։
+
+            <br><br>
+
+            Ձեր ներկայությունը մեր ուրախությունը
+            առավել ամբողջական կդարձնի։
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TIMELINE
+========================================================= -->
+
+<section class="section reveal">
+
+    <h2 class="section-title">
+        Օրվա ընթացքը
+    </h2>
+
+    <div class="soft-card" style="padding:25px 22px">
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <span class="timeline-dot"></span>
+
+                <div class="timeline-time">
+                    14:00
+                </div>
+
+                <div class="timeline-title">
+                    Սուրբ Մկրտություն
+                </div>
+
+                <div class="timeline-text">
+                    Հանդիպում եկեղեցում
+                </div>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <span class="timeline-dot"></span>
+
+                <div class="timeline-time">
+                    18:00
+                </div>
+
+                <div class="timeline-title">
+                    Տոնական երեկո
+                </div>
+
+                <div class="timeline-text">
+                    Հանդիպում սրահում
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     LOCATION
+========================================================= -->
+
+<section class="section reveal">
+
+    <div class="soft-card location-card">
+
+        <div class="location">
+
+            <img
+                src="assets/church.png"
+                alt="Եկեղեցի">
+
+            <h3>
+                Սուրբ Մարիամ Աստվածածին եկեղեցի
+            </h3>
+
+            <p>
+                16 Դեկտեմբեր · 14:00
+            </p>
+
+            <a
+                class="map-btn"
+                href="https://www.google.com/maps/search/?api=1&query=Սուրբ+Մարիամ+Աստվածածին+եկեղեցի"
+                target="_blank">
+
+                Տեսնել քարտեզում
+
+            </a>
+
+        </div>
+
+
+        <div class="location">
+
+            <img
+                src="assets/restorant.png"
+                alt="Ռեստորան">
+
+            <h3>
+                Ռուբինա Հոլլ
+            </h3>
+
+            <p>
+                16 Դեկտեմբեր · 18:00
+            </p>
+
+            <a
+                class="map-btn"
+                href="https://www.google.com/maps/search/?api=1&query=Ռուբինա+Հոլլ"
+                target="_blank">
+
+                Տեսնել քարտեզում
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+<!-- =========================================================
+     GALLERY
+========================================================= -->
+
+<section class="section reveal">
+
+    <h2 class="section-title">
+        Ալենի գեղեցիկ օրը
+    </h2>
+
+
+    <div class="baptism-gallery">
+
+
+        <div class="gallery-photo">
+
+            <img
+                src="assets/dress.png"
+                alt="Մկրտության դետալ">
+
+        </div>
+
+
+        <div class="gallery-photo">
+
+            <img
+                src="assets/cake.png"
+                alt="Տոնական տորթ">
+
+        </div>
+
+
+      
+
+
+        <div class="gallery-photo">
+
+            <img
+                src="assets/candle.png"
+                alt="Մկրտության մոմ">
+
+        </div>
+
+
+        <div class="gallery-photo">
+
+            <img
+                src="assets/baptism-box.png"
+                alt="Մկրտության դետալ">
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     MUSIC CARD
+========================================================= -->
+
+<section class="section reveal">
+
+    <div class="soft-card music-player">
+
+        <div class="music-icon">
+            ♫
+        </div>
+
+
+        <div class="music-info">
+
+            <strong>
+                Ալենի գեղեցիկ օրը
+            </strong>
+
+            <span>
+                Երաժշտություն
+            </span>
+
+        </div>
+
+
+        <button
+            class="music-control"
+            id="musicControl">
+
+            ▶
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     RSVP
+========================================================= -->
+
+<section class="rsvp-section reveal">
+
+    <h2 class="rsvp-title">
+        Խնդրում ենք նախապես հաստատել
+        Ձեր ներկայությունը մինչև 01․12․2026
+    </h2>
+
+
+    <form
+        id="template-rsvp-form"
+        class="rsvp-form">
+
+
+        <div class="form-group-radio">
+
+            <label class="question-label">
+                Կկարողանա՞ք ներկա գտնվել
+                միջոցառմանը
+            </label>
+
+
+            <div class="radio-options">
+
+                <label class="custom-radio">
+
+                    <input
+                        type="radio"
+                        name="attendance"
+                        value="yes"
+                        checked>
+
+                    <span class="radio-mark">
+                        <span class="radio-inner"></span>
+                    </span>
+
+                    <span class="radio-label">
+                        Այո, իհարկե
+                    </span>
+
+                </label>
+
+
+                <label class="custom-radio">
+
+                    <input
+                        type="radio"
+                        name="attendance"
+                        value="no">
+
+                    <span class="radio-mark">
+                        <span class="radio-inner"></span>
+                    </span>
+
+                    <span class="radio-label">
+                        Ցավոք, ոչ
+                    </span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group-input">
+
+            <input
+                type="text"
+                name="guest_name"
+                placeholder="Անուն Ազգանուն"
+                required
+                class="bottom-border-input">
+
+        </div>
+
+
+        <div class="form-group-input">
+
+            <input
+                type="text"
+                name="guest_count"
+                placeholder="Հյուրերի թիվ"
+                class="bottom-border-input">
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="rsvp-submit">
+
+            Ուղարկել
+
+        </button>
+
+    </form>
+
+</section>
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="footer reveal">
+
+    <div class="footer-heart">
+        ♡
+    </div>
+
+    <div class="footer-text">
+        Սպասում ենք Ձեզ սիրով
+    </div>
+
+    <div class="footer-small">
+        Ալենի Սուրբ Մկրտություն
+        ·
+        16․12․2026
+    </div>
+
+</footer>
+
+
+</main>
+
+
+<script>
+
+/* =========================================================
+   MUSIC
+========================================================= */
+
+const music =
+    document.getElementById("music");
+
+const musicBtn =
+    document.getElementById("musicBtn");
+
+const musicControl =
+    document.getElementById("musicControl");
+
+let playing = false;
+
+
+function updateMusicUI(){
+
+    musicBtn.innerHTML =
+        playing ? "Ⅱ" : "♫";
+
+    musicControl.innerHTML =
+        playing ? "Ⅱ" : "▶";
+
+    musicBtn.classList.toggle(
+        "playing",
+        playing
+    );
+}
+
+
+function toggleMusic(){
+
+    if(playing){
+
+        music.pause();
+
+        playing = false;
+
+        updateMusicUI();
+
+        return;
+    }
+
+    music.play()
+        .then(() => {
+
+            playing = true;
+
+            updateMusicUI();
+
+        })
+        .catch(() => {});
+
+}
+
+
+musicBtn.addEventListener(
+    "click",
+    toggleMusic
+);
+
+musicControl.addEventListener(
+    "click",
+    toggleMusic
+);
+
+
+/* =========================================================
+   START MUSIC AFTER FIRST USER INTERACTION
+========================================================= */
+
+document.addEventListener(
+    "click",
+    () => {
+
+        if(!playing){
+
+            music.play()
+                .then(() => {
+
+                    playing = true;
+
+                    updateMusicUI();
+
+                })
+                .catch(() => {});
+
+        }
+
+    },
+    {once:true}
+);
+
+
+/* =========================================================
+   RSVP
+========================================================= */
+
+const rsvpForm =
+    document.getElementById(
+        "template-rsvp-form"
+    );
+
+
+if(rsvpForm){
+
+    rsvpForm.addEventListener(
+        "submit",
+        function(e){
+
+            e.preventDefault();
+
+            const nameInput =
+                rsvpForm.querySelector(
+                    'input[name="guest_name"]'
+                );
+
+            const name =
+                nameInput.value.trim();
+
+            if(!name){
+
+                nameInput.focus();
+
+                return;
+            }
+
+            alert(
+                "Շնորհակալություն, " +
+                name +
+                "։ Ձեր մասնակցությունը հաստատված է։"
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   REVEAL
+========================================================= */
+
+const observer =
+    new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach(
+                entry => {
+
+                    if(entry.isIntersecting){
+
+                        entry.target.classList.add(
+                            "show"
+                        );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                }
+            );
+
+        },
+        {
+            threshold:.08
+        }
+    );
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(
+        el => observer.observe(el)
+    );
+
+</script>
+
+</body>
+</html>

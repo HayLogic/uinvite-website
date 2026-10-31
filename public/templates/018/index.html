@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Մկրտություն — Baptism Invitation</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&family=IM+Fell+English:ital@0;1&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ══════════════════════════════════
+     HERO
+══════════════════════════════════ -->
+  <section id="hero">
+    <canvas id="waterCanvas"></canvas>
+
+    <!-- Floating particles -->
+    <div id="particles"></div>
+
+    <div class="hero-content">
+      <!-- Armenian Cross SVG (Khachkar-inspired) -->
+      <svg class="hero-cross" viewBox="0 0 90 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Vertical beam -->
+        <rect x="37" y="5" width="16" height="100" rx="3" fill="#C9A84C" />
+        <!-- Horizontal beam -->
+        <rect x="5" y="30" width="80" height="16" rx="3" fill="#C9A84C" />
+        <!-- Small horizontal bar -->
+        <rect x="20" y="70" width="50" height="10" rx="2" fill="#C9A84C" />
+        <!-- Decorative circles (Khachkar style) -->
+        <circle cx="45" cy="28" r="8" fill="#7B1C35" stroke="#C9A84C" stroke-width="2" />
+        <circle cx="45" cy="28" r="4" fill="#C9A84C" />
+        <circle cx="13" cy="38" r="5" fill="#7B1C35" stroke="#C9A84C" stroke-width="1.5" />
+        <circle cx="77" cy="38" r="5" fill="#7B1C35" stroke="#C9A84C" stroke-width="1.5" />
+        <!-- Diamond ornaments -->
+        <polygon points="45,55 50,62 45,69 40,62" fill="#C9A84C" opacity="0.8" />
+        <polygon points="45,80 48,85 45,90 42,85" fill="#C9A84C" opacity="0.5" />
+      </svg>
+
+      <p class="hero-subtitle">Մկրտություն</p>
+      <h1 class="hero-name">Արմինե</h1>
+      <p class="hero-armenian">Աստծո շնորհը</p>
+      <div class="hero-divider"></div>
+      <p class="hero-date">15 Մարտ, 2025 &nbsp;·&nbsp; Երևան, Հայաստան</p>
+    </div>
+
+
+  </section>
+
+  <!-- ══════════════════════════════════
+     INVITATION TEXT
+══════════════════════════════════ -->
+  <section id="invitation">
+    <div class="manuscript-border reveal">
+      <div class="corner-ornament tl"></div>
+      <div class="corner-ornament tr"></div>
+      <div class="corner-ornament bl"></div>
+      <div class="corner-ornament br"></div>
+
+      <p class="invite-overline">Աստծո շնորհով</p>
+
+      <h2 class="invite-heading">Սիրով հրավիրում ենք Ձեզ<br>Սուրբ Մկրտությանը</h2>
+
+      <p class="invite-text">
+        Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու<br>
+        մեր սիրելի դուստր <strong>Արմինեի</strong> Սուրբ Մկրտության խորհրդին,<br>
+        նրա՝ Հայ Առաքելական Եկեղեցի մուտք գործելուն<br>
+        և Սուրբ Մյուռոնով օծմանը։
+      </p>
+
+      <div class="section-ornament">✦ ✝ ✦</div>
+
+      <div class="invite-details">
+        <div class="detail-item">
+          <div class="detail-label">Երեխա</div>
+          <div class="detail-value">Արմինե Պետրոսյան</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Ծնողներ</div>
+          <div class="detail-value">Արամ և Լուսինե</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Կնքահայր</div>
+          <div class="detail-value">Վարդան Մկրտչյան</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Կնքամայր</div>
+          <div class="detail-value">Անի Հարությունյան</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Ամսաթիվ</div>
+          <div class="detail-value">15 Մարտ, 2025</div>
+        </div>
+        <div class="detail-item">
+          <div class="detail-label">Ժամ</div>
+          <div class="detail-value">11:00</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+     GALLERY
+══════════════════════════════════ -->
+  <section id="gallery">
+    <h2 class="section-title reveal">Պատկերասրահ</h2>
+    <p class="section-sub reveal">Մեր փոքրիկ օրհնությունը</p>
+
+    <div class="gallery-grid">
+
+      <div class="photo-placeholder reveal reveal-delay-1"
+        style="background-image: url('assets/gallery_1.webp'); background-size: cover; background-position: center;">
+      </div>
+
+      <div class="photo-placeholder reveal reveal-delay-2"
+        style="background-image: url('assets/gallery_2.webp'); background-size: cover; background-position: center;">
+      </div>
+
+      <div class="photo-placeholder reveal reveal-delay-3"
+        style="background-image: url('assets/gallery_3.webp'); background-size: cover; background-position: center;">
+      </div>
+
+      <div class="photo-placeholder reveal reveal-delay-2"
+        style="background-image: url('assets/gallery_4.webp'); background-size: cover; background-position: center;">
+      </div>
+
+      <div class="photo-placeholder reveal reveal-delay-3"
+        style="background-image: url('assets/gallery_5.webp'); background-size: cover; background-position: center;">
+      </div>
+
+      <div class="photo-placeholder reveal reveal-delay-4"
+        style="background-image: url('assets/gallery_6.webp'); background-size: cover; background-position: center;">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+     CEREMONY DETAILS
+══════════════════════════════════ -->
+  <section id="ceremony">
+    <h2 class="section-title reveal">Արարողության Մանրամասներ</h2>
+    <p class="section-sub reveal">Միացեք մեզ այս սուրբ և ուրախալի պահերին</p>
+
+    <div class="khachkar-divider reveal">✦ ✝ ✦</div>
+
+    <div class="ceremony-cards">
+
+      <div class="ceremony-card reveal reveal-delay-1">
+        <span class="ceremony-card-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l-8 5v15h16V7l-8-5z"></path>
+            <path d="M12 12v10"></path>
+            <path d="M8 22h8"></path>
+            <path d="M12 5v5"></path>
+            <path d="M10 7h4"></path>
+          </svg>
+        </span>
+        <h3>Սուրբ Մկրտություն</h3>
+        <p>
+          <strong style="color:var(--water);">Սուրբ Աստվածածին Եկեղեցի</strong><br><br>
+          Մաշտոցի պողոտա 15<br>
+          Երևան, Հայաստան<br><br>
+          Արարողությունը ներառում է ջրով մկրտություն, Սուրբ Մյուռոնով օծում և սպիտակ հագուստի օրհնություն:
+        </p>
+        <span class="time-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            style="vertical-align: middle; margin-top: -2px; margin-right: 4px;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          11:00 — 12:30
+        </span>
+      </div>
+
+      <div class="ceremony-card reveal reveal-delay-2">
+        <span class="ceremony-card-icon">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 22h6"></path>
+            <path d="M10 22V10"></path>
+            <path d="M14 22V10"></path>
+            <path d="M9 10h6"></path>
+            <path class="candle-flame" d="M12 2c-1.5 2-2 3-2 5 0 2 1.5 3 2 3s2-1 2-3c0-2-.5-3-2-5z"
+              fill="var(--gold-light)" stroke="none"></path>
+          </svg>
+        </span>
+        <h3>Խնջույք</h3>
+        <p>
+          <strong style="color:var(--water);">Արմենիա Մարիոթ Հյուրանոց</strong><br><br>
+          Ամիրյան փողոց 1<br>
+          Երևան, Հայաստան<br><br>
+          Ուրախ ընտանեկան խնջույք ավանդական հայկական ուտեստներով, երաժշտությամբ և բարեմաղթանքներով:
+        </p>
+        <span class="time-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            style="vertical-align: middle; margin-top: -2px; margin-right: 4px;">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          14:00 — 19:00
+        </span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+     RELIGIOUS ELEMENTS
+══════════════════════════════════ -->
+  <section id="elements">
+    <h2 class="section-title reveal">Սրբազան Խորհրդանիշներ</h2>
+    <p class="section-sub reveal">Հայկական մկրտության երեք հիմնասյուները</p>
+
+    <div class="elements-grid">
+
+      <div class="element-card reveal reveal-delay-1">
+        <div class="element-icon-wrap">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20" />
+            <path d="M7 8h10" />
+          </svg>
+        </div>
+        <h4>Խաչ</h4>
+        <p>Հայկական Խաչքարը՝ հավատքի, հավերժական կյանքի և հայ ժողովրդի 1700-ամյա քրիստոնեական հարուստ ժառանգության
+          խորհրդանիշն է։</p>
+      </div>
+
+      <div class="element-card reveal reveal-delay-2">
+        <div class="element-icon-wrap">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
+          </svg>
+        </div>
+        <h4>Ջուր</h4>
+        <p>Օրհնված ջրով մկրտությունը խորհրդանշում է հոգու մաքրագործում և հոգևոր վերածնունդ — երեխան կյանք է մտնում որպես
+          Աստծո զավակ։</p>
+      </div>
+
+      <div class="element-card reveal reveal-delay-3">
+        <div class="element-icon-wrap">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 22h6" />
+            <path d="M10 22V10" />
+            <path d="M14 22V10" />
+            <path d="M9 10h6" />
+            <path class="candle-flame" d="M12 2c-1.5 2-2 3-2 5 0 2 1.5 3 2 3s2-1 2-3c0-2-.5-3-2-5z" fill="#E4C875"
+              stroke="none" />
+          </svg>
+        </div>
+        <h4>Մոմ</h4>
+        <p>Մկրտության ժամանակ վառված մոմը խորհրդանշում է Քրիստոսի Լույսը, որը մտնում է երեխայի կյանք — բոց, որը պետք է
+          վառ պահվի հավատքով։</p>
+      </div>
+
+    </div>
+
+    <!-- Water drop animation -->
+    <div class="water-drop-container reveal">
+      <svg class="water-drop-svg" viewBox="0 0 60 80" xmlns="http://www.w3.org/2000/svg">
+        <!-- Drop -->
+        <g class="drop-anim">
+          <path d="M30 5 C30 5 10 30 10 45 C10 56 19 64 30 64 C41 64 50 56 50 45 C50 30 30 5 30 5Z" fill="#A8C8DC"
+            opacity="0.7" />
+          <path d="M22 40 C22 35 26 32 30 32" stroke="white" stroke-width="2" stroke-linecap="round" fill="none"
+            opacity="0.5" />
+        </g>
+        <!-- Ripples -->
+        <g class="ripple-anim" transform="translate(30, 72)">
+          <ellipse cx="0" cy="0" rx="6" ry="2" fill="none" stroke="#A8C8DC" stroke-width="1.5" opacity="0.6" />
+          <ellipse cx="0" cy="0" rx="6" ry="2" fill="none" stroke="#A8C8DC" stroke-width="1" opacity="0.4" />
+          <ellipse cx="0" cy="0" rx="6" ry="2" fill="none" stroke="#A8C8DC" stroke-width="0.5" opacity="0.3" />
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+     RSVP
+══════════════════════════════════ -->
+  <section id="rsvp">
+    <h2 class="section-title reveal">Հաստատել Մասնակցությունը</h2>
+    <p class="section-sub reveal">Խնդրում ենք լրացնել ձևաթուղթը</p>
+
+    <div class="rsvp-card reveal">
+      <div class="form-group">
+        <label class="form-label" for="fullname">Անուն Ազգանուն</label>
+        <input class="form-input" type="text" id="fullname" placeholder="օրինակ՝ Հայկ Սարգսյան" autocomplete="name">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="phone">Հեռախոս</label>
+        <input class="form-input" type="tel" id="phone" placeholder="+374 XX XXX XXX" autocomplete="tel">
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        <div class="form-group">
+          <label class="form-label" for="guests">Հյուրեր</label>
+          <select class="form-select" id="guests">
+            <option value="">Ընտրել</option>
+            <option>1 անձ</option>
+            <option>2 անձ</option>
+            <option>3 անձ</option>
+            <option>4+ անձ</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="diet">Սննդակարգ</label>
+          <select class="form-select" id="diet">
+            <option value="">Առանց սահմանափակման</option>
+            <option>Բուսակեր (Vegetarian)</option>
+            <option>Վեգան (Vegan)</option>
+            <option>Հալալ (Halal)</option>
+            <option>Առանց Գլյուտենի</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Կմասնակցե՞ք</label>
+        <div class="attend-toggle">
+          <button class="attend-btn yes" onclick="selectAttend(this,'yes')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            &nbsp; Այո, սիրով
+          </button>
+          <button class="attend-btn no" onclick="selectAttend(this,'no')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+            &nbsp; Ոչ, չեմ կարող
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="message">Հաղորդագրություն (ոչ պարտադիր)</label>
+        <textarea class="form-textarea" id="message" placeholder="Գրեք Ձեր բարեմաղթանքը..."></textarea>
+      </div>
+
+      <button class="submit-btn" onclick="handleSubmit()"
+        style="display:flex; align-items:center; justify-content:center; gap:8px;">
+        Հաստատել
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round">
+          <path d="M12 2v20M7 8h10" />
+        </svg>
+      </button>
+
+      <p class="rsvp-deadline">Խնդրում ենք հաստատել մինչև Մարտի 8, 2025</p>
+
+      <!-- SUCCESS OVERLAY -->
+      <div class="success-overlay" id="successOverlay">
+        <div class="success-cross">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M7 8h10" />
+          </svg>
+        </div>
+        <h2 class="success-message" id="successMessageTitle">Աստված օրհնի ձեզ</h2>
+        <p class="success-sub" id="successMessageSub">Աստված օրհնի Ձեզ և Ձեր ընտանիքին <svg width="20" height="20"
+            viewBox="0 0 24 24" fill="currentColor" stroke="none"
+            style="vertical-align:middle; margin-left:4px; margin-bottom:2px;">
+            <path
+              d="M20.8 4.6a5.5 5.5 0 0 0-7.7 0l-1.1 1-1.1-1a5.5 5.5 0 0 0-7.8 7.8l1.1 1 7.8 7.8 7.8-7.8 1.1-1a5.5 5.5 0 0 0 0-7.8z" />
+          </svg><br><span id="successMessageText">Անհամբեր սպասում ենք Ձեզ հետ տոնելուն։</span></p>
+        <button class="success-close" onclick="document.getElementById('successOverlay').classList.remove('visible')">
+          Փակել
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+  <footer>
+    <span class="footer-cross">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2v20M7 8h10" />
+      </svg>
+    </span>
+    <p class="footer-verse">
+      «Կրթի՛ր մանուկին իր ճամփան սկսելու ատեն,<br>
+      որպեսզի ծերացած ատենն ալ անկէ չխոտորի:»<br>
+      <em style="opacity:0.6; font-size:0.8rem;">— Առակաց 22:6</em>
+    </p>
+    <br>
+    <p class="footer-names">Արամ և Լուսինե Պետրոսյաններ &nbsp;·&nbsp; Երևան 2025</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation 002</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Waterfall&family=Noto+Sans+Armenian:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wedding-template">
+        <!-- Hero Section -->
+        <section class="template-hero">
+            <div class="hero-container">
+                <!-- Background Image -->
+                <div class="hero-bg">
+                    <img src="assets/hero-bg.webp" alt="Background">
+                </div>
+
+                <!-- Hero Photo and Border -->
+                <div class="hero-photo-wrapper">
+                    <div class="hero-photo-border"></div>
+                    <div class="hero-photo-container">
+                        <img id="hero-photo" src="assets/hero-photo.webp" alt="Hero Photo">
+                    </div>
+                </div>
+
+                <!-- Star and Age -->
+                <div class="star-wrapper">
+                    <img src="assets/Star.webp" alt="Star" class="star-icon">
+                    <span id="age-number" class="age-number">5</span>
+                </div>
+
+                <!-- Name -->
+                <div class="name-wrapper">
+                    <h1 id="person-name" class="person-name">Nathalie</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Invitation Text Section -->
+        <section class="invitation-text-section">
+            <div class="text-block">
+                <h2 class="invitation-title">Սիրելի Ընկերներ և Բարեկամներ</h2>
+                <p class="invitation-description">
+                    Սիրով հրավիրում եմ Ձեզ իմ ծննդյան տարեդարձին:<br>
+                    Ուրախ կլինեմ տեսնել բոլորիդ:
+                </p>
+            </div>
+            <div class="date-time-block">
+                <div class="date-display">14.05.2026</div>
+                <div class="time-display">17:00</div>
+            </div>
+        </section>
+
+        <!-- Guest Questionnaire Section -->
+        <section class="rsvp-section">
+            <div class="rsvp-bg">
+                <img src="assets/hero-bg.webp" alt="Background">
+            </div>
+            <h2 class="rsvp-title">Հյուրի Հարցաթերթիկ</h2>
+
+            <div class="form-container">
+                <form id="template-rsvp-form">
+                    <div class="form-group-radio">
+                        <label class="question-label">Կկարողանա՞ք ներկա գտնվել միջոցառմանը</label>
+                        <div class="radio-options">
+                            <label class="custom-radio">
+                                <input type="radio" name="attendance" value="yes" checked>
+                                <span class="radio-mark">
+                                    <span class="radio-inner"></span>
+                                </span>
+                                <span class="radio-label">Այո, իհարկե</span>
+                            </label>
+                            <label class="custom-radio">
+                                <input type="radio" name="attendance" value="no">
+                                <span class="radio-mark">
+                                    <span class="radio-inner"></span>
+                                </span>
+                                <span class="radio-label">Ցավոք, ոչ</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group-input">
+                        <input type="text" name="guest_name" placeholder="Անուն Ազգանուն" required
+                            class="bottom-border-input">
+                    </div>
+
+                    <div class="form-group-input">
+                        <input type="text" name="child_name" placeholder="Երեխայի Անուն" class="bottom-border-input">
+                    </div>
+
+                    <button type="submit" class="rsvp-submit">Ուղարկել</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

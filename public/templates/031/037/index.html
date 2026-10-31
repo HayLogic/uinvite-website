@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="hy">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Կնունքի հրավեր </title>
+<meta name="description" content="Հրավիրում ենք մեր փոքրիկի Կնունիկի կնունքի արարողությանը։" />
+<meta name="description" content="Հրավիրում ենք մեր փոքրիկի Կնունիկի կնունքի արարողությանը։" />
+
+  <!-- Social / Messenger preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content=" Սուրբ Մկրտություն">
+  <meta property="og:description" content="Սիրով հրավիրում ենք մեր փոքրիկի Սուրբ Մկրտության արարողությանը։">
+
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:locale" content="hy_AM">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Կնունիկի Սուրբ Մկրտություն">
+  <meta name="twitter:description" content="Սիրով հրավիրում ենք մեր փոքրիկի Սուրբ Մկրտության արարողությանը։">
+  
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg1:#fbf3e3; --bg2:#faecd4;
+    --gold:#b8860b; --gold-soft:#d4b87a;
+    --muted:#9a8a6a; --fg:#3a2e1c;
+    --card:rgba(255,253,247,.8); --border:rgba(184,134,11,.25);
+    --font-display:"Cormorant Garamond",serif;
+    --font-body:"Nunito",system-ui,sans-serif;
+    --shadow-soft:0 20px 40px rgba(180,140,80,.18);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:var(--font-body); color:var(--fg);
+    background:linear-gradient(180deg,var(--bg1) 0%,var(--bg2) 100%);
+    min-height:100vh; overflow-x:hidden; position:relative;
+  }
+  img{max-width:100%; display:block}
+  .container{max-width:1100px; margin:0 auto; padding:48px 24px 80px; position:relative; z-index:2}
+
+  /* clouds */
+  .cloud{position:absolute; pointer-events:none; z-index:1; opacity:.85}
+  .c1{top:-40px; left:-60px; width:280px}
+  .c2{top:90px; right:-60px; width:220px; opacity:.8}
+  .c3{top:42%; left:-80px; width:260px; opacity:.7}
+  .c4{bottom:40px; right:0; width:320px; opacity:.8}
+
+  /* stars */
+  .stars{position:absolute; inset:0; pointer-events:none; color:var(--gold); z-index:1}
+  .stars span{position:absolute}
+
+  /* hanging cross */
+  .hanging{position:absolute; top:-10px; right:32px; width:110px; pointer-events:none; z-index:3}
+  @media (min-width:768px){ .hanging{width:140px} }
+
+  /* hero */
+  .hero{display:grid; grid-template-columns:1fr; gap:24px; align-items:center; position:relative}
+  @media (min-width:768px){ .hero{grid-template-columns:1fr 1fr} }
+  .eyebrow{font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--muted); text-align:center}
+  .pre{margin-top:24px; font-size:14px; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); text-align:center}
+  h1.title{
+    font-family:var(--font-display); font-weight:500;
+    font-size:64px; line-height:1; color:var(--gold);
+    margin:16px 0 0; text-align:center;
+  }
+  @media (min-width:768px){
+    h1.title{font-size:96px; text-align:left}
+    .eyebrow,.pre,.post{text-align:left}
+  }
+  .divider{display:flex; align-items:center; justify-content:center; gap:12px; color:var(--gold-soft); margin-top:16px}
+  .divider .line{height:1px; width:48px; background:var(--gold-soft)}
+  @media (min-width:768px){ .divider{justify-content:flex-start} }
+  .post{margin-top:16px; font-size:18px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); text-align:center}
+
+  /* carousel */
+  .carousel{position:relative}
+  .carousel .main{
+    width:100%; max-width:560px; margin:0 auto; border-radius:20px;
+    object-fit:cover; box-shadow:0 20px 30px rgba(180,140,80,.18);
+  }
+  .nav{position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; padding:0 8px; pointer-events:none}
+  .nav button{
+    pointer-events:auto; width:40px; height:40px; border-radius:50%;
+    background:rgba(255,255,255,.85); color:var(--gold);
+    border:none; box-shadow:0 4px 10px rgba(0,0,0,.1); cursor:pointer;
+    font-size:20px; line-height:1; transition:background .2s;
+  }
+  .nav button:hover{background:#fff}
+  .thumbs{display:flex; justify-content:center; gap:12px; margin-top:16px}
+  .thumbs button{
+    width:64px; height:64px; border-radius:12px; overflow:hidden;
+    border:2px solid transparent; padding:0; cursor:pointer; opacity:.7;
+    background:transparent; transition:opacity .2s,border-color .2s;
+  }
+  .thumbs button.active{border-color:var(--gold); opacity:1; box-shadow:0 4px 10px rgba(0,0,0,.1)}
+  .thumbs img{width:100%; height:100%; object-fit:cover}
+
+  /* cross illustration */
+  .cross-ill{margin:-40px 0 0; display:flex; justify-content:center}
+  @media (min-width:768px){ .cross-ill{margin-top:-60px; justify-content:flex-start} }
+  .cross-ill img{width:180px}
+
+  /* card */
+  .card{
+    margin-top:40px; border-radius:24px; background:var(--card); backdrop-filter:blur(4px);
+    padding:40px 24px; box-shadow:var(--shadow-soft); border:1px solid var(--border);
+  }
+  @media (min-width:768px){ .card{padding:40px 48px} }
+  .details{display:grid; grid-template-columns:1fr; gap:32px; align-items:center}
+  @media (min-width:768px){ .details{grid-template-columns:1fr 1fr} }
+  .detail{display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px}
+  .detail .icon{color:var(--gold)}
+  .detail .label{font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-top:4px}
+  .detail .lines{font-size:14px}
+
+  /* venues */
+  .venues{display:grid; grid-template-columns:1fr; gap:24px; margin-top:32px}
+  @media (min-width:768px){ .venues{grid-template-columns:1fr 1fr} }
+  .venue{
+    border-radius:24px; overflow:hidden; background:var(--card); backdrop-filter:blur(4px);
+    border:1px solid var(--border); box-shadow:var(--shadow-soft); display:flex; flex-direction:column;
+  }
+  .venue img{width:100%; height:auto; }
+  .venue .body{padding:24px; text-align:center}
+  .venue .vlabel{font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--gold)}
+  .venue .vname{font-family:var(--font-display); font-size:22px; color:var(--fg); margin:8px 0}
+  .venue .vtime{font-size:14px; color:var(--muted); margin-bottom:16px}
+  .map-btn{
+    display:inline-block; text-decoration:none; padding:10px 20px; border-radius:999px;
+    background:linear-gradient(135deg,#d4a648,#b8860b); color:#fff; font-size:12px;
+    letter-spacing:.2em; text-transform:uppercase; transition:opacity .2s;
+  }
+  .map-btn:hover{opacity:.9}
+
+  /* godmother / rsvp */
+  .center{text-align:center}
+  .sec-title{
+    font-family:var(--font-display); font-size:22px; letter-spacing:.25em;
+    text-transform:uppercase; color:var(--gold); margin:16px 0 0;
+  }
+  .name-line{margin-top:12px; font-family:var(--font-display); font-size:20px}
+  .hr{height:1px; width:160px; background:var(--border); margin:24px auto}
+  .tag{font-size:12px; letter-spacing:.3em; text-transform:uppercase; color:var(--gold)}
+  .hint{margin-top:12px; font-size:12px; color:var(--muted)}
+
+  form.rsvp{display:grid; grid-template-columns:1fr; gap:12px; max-width:640px; margin:24px auto 0}
+  @media (min-width:768px){ form.rsvp{grid-template-columns:1fr 1fr auto} }
+  form.rsvp input, form.rsvp select{
+    border:1px solid var(--border); background:rgba(255,255,255,.7); color:var(--fg);
+    border-radius:999px; padding:12px 20px; font-size:14px; font-family:inherit; outline:none;
+    transition:border-color .2s;
+  }
+  form.rsvp input:focus, form.rsvp select:focus{border-color:var(--gold)}
+  form.rsvp button{
+    border:none; border-radius:999px; padding:12px 28px; color:#fff; font-size:12px;
+    letter-spacing:.2em; text-transform:uppercase; cursor:pointer;
+    background:linear-gradient(135deg,#d4a648,#b8860b); transition:opacity .2s;
+  }
+  form.rsvp button:hover{opacity:.9}
+  .thanks{margin-top:32px; color:var(--gold); letter-spacing:.05em}
+
+  footer.foot{margin-top:48px; text-align:center}
+  footer.foot .lbl{margin-top:12px; font-family:var(--font-display); font-size:16px;
+    letter-spacing:.3em; text-transform:uppercase; color:var(--gold)}
+
+  /* music button */
+  .music-btn{
+    position:fixed; bottom:20px; right:20px; z-index:50;
+    width:52px; height:52px; border-radius:50%; border:none; cursor:pointer;
+    background:linear-gradient(135deg,#d4a648,#b8860b); color:#fff;
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+    display:flex; align-items:center; justify-content:center;
+    transition:transform .2s;
+  }
+  .music-btn:hover{transform:scale(1.05)}
+  .music-btn .pulse{
+    position:absolute; inset:0; border-radius:50%; background:rgba(218,165,32,.35);
+    opacity:0;
+  }
+  .music-btn.playing .pulse{animation:ping 1.6s cubic-bezier(0,0,.2,1) infinite}
+  @keyframes ping{
+    0%{transform:scale(1); opacity:.6}
+    75%,100%{transform:scale(1.8); opacity:0}
+  }
+</style>
+</head>
+<body>
+
+<!-- floating clouds -->
+<img class="cloud c1" src="assets/cloud.png" alt="" aria-hidden="true">
+<img class="cloud c2" src="assets/cloud.png" alt="" aria-hidden="true">
+<img class="cloud c3" src="assets/cloud.png" alt="" aria-hidden="true">
+<img class="cloud c4" src="assets/cloud.png" alt="" aria-hidden="true">
+
+<!-- scattered stars -->
+<div class="stars" id="stars" aria-hidden="true"></div>
+
+<!-- hanging cross -->
+<img class="hanging" src="hanging-cross.png" alt="" aria-hidden="true">
+
+<!-- music -->
+<audio id="bgm" src="music.mp3" loop preload="auto"></audio>
+<button id="musicBtn" class="music-btn" aria-label="Միացնել երաժշտությունը">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+    <path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/>
+  </svg>
+  <span class="pulse"></span>
+</button>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Սիրելի բարեկամներ</p>
+      <p class="pre">Հրավիրում ենք մեր փոքրիկի</p>
+      <h1 class="title">Սուրբ Մկրտության</h1>
+      <div class="divider"><span class="line"></span>
+        <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 21s-7-4.5-9.3-9.1C1.2 8.7 3 5 6.5 5c2 0 3.5 1.1 4.5 2.6C12 6.1 13.5 5 15.5 5 19 5 20.8 8.7 21.3 11.9 19 16.5 12 21 12 21z"/></svg>
+        <span class="line"></span>
+      </div>
+      <p class="post">արարողությանը</p>
+    </div>
+
+    <div class="carousel">
+      <img id="mainPhoto" class="main" src="assets/baby-cloud.jpg" alt="Փոքրիկ Կնունիկը ամպիկի վրա">
+      <div class="nav">
+        <button id="prevBtn" aria-label="Նախորդ նկարը">‹</button>
+        <button id="nextBtn" aria-label="Հաջորդ նկարը">›</button>
+      </div>
+      <div class="thumbs" id="thumbs"></div>
+    </div>
+  </section>
+
+  <!-- cross illustration -->
+  <div class="cross-ill"><img src="assets/cross-cloud.png" alt="" aria-hidden="true"></div>
+
+  <!-- DETAILS -->
+  <section class="card">
+    <div class="details">
+      <div class="detail">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+        </div>
+        <div class="label">Ամսաթիվ</div>
+        <div class="lines">15 ՀՈԿՏԵՄԲԵՐ, 2026<br>Ուրբաթ</div>
+      </div>
+      <div class="detail">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </div>
+        <div class="label">Ժամ</div>
+        <div class="lines">Արարողություն 15:00<br>Հյուրասիրություն 18:00</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENUES -->
+  <section class="venues">
+    <div class="venue">
+      <img src="assets/church-illustration.jpg" alt="Եկեղեցի">
+      <div class="body">
+        <div class="vlabel">Եկեղեցի</div>
+        <div class="vname">Ս. Հովհաննես Մկրտիչ եկեղեցի</div>
+        <div class="vtime">Ժամ՝ 15:00</div>
+        <a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Saint+John+the+Baptist+Church+Yerevan">Տեսնել քարտեզի վրա</a>
+      </div>
+    </div>
+    <div class="venue">
+      <img src="assets/restaurant-illustration.jpg" alt="Ռեստորան">
+      <div class="body">
+        <div class="vlabel">Ռեստորան</div>
+        <div class="vname">«Ամպիկ» ռեստորանային համալիր</div>
+        <div class="vtime">Ժամ՝ 18:00</div>
+        <a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Ampik+restaurant+Yerevan">Տեսնել քարտեզի վրա</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GODMOTHER -->
+  <section class="card center">
+    <div style="color:var(--gold-soft); display:flex; justify-content:center">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 21s-7-4.5-9.3-9.1C1.2 8.7 3 5 6.5 5c2 0 3.5 1.1 4.5 2.6C12 6.1 13.5 5 15.5 5 19 5 20.8 8.7 21.3 11.9 19 16.5 12 21 12 21z"/></svg>
+    </div>
+    <h2 class="sec-title">Քավոր և Քավորկին</h2>
+    <p class="name-line">Անուն Ազգանուն</p>
+    <div class="hr"></div>
+
+  </section>
+
+  <!-- RSVP -->
+  <section class="card center">
+    <h2 class="sec-title">Կմասնակցեք մեր հատուկ օրվան</h2>
+    <div style="color:var(--gold-soft); display:flex; justify-content:center; margin-top:12px">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 21s-7-4.5-9.3-9.1C1.2 8.7 3 5 6.5 5c2 0 3.5 1.1 4.5 2.6C12 6.1 13.5 5 15.5 5 19 5 20.8 8.7 21.3 11.9 19 16.5 12 21 12 21z"/></svg>
+    </div>
+    <p style="margin-top:12px; font-size:14px; color:var(--muted); max-width:420px; margin-left:auto; margin-right:auto">
+      Ձեր ներկայությունը մեզ համար մեծ ուրախություն և օրհնություն կլինի։
+    </p>
+    <div class="hr"></div>
+    <p class="tag">Հաստատեք մասնակցելությունը</p>
+    <form class="rsvp" id="rsvpForm">
+      <input type="text" name="name" placeholder="Անուն, Ազգանուն" required>
+      <select name="count">
+        <option value="1"> 1</option>
+        <option value="2"> 2</option>
+        <option value="3"> 3</option>
+        <option value="4"> 4</option>
+        <option value="5"> 5</option>
+        <option value="6"> 6</option>
+        <option value="7"> 7</option>
+        <option value="8"> 8</option>
+        <option value="9"> 9</option>
+      </select>
+      <button type="submit">Հաստատել</button>
+    </form>
+    <p id="thanks" class="thanks" style="display:none">Շնորհակալություն, ձեր հաստատումը ստացված է ✦</p>
+  </section>
+
+  <footer class="foot">
+    <div style="color:var(--gold-soft); display:flex; justify-content:center">
+      <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" aria-hidden="true"><path d="M12 21s-7-4.5-9.3-9.1C1.2 8.7 3 5 6.5 5c2 0 3.5 1.1 4.5 2.6C12 6.1 13.5 5 15.5 5 19 5 20.8 8.7 21.3 11.9 19 16.5 12 21 12 21z"/></svg>
+    </div>
+    <p class="lbl">Շնորհակալություն</p>
+  </footer>
+</div>
+
+<script>
+  // ===== Stars =====
+  (function(){
+    const positions = [
+      [4,8,14,.8],[7,38,10,.6],[3,62,16,.9],[11,82,9,.5],[14,20,12,.7],
+      [18,54,8,.5],[22,90,13,.7],[26,5,11,.7],[30,44,9,.6],[33,70,15,.85],
+      [37,14,8,.5],[41,86,12,.7],[45,30,10,.6],[49,58,14,.8],[53,3,11,.7],
+      [57,78,9,.5],[61,40,13,.75],[65,18,8,.5],[69,92,12,.7],[73,52,10,.6],
+      [77,8,15,.85],[81,68,9,.55],[85,32,12,.7],[89,84,11,.65],[92,12,13,.75],
+      [94,48,9,.55],[96,72,14,.8],[20,70,8,.45],[50,46,8,.45],[75,94,8,.45]
+    ];
+    const path = '<path d="M12 2l2.4 6.8L21 10l-5.2 4.2L17.6 22 12 18l-5.6 4 1.8-7.8L3 10l6.6-1.2L12 2z" fill="currentColor"/>';
+    const host = document.getElementById('stars');
+    host.innerHTML = positions.map(([t,l,s,op])=>(
+      `<span style="top:${t}%;left:${l}%;opacity:${op}"><svg viewBox="0 0 24 24" width="${s}" height="${s}">${path}</svg></span>`
+    )).join('');
+  })();
+
+  // ===== Carousel =====
+  const photos = [
+    { src:"assets/baby-cloud.jpg",   alt:"Փոքրիկ Կնունիկը ամպիկի վրա" },
+    { src:"assets/baby-cloud-2.jpg", alt:"Փոքրիկ Կնունիկը" },
+    { src:"assets/baby-cloud-3.jpg", alt:"Փոքրիկ Կնունիկը քնած" },
+    { src:"assets/baby-cloud-4.jpg", alt:"Փոքրիկ Կնունիկը նստած" },
+  ];
+  let idx = 0;
+  const main = document.getElementById('mainPhoto');
+  const thumbs = document.getElementById('thumbs');
+  thumbs.innerHTML = photos.map((p,i)=>`<button data-i="${i}" aria-label="${p.alt}"><img src="${p.src}" alt=""></button>`).join('');
+  const update = () => {
+    main.src = photos[idx].src; main.alt = photos[idx].alt;
+    [...thumbs.children].forEach((b,i)=>b.classList.toggle('active', i===idx));
+  };
+  document.getElementById('prevBtn').onclick = ()=>{ idx=(idx-1+photos.length)%photos.length; update(); };
+  document.getElementById('nextBtn').onclick = ()=>{ idx=(idx+1)%photos.length; update(); };
+  thumbs.addEventListener('click', e=>{
+    const b = e.target.closest('button'); if(!b) return;
+    idx = +b.dataset.i; update();
+  });
+  update();
+
+  // ===== RSVP =====
+  document.getElementById('rsvpForm').addEventListener('submit', e=>{
+    e.preventDefault();
+    e.target.style.display = 'none';
+    document.getElementById('thanks').style.display = 'block';
+  });
+
+  // ===== Music: autoplay on first scroll =====
+  const audio = document.getElementById('bgm');
+  const btn = document.getElementById('musicBtn');
+  let started = false;
+  audio.volume = 0.6;
+  function start(){
+    if(started) return;
+    if(window.scrollY > 30){
+      started = true;
+      audio.play().then(()=> btn.classList.add('playing')).catch(()=>{});
+    }
+  }
+  window.addEventListener('scroll', start, { passive:true });
+  btn.addEventListener('click', ()=>{
+    if(audio.paused){ audio.play().then(()=>btn.classList.add('playing')).catch(()=>{}); }
+    else { audio.pause(); btn.classList.remove('playing'); }
+  });
+</script>
+</body>
+</html>

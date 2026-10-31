@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Space — Birthday Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Noto+Sans+Armenian:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="kids">
+  <div class="decor" aria-hidden="true"><span>🚀</span><span>🌟</span><span>🪐</span><span>👽</span><span>🌙</span><span>✨</span><span>☄️</span><span>🛸</span><span>🚀</span><span>🌟</span><span>🪐</span><span>👽</span><span>🌙</span><span>✨</span><span>⭐</span><span>🛰️</span></div>
+  <section class="hero">
+    <div class="hero-top"><span class="kicker">Ծննդյան Տարեդարձ</span></div>
+    <div class="hero-split">
+      <div class="hero-left">
+        <h1 class="name">Մոնթե</h1>
+        <div class="age-badge"><span class="age-num">5</span><span class="age-lbl">տարեկան</span></div>
+      </div>
+      <div class="hero-art"><img src="hero.webp" alt="Space"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="invite-title">Սիրելի՛ ընկերներ</h2>
+    <p class="invite-text">Սիրով հրավիրում եմ Ձեզ իմ ծննդյան տոնակատարությանը։ Եկե՛ք միասին տոնենք այս հատուկ օրը խաղերով, քաղցրավենիքով և շատ ուրախությամբ։</p>
+    <div class="meta">
+      <div class="meta-row"><span class="meta-icon">📅</span><div><div class="meta-l">Ամսաթիվ</div><div class="meta-v">15 Հունիսի, 2026</div></div></div>
+      <div class="meta-row"><span class="meta-icon">⏰</span><div><div class="meta-l">Ժամ</div><div class="meta-v">14:00</div></div></div>
+      <div class="meta-row"><span class="meta-icon">📍</span><div><div class="meta-l">Վայր</div><div class="meta-v">Kids Park, Երևան</div></div></div>
+      <div class="meta-row"><span class="meta-icon">👗</span><div><div class="meta-l">Դրես կոդ</div><div class="meta-v">Թեմատիկ գույն</div></div></div>
+      </div>
+    <div class="map-card">
+      <div class="map-wrap">
+        <iframe class="map-frame" src="https://www.google.com/maps?q=Yerevan&z=13&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Քարտեզ"></iframe>
+        <div class="map-pin">📍</div>
+      </div>
+      <a href="https://maps.app.goo.gl/" target="_blank" rel="noopener" class="btn-loc">
+        <span class="btn-loc-ico">🗺️</span>
+        <span class="btn-loc-txt">Տեսնել քարտեզի վրա</span>
+        <span class="btn-loc-arr">→</span>
+      </a>
+    </div>
+  </section>
+
+    <section class="gallery">
+    <h2 class="gallery-title">Մեր պատկերասրահը</h2>
+    <p class="gallery-sub">Մի քանի սիրուն պահեր ✨</p>
+    <div class="gallery-grid gallery-single">
+      <div class="g-tile g-main"><img src="hero.webp" alt="Photo"></div>
+    </div>
+  </section>
+
+<section class="rsvp">
+    <h2 class="rsvp-title">Հաստատեք Ձեր Ներկայությունը</h2>
+    <p class="rsvp-sub">Խնդրում ենք պատասխանել մինչև 10.06.2026</p>
+    <form id="rsvp-form" class="form">
+      <label class="field"><span>Ձեր անունը</span><input type="text" name="name" required placeholder="Անուն Ազգանուն"></label>
+      <label class="field"><span>Հյուրերի քանակ</span><input type="number" name="guests" min="1" max="10" value="1" required></label>
+      <div class="radios">
+        <label class="rad"><input type="radio" name="attend" value="yes" checked><span>Այո, կգամ 🎉</span></label>
+        <label class="rad"><input type="radio" name="attend" value="no"><span>Ցավոք, ոչ</span></label>
+      </div>
+      <button type="submit" class="btn-submit">Ուղարկել</button>
+    </form>
+    <div id="thanks" class="thanks">Շնորհակալություն! 🎂</div>
+  </section>
+
+  <footer class="foot">Ստեղծված է ❤️-ով UInvite-ում</footer>
+</div>
+<script src="script.js"></script>
+
+<audio id="bg-music" loop preload="auto" src="../shared/birthday-music.mp3"></audio>
+<button id="music-toggle" type="button" aria-label="Միացնել երաժշտությունը" title="Միացնել երաժշտությունը">🎵</button>
+<script>
+(function(){
+  var a=document.getElementById('bg-music'),b=document.getElementById('music-toggle');
+  if(!a||!b)return;
+  a.volume=0.45;
+  var playing=false;
+  function set(p){playing=p;b.textContent=p?'🔊':'🎵';b.classList.toggle('on',p);}
+  b.addEventListener('click',function(){if(playing){a.pause();set(false);}else{a.play().then(function(){set(true);}).catch(function(){set(false);});}});
+  // try autoplay (muted-first is unreliable for audio el; just attempt)
+  window.addEventListener('load',function(){a.play().then(function(){set(true);}).catch(function(){});});
+})();
+</script>
+</body>
+</html>

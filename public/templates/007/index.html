@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Հարսանեկան Հրավեր</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="hero">
+        <div class="hero-frame">
+            <div class="names-group">
+                <h1 class="name-armen">Արմեն</h1>
+                <span class="ampersand">&</span>
+                <h1 class="name-anahit">Անահիտ</h1>
+            </div>
+
+            <!-- Start/Stop Music Button -->
+            <div class="start-button-container">
+                <button id="music-toggle-btn" class="music-toggle-btn">
+                    <div class="play-icon" style="display: none;">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 5V19L19 12L8 5Z" />
+                        </svg>
+                    </div>
+                    <div class="pause-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 19H10V5H6V19ZM14 5V19H18V5H14Z" />
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop autoplay>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+
+    <section class="invitation">
+        <div class="content-wrapper">
+            <div class="header-group">
+                <h2 class="shadow-title" aria-hidden="true">Սիրելի Ընկերներ և Բարեկամներ</h2>
+                <h2 class="main-title">Սիրելի Ընկերներ և Բարեկամներ</h2>
+            </div>
+            <p class="invitation-text">
+                Սիրով և մեծ ուրախությամբ հրավիրում ենք Ձեզ լինել մեր կյանքի ամենահիշարժան և լուսավոր օրվա մասնակիցը։
+                Մենք երջանիկ ենք տեղեկացնելու, որ որոշել ենք մեր ճանապարհները միավորել և սկսել կյանքի նոր փուլ՝ ձեռք
+                ձեռքի տված։ Այդ օրը լի կլինի ջերմ զգացմունքներով, անկեղծ ժպիտներով ու գեղեցիկ պահերով, որոնք կցանկանանք
+                կիսել Ձեզ հետ։ Ձեր ներկայությունը մեզ համար անչափ կարևոր է և կդարձնի մեր հարսանիքի օրը առավել ամբողջական
+                ու հիշարժան։
+            </p>
+        </div>
+    </section>
+
+    <section class="save-the-date">
+        <div class="content-wrapper">
+            <div class="split-layout">
+                <div class="photo-container">
+                    <img src="assets/day-photo.webp" alt="Wedding Photo" class="day-photo">
+                </div>
+                <div class="calendar-wrapper">
+                    <div class="header-group">
+                        <h2 class="shadow-title" aria-hidden="true">Պահպանիր Օրը</h2>
+                        <h2 class="main-title">Պահպանիր Օրը</h2>
+                    </div>
+                    <div class="calendar-container">
+                        <h3 class="month-title">Մարտ</h3>
+                        <div class="calendar-grid">
+                            <div class="day-label">SUN</div>
+                            <div class="day-label">MON</div>
+                            <div class="day-label">TUE</div>
+                            <div class="day-label">WED</div>
+                            <div class="day-label">THU</div>
+                            <div class="day-label">FRI</div>
+                            <div class="day-label">SAT</div>
+
+                            <div class="day">1</div>
+                            <div class="day">2</div>
+                            <div class="day">3</div>
+                            <div class="day">4</div>
+                            <div class="day">5</div>
+                            <div class="day">6</div>
+                            <div class="day">7</div>
+
+                            <div class="day">8</div>
+                            <div class="day">9</div>
+                            <div class="day">10</div>
+                            <div class="day">11</div>
+                            <div class="day">12</div>
+                            <div class="day">13</div>
+                            <div class="day">14</div>
+
+                            <div class="day">15</div>
+                            <div class="day">16</div>
+                            <div class="day">17</div>
+                            <div class="day marked">
+                                <span class="number">18</span>
+                                <img src="assets/health.svg" class="heart-icon" alt="Wedding Day">
+                            </div>
+                            <div class="day">19</div>
+                            <div class="day">20</div>
+                            <div class="day">21</div>
+
+                            <div class="day">22</div>
+                            <div class="day">23</div>
+                            <div class="day">24</div>
+                            <div class="day">25</div>
+                            <div class="day">26</div>
+                            <div class="day">27</div>
+                            <div class="day">28</div>
+
+                            <div class="day">29</div>
+                            <div class="day">30</div>
+                            <div class="day">31</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="countdown-section">
+        <div class="content-wrapper">
+            <div class="header-group">
+                <h2 class="shadow-title" aria-hidden="true">Մեր Կյանքի Կարևոր Օրը՝ Ձեր Ներկայությամբ</h2>
+                <h2 class="main-title">Մեր Կյանքի Կարևոր Օրը՝ Ձեր Ներկայությամբ</h2>
+            </div>
+            <div class="countdown-container">
+                <div class="countdown-unit">
+                    <span id="days" class="number">00</span>
+                    <span class="label">Օր</span>
+                </div>
+                <div class="countdown-separator">։</div>
+                <div class="countdown-unit">
+                    <span id="hours" class="number">00</span>
+                    <span class="label">Ժամ</span>
+                </div>
+                <div class="countdown-separator">։</div>
+                <div class="countdown-unit">
+                    <span id="minutes" class="number">00</span>
+                    <span class="label">Րոպե</span>
+                </div>
+                <div class="countdown-separator">։</div>
+                <div class="countdown-unit">
+                    <span id="seconds" class="number">00</span>
+                    <span class="label">Վայրկյան</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline-section">
+        <div class="content-wrapper">
+            <div class="header-group">
+                <h2 class="shadow-title" aria-hidden="true">Ժամանակացույց</h2>
+                <h2 class="main-title">Ժամանակացույց</h2>
+            </div>
+            <div class="timeline-grid">
+                <div class="timeline-item">
+                    <img src="assets/husband.svg" alt="Husband" class="event-icon">
+                    <div class="event-details">
+                        <span class="event-time">11:00</span>
+                        <span class="event-label">Փեսայի տուն</span>
+                        <span class="event-location">Ք. Երևան, Աբովյան փող. 45</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <img src="assets/bride.svg" alt="Bride" class="event-icon">
+                    <div class="event-details">
+                        <span class="event-time">12:00</span>
+                        <span class="event-label">Հարսի տուն</span>
+                        <span class="event-location">Ք. Երևան, Կոմիտասի պող. 19</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <img src="assets/diamond.svg" alt="Diamond" class="event-icon">
+                    <div class="event-details">
+                        <span class="event-time">14:00</span>
+                        <span class="event-label">Պսակադրություն</span>
+                        <span class="event-location">Սուրբ Աստվածածին եկեղեցի</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <img src="assets/dinner.svg" alt="Dinner" class="event-icon">
+                    <div class="event-details">
+                        <span class="event-time">17:00</span>
+                        <span class="event-label">Հարսանյաց Հանդիսություն</span>
+                        <span class="event-location">Նոր Դվին ռեստորան</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="content-wrapper">
+            <div class="header-group">
+                <h2 class="shadow-title" aria-hidden="true">Տեղակայում</h2>
+                <h2 class="main-title">Տեղակայում</h2>
+            </div>
+            <div class="map-grid">
+                <div class="map-item">
+                    <h3 class="map-title">Սուրբ Աստվածածին եկեղեցի</h3>
+                    <div class="event-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5127.368648468285!2d44.29693604788045!3d40.170083120163156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406a95dacf75a63d%3A0x9584bd5c726b28a7!2sHoly%20Mother%20of%20God%20Church!5e0!3m2!1sen!2sam!4v1774933938893!5m2!1sen!2sam" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                <div class="map-item">
+                    <h3 class="map-title">Նոր Դվին ռեստորան</h3>
+                    <div class="event-map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.3846433967615!2d44.2915602!3d40.1782526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406a94eab4d0fb39%3A0x686139cd2968c37c!2sRhodes%20(Nor%20Dvin)!5e0!3m2!1sen!2sam!4v1774933726221!5m2!1sen!2sam" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rsvp-section">
+        <div class="content-wrapper">
+            <div class="split-layout">
+                <div class="photo-container">
+                    <img src="assets/form-photo.webp" alt="Wedding Couple" class="form-photo">
+                </div>
+                <div class="form-wrapper">
+                    <div class="header-group">
+                        <h2 class="shadow-title" aria-hidden="true">Խնդրում ենք Նախապես Տեղեկացնել Ձեր Մասնակցության
+                            մասին</h2>
+                        <h2 class="main-title">Խնդրում ենք Նախապես Տեղեկացնել Ձեր Մասնակցության մասին</h2>
+                    </div>
+                    <form id="rsvp-form" class="rsvp-form">
+                        <div class="rsvp-options-grid">
+                            <div class="options-group">
+                                <label class="custom-radio">
+                                    <input type="radio" name="attendance" value="yes" checked>
+                                    <span class="radio-mark"></span>
+                                    <span class="radio-label">Սիրով կգանք</span>
+                                </label>
+                                <label class="custom-radio">
+                                    <input type="radio" name="attendance" value="no">
+                                    <span class="radio-mark"></span>
+                                    <span class="radio-label">Ցավոք, չենք կարող գալ</span>
+                                </label>
+                            </div>
+                            <div class="options-group">
+                                <label class="custom-radio">
+                                    <input type="radio" name="side" value="groom">
+                                    <span class="radio-mark"></span>
+                                    <span class="radio-label">Փեսայի կողմ</span>
+                                </label>
+                                <label class="custom-radio">
+                                    <input type="radio" name="side" value="bride" checked>
+                                    <span class="radio-mark"></span>
+                                    <span class="radio-label">Հարսի կողմ</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <div class="form-field">
+                                <input type="text" name="guest_name" placeholder="Անուն Ազգանուն" required>
+                                <div class="line"></div>
+                            </div>
+                            <div class="form-field">
+                                <input type="text" name="guest_count" placeholder="Հյուրերի թիվ" required>
+                                <div class="line"></div>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-button">Ուղարկել</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

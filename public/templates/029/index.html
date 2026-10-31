@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0F2C">
+  <title>SUMMIT 2025 | Where Vision Meets Execution</title>
+  <meta name="description"
+    content="Join 500+ industry leaders at SUMMIT 2025 in Moscow. 12 world-class speakers, 3 tracks, and unmatched networking. March 15, 2025.">
+  <meta name="keywords" content="summit, conference, business event, 2025, leadership, innovation">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Scroll Progress -->
+  <div id="scroll-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+    aria-label="Scroll progress"></div>
+
+  <!-- Cursor Spotlight -->
+  <div id="cursor-spotlight" aria-hidden="true">
+    <div class="spotlight-circle"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">Summit <span class="highlight">2025</span></a>
+
+      <div class="nav-links">
+        <a href="#about" class="nav-link">Մասին</a>
+        <a href="#speakers" class="nav-link">Բանախոսներ</a>
+        <a href="#agenda" class="nav-link">Օրակարգ</a>
+        <a href="#venue" class="nav-link">Վայր</a>
+      </div>
+
+      <a href="#rsvp" class="nav-cta magnetic-btn">Գրանցվել</a>
+
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-menu-inner">
+        <a href="#about" class="mobile-nav-link" data-mobile-link>Մասին</a>
+        <a href="#speakers" class="mobile-nav-link" data-mobile-link>Բանախոսներ</a>
+        <a href="#agenda" class="mobile-nav-link" data-mobile-link>Օրակարգ</a>
+        <a href="#venue" class="mobile-nav-link" data-mobile-link>Վայր</a>
+        <a href="#rsvp" class="mobile-nav-cta magnetic-btn" data-mobile-link>Գրանցվել</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main style="scroll-behavior: smooth;">
+
+    <!-- ==================== HERO ==================== -->
+    <section id="hero" class="hero blueprint-grid">
+      <canvas id="particle-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+
+      <div class="hero-gradient-overlay" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <!-- Logo badge -->
+        <div class="glass-card hero-badge">
+          <span>ԲԻԶՆԵՍԻ ԱՊԱԳԱՆ</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="hero-title">ԿՈՐՊՈՐԱՏԻՎ <span class="highlight">ՍԱՄԻԹ</span> 2025</h1>
+
+        <!-- Tagline -->
+        <p class="hero-tagline">ԲԻԶՆԵՍԻ ՍԱՀՄԱՆՆԵՐԻՑ ԱՅՆ ԿՈՂՄ</p>
+
+        <!-- Countdown -->
+        <div class="countdown" id="countdown" role="timer" aria-label="Countdown to event">
+          <div class="countdown-segment">
+            <div class="countdown-item">
+              <div class="glass-card countdown-value"><span id="cd-days">00</span></div>
+              <span class="countdown-label">ՕՐ</span>
+            </div>
+            <span class="countdown-separator">:</span>
+          </div>
+          <div class="countdown-segment">
+            <div class="countdown-item">
+              <div class="glass-card countdown-value"><span id="cd-hours">00</span></div>
+              <span class="countdown-label">ԺԱՄ</span>
+            </div>
+            <span class="countdown-separator">:</span>
+          </div>
+          <div class="countdown-segment">
+            <div class="countdown-item">
+              <div class="glass-card countdown-value"><span id="cd-mins">00</span></div>
+              <span class="countdown-label">ՐՈՊԵ</span>
+            </div>
+            <span class="countdown-separator">:</span>
+          </div>
+          <div class="countdown-segment">
+            <div class="countdown-item">
+              <div class="glass-card countdown-value"><span id="cd-secs">00</span></div>
+              <span class="countdown-label">ՎՐԿ</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Date -->
+        <p class="hero-date">15 Մարտի, 2025</p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-buttons">
+          <a href="#rsvp" class="magnetic-btn glass-card hero-btn hero-btn-primary">Գրանցվել հիմա</a>
+          <a href="#agenda" class="magnetic-btn glass-card hero-btn hero-btn-secondary">Տեսնել օրակարգը</a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section id="about" class="section" data-animate>
+      <!-- Rotating globe background -->
+      <div class="about-globe" aria-hidden="true">
+        <svg viewBox="0 0 400 400">
+          <circle cx="200" cy="200" r="180" fill="none" stroke="#0057FF" stroke-width="0.5" />
+          <ellipse cx="200" cy="200" rx="180" ry="80" fill="none" stroke="#0057FF" stroke-width="0.5" />
+          <ellipse cx="200" cy="200" rx="180" ry="80" fill="none" stroke="#0057FF" stroke-width="0.5"
+            transform="rotate(60 200 200)" />
+          <ellipse cx="200" cy="200" rx="180" ry="80" fill="none" stroke="#0057FF" stroke-width="0.5"
+            transform="rotate(120 200 200)" />
+          <line x1="20" y1="200" x2="380" y2="200" stroke="#0057FF" stroke-width="0.3" />
+          <line x1="200" y1="20" x2="200" y2="380" stroke="#0057FF" stroke-width="0.3" />
+        </svg>
+      </div>
+
+      <div class="container-sm" data-in-view="0.2">
+        <p class="section-label">Միջոցառման մասին</p>
+        <h2 class="section-title">Գործարար աշխարհի գլխավոր հանդիպումը</h2>
+        <p class="section-desc">
+          ՍԱՄԻԹ 2025-ը մեկ հարկի տակ է հավաքում տեխնոլոգիաների, ֆինանսների և ռազմավարության ոլորտի ամենաազդեցիկ մտքերին:
+          Սա այն վայրն է, որտեղ ստեղծվում են բեկումնային գործընկերություններ, ծնվում են ոլորտը ձևավորող գաղափարներ և
+          գրվում է բիզնեսի ապագան: Նշեք ձեր օրացույցում՝ սա տարվա գլխավոր իրադարձությունն է:
+        </p>
+
+        <!-- Stats grid -->
+        <div class="stats-grid">
+          <div class="glass-card stat-card" data-counter="1" data-suffix="">
+            <span class="stat-value">0</span>
+            <p class="stat-label">ՏԵՍԼԱԿԱՆ</p>
+          </div>
+          <div class="glass-card stat-card" data-counter="500" data-suffix="+">
+            <span class="stat-value">0</span>
+            <p class="stat-label">ՄԱՍՆԱԿԻՑ</p>
+          </div>
+          <div class="glass-card stat-card" data-counter="12" data-suffix="">
+            <span class="stat-value">0</span>
+            <p class="stat-label">ԲԱՆԱԽՈՍ</p>
+          </div>
+          <div class="glass-card stat-card" data-counter="3" data-suffix="">
+            <span class="stat-value">0</span>
+            <p class="stat-label">ՈՒՂՂՈՒԹՅՈՒՆ</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== WHY ATTEND ==================== -->
+    <section class="section" data-animate>
+      <div class="container" data-in-view="0.1">
+        <p class="section-label center">Ինչու մասնակցել</p>
+        <h2 class="section-title center">Ձեր առավելությունը սկսվում է այստեղ</h2>
+
+        <div class="reasons-grid">
+          <div class="glass-card reason-card" data-delay="0">
+            <div class="reason-icon">
+              <!-- Networking Icon -->
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="16" cy="16" r="6" />
+                <circle cx="32" cy="16" r="6" />
+                <circle cx="24" cy="32" r="6" />
+                <path d="M20 20L22 28" stroke-linecap="round" />
+                <path d="M28 20L26 28" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3 class="reason-title">Բացառիկ Նեթվորքինգ</h3>
+            <p class="reason-desc">Կապ հաստատեք 500+ բարձրաստիճան ղեկավարների, ներդրողների և նորարարների հետ՝ նախապես
+              մշակված նեթվորքինգային սեսիաների ընթացքում:</p>
+          </div>
+
+          <div class="glass-card reason-card" data-delay="150">
+            <div class="reason-icon">
+              <!-- Insights Icon -->
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="8" y="8" width="32" height="32" rx="4" />
+                <path d="M16 32L22 22L28 26L36 14" stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="36" cy="14" r="2" fill="currentColor" />
+              </svg>
+            </div>
+            <h3 class="reason-title">Ոլորտի Ինսայթներ</h3>
+            <p class="reason-desc">Ստացեք ուղղակի հասանելիություն արդիական հետազոտություններին, շուկայի կանխատեսումներին
+              և ռազմավարական մոտեցումներին 12 համաշխարհային մակարդակի բանախոսներից:</p>
+          </div>
+
+          <div class="glass-card reason-card" data-delay="300">
+            <div class="reason-icon">
+              <!-- Access Icon -->
+              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M24 8L24 40" stroke-linecap="round" />
+                <path d="M8 24L40 24" stroke-linecap="round" />
+                <circle cx="24" cy="24" r="16" />
+                <circle cx="24" cy="24" r="4" fill="currentColor" />
+              </svg>
+            </div>
+            <h3 class="reason-title">Ուղղակի Կապ Որոշում Կայացնողների Հետ</h3>
+            <p class="reason-desc">Բաց մի թողեք հնարավորությունը հանդիպելու այն մարդկանց, ովքեր ձևավորում են ոլորտները և
+              կայացնում են միլիարդավոր դոլարների հասնող որոշումներ:</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SPEAKERS ==================== -->
+    <section id="speakers" class="section" data-animate>
+      <div class="container" data-in-view="0.1">
+        <p class="section-label center">Բանախոսներ</p>
+        <h2 class="section-title center">Պատվավոր հյուրեր</h2>
+
+        <div class="speakers-grid">
+          <!-- Speaker 1 -->
+          <div class="speaker-card" data-delay="0">
+            <div class="speaker-card-inner">
+              <div class="speaker-card-front glass-card">
+                <div class="speaker-verified">
+                  <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+                    <path d="M4 8L7 11L12 5" stroke="white" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="speaker-img-wrapper">
+                  <img src="assets/speaker-1.webp" alt="Էլենա Վարդանյանի դիմանկարը">
+                </div>
+                <div class="speaker-info">
+                  <h3 class="speaker-name">Էլենա Վարդանյան</h3>
+                  <p class="speaker-role">Գլխավոր տնօրեն, Tech Armenia</p>
+                </div>
+              </div>
+              <div class="speaker-card-back glass-card">
+                <div>
+                  <h3 class="speaker-back-name">Էլենա Վարդանյան</h3>
+                  <p class="speaker-back-role">Գլխավոր տնօրեն, Tech Armenia</p>
+                  <p class="speaker-bio">15+ տարվա փորձ թվային տրանսֆորմացիայի ոլորտում։ Davos 2024-ի հիմնական բանախոս:
+                  </p>
+                </div>
+                <a href="#" class="speaker-linkedin" aria-label="Էլենա Վարդանյանի LinkedIn պրոֆիլը">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                  <span>Կապ հաստատել</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Speaker 2 -->
+          <div class="speaker-card" data-delay="100">
+            <div class="speaker-card-inner">
+              <div class="speaker-card-front glass-card">
+                <div class="speaker-verified">
+                  <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+                    <path d="M4 8L7 11L12 5" stroke="white" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="speaker-img-wrapper">
+                  <img src="assets/speaker-2.webp" alt="Ռոբերտ Կարապետյանի դիմանկարը">
+                </div>
+                <div class="speaker-info">
+                  <h3 class="speaker-name">Ռոբերտ Կարապետյան</h3>
+                  <p class="speaker-role">Կառավարող տնօրեն, Apex Ventures</p>
+                </div>
+              </div>
+              <div class="speaker-card-back glass-card">
+                <div>
+                  <h3 class="speaker-back-name">Ռոբերտ Կարապետյան</h3>
+                  <p class="speaker-back-role">Կառավարող տնօրեն, Apex Ventures</p>
+                  <p class="speaker-bio">Ֆինտեխ ներդրումների ռահվիրա՝ 2 մլրդ դոլար+ պորտֆելով։ Երեք հանրային
+                    ընկերությունների խորհրդի անդամ:</p>
+                </div>
+                <a href="#" class="speaker-linkedin" aria-label="Ռոբերտ Կարապետյանի LinkedIn պրոֆիլը">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                  <span>Կապ հաստատել</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Speaker 3 -->
+          <div class="speaker-card" data-delay="200">
+            <div class="speaker-card-inner">
+              <div class="speaker-card-front glass-card">
+                <div class="speaker-verified">
+                  <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+                    <path d="M4 8L7 11L12 5" stroke="white" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="speaker-img-wrapper">
+                  <img src="assets/speaker-3.webp" alt="Սառա Գրիգորյանի դիմանկարը">
+                </div>
+                <div class="speaker-info">
+                  <h3 class="speaker-name">Սառա Գրիգորյան</h3>
+                  <p class="speaker-role">Տեխնիկական տնօրեն, NeuralScale AI</p>
+                </div>
+              </div>
+              <div class="speaker-card-back glass-card">
+                <div>
+                  <h3 class="speaker-back-name">Սառա Գրիգորյան</h3>
+                  <p class="speaker-back-role">Տեխնիկական տնօրեն, NeuralScale AI</p>
+                  <p class="speaker-bio">Google DeepMind-ի նախկին հետազոտող։ Ընդգրկվել է Forbes 30 Under 30 ցուցակում
+                    AI-ի ոլորտում իր հաջողությունների համար:</p>
+                </div>
+                <a href="#" class="speaker-linkedin" aria-label="Սառա Գրիգորյանի LinkedIn պրոֆիլը">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                  <span>Կապ հաստատել</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Speaker 4 -->
+          <div class="speaker-card" data-delay="300">
+            <div class="speaker-card-inner">
+              <div class="speaker-card-front glass-card">
+                <div class="speaker-verified">
+                  <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+                    <path d="M4 8L7 11L12 5" stroke="white" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="speaker-img-wrapper">
+                  <img src="assets/speaker-4.webp" alt="Portrait of Marcus Williams">
+                </div>
+                <div class="speaker-info">
+                  <h3 class="speaker-name">Marcus Williams</h3>
+                  <p class="speaker-role">VP of Strategy, Horizon Group</p>
+                </div>
+              </div>
+              <div class="speaker-card-back glass-card">
+                <div>
+                  <h3 class="speaker-back-name">Marcus Williams</h3>
+                  <p class="speaker-back-role">VP of Strategy, Horizon Group</p>
+                  <p class="speaker-bio">Architect of the $4B Horizon-Meridian merger. Expert in cross-border M&amp;A
+                    and corporate restructuring.</p>
+                </div>
+                <a href="#" class="speaker-linkedin" aria-label="Marcus Williams LinkedIn profile">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                  <span>Connect</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Speaker 5 -->
+          <div class="speaker-card" data-delay="400">
+            <div class="speaker-card-inner">
+              <div class="speaker-card-front glass-card">
+                <div class="speaker-verified">
+                  <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+                    <path d="M4 8L7 11L12 5" stroke="white" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="speaker-img-wrapper">
+                  <img src="assets/speaker-5.webp" alt="Portrait of Priya Sharma">
+                </div>
+                <div class="speaker-info">
+                  <h3 class="speaker-name">Priya Sharma</h3>
+                  <p class="speaker-role">Head of Innovation, Quantum Systems</p>
+                </div>
+              </div>
+              <div class="speaker-card-back glass-card">
+                <div>
+                  <h3 class="speaker-back-name">Priya Sharma</h3>
+                  <p class="speaker-back-role">Head of Innovation, Quantum Systems</p>
+                  <p class="speaker-bio">Led the development of breakthrough quantum computing applications for
+                    enterprise clients globally.</p>
+                </div>
+                <a href="#" class="speaker-linkedin" aria-label="Priya Sharma LinkedIn profile">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                  <span>Connect</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Speaker 6 -->
+          <div class="speaker-card" data-delay="500">
+            <div class="speaker-card-inner">
+              <div class="speaker-card-front glass-card">
+                <div class="speaker-verified">
+                  <svg viewBox="0 0 16 16" fill="none" width="14" height="14">
+                    <path d="M4 8L7 11L12 5" stroke="white" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </div>
+                <div class="speaker-img-wrapper">
+                  <img src="assets/speaker-6.webp" alt="Portrait of Daniel Kessler">
+                </div>
+                <div class="speaker-info">
+                  <h3 class="speaker-name">Daniel Kessler</h3>
+                  <p class="speaker-role">Founder, Strato Analytics</p>
+                </div>
+              </div>
+              <div class="speaker-card-back glass-card">
+                <div>
+                  <h3 class="speaker-back-name">Daniel Kessler</h3>
+                  <p class="speaker-back-role">Founder, Strato Analytics</p>
+                  <p class="speaker-bio">Serial entrepreneur with three successful exits. Passionate about building
+                    data-driven organizations.</p>
+                </div>
+                <a href="#" class="speaker-linkedin" aria-label="Daniel Kessler LinkedIn profile">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                  <span>Connect</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== AGENDA ==================== -->
+    <section id="agenda" class="section" data-animate>
+      <div class="container-md" data-in-view="0.05">
+        <p class="section-label center">Օրակարգ</p>
+        <h2 class="section-title center">Ժամանակացույցը</h2>
+
+        <!-- Track legend -->
+        <div class="agenda-legend">
+          <div class="agenda-legend-item">
+            <div class="agenda-legend-dot dot-strategy"></div>
+            <span class="agenda-legend-label">Ռազմավարություն</span>
+          </div>
+          <div class="agenda-legend-item">
+            <div class="agenda-legend-dot dot-tech"></div>
+            <span class="agenda-legend-label">Տեխնոլոգիա</span>
+          </div>
+          <div class="agenda-legend-item">
+            <div class="agenda-legend-dot dot-networking"></div>
+            <span class="agenda-legend-label">Նեթվորքինգ</span>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline">
+          <div class="timeline-line" aria-hidden="true"></div>
+
+          <div class="timeline-items" id="agenda-items">
+            <!-- Item 0 -->
+            <div class="timeline-item" data-delay="0">
+              <button class="timeline-button" data-agenda="0" aria-expanded="false">
+                <span class="timeline-time">09:00<br><span class="timeline-time-ampm">AM</span></span>
+                <div class="timeline-dot-wrapper">
+                  <div class="timeline-dot dot-strategy"></div>
+                </div>
+                <div class="timeline-content">
+                  <div class="track-content track-strategy">
+                    <div class="track-header">
+                      <h3 class="track-title">Բացման հիմնական ելույթ։ Հաջորդ տասնամյակը</h3>
+                      <svg class="track-chevron" viewBox="0 0 16 16" fill="none">
+                        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                      </svg>
+                    </div>
+                    <p class="track-speaker">Էլենա Վարդանյան</p>
+                  </div>
+                  <div class="track-expand" data-expand="0">
+                    <p>Համարձակ տեսլական գալիք տասնամյակի համար — ինչպես տեխնոլոգիաները, կապիտալը և մարդկային ստեղծագործ
+                      միտքը կվերափոխեն արդյունաբերությունը:</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            <!-- Item 1 -->
+            <div class="timeline-item" data-delay="80">
+              <button class="timeline-button" data-agenda="1" aria-expanded="false">
+                <span class="timeline-time">10:00<br><span class="timeline-time-ampm">AM</span></span>
+                <div class="timeline-dot-wrapper">
+                  <div class="timeline-dot dot-tech"></div>
+                </div>
+                <div class="timeline-content">
+                  <div class="track-content track-tech">
+                    <div class="track-header">
+                      <h3 class="track-title">AI-ը մասշտաբում. հետազոտությունից մինչև եկամուտ</h3>
+                      <svg class="track-chevron" viewBox="0 0 16 16" fill="none">
+                        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                      </svg>
+                    </div>
+                    <p class="track-speaker">Սառա Գրիգորյան</p>
+                  </div>
+                  <div class="track-expand" data-expand="1">
+                    <p>Իմացեք, թե ինչպես են առաջատար կազմակերպությունները AI փորձնական ծրագրերից անցնում արտադրական
+                      համակարգերի:</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="timeline-item" data-delay="160">
+              <button class="timeline-button" data-agenda="2" aria-expanded="false">
+                <span class="timeline-time">11:00<br><span class="timeline-time-ampm">AM</span></span>
+                <div class="timeline-dot-wrapper">
+                  <div class="timeline-dot dot-strategy"></div>
+                </div>
+                <div class="timeline-content">
+                  <div class="track-content track-strategy">
+                    <div class="track-header">
+                      <h3 class="track-title">Ռազմավարական M&amp;A-ի արվեստը</h3>
+                      <svg class="track-chevron" viewBox="0 0 16 16" fill="none">
+                        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                      </svg>
+                    </div>
+                    <p class="track-speaker">Մարկուս Սարգսյան</p>
+                  </div>
+                  <div class="track-expand" data-expand="2">
+                    <p>Տասնամյակի խոշորագույն գործարքների ներսում: Իմացեք միլիարդավոր դոլարների միաձուլումների և
+                      կլանումների ետևում թաքնված մարտավարությունները:</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="timeline-item" data-delay="240">
+              <button class="timeline-button" data-agenda="3" aria-expanded="false">
+                <span class="timeline-time">12:00<br><span class="timeline-time-ampm">PM</span></span>
+                <div class="timeline-dot-wrapper">
+                  <div class="timeline-dot dot-networking"></div>
+                </div>
+                <div class="timeline-content">
+                  <div class="track-content track-networking">
+                    <div class="track-header">
+                      <h3 class="track-title">Նեթվորքինգային ճաշ և կլոր սեղաններ</h3>
+                      <svg class="track-chevron" viewBox="0 0 16 16" fill="none">
+                        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                      </svg>
+                    </div>
+                    <p class="track-speaker">Բոլոր բանախոսները</p>
+                  </div>
+                  <div class="track-expand" data-expand="3">
+                    <p>Քննարկումներ կլոր սեղանի շուրջ պրեմիում դասի ճաշի ընթացքում:</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="timeline-item" data-delay="320">
+              <button class="timeline-button" data-agenda="4" aria-expanded="false">
+                <span class="timeline-time">01:30<br><span class="timeline-time-ampm">PM</span></span>
+                <div class="timeline-dot-wrapper">
+                  <div class="timeline-dot dot-tech"></div>
+                </div>
+                <div class="timeline-content">
+                  <div class="track-content track-tech">
+                    <div class="track-header">
+                      <h3 class="track-title">Քվանտային հաշվարկներ. բիզնեսի հիմնավորում</h3>
+                      <svg class="track-chevron" viewBox="0 0 16 16" fill="none">
+                        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                      </svg>
+                    </div>
+                    <p class="track-speaker">Պրիյա Հակոբյան</p>
+                  </div>
+                  <div class="track-expand" data-expand="4">
+                    <p>Քվանտային հաշվարկների կիրառությունները, որոնք պատրաստ են ձեռնարկատիրական ներդրման այսօր:</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="timeline-item" data-delay="400">
+              <button class="timeline-button" data-agenda="5" aria-expanded="false">
+                <span class="timeline-time">02:30<br><span class="timeline-time-ampm">PM</span></span>
+                <div class="timeline-dot-wrapper">
+                  <div class="timeline-dot dot-tech"></div>
+                </div>
+                <div class="timeline-content">
+                  <div class="track-content track-tech">
+                    <div class="track-header">
+                      <h3 class="track-title">Տվյալահեն կազմակերպությունների ստեղծում</h3>
+                      <svg class="track-chevron" viewBox="0 0 16 16" fill="none">
+                        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                      </svg>
+                    </div>
+                    <p class="track-speaker">Դանիել Մանուկյան</p>
+                  </div>
+                  <div class="track-expand" data-expand="5">
+                    <p>Անհրաժեշտ ենթակառուցվածքները, մշակույթը և գործընթացները տվյալների հետ աշխատող ընկերությունների
+                      համար:</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="timeline-item" data-delay="480">
+              <button class="timeline-button" data-agenda="6" aria-expanded="false">
+                <span class="timeline-time">03:30<br><span class="timeline-time-ampm">PM</span></span>
+                <div class="timeline-dot-wrapper">
+                  <div class="timeline-dot dot-strategy"></div>
+                </div>
+                <div class="timeline-content">
+                  <div class="track-content track-strategy">
+                    <div class="track-header">
+                      <h3 class="track-title">Կապիտալի շուկաների ապագան</h3>
+                      <svg class="track-chevron" viewBox="0 0 16 16" fill="none">
+                        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                      </svg>
+                    </div>
+                    <p class="track-speaker">Ռոբերտ Կարապետյան</p>
+                  </div>
+                  <div class="track-expand" data-expand="6">
+                    <p>Ինչպես են տոկենիզացիան և կարգավորող փոփոխությունները վերափոխում ներդրումները:</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="timeline-item" data-delay="560">
+              <button class="timeline-button" data-agenda="7" aria-expanded="false">
+                <span class="timeline-time">04:30<br><span class="timeline-time-ampm">PM</span></span>
+                <div class="timeline-dot-wrapper">
+                  <div class="timeline-dot dot-networking"></div>
+                </div>
+                <div class="timeline-content">
+                  <div class="track-content track-networking">
+                    <div class="track-header">
+                      <h3 class="track-title">VIP Նեթվորքինգ ընդունելություն</h3>
+                      <svg class="track-chevron" viewBox="0 0 16 16" fill="none">
+                        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                      </svg>
+                    </div>
+                    <p class="track-speaker">Բոլոր մասնակիցները</p>
+                  </div>
+                  <div class="track-expand" data-expand="7">
+                    <p>Բացառիկ կոկտեյլ երեկո պրեմիում նեթվորքինգի համար:</p>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== VENUE ==================== -->
+    <section id="venue" class="section" data-animate style="overflow: hidden;">
+      <div class="container" data-in-view="0.1">
+        <p class="section-label center">Վայր</p>
+        <h2 class="section-title center">Միջավայրը</h2>
+
+        <div class="venue-grid" id="venue-grid">
+          <!-- Venue image -->
+          <div class="venue-img-wrapper">
+            <img src="assets/venue.webp" alt="Grand Hyatt Moscow conference venue">
+            <div class="venue-img-overlay"></div>
+          </div>
+
+          <!-- Venue info -->
+          <div class="glass-card venue-info">
+            <div>
+              <p class="venue-sublabel">Վայր</p>
+              <h3 class="venue-name">Գրանդ Հայաթ Երևան</h3>
+
+              <div class="venue-details">
+                <div class="venue-detail">
+                  <svg class="venue-detail-icon" viewBox="0 0 20 20" fill="none">
+                    <path d="M10 2C6.686 2 4 4.686 4 8c0 4.5 6 10 6 10s6-5.5 6-10c0-3.314-2.686-6-6-6z"
+                      stroke="currentColor" stroke-width="1.5" />
+                    <circle cx="10" cy="8" r="2" stroke="currentColor" stroke-width="1.5" />
+                  </svg>
+                  <div>
+                    <p class="venue-detail-text">Ամիրյան փողոց 1, Երևան</p>
+                    <p class="venue-detail-sub">Երևան, Հայաստան 0010</p>
+                  </div>
+                </div>
+
+                <div class="venue-detail">
+                  <svg class="venue-detail-icon" viewBox="0 0 20 20" fill="none">
+                    <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M10 6V10L13 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                  </svg>
+                  <div>
+                    <p class="venue-detail-text">15 Մարտի, 2025</p>
+                    <p class="venue-detail-sub">09:00 - 18:00</p>
+                  </div>
+                </div>
+
+                <div class="venue-detail">
+                  <svg class="venue-detail-icon" viewBox="0 0 20 20" fill="none">
+                    <rect x="3" y="3" width="14" height="14" rx="2" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M7 7H13M7 10H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                  </svg>
+                  <div>
+                    <p class="venue-detail-text">Գործարար ֆորմալ</p>
+                    <p class="venue-detail-sub">Դրես-կոդ</p>
+                  </div>
+                </div>
+
+                <div class="venue-detail">
+                  <svg class="venue-detail-icon" viewBox="0 0 20 20" fill="none">
+                    <path d="M3 8L10 4L17 8L10 12L3 8Z" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M3 12L10 16L17 12" stroke="currentColor" stroke-width="1.5" />
+                  </svg>
+                  <div>
+                    <p class="venue-detail-text">500+ Մարդ</p>
+                    <p class="venue-detail-sub">Գլխավոր դահլիճ և սրահներ</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="mailto:info@summit2025.am" class="venue-email">info@summit2025.am</a>
+          </div>
+        </div>
+
+        <!-- Map placeholder -->
+        <div class="glass-card venue-map">
+          <div class="venue-map-inner">
+            <div class="venue-map-content">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M24 4C16.268 4 10 10.268 10 18c0 10 14 26 14 26s14-16 14-26c0-7.732-6.268-14-14-14z"
+                  stroke="currentColor" stroke-width="1.5" />
+                <circle cx="24" cy="18" r="5" stroke="currentColor" stroke-width="1.5" />
+              </svg>
+              <p class="venue-map-name">Գրանդ Հայաթ Երևան</p>
+              <p class="venue-map-coords">40.1775° N, 44.5126° E</p>
+            </div>
+          </div>
+          <div class="venue-map-grid blueprint-grid" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SPONSORS ==================== -->
+    <section class="sponsors">
+      <div class="sponsors-title-wrap">
+        <p class="section-label center">Գործընկերներ և Հովանավորներ</p>
+      </div>
+
+      <div class="marquee-wrapper">
+        <div class="marquee-fade-left" aria-hidden="true"></div>
+        <div class="marquee-fade-right" aria-hidden="true"></div>
+        <div class="marquee-track" aria-label="Our sponsors and partners">
+          <div class="sponsor-logo"><span>Kastano</span></div>
+          <div class="sponsor-logo"><span>Shopify</span></div>
+          <div class="sponsor-logo"><span>Microsoft</span></div>
+          <div class="sponsor-logo"><span>Saton</span></div>
+          <div class="sponsor-logo"><span>Colisn</span></div>
+          <div class="sponsor-logo"><span>Sposhins</span></div>
+          <div class="sponsor-logo"><span>Nexara</span></div>
+          <div class="sponsor-logo"><span>Vectris</span></div>
+          <!-- Duplicate for seamless loop -->
+          <div class="sponsor-logo"><span>Kastano</span></div>
+          <div class="sponsor-logo"><span>Shopify</span></div>
+          <div class="sponsor-logo"><span>Microsoft</span></div>
+          <div class="sponsor-logo"><span>Saton</span></div>
+          <div class="sponsor-logo"><span>Colisn</span></div>
+          <div class="sponsor-logo"><span>Sposhins</span></div>
+          <div class="sponsor-logo"><span>Nexara</span></div>
+          <div class="sponsor-logo"><span>Vectris</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== RSVP ==================== -->
+    <section id="rsvp" class="section" data-animate>
+      <div class="container-xs" data-in-view="0.1">
+        <p class="section-label center">Գրանցում</p>
+        <h2 class="section-title center">Ամրագրեք ձեր տեղը</h2>
+
+        <div class="glass-card rsvp-card" id="rsvp-card">
+          <!-- Terminal header -->
+          <div class="terminal-header">
+            <div class="terminal-dot red"></div>
+            <div class="terminal-dot yellow"></div>
+            <div class="terminal-dot green"></div>
+            <span class="terminal-title">summit-2025 -- registration</span>
+          </div>
+
+          <div class="terminal-body">
+            <!-- Terminal prompt -->
+            <div class="terminal-prompt">
+              <span class="terminal-prompt-arrow">&gt;</span>
+              <span class="terminal-prompt-text">ՄՈՒՏՔԱԳՐԵՔ ՁԵՐ ԱՆՈՒՆԸ:</span>
+              <span class="terminal-cursor">_</span>
+            </div>
+
+            <form id="rsvp-form" class="rsvp-form">
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="rsvp-name">Ամբողջական Անուն</label>
+                  <input id="rsvp-name" type="text" required placeholder="Աննա Հովհաննիսյան">
+                </div>
+                <div class="form-field">
+                  <label for="rsvp-company">Ընկերություն</label>
+                  <input id="rsvp-company" type="text" required placeholder="ՏեքԿորպ">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="rsvp-position">Պաշտոն</label>
+                  <input id="rsvp-position" type="text" required placeholder="Տնօրեն">
+                </div>
+                <div class="form-field">
+                  <label for="rsvp-email">Էլ. փոստ</label>
+                  <input id="rsvp-email" type="email" required placeholder="anna@techcorp.am">
+                </div>
+              </div>
+
+              <div class="form-field seats">
+                <label for="rsvp-seats">Տեղերի քանակը</label>
+                <select id="rsvp-seats">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+
+              <button type="submit" class="submit-btn magnetic-btn">Ուղարկել հայտը</button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Success state (hidden initially) -->
+        <div class="glass-card rsvp-success" id="rsvp-success" style="display: none;">
+          <div class="rsvp-success-icon">
+            <svg viewBox="0 0 24 24" fill="none" width="32" height="32" style="color: var(--primary);">
+              <path d="M5 12L10 17L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <h3>Գրանցումը հաստատված է</h3>
+          <p>Բարի գալուստ, <span id="rsvp-success-name"></span>: Ձեր տեղը ՍԱՄԻԹ 2025-ում ամրագրված է:</p>
+          <p class="rsvp-confirmation-email">Հաստատման մանրամասները կուղարկվեն հետևյալ հասցեով՝ <span
+              id="rsvp-success-email"></span></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-brand-name">Summit 2025</span>
+          <p class="footer-copyright">&copy; 2025 Summit Conference. All rights reserved.</p>
+        </div>
+
+        <button class="footer-email-btn" id="copy-email-btn" aria-label="Copy email address">
+          <svg viewBox="0 0 20 20" fill="none" width="16" height="16">
+            <rect x="3" y="5" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5" />
+            <path d="M3 7L10 12L17 7" stroke="currentColor" stroke-width="1.5" />
+          </svg>
+          <span id="copy-email-text">info@summit2025.com</span>
+        </button>
+
+        <div class="footer-social">
+          <a href="#" class="glass-card footer-social-link" aria-label="X social link">X</a>
+          <a href="#" class="glass-card footer-social-link" aria-label="LI social link">LI</a>
+          <a href="#" class="glass-card footer-social-link" aria-label="IG social link">IG</a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="#" class="footer-link">Գաղտնիության քաղաքականություն</a>
+        <a href="#" class="footer-link">Օգտագործման պայմաններ</a>
+        <a href="#" class="footer-link">Կապ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

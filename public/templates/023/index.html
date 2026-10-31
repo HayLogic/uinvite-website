@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Տղա՞, թե՞ Աղջիկ — Սեռի բացահայտման խնջույք</title>
+    <meta name="description"
+        content="Միացեք մեզ տարվա ամենասպասված սեռի բացահայտման խնջույքին: Հաստատեք ձեր մասնակցությունը և դարձեք այս հրաշալի պահի մի մասնիկը:">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ==============================
+       HERO SECTION
+       ============================== -->
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="assets/hero-bg.webp" alt="Gender reveal background">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-content">
+            <p class="hero-subtitle reveal">Մեծ պահը մոտենում է...</p>
+
+            <h1 class="hero-title text-gradient-reveal reveal" style="transition-delay:0.3s">Տղա՞, թե՞ Աղջիկ</h1>
+
+            <p class="hero-desc reveal" style="transition-delay:0.6s">
+                Միացեք մեզ տարվա ամենասպասված սեռի բացահայտման խնջույքին: Անհամբեր սպասում ենք կիսելու այս հրաշալի պահը
+                ձեզ հետ:
+            </p>
+
+            <div class="hero-buttons reveal" style="transition-delay:0.9s">
+                <a href="#rsvp" class="btn-primary border-glow-pink">Հաստատել մասնակցությունը ✨</a>
+                <a href="#details" class="btn-outline">Միջոցառման մանրամասները</a>
+            </div>
+        </div>
+
+        <!-- Floating sparkles -->
+        <div class="sparkle sparkle-1"></div>
+        <div class="sparkle sparkle-2"></div>
+        <div class="sparkle sparkle-3"></div>
+    </section>
+
+    <!-- ==============================
+       COUNTDOWN SECTION
+       ============================== -->
+    <section class="section bg-gradient-section">
+        <div class="section-inner" style="max-width:896px">
+            <div class="section-header reveal">
+                <p class="subtitle text-gold">Ժամանակը գնում է...</p>
+                <h2>Հետհաշվարկ մինչև բացահայտումը</h2>
+            </div>
+
+            <div class="countdown-grid">
+                <div class="countdown-card sparkle-shadow reveal reveal-delay-1">
+                    <div class="value text-baby-blue" id="cd-days">00</div>
+                    <p class="label">Օր</p>
+                </div>
+                <div class="countdown-card sparkle-shadow reveal reveal-delay-2">
+                    <div class="value text-baby-pink" id="cd-hours">00</div>
+                    <p class="label">Ժամ</p>
+                </div>
+                <div class="countdown-card sparkle-shadow reveal reveal-delay-3">
+                    <div class="value text-baby-blue" id="cd-minutes">00</div>
+                    <p class="label">Րոպե</p>
+                </div>
+                <div class="countdown-card sparkle-shadow reveal reveal-delay-4">
+                    <div class="value text-baby-pink" id="cd-seconds">00</div>
+                    <p class="label">Վայրկյան</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+       EVENT DETAILS SECTION
+       ============================== -->
+    <section id="details" class="section bg-gradient-section">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <p class="subtitle text-baby-blue">Դարձրեք օրը հիշարժան</p>
+                <h2>Միջոցառման մանրամասները</h2>
+                <div class="gradient-divider"></div>
+            </div>
+
+            <div class="details-grid">
+                <!-- Date -->
+                <div class="detail-card reveal reveal-delay-1">
+                    <div class="icon text-baby-pink">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                            <line x1="16" x2="16" y1="2" y2="6" />
+                            <line x1="8" x2="8" y1="2" y2="6" />
+                            <line x1="3" x2="21" y1="10" y2="10" />
+                        </svg>
+                    </div>
+                    <p class="card-label">Ամսաթիվ</p>
+                    <p class="card-value">Շաբաթ, մարտի 15, 2026</p>
+                </div>
+
+                <!-- Time -->
+                <div class="detail-card reveal reveal-delay-2">
+                    <div class="icon text-baby-blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                    </div>
+                    <p class="card-label">Ժամ</p>
+                    <p class="card-value">16:00</p>
+                </div>
+
+                <!-- Location -->
+                <div class="detail-card reveal reveal-delay-3">
+                    <div class="icon text-baby-pink">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                    </div>
+                    <p class="card-label">Վայր</p>
+                    <p class="card-value">«Ֆլորենս» ռեստորանային համալիր
+                        Բարբյուսի փողոց 64, Երևան</p>
+                </div>
+
+                <!-- Phone -->
+                <div class="detail-card reveal reveal-delay-4">
+                    <div class="icon text-baby-blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                        </svg>
+                    </div>
+                    <p class="card-label">Հեռախոս</p>
+                    <p class="card-value">+374 91 23 45 67</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+       WHAT TO EXPECT SECTION
+       ============================== -->
+    <section class="section">
+        <div class="section-inner">
+            <div class="section-header reveal">
+                <p class="subtitle text-baby-blue">Ուրախ ժամանց</p>
+                <h2>Ի՞նչ է սպասվում</h2>
+                <div class="gradient-divider"></div>
+            </div>
+
+            <div class="expect-grid">
+                <!-- The Big Reveal -->
+                <div class="expect-card reveal reveal-delay-1">
+                    <div class="icon text-baby-pink">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5.8 11.3 2 22l10.7-3.79" />
+                            <path d="M4 3h.01" />
+                            <path d="M22 8h.01" />
+                            <path d="M15 2h.01" />
+                            <path d="M22 20h.01" />
+                            <path
+                                d="m22 2-2.24.75a2.9 2.9 0 0 0-1.96 3.12v0c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10" />
+                            <path d="m22 13-.82-.33c-.86-.34-1.82.2-1.98 1.11v0c-.11.7-.72 1.22-1.43 1.22H17" />
+                            <path d="m11 2 .33.82c.34.86-.2 1.82-1.11 1.98v0C9.52 4.9 9 5.52 9 6.23V7" />
+                            <path
+                                d="M11 13c1.93 1.93 2.83 4.17 2 5-.83.83-3.07-.07-5-2-1.93-1.93-2.83-4.17-2-5 .83-.83 3.07.07 5 2Z" />
+                        </svg>
+                    </div>
+                    <h3>Սեռի բացահայտումը</h3>
+                    <p>Այն պահը, որին բոլորս անհամբեր սպասում էինք:</p>
+                </div>
+
+                <!-- Sweet Treats -->
+                <div class="expect-card reveal reveal-delay-2">
+                    <div class="icon text-baby-blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-8a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8" />
+                            <path d="M4 16s.5-1 2-1 2.5 2 4 2 2.5-2 4-2 2.5 2 4 2 2-1 2-1" />
+                            <path d="M2 21h20" />
+                            <path d="M7 8v2" />
+                            <path d="M12 8v2" />
+                            <path d="M17 8v2" />
+                            <path d="M7 4h.01" />
+                            <path d="M12 4h.01" />
+                            <path d="M17 4h.01" />
+                        </svg>
+                    </div>
+                    <h3>Քաղցրավենիքներ</h3>
+                    <p>Թեմատիկ և շատ համեղ հյուրասիրություն:</p>
+                </div>
+
+                <!-- Live Music -->
+                <div class="expect-card reveal reveal-delay-3">
+                    <div class="icon text-baby-pink">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18V5l12-2v13" />
+                            <circle cx="6" cy="18" r="3" />
+                            <circle cx="18" cy="16" r="3" />
+                        </svg>
+                    </div>
+                    <h3>Լավ երաժշտություն</h3>
+                    <p>Կպարենք և կուրախանանք ողջ երեկոյան ընթացքում:</p>
+                </div>
+
+                <!-- Photo Booth -->
+                <div class="expect-card reveal reveal-delay-4">
+                    <div class="icon text-baby-blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
+                            <circle cx="12" cy="13" r="3" />
+                        </svg>
+                    </div>
+                    <h3>Լուսանկարչական անկյուն</h3>
+                    <p>Շատ գեղեցիկ, վառ և հիշարժան լուսանկարներ:</p>
+                </div>
+
+                <!-- Games & Prizes -->
+                <div class="expect-card reveal reveal-delay-5">
+                    <div class="icon text-baby-pink">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 12 20 22 4 22 4 12" />
+                            <rect width="20" height="5" x="2" y="7" />
+                            <line x1="12" x2="12" y1="22" y2="7" />
+                            <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" />
+                            <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
+                        </svg>
+                    </div>
+                    <h3>Խաղեր և նվերներ</h3>
+                    <p>Հետաքրքիր մրցույթներ բոլոր հյուրերի համար:</p>
+                </div>
+
+                <!-- Lots of Love -->
+                <div class="expect-card reveal">
+                    <div class="icon text-baby-blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                        </svg>
+                    </div>
+                    <h3>Անսահման սեր</h3>
+                    <p>Շրջապատված մտերիմների և հարազատների ջերմությամբ:</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+       TEAM VOTING SECTION
+       ============================== -->
+    <section class="section bg-gradient-section">
+        <div class="voting-section">
+            <div class="section-header reveal">
+                <p class="subtitle text-gold">Կատարեք ձեր ընտրությունը</p>
+                <h2>Ի՞նչ եք կարծում</h2>
+                <p class="text-muted" style="margin-top:16px;font-family:var(--font-body)">Քվեարկեք մինչև սեռի
+                    բացահայտումը։</p>
+            </div>
+
+            <div class="voting-buttons reveal" id="voting-buttons">
+                <button class="vote-btn boy" id="vote-boy" onclick="handleVote('boy')">
+                    <div class="emoji">👦</div>
+                    <h3 class="text-baby-blue">Թիմ Տղա</h3>
+                    <p>Փոքրիկ արքայազն է լինելու:</p>
+                </button>
+
+                <div class="vote-separator">?</div>
+
+                <button class="vote-btn girl" id="vote-girl" onclick="handleVote('girl')">
+                    <div class="emoji">👧</div>
+                    <h3 class="text-baby-pink">Թիմ Աղջիկ</h3>
+                    <p>Փոքրիկ արքայադուստր է լինելու:</p>
+                </button>
+            </div>
+
+            <div id="vote-results" class="vote-results" style="display:none">
+                <p class="results-title">Ընթացիկ արդյունքներ</p>
+                <div class="progress-bar">
+                    <div class="progress-boy" id="progress-boy" style="width:0%"></div>
+                    <div class="progress-girl" id="progress-girl" style="width:0%"></div>
+                </div>
+                <div class="vote-counts">
+                    <span id="boy-count">👦 0 ձայն</span>
+                    <span id="girl-count">0 ձայն 👧</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+       GALLERY SECTION
+       ============================== -->
+    <section class="section">
+        <div class="section-inner" style="max-width:1152px">
+            <div class="section-header reveal">
+                <p class="subtitle text-baby-pink">Հաճելի պահեր</p>
+                <h2>Գեղեցիկ հուշեր</h2>
+                <div class="gradient-divider pink-blue"></div>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item span-2 reveal">
+                    <img src="assets/balloons.webp" alt="Փուչիկներ">
+                </div>
+                <div class="gallery-item reveal reveal-delay-1">
+                    <img src="assets/baby-items.webp" alt="Մանկական կոշիկներ">
+                </div>
+                <div class="gallery-item reveal reveal-delay-2">
+                    <img src="assets/gifts.webp" alt="Նվերներ">
+                </div>
+                <div class="gallery-item span-wide reveal reveal-delay-3">
+                    <img src="assets/party-decor.webp" alt="Տոնական ձևավորում">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+       RSVP SECTION
+       ============================== -->
+    <section id="rsvp" class="section bg-gradient-section">
+        <div class="rsvp-section">
+            <div class="section-header reveal">
+                <p class="subtitle text-baby-pink">Սիրով կսպասենք բոլորիդ</p>
+                <h2>Հաստատեք մասնակցությունը</h2>
+                <div class="gradient-divider pink-blue"></div>
+            </div>
+
+            <div id="rsvp-form-wrapper" class="reveal">
+                <form id="rsvp-form" class="rsvp-form sparkle-shadow" onsubmit="handleRSVP(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Անուն Ազգանուն *</label>
+                            <input type="text" name="name" placeholder="Ձեր անունը" required>
+                            <p class="error-msg" id="err-name"></p>
+                        </div>
+                        <div class="form-group">
+                            <label>Էլ. հասցե *</label>
+                            <input type="email" name="email" placeholder="ձեր@էլհասցեն.com" required>
+                            <p class="error-msg" id="err-email"></p>
+                        </div>
+                        <div class="form-group">
+                            <label>Հեռախոս *</label>
+                            <input type="tel" name="phone" placeholder="+374 __ ___ ___" required>
+                            <p class="error-msg" id="err-phone"></p>
+                        </div>
+                        <div class="form-group">
+                            <label>Մասնակիցների քանակը</label>
+                            <select name="guests">
+                                <option value="1">1 հոգի</option>
+                                <option value="2">2 հոգի</option>
+                                <option value="3">3 հոգի</option>
+                                <option value="4">4 հոգի</option>
+                                <option value="5">5 հոգի</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:24px">
+                        <label>Ձեր կանխատեսումը</label>
+                        <div class="team-options" id="team-options">
+                            <label class="team-option" onclick="selectTeam(this, 'boy')">
+                                <input type="radio" name="team" value="Team Boy 👦">
+                                Թիմ Տղա 👦
+                            </label>
+                            <label class="team-option" onclick="selectTeam(this, 'girl')">
+                                <input type="radio" name="team" value="Team Girl 👧">
+                                Թիմ Աղջիկ 👧
+                            </label>
+                            <label class="team-option" onclick="selectTeam(this, 'surprise')">
+                                <input type="radio" name="team" value="Surprise me! 🎉">
+                                Անակնկալ է լինելու 🎉
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom:24px">
+                        <label>Հաղորդագրություն (ոչ պարտադիր)</label>
+                        <textarea name="message" placeholder="Թողեք ձեր բարեմաղթանքը ապագա ծնողներին..."
+                            rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit border-glow-pink">Հաստատել ✨</button>
+                </form>
+            </div>
+
+            <!-- Success state (hidden) -->
+            <div id="rsvp-success" class="rsvp-success sparkle-shadow" style="display:none">
+                <div class="emoji">🎉</div>
+                <h2>Շնորհակալություն։</h2>
+                <p>Ձեր մասնակցությունը հաստատված է: Անհամբեր սպասում ենք ձեզ:</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+       FOOTER
+       ============================== -->
+    <footer class="footer">
+        <p class="tagline text-gradient-reveal">Տղա՞, թե՞ Աղջիկ</p>
+        <p class="made-with">
+            Ստեղծված է մեծ սիրով
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+            </svg>
+            և անհամբերությամբ մեր փոքրիկի համար
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

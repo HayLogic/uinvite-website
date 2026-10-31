@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#050505">
+  <meta name="description" content="Աննա & Արման — 29.09.2026">
+  <title>Աննա & Արման | Wedding Invitation</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&family=Noto+Serif+Armenian:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050505;
+      --paper: #0a0a0a;
+      --white: #f7f7f4;
+      --muted: rgba(247,247,244,.66);
+      --line: rgba(247,247,244,.27);
+      --serif: "Cormorant Garamond", "Noto Serif Armenian", Georgia, serif;
+      --arm: "Noto Serif Armenian", serif;
+      --sans: "Montserrat", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--white);
+      overflow-x: hidden;
+         
+    }
+
+    /* =========================================================
+       FIXED HERO IMAGE
+       Put your generated image beside this HTML and name it:
+       hero-bg.jpg
+       ========================================================= */
+
+    .fixed-background {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(rgba(0,0,0,.33), rgba(0,0,0,.45)),
+        url("hero-bg.jpg") center center / cover no-repeat;
+    }
+
+    /* Slight dark overlay for readability */
+    .fixed-background::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.16);
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /*
+      Every section is transparent so the SAME fixed wedding image
+      remains visible while scrolling.
+    */
+    .section {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* =========================================================
+       COMMON DECORATION
+       ========================================================= */
+
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      margin: 16px auto;
+      color: var(--white);
+    }
+
+    .ornament::before,
+    .ornament::after {
+      content: "";
+      width: 54px;
+      height: 1px;
+      background: currentColor;
+      opacity: .52;
+    }
+
+    .ornament span {
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .flourish {
+      font-family: var(--serif);
+      font-size: 28px;
+      line-height: 1;
+      opacity: .9;
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 46px 22px 60px;
+      background: rgba(0,0,0,.05);
+    }
+
+    .hero-inner {
+      width: 100%;
+      padding-top: 5svh;
+    }
+
+    .save-date {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+      opacity: .9;
+      margin: 17px 0 15px;
+    }
+
+    .hero-names {
+      font-family: var(--serif);
+      font-size: clamp(57px, 17vw, 90px);
+      font-weight: 500;
+      line-height: .77;
+      letter-spacing: .045em;
+      text-shadow: 0 2px 22px rgba(0,0,0,.55);
+    }
+
+    .hero-amp {
+      display: block;
+      font-size: 43px;
+      line-height: 1;
+      margin: 19px 0;
+      font-style: italic;
+    }
+
+    .hero-date {
+      font-family: var(--serif);
+      font-size: 23px;
+      letter-spacing: .18em;
+      margin-top: 25px;
+    }
+
+    .hero-scroll {
+      margin-top: 42px;
+      opacity: .7;
+    }
+
+    .hero-scroll-text {
+      font-family: var(--sans);
+      font-size: 8px;
+      letter-spacing: .24em;
+      margin-bottom: 10px;
+    }
+
+    .scroll-circle {
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(255,255,255,.5);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      margin: 0 auto;
+      font-size: 14px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+
+    /* =========================================================
+       WELCOME
+       ========================================================= */
+
+    .welcome {
+      min-height: 360px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 65px 28px;
+      background: linear-gradient(
+        to bottom,
+        rgba(5,5,5,.42),
+        rgba(5,5,5,.58)
+      );
+      border-top: 1px solid rgba(255,255,255,.10);
+    }
+
+    .welcome h2 {
+      font-size: 27px;
+      font-weight: 500;
+      line-height: 1.35;
+      margin: 14px 0 20px;
+    }
+
+    .welcome p {
+      max-width: 390px;
+      margin: 0 auto;
+      font-family: var(--arm);
+      font-size: 16px;
+      line-height: 2;
+      color: var(--muted);
+    }
+
+    /* =========================================================
+       COUNTDOWN
+       ========================================================= */
+
+    .countdown {
+      padding: 55px 16px 62px;
+      text-align: center;
+      background: rgba(0,0,0,.54);
+      border-top: 1px solid rgba(255,255,255,.12);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .countdown-title {
+      font-family: var(--arm);
+      font-size: 17px;
+      margin-bottom: 25px;
+    }
+
+    .timer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 470px;
+      margin: 0 auto;
+    }
+
+    .time-box {
+      padding: 0 7px;
+      border-left: 1px solid var(--line);
+    }
+
+    .time-box:first-child {
+      border-left: 0;
+    }
+
+    .time-value {
+      display: block;
+      font-family: var(--serif);
+      font-size: 43px;
+      line-height: .95;
+      font-weight: 500;
+    }
+
+    .time-label {
+      display: block;
+      margin-top: 8px;
+      font-family: var(--sans);
+      font-size: 8px;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+
+    /* =========================================================
+       TIMELINE
+       ========================================================= */
+
+    .timeline-section {
+      padding: 58px 17px 68px;
+      background: rgba(0,0,0,.56);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 27px;
+      font-weight: 500;
+      margin-bottom: 36px;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 490px;
+      margin: 0 auto;
+      padding: 0 3px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      top: 39px;
+      height: 1px;
+      background: rgba(255,255,255,.42);
+    }
+
+    .timeline-items {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .timeline-item {
+      position: relative;
+      text-align: center;
+      min-width: 0;
+    }
+
+    .timeline-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 13px;
+      border: 1px solid rgba(255,255,255,.58);
+      border-radius: 50%;
+      background: rgba(5,5,5,.78);
+      display: grid;
+      place-items: center;
+      font-family: var(--serif);
+      font-size: 22px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .timeline-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--white);
+      border-radius: 50%;
+      margin: -1px auto 13px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .timeline-time {
+      font-family: var(--serif);
+      font-size: 25px;
+      margin-bottom: 7px;
+    }
+
+    .timeline-place {
+      min-height: 42px;
+      font-family: var(--arm);
+      font-size: 11px;
+      line-height: 1.6;
+      color: var(--muted);
+      padding: 0 3px;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    .footer {
+      min-height: 390px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 24px 58px;
+      background: rgba(0,0,0,.48);
+    }
+
+    .footer-love {
+      font-family: var(--arm);
+      font-size: 24px;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .footer-names {
+      font-family: var(--serif);
+      font-size: 34px;
+      letter-spacing: .13em;
+      margin-top: 16px;
+    }
+
+    .footer-made {
+      margin-top: 32px;
+      font-family: var(--arm);
+      font-size: 12px;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    .uinvite {
+      font-family: var(--serif);
+      font-size: 24px;
+      letter-spacing: .1em;
+      color: var(--white);
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 380px) {
+      .hero-names {
+        font-size: 53px;
+      }
+
+      .hero-date {
+        font-size: 20px;
+      }
+
+      .timeline-place {
+        font-size: 10px;
+      }
+
+      .timeline-time {
+        font-size: 22px;
+      }
+
+      .time-value {
+        font-size: 36px;
+      }
+    }
+
+    @media (min-width: 700px) {
+      body {
+        padding: 24px 0;
+      }
+
+      .page {
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 0 70px rgba(0,0,0,.65);
+      }
+
+      .fixed-background {
+        background-size: 520px auto;
+        background-repeat: no-repeat;
+        background-color: #050505;
+      }
+    }
+    /* =========================================
+   RSVP — TRANSPARENT / WHITE STYLE
+========================================= */
+
+.rsvp-section {
+  position: relative;
+  padding: 60px 18px 70px;
+  background: #00000080;
+  color: #fff;
+  overflow: hidden;
+}
+
+.rsvp-section .section-title {
+  text-align: center;
+  font-family: "Noto Serif Armenian", serif;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0 0 35px;
+  color: #fff;
+}
+
+.rsvp-section .section-title::after {
+  content: "♥";
+  display: block;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 17px;
+  margin: 12px auto 0;
+  color: #fff;
+  opacity: .8;
+}
+
+/* FORM */
+
+.rsvp-form {
+  max-width: 460px;
+  margin: 0 auto;
+  padding: 28px 20px 25px;
+
+  background: transparent;
+
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 16px;
+}
+
+/* FIELD */
+
+.rsvp-field {
+  margin-bottom: 24px;
+}
+
+.rsvp-label {
+  display: block;
+  margin-bottom: 10px;
+
+  font-family: "Noto Serif Armenian", serif;
+  font-size: 13px;
+  line-height: 1.6;
+
+  color: #fff;
+}
+
+/* INPUT + SELECT */
+
+.rsvp-input {
+  width: 100%;
+  height: 48px;
+
+  padding: 0 14px;
+
+  background: transparent;
+
+  border: 1px solid rgba(255,255,255,.42);
+  border-radius: 5px;
+
+  outline: none;
+
+  color: #fff;
+
+  font-family: "Noto Serif Armenian", serif;
+  font-size: 13px;
+
+  transition: .2s ease;
+}
+
+.rsvp-input:focus {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px rgba(255,255,255,.08);
+}
+
+/* SELECT */
+
+.rsvp-input option {
+  background: #080808;
+  color: #fff;
+}
+
+/* PLACEHOLDER */
+
+.rsvp-input::placeholder {
+  color: rgba(255,255,255,.65);
+}
+
+/* RADIO */
+
+.rsvp-radio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  min-height: 40px;
+  padding: 8px 10px;
+
+  font-family: "Noto Serif Armenian", serif;
+  font-size: 12px;
+
+  color: #fff;
+
+  cursor: pointer;
+
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+.rsvp-radio:last-child {
+  border-bottom: 0;
+}
+
+.rsvp-radio input {
+  appearance: none;
+
+  width: 17px;
+  height: 17px;
+  min-width: 17px;
+
+  margin: 0;
+
+  border: 1px solid rgba(255,255,255,.75);
+  border-radius: 50%;
+
+  background: transparent;
+
+  position: relative;
+  cursor: pointer;
+}
+
+.rsvp-radio input:checked {
+  border-color: #fff;
+}
+
+.rsvp-radio input:checked::after {
+  content: "";
+
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  left: 4px;
+  top: 4px;
+
+  border-radius: 50%;
+
+  background: #fff;
+}
+
+/* SUBMIT */
+
+.rsvp-submit {
+  width: 100%;
+  height: 49px;
+
+  margin-top: 5px;
+
+  border: 1px solid #fff;
+  border-radius: 4px;
+
+  background: transparent;
+  color: #fff;
+
+  font-family: "Noto Serif Armenian", serif;
+  font-size: 11px;
+  letter-spacing: .08em;
+
+  cursor: pointer;
+
+  transition: .25s ease;
+}
+
+.rsvp-submit:hover {
+  background: #fff;
+  color: #111;
+}
+
+/* SUCCESS MESSAGE */
+
+.rsvp-thanks {
+  max-width: 390px;
+
+  margin: 25px auto 0;
+
+  text-align: center;
+
+  font-family: "Noto Serif Armenian", serif;
+  font-size: 14px;
+  line-height: 1.8;
+
+  color: #fff;
+}
+
+.rsvp-thanks::before {
+  content: "♥";
+
+  display: block;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: 24px;
+
+  margin-bottom: 7px;
+
+  color: #fff;
+}
+
+.hidden {
+  display: none;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 380px) {
+
+  .rsvp-section {
+    padding: 52px 14px 60px;
+  }
+
+  .rsvp-section .section-title {
+    font-size: 22px;
+  }
+
+  .rsvp-form {
+    padding: 24px 15px 20px;
+  }
+
+  .rsvp-label {
+    font-size: 12px;
+  }
+
+  .rsvp-input {
+    height: 46px;
+    font-size: 12px;
+  }
+
+  .rsvp-radio {
+    font-size: 11px;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- =======================================================
+       FIXED BACKGROUND
+       Replace hero-bg.jpg with your generated image.
+       ======================================================= -->
+  <div class="fixed-background" aria-hidden="true"></div>
+
+  <main class="page">
+
+    <!-- HERO -->
+    <section class="section hero" id="hero">
+      <div class="content hero-inner">
+
+        <div class="flourish">⌁</div>
+
+        <div class="save-date">SAVE THE DATE</div>
+
+        <div class="ornament">
+          <span>♥</span>
+        </div>
+
+        <div class="hero-names">
+          ԱՆՆԱ
+          <span class="hero-amp">&amp;</span>
+          ԱՐՄԱՆ
+        </div>
+
+        <div class="ornament">
+          <span>♥</span>
+        </div>
+
+        <div class="hero-date">26 · 11 · 2026</div>
+
+        <div class="hero-scroll">
+          <div class="hero-scroll-text">SCROLL</div>
+          <div class="scroll-circle">⌄</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WELCOME -->
+    <section class="section welcome">
+      <div class="content">
+
+        <div class="ornament">
+          <span>♡</span>
+        </div>
+
+        <h2>Սիրով հրավիրում ենք</h2>
+
+        <p>
+          կիսելու մեզ հետ մեր կյանքի
+          ամենակարևոր օրը և միասին
+          ստեղծելու գեղեցիկ հիշողություններ։
+        </p>
+
+        <div class="ornament">
+          <span>♥</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- COUNTDOWN -->
+    <section class="section countdown">
+      <div class="content">
+
+        <div class="ornament">
+          <span>♡</span>
+        </div>
+
+        <div class="countdown-title">
+          Մինչև մեր օրը մնացել է
+        </div>
+
+        <div class="timer">
+
+          <div class="time-box">
+            <span class="time-value" id="days">00</span>
+            <span class="time-label">ՕՐ</span>
+          </div>
+
+          <div class="time-box">
+            <span class="time-value" id="hours">00</span>
+            <span class="time-label">ԺԱՄ</span>
+          </div>
+
+          <div class="time-box">
+            <span class="time-value" id="minutes">00</span>
+            <span class="time-label">ՐՈՊԵ</span>
+          </div>
+
+          <div class="time-box">
+            <span class="time-value" id="seconds">00</span>
+            <span class="time-label">ՎԱՅՐԿՅԱՆ</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section timeline-section">
+
+      <div class="content">
+
+        <div class="ornament">
+          <span>♥</span>
+        </div>
+
+        <h2 class="section-title">ՕՐՎԱ ԸՆԹԱՑՔԸ</h2>
+
+        <div class="timeline">
+
+          <div class="timeline-items">
+
+            <div class="timeline-item">
+              <div class="timeline-icon">⌂</div>
+              <div class="timeline-dot"></div>
+              <div class="timeline-time">10:00</div>
+              <div class="timeline-place">
+                Փեսայի տուն
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">♡</div>
+              <div class="timeline-dot"></div>
+              <div class="timeline-time">12:00</div>
+              <div class="timeline-place">
+                Հարսի տուն
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">♰</div>
+              <div class="timeline-dot"></div>
+              <div class="timeline-time">15:00</div>
+              <div class="timeline-place">
+                Սուրբ Գևորգ<br>Եկեղեցի
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-icon">♢</div>
+              <div class="timeline-dot"></div>
+              <div class="timeline-time">18:00</div>
+              <div class="timeline-place">
+                Ռուբինա Հոլլ
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  <section class="section rsvp-section">
+    
+    <h2 class="section-title">Մասնակցության հաստատում</h2>
+    <form id="rsvpForm" class="rsvp-form">
+      <div class="rsvp-field">
+        <label class="rsvp-label" for="name">Անուն Ազգանուն</label>
+        <input class="rsvp-input" type="text" id="name" name="name" required="">
+      </div>
+      <div class="rsvp-field">
+        <span class="rsvp-label">Կկարողանա՞ք ներկա գտնվել միջոցառմանը</span>
+        <label class="rsvp-radio"><input type="radio" name="attendance" value="Այո, կգամ" required=""> Այո, կգամ</label>
+        <label class="rsvp-radio"><input type="radio" name="attendance" value="Ցավոք չեմ կարողանա"> Ցավոք չեմ կարողանա</label>
+      </div>
+      <div class="rsvp-field">
+    <label class="rsvp-label" for="guest_count">
+        Քանի՞ հոգով եք մասնակցելու
+    </label>
+
+    <select id="guest_count" name="guest_count" class="rsvp-input" required="">
+        <option value="">Ընտրեք</option>
+        <option value="1">1 հոգի</option>
+        <option value="2">2 հոգի</option>
+        <option value="3">3 հոգի</option>
+        <option value="4">4 հոգի</option>
+        <option value="5">5 հոգի</option>
+        <option value="6">6 հոգի</option>
+          <option value="7">7 հոգի</option>
+        <option value="8">8 հոգի</option>
+        <option value="9">9 հոգի</option>
+    </select>
+</div>
+      <div class="rsvp-field">
+        <span class="rsvp-label">Ու՞մ կողմից եք հրավիրված</span>
+        <label class="rsvp-radio"><input type="radio" name="side" value="Փեսայի" required=""> Փեսայի կողմից</label>
+        <label class="rsvp-radio"><input type="radio" name="side" value="Հարսի"> Հարսի կողմից</label>
+      </div>
+      <button type="submit" class="rsvp-submit">ՈՒՂԱՐԿԵԼ</button>
+     
+    </form>
+     <p id="rsvpThanks" class="rsvp-thanks hidden">Շնորհակալություն։ Անհամբեր սպասում ենք Ձեզ։</p>
+  </section>
+    <!-- FOOTER -->
+    <footer class="section footer">
+
+      <div class="content">
+
+        <div class="ornament">
+          <span>♥</span>
+        </div>
+
+        <div class="footer-love">
+          Սիրով սպասում ենք Ձեզ
+        </div>
+
+        <div class="ornament">
+          <span>♥</span>
+        </div>
+
+        <div class="footer-names">
+          ԱՆՆԱ &amp; ԱՐՄԱՆ
+        </div>
+
+        <div class="footer-made">
+          Պատրաստված սիրով<br>
+          <span class="uinvite">Uinvite</span>
+        </div>
+
+      </div>
+
+    </footer>
+
+  </main>
+
+  <script>
+    /* =========================================================
+       WEDDING DATA
+       Change only these values for another invitation.
+       ========================================================= */
+
+    const weddingDate = new Date("2026-11-26T14:00:00+04:00");
+
+    function pad(value) {
+      return String(value).padStart(2, "0");
+    }
+
+    function updateCountdown() {
+      const now = new Date();
+      const difference = weddingDate.getTime() - now.getTime();
+
+      if (difference <= 0) {
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+        return;
+      }
+
+      const totalSeconds = Math.floor(difference / 1000);
+
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      document.getElementById("days").textContent = pad(days);
+      document.getElementById("hours").textContent = pad(hours);
+      document.getElementById("minutes").textContent = pad(minutes);
+      document.getElementById("seconds").textContent = pad(seconds);
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>

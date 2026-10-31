@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Էրիկ և Անի — 26.09.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Italianno&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- AUDIO -->
+<audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
+<button id="musicBtn" class="music-btn hidden" aria-label="Երաժշտություն">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path id="speakerIcon" d="M11 5 6 9H2v6h4l5 4V5z M15.5 8.5a5 5 0 0 1 0 7 M19 5a9 9 0 0 1 0 14"/>
+  </svg>
+</button>
+
+<!-- ENVELOPE -->
+<section id="envelope" class="envelope">
+  <div class="env-top"></div>
+  <div class="env-bottom"></div>
+  <div class="env-left"></div>
+  <div class="env-right"></div>
+ 
+
+  <div class="env-content">
+   
+    <p class="env-sub">ՀԱՐՍԱՆԻՔԻ ՀՐԱՎԻՐԱՏՈՄՍ </p>
+    <button id="openBtn" class="seal-btn" aria-label="Բացել">
+      <img src="seal1.png" alt="Է & Ա" class="seal-img" />
+    </button>
+    <p class="env-hint">սեղմեք կնիքի վրա,<br/>որպեսզի բացեք</p>
+  </div>
+</section>
+
+<!-- INVITATION -->
+<main id="invitation" class="invitation hidden">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-img" style="background-image:url('assets/hero.png')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-bottom">
+      <p class="hero-eyebrow">— SAVE THE DATE —</p>
+      <h1 class="hero-names">Էդգար <span>&</span> Աննա</h1>
+      <p class="hero-date">26 · 09 · 2026</p>
+    </div>
+  </section>
+
+  <!-- BLESSING -->
+  <section class="section blessing">
+    <div class="ornament">✦</div>
+    <p class="blessing-text">
+      «Սերը համբերատար է, սերը՝ բարի։<br/>
+      Այն ամեն ինչ հույսով է լցնում,<br/>
+      ամեն ինչին դիմանում է<br/>
+      և երբեք չի մարում»։
+    </p>
+    <p class="invite-text">
+      Սիրելի՛ ընկերներ և հարազատներ,<br/><br/>
+      Մեծ ուրախությամբ հրավիրում ենք Ձեզ կիսելու մեզ հետ մեր կյանքի ամենակարևոր օրը՝ մեր հարսանյաց արարողությունը։
+    </p>
+    <div class="ornament">✦</div>
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section class="countdown-section">
+    <div class="cd-img" style="background-image:url('assets/countdown-bg.png')"></div>
+    <div class="cd-overlay"></div>
+    <div class="cd-content">
+      <p class="cd-title">Մենք ուրախ կլինենք տեսնել ձեզ…</p>
+      <div class="cd-grid">
+        <div class="cd-cell"><span id="cd-days" class="cd-num">00</span><span class="cd-label">օր</span></div>
+        <div class="cd-sep">|</div>
+        <div class="cd-cell"><span id="cd-hours" class="cd-num">00</span><span class="cd-label">ժամ</span></div>
+        <div class="cd-sep">|</div>
+        <div class="cd-cell"><span id="cd-mins" class="cd-num">00</span><span class="cd-label">րոպե</span></div>
+        <div class="cd-sep">|</div>
+        <div class="cd-cell"><span id="cd-secs" class="cd-num">00</span><span class="cd-label">վայրկյան</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALENDAR -->
+  <section class="section calendar-section">
+    <p class="section-eyebrow">— ՕՐԸ —</p>
+    <h2 class="section-title">Սեպտեմբեր 2026</h2>
+    <div class="calendar" id="calendar"></div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section timeline-section">
+    <p class="section-eyebrow">— ՕՐՎԱ ԾՐԱԳԻՐ —</p>
+    <h2 class="section-title">Ժամանակացույց</h2>
+    <ul class="timeline">
+      <li><span class="t-time">12:00</span><div class="t-body"><h3>Հարսի տուն</h3><a href="https://yandex.com/maps/-/CPtqzUiI">Տեսնել քարտեզի վրա</a></div></li>
+      <li><span class="t-time">13:30</span><div class="t-body"><h3>Սուրբ Մարիամ Աստվածածնի եկեղեցի</h3><a href="https://yandex.ru/maps/-/CPShiD7g">Տեսնել քարտեզի վրա</a></div></li>
+      <li><span class="t-time">17:30</span><div class="t-body"><h3>Florence Ռեստորան</h3><a href="https://yandex.com/maps/-/CPtqvU4j">Տեսնել քարտեզի վրա</a></div></li>
+    </ul>
+  </section>
+  <div class="gallary-3">
+    <div>
+  <img src="assets/1.png" width="100%">
+  <img src="assets/5.png" width="100%">
+</div>
+<div>
+  <img src="assets/7.png" width="100%">
+</div>
+  </div>
+ 
+
+  <!-- RSVP -->
+<!-- RSVP -->
+<section class="section rsvp-section">
+
+  <p class="section-eyebrow">— RSVP —</p>
+
+  <h2 class="section-title">Հաստատեք ներկայությունը</h2>
+
+  <form id="rsvpForm" class="rsvp-form">
+
+    <!-- NAME -->
+    <div class="rsvp-field">
+      <label class="rsvp-label">Ձեր անունը</label>
+
+      <input
+        type="text"
+        name="name"
+        required
+        class="rsvp-input"
+        placeholder="Անուն Ազգանուն"
+      />
+    </div>
+
+    <!-- ATTEND -->
+    <div class="rsvp-field">
+
+      <p class="rsvp-label">
+        Կկարողանա՞ք ներկա գտնվել միջոցառմանը
+      </p>
+
+      <label class="rsvp-radio">
+        <input type="radio" name="attendance" value="yes" required />
+        <span>Այո, կգամ</span>
+      </label>
+
+      <label class="rsvp-radio">
+        <input type="radio" name="attendance" value="no" />
+        <span>Ցավոք չեմ կարողանա</span>
+      </label>
+
+    </div>
+
+    <!-- SIDE -->
+    <div class="rsvp-field">
+
+      <p class="rsvp-label">
+        Ու՞մ կողմից եք հրավիրված
+      </p>
+
+      <label class="rsvp-radio">
+        <input type="radio" name="side" value="groom" required />
+        <span>Փեսայի կողմից</span>
+      </label>
+
+      <label class="rsvp-radio">
+        <input type="radio" name="side" value="bride" />
+        <span>Հարսի կողմից</span>
+      </label>
+
+    </div>
+
+    <!-- GUEST COUNT -->
+    <div class="rsvp-field">
+
+      <label class="rsvp-label">
+        Հյուրերի քանակ
+      </label>
+
+      <select
+        name="guest_count"
+        required
+        class="rsvp-input"
+      >
+        <option value="1">1 Հյուր</option>
+        <option value="2">2 Հյուր</option>
+        <option value="3">3 Հյուր</option>
+        <option value="4">4 Հյուր</option>
+        <option value="5">5 Հյուր</option>
+        <option value="6">6 Հյուր</option>
+        <option value="7">7 Հյուր</option>
+        <option value="8">8 Հյուր</option>
+        <option value="9">9 Հյուր</option>
+      </select>
+
+    </div>
+
+    <button type="submit" class="rsvp-submit">
+      ՈՒՂԱՐԿԵԼ
+    </button>
+
+    <p id="rsvpThanks" class="rsvp-thanks hidden">
+      Շնորհակալություն! Ձեր պատասխանը ստացվել է ♡
+    </p>
+
+  </form>
+
+</section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="ornament">✦</div>
+    <p class="footer-names">Էրիկ <span>&</span> Անի</p>
+    <p class="footer-date">26.09.2026</p>
+   
+  </footer>
+<img src="assets/4.png" width="100%">
+</main>
+
+<script src="script.js"></script>
+<script src="./config.js"></script>
+</body>
+</html>

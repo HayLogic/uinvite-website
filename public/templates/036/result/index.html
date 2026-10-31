@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSVP Պատասխաններ — Էդգար և Աննա</title>
+    <meta name="description" content="RSVP պատասխանների էջ։">
+
+    <!-- Base URL -->
+    <base href="/edgar-anna/">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: #faf8f5;
+            --foreground: #333333;
+            --card: #FFFFFF;
+            --primary: black;
+            --primary-foreground: #FFFFFF;
+            --secondary: #f0e6d2;
+            --muted: #f4f4f4;
+            --muted-foreground: #888888;
+            --border: #e0d0b0;
+            --green: #407c40;
+            --red: #a04040;
+            --font-main: 'Cormorant Garamond', serif;
+            --font-alt: sans-serif;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+        }
+
+        /* Hero */
+        .responses-hero {
+            background: #fff;
+            padding: 60px 20px 50px;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .responses-hero-title {
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-family: var(--font-alt);
+            font-weight: 700;
+        }
+
+        .responses-hero-subtitle {
+            font-size: 18px;
+            color: var(--muted-foreground);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Stats */
+        .stats-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: #fff;
+            border: 1.5px solid var(--primary);
+            border-radius: 8px;
+            padding: 16px 28px;
+            text-align: center;
+            min-width: 140px;
+        }
+
+        .stat-number {
+            font-family: var(--font-alt);
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted-foreground);
+            margin-top: 6px;
+            font-family: var(--font-alt);
+        }
+
+        /* Content */
+        .responses-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+        }
+
+        /* Loading / Edge Cases */
+        .state-container {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Cards */
+        .responses-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .response-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s ease;
+        }
+
+        .response-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+        }
+
+        .response-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--muted);
+            padding-bottom: 10px;
+        }
+
+        .response-card-name {
+            font-family: var(--font-alt);
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--foreground);
+        }
+
+        .response-card-date {
+            font-family: var(--font-alt);
+            font-size: 13px;
+            color: var(--muted-foreground);
+        }
+
+        .response-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .response-card-detail {
+            font-size: 18px;
+            color: var(--muted-foreground);
+        }
+
+        .response-card-detail strong {
+            color: var(--foreground);
+            font-weight: 600;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-yes {
+            background: #e8f5e9;
+            color: var(--green);
+        }
+
+        .status-no {
+            background: #ffebee;
+            color: var(--red);
+        }
+
+        /* Footer */
+        .responses-footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border);
+            background: #fff;
+        }
+
+        .footer-link {
+            display: inline-block;
+            margin-top: 12px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .response-card-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+            .responses-hero-title {
+                font-size: 2.5rem;
+            }
+            .response-card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="responses-wrapper">
+        <header class="responses-hero">
+            <h1 class="responses-hero-title">Պատասխաններ</h1>
+            <p class="responses-hero-subtitle">Էդգար և Աննա — 28.06.2026</p>
+            <div class="stats-row" id="stats-row" style="display: none;"></div>
+        </header>
+
+        <main class="responses-content">
+            <div id="content"></div>
+        </main>
+
+        <footer class="responses-footer">
+            <a href="/edgar-anna/" class="footer-link">&larr; Հետ դեպի հրավեր</a>
+        </footer>
+    </div>
+
+    <!-- API Base URL Configuration -->
+    <script src="/edgar-anna/config.js"></script>
+    <script>
+        const API_URL = API_BASE_URL + '/api/rsvp?template_code=EDGAR_ANNA';
+
+        document.addEventListener('DOMContentLoaded', fetchResponses);
+
+        async function fetchResponses() {
+            const contentEl = document.getElementById('content');
+            const statsEl = document.getElementById('stats-row');
+
+            contentEl.innerHTML = `
+                <div class="state-container">
+                    <div class="spinner"></div>
+                    <p class="state-text">Բեռնվում են...</p>
+                </div>
+            `;
+
+            try {
+                const res = await fetch(API_URL);
+                const json = await res.json();
+
+                if (!json.success) {
+                    showError(contentEl);
+                    return;
+                }
+
+                // Sum up guest counts properly for "Yes" responses
+                let totalGuests = 0;
+                let requestCount = json.data.length;
+                let yesCount = 0;
+                
+                json.data.forEach(item => {
+                    const itemData = item.data || {};
+                    const attendance = itemData.attendance || item.attendance || '';
+                    const isYes = attendance.toLowerCase().includes('yes') || attendance.toLowerCase().includes('այո');
+                    if (isYes) {
+                        yesCount++;
+                        const count = parseInt(itemData.guest_count || item.guest_count) || 1;
+                        totalGuests += count;
+                    }
+                });
+
+                statsEl.style.display = 'flex';
+                statsEl.innerHTML = `
+                    <div class="stat-card">
+                        <div class="stat-number">${requestCount}</div>
+                        <div class="stat-label">Հայտեր</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${yesCount}</div>
+                        <div class="stat-label">Այո (Հայտեր)</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${totalGuests}</div>
+                        <div class="stat-label">Հյուրեր (Այո)</div>
+                    </div>
+                `;
+
+                if (json.data.length === 0) {
+                    contentEl.innerHTML = `
+                        <div class="state-container">
+                            <p class="state-text">Դեռ պատասխաններ չկան</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Sort by date (newest first)
+                const sortedData = json.data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+                contentEl.innerHTML = '<div class="responses-list">' +
+                    sortedData.map(item => renderCard(item)).join('') +
+                    '</div>';
+
+            } catch (err) {
+                console.error(err);
+                showError(contentEl);
+            }
+        }
+
+      function renderCard(item) {
+
+    const itemData = item.data || {};
+
+    const guestCount =
+        itemData.guest_count ||
+        item.guest_count ||
+        '1';
+
+    let side = itemData.side || '—';
+
+    if (side === 'groom') {
+        side = 'Փեսայի կողմ';
+    }
+
+    else if (side === 'bride') {
+        side = 'Հարսի կողմ';
+    }
+
+    const attendance =
+        itemData.attendance ||
+        item.attendance ||
+        '';
+
+    const isNo =
+        attendance.toLowerCase().includes('no');
+
+    const statusText =
+        isNo ? 'Չի գա' : 'Կգա';
+
+    const statusClass =
+        isNo ? 'status-no' : 'status-yes';
+
+    const date = new Date(item.created_at)
+        .toLocaleDateString('hy-AM', {
+
+            day: '2-digit',
+            month: 'short',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+
+        });
+
+    return `
+
+        <div class="response-card">
+
+            <div class="response-card-header">
+
+                <h3 class="response-card-name">
+                    ${escapeHtml(item.name || 'Անանուն')}
+                </h3>
+
+                <span class="response-card-date">
+                    ${date}
+                </span>
+
+            </div>
+
+            <div class="response-card-grid">
+
+                <div class="response-card-detail">
+                    <strong>Հյուրերի քանակ:</strong>
+                    ${escapeHtml(String(guestCount))}
+                </div>
+
+                <div class="response-card-detail">
+                    <strong>Կողմ:</strong>
+                    ${escapeHtml(side)}
+                </div>
+
+                <div class="response-card-detail">
+                    <strong>Կարգավիճակ:</strong>
+
+                    <span class="status-badge ${statusClass}">
+                        ${statusText}
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+}
+        function showError(el) {
+            el.innerHTML = `
+                <div class="state-container">
+                    <p class="state-text error">Չհաջողվեց բեռնել պատասխանները</p>
+                    <button style="margin-top:20px; padding:12px 30px; background:#b08d44; color:#fff; border:none; border-radius:5px; cursor:pointer; font-family:sans-serif; font-weight:700;" onclick="fetchResponses()">Կրկնել</button>
+                </div>
+            `;
+        }
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gender Reveal Party</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Noto+Sans+Armenian:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="gender-reveal-template">
+        <!-- Background -->
+        <div class="template-bg">
+            <img src="assets/bg.webp" alt="Background">
+        </div>
+
+        <!-- Top Icon (Balloons) -->
+        <div class="top-icon">
+            <img src="assets/top-icon.webp" alt="Balloons">
+        </div>
+
+        <!-- Hero Section with Teddy Bears -->
+        <section class="hero-section">
+            <div class="teddy-left">
+                <img src="assets/teddy-left.webp" alt="Teddy Bear Left">
+            </div>
+
+            <div class="hero-content">
+                <h1 class="save-the-date">Save the Date</h1>
+                <p class="event-date">27.01</p>
+            </div>
+
+            <div class="teddy-right">
+                <img src="assets/teddy-rigth.webp" alt="Teddy Bear Right">
+            </div>
+        </section>
+
+        <!-- Invitation Text Section -->
+        <section class="invitation-section">
+            <h2 class="invitation-title">Սիրելի Ընկերներ և Բարեկամներ</h2>
+            <p class="invitation-description">
+                Սիրով հրավիրում ենք Ձեզ մեր բալիկի սեռի բացահայտման խնջույքին:<br>
+                Եկեք միասին կիսենք այս գեղեցիկ պահը:
+            </p>
+        </section>
+
+        <!-- Arrow Divider -->
+        <div class="arrow-divider">
+            <img src="assets/Arrow.svg" alt="Arrow">
+        </div>
+
+        <!-- Location Section -->
+        <section class="location-section">
+            <h3 class="location-label">Location</h3>
+            <p class="venue-name">Park Bridge Restaurant & Music Hub</p>
+            <a href="https://maps.app.goo.gl/ZKEMTcGXLmpPHdMR9" class="map-button" target="_blank" rel="noopener">Քարտեզ</a>
+        </section>
+
+        <!-- Bottom Balloons Icon -->
+        <div class="bottom-icon">
+            <img src="assets/top-icon.webp" alt="Balloons">
+        </div>
+
+        <!-- RSVP Notice Section -->
+        <section class="rsvp-notice-section">
+            <p class="rsvp-notice">
+                Խնդրում ենք Նախապես Հաստատեք Ձեր Ներկայությունը Մինչև 20.01.2026
+            </p>
+        </section>
+
+        <!-- RSVP Form Section -->
+        <section class="rsvp-section">
+            <div class="form-container">
+                <form id="template-rsvp-form">
+                    <div class="form-group-radio">
+                        <label class="question-label">Կկարողանա՞ք ներկա գտնվել միջոցառմանը</label>
+                        <div class="radio-options">
+                            <label class="custom-radio">
+                                <input type="radio" name="attendance" value="yes" checked>
+                                <span class="radio-mark">
+                                    <span class="radio-inner"></span>
+                                </span>
+                                <span class="radio-label">Այո, իհարկե</span>
+                            </label>
+                            <label class="custom-radio">
+                                <input type="radio" name="attendance" value="no">
+                                <span class="radio-mark">
+                                    <span class="radio-inner"></span>
+                                </span>
+                                <span class="radio-label">Ցավոք, ոչ</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group-input">
+                        <input type="text" name="guest_name" placeholder="Անուն Ազգանուն" required
+                            class="bottom-border-input">
+                    </div>
+
+                    <button type="submit" class="rsvp-submit">Ուղարկել</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

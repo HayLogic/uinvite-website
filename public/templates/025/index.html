@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#8B2F2F">
+  <title>Վերջին Զանգ - Ավարտական Հանդես</title>
+  <meta name="description" content="Սիրով հրավիրում ենք Ձեզ միանալու մեր Վերջին Զանգի տոնական արարողությանը։">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+
+    <!-- ====== NAVIGATION ====== -->
+    <nav id="navbar">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <!-- BellIcon -->
+          <svg class="nav-bell-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true">
+            <path
+              d="M32 4C32 4 28 8 28 12C28 12 18 16 16 28C14 40 12 44 12 44H52C52 44 50 40 48 28C46 16 36 12 36 12C36 8 32 4 32 4Z"
+              fill="currentColor" opacity="0.9" />
+            <ellipse cx="32" cy="44" rx="20" ry="3" fill="currentColor" opacity="0.7" />
+            <circle cx="32" cy="52" r="4" fill="currentColor" />
+            <path d="M26 52C26 55.3137 28.6863 58 32 58C35.3137 58 38 55.3137 38 52" stroke="currentColor"
+              stroke-width="2" fill="none" />
+            <line x1="32" y1="4" x2="32" y2="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <circle cx="32" cy="2" r="2" fill="currentColor" />
+          </svg>
+          <span class="nav-title">Վերջին Զանգ</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="nav-links">
+          <a href="#about">Մեր Մասին</a>
+          <a href="#invitation">Հրավեր</a>
+          <a href="#celebration">Խնջույք</a>
+          <a href="#gallery">Նկարներ</a>
+          <a href="#rsvp">Հաստատում</a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle menu">
+          <span class="bar bar1"></span>
+          <span class="bar bar2"></span>
+          <span class="bar bar3"></span>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div id="mobile-menu" class="mobile-menu">
+        <div class="mobile-menu-inner">
+          <a href="#about" class="mobile-link">Մեր Մասին</a>
+          <a href="#invitation" class="mobile-link">Հրավեր</a>
+          <a href="#celebration" class="mobile-link">Խնջույք</a>
+          <a href="#gallery" class="mobile-link">Նկարներ</a>
+          <a href="#rsvp" class="mobile-link">Հաստատում</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ====== HERO SECTION ====== -->
+    <section class="hero">
+      <!-- Background Image -->
+      <div class="hero-bg">
+        <img src="assets/hero-ceremony.webp" alt="Ceremonial hall decorated for graduation">
+        <div class="hero-overlay"></div>
+        <div class="hero-gradient"></div>
+      </div>
+
+      <!-- Floating Bell Icons -->
+      <div class="hero-floating">
+        <svg class="floating-bell fb1" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path
+            d="M32 4C32 4 28 8 28 12C28 12 18 16 16 28C14 40 12 44 12 44H52C52 44 50 40 48 28C46 16 36 12 36 12C36 8 32 4 32 4Z"
+            fill="currentColor" opacity="0.9" />
+          <ellipse cx="32" cy="44" rx="20" ry="3" fill="currentColor" opacity="0.7" />
+          <circle cx="32" cy="52" r="4" fill="currentColor" />
+          <path d="M26 52C26 55.3137 28.6863 58 32 58C35.3137 58 38 55.3137 38 52" stroke="currentColor"
+            stroke-width="2" fill="none" />
+          <line x1="32" y1="4" x2="32" y2="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <circle cx="32" cy="2" r="2" fill="currentColor" />
+        </svg>
+        <svg class="floating-bell fb2" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path
+            d="M32 4C32 4 28 8 28 12C28 12 18 16 16 28C14 40 12 44 12 44H52C52 44 50 40 48 28C46 16 36 12 36 12C36 8 32 4 32 4Z"
+            fill="currentColor" opacity="0.9" />
+          <ellipse cx="32" cy="44" rx="20" ry="3" fill="currentColor" opacity="0.7" />
+          <circle cx="32" cy="52" r="4" fill="currentColor" />
+          <path d="M26 52C26 55.3137 28.6863 58 32 58C35.3137 58 38 55.3137 38 52" stroke="currentColor"
+            stroke-width="2" fill="none" />
+          <line x1="32" y1="4" x2="32" y2="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <circle cx="32" cy="2" r="2" fill="currentColor" />
+        </svg>
+        <svg class="floating-bell fb3" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path
+            d="M32 4C32 4 28 8 28 12C28 12 18 16 16 28C14 40 12 44 12 44H52C52 44 50 40 48 28C46 16 36 12 36 12C36 8 32 4 32 4Z"
+            fill="currentColor" opacity="0.9" />
+          <ellipse cx="32" cy="44" rx="20" ry="3" fill="currentColor" opacity="0.7" />
+          <circle cx="32" cy="52" r="4" fill="currentColor" />
+          <path d="M26 52C26 55.3137 28.6863 58 32 58C35.3137 58 38 55.3137 38 52" stroke="currentColor"
+            stroke-width="2" fill="none" />
+          <line x1="32" y1="4" x2="32" y2="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <circle cx="32" cy="2" r="2" fill="currentColor" />
+        </svg>
+        <svg class="floating-bell fb4" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path
+            d="M32 4C32 4 28 8 28 12C28 12 18 16 16 28C14 40 12 44 12 44H52C52 44 50 40 48 28C46 16 36 12 36 12C36 8 32 4 32 4Z"
+            fill="currentColor" opacity="0.9" />
+          <ellipse cx="32" cy="44" rx="20" ry="3" fill="currentColor" opacity="0.7" />
+          <circle cx="32" cy="52" r="4" fill="currentColor" />
+          <path d="M26 52C26 55.3137 28.6863 58 32 58C35.3137 58 38 55.3137 38 52" stroke="currentColor"
+            stroke-width="2" fill="none" />
+          <line x1="32" y1="4" x2="32" y2="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <circle cx="32" cy="2" r="2" fill="currentColor" />
+        </svg>
+        <svg class="floating-sparkle fs1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 0L13.5 8.5L22 10L13.5 11.5L12 20L10.5 11.5L2 10L10.5 8.5L12 0Z" />
+        </svg>
+        <svg class="floating-sparkle fs2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 0L13.5 8.5L22 10L13.5 11.5L12 20L10.5 11.5L2 10L10.5 8.5L12 0Z" />
+        </svg>
+        <svg class="floating-sparkle fs3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 0L13.5 8.5L22 10L13.5 11.5L12 20L10.5 11.5L2 10L10.5 8.5L12 0Z" />
+        </svg>
+      </div>
+
+      <!-- Content -->
+      <div class="hero-content" id="hero-content">
+        <!-- ArmenianOrnament -->
+        <svg class="ornament ornament-top" viewBox="0 0 400 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <line x1="0" y1="20" x2="120" y2="20" stroke="currentColor" stroke-width="1" opacity="0.4" />
+          <line x1="280" y1="20" x2="400" y2="20" stroke="currentColor" stroke-width="1" opacity="0.4" />
+          <path d="M190 10L200 0L210 10L200 20Z" fill="currentColor" opacity="0.6" />
+          <path d="M170 20L180 10L190 20L180 30Z" fill="currentColor" opacity="0.3" />
+          <path d="M210 20L220 10L230 20L220 30Z" fill="currentColor" opacity="0.3" />
+          <circle cx="140" cy="20" r="2" fill="currentColor" opacity="0.4" />
+          <circle cx="155" cy="20" r="1.5" fill="currentColor" opacity="0.3" />
+          <circle cx="245" cy="20" r="1.5" fill="currentColor" opacity="0.3" />
+          <circle cx="260" cy="20" r="2" fill="currentColor" opacity="0.4" />
+          <path d="M195 20H205M200 15V25" stroke="currentColor" stroke-width="0.5" opacity="0.4" />
+        </svg>
+
+        <p class="hero-subtitle">Սիրով հրավիրում ենք</p>
+
+        <h1 class="hero-title">Վերջին Զանգ</h1>
+
+        <p class="hero-ceremony">Ավարտական Հանդես</p>
+
+        <div class="hero-divider"></div>
+
+        <p class="hero-name">Արամ Հակոբյան</p>
+
+        <p class="hero-school">Հովհաննես Թումանյանի անվան հ. 32 հիմնական դպրոց, ք. Երևան</p>
+
+        <div class="hero-date-badge">
+          <svg class="badge-bell" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path
+              d="M32 4C32 4 28 8 28 12C28 12 18 16 16 28C14 40 12 44 12 44H52C52 44 50 40 48 28C46 16 36 12 36 12C36 8 32 4 32 4Z"
+              fill="currentColor" opacity="0.9" />
+            <ellipse cx="32" cy="44" rx="20" ry="3" fill="currentColor" opacity="0.7" />
+            <circle cx="32" cy="52" r="4" fill="currentColor" />
+            <path d="M26 52C26 55.3137 28.6863 58 32 58C35.3137 58 38 55.3137 38 52" stroke="currentColor"
+              stroke-width="2" fill="none" />
+            <line x1="32" y1="4" x2="32" y2="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <circle cx="32" cy="2" r="2" fill="currentColor" />
+          </svg>
+          <span>25 Մայիսի, 2026 — 11:00</span>
+        </div>
+
+        <!-- ArmenianOrnament bottom -->
+        <svg class="ornament ornament-bottom" viewBox="0 0 400 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <line x1="0" y1="20" x2="120" y2="20" stroke="currentColor" stroke-width="1" opacity="0.4" />
+          <line x1="280" y1="20" x2="400" y2="20" stroke="currentColor" stroke-width="1" opacity="0.4" />
+          <path d="M190 10L200 0L210 10L200 20Z" fill="currentColor" opacity="0.6" />
+          <path d="M170 20L180 10L190 20L180 30Z" fill="currentColor" opacity="0.3" />
+          <path d="M210 20L220 10L230 20L220 30Z" fill="currentColor" opacity="0.3" />
+          <circle cx="140" cy="20" r="2" fill="currentColor" opacity="0.4" />
+          <circle cx="155" cy="20" r="1.5" fill="currentColor" opacity="0.3" />
+          <circle cx="245" cy="20" r="1.5" fill="currentColor" opacity="0.3" />
+          <circle cx="260" cy="20" r="2" fill="currentColor" opacity="0.4" />
+          <path d="M195 20H205M200 15V25" stroke="currentColor" stroke-width="0.5" opacity="0.4" />
+        </svg>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div class="scroll-indicator">
+        <span>Ներքև</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ====== ABOUT SECTION ====== -->
+    <section id="about" class="section about-section" data-animate>
+      <div class="container">
+        <div class="section-header" data-animate-child>
+          <!-- BellIcon -->
+          <svg class="section-icon bell-gold" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path
+              d="M32 4C32 4 28 8 28 12C28 12 18 16 16 28C14 40 12 44 12 44H52C52 44 50 40 48 28C46 16 36 12 36 12C36 8 32 4 32 4Z"
+              fill="currentColor" opacity="0.9" />
+            <ellipse cx="32" cy="44" rx="20" ry="3" fill="currentColor" opacity="0.7" />
+            <circle cx="32" cy="52" r="4" fill="currentColor" />
+            <path d="M26 52C26 55.3137 28.6863 58 32 58C35.3137 58 38 55.3137 38 52" stroke="currentColor"
+              stroke-width="2" fill="none" />
+            <line x1="32" y1="4" x2="32" y2="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <circle cx="32" cy="2" r="2" fill="currentColor" />
+          </svg>
+          <h2 class="section-title">Վերջին Զանգ</h2>
+          <!-- DecorativeBorder -->
+          <div class="decorative-border">
+            <div class="db-line"></div>
+            <div class="db-diamonds">
+              <div class="db-diamond small"></div>
+              <div class="db-diamond large"></div>
+              <div class="db-diamond small"></div>
+            </div>
+            <div class="db-line"></div>
+          </div>
+          <p class="section-description">
+            Հայաստանում դպրոցական կրթությունը տևում է 12 իմաստալից տարի։ Վերջին Զանգի արարողությունը
+            նշանավորում է այս ճանապարհի ավարտը՝ հուզիչ մի պահ, որտեղ մանկության
+            հուշերը հանդիպում են նոր և հասուն կյանքի սկզբին։
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-image-wrap" data-animate-child data-delay="200">
+            <div class="about-image">
+              <img src="assets/ceremony-hall.webp" alt="Ceremonial hall decorated with golden bells and ribbons">
+            </div>
+          </div>
+          <div class="about-text" data-animate-child data-delay="400">
+            <h3 class="about-text-title">Տոնական Ավանդույթ</h3>
+            <div class="about-paragraphs">
+              <p>
+                Վերջին Զանգը հայկական դպրոցների ամենասիրված ավանդույթներից է։
+                Այն զգացմունքներով լի մի օր է՝ ուրախություն, կարոտ, հպարտություն և մի փոքր
+                տխրություն, երբ աշակերտները հրաժեշտ են տալիս իրենց հարազատ կրթօջախին։
+              </p>
+              <p>
+                Ընտանիքներն ու ընկերները հավաքվում են ականատես լինելու այս գեղեցիկ իրադարձությանը,
+                երբ շրջանավարտների համար հնչում է վերջին դպրոցական զանգը։ Այդ զանգի ղողանջն
+                իր մեջ կրում է 12 տարվա ընկերություն, դասեր և անմոռանալի հուշեր։
+              </p>
+              <p>
+                Սա պարզապես արարողություն չէ. սա նշելու առիթ է անցած ուղին, կամքի ուժը
+                և այն լուսավոր ապագան, որը սպասում է յուրաքանչյուր շրջանավարտի խոստումնալից ճանապարհին։
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== INVITATION SECTION ====== -->
+    <section id="invitation" class="section invitation-section" data-animate>
+      <div class="container container-md">
+        <div data-animate-child>
+          <!-- Invitation card -->
+          <div class="invitation-card">
+            <!-- Corner decorations -->
+            <div class="corner corner-tl"></div>
+            <div class="corner corner-tr"></div>
+            <div class="corner corner-bl"></div>
+            <div class="corner corner-br"></div>
+
+            <!-- ArmenianOrnament -->
+            <svg class="ornament ornament-inv-top" viewBox="0 0 400 40" fill="none" aria-hidden="true">
+              <line x1="0" y1="20" x2="120" y2="20" stroke="currentColor" stroke-width="1" opacity="0.4" />
+              <line x1="280" y1="20" x2="400" y2="20" stroke="currentColor" stroke-width="1" opacity="0.4" />
+              <path d="M190 10L200 0L210 10L200 20Z" fill="currentColor" opacity="0.6" />
+              <path d="M170 20L180 10L190 20L180 30Z" fill="currentColor" opacity="0.3" />
+              <path d="M210 20L220 10L230 20L220 30Z" fill="currentColor" opacity="0.3" />
+              <circle cx="140" cy="20" r="2" fill="currentColor" opacity="0.4" />
+              <circle cx="155" cy="20" r="1.5" fill="currentColor" opacity="0.3" />
+              <circle cx="245" cy="20" r="1.5" fill="currentColor" opacity="0.3" />
+              <circle cx="260" cy="20" r="2" fill="currentColor" opacity="0.4" />
+              <path d="M195 20H205M200 15V25" stroke="currentColor" stroke-width="0.5" opacity="0.4" />
+            </svg>
+
+            <p class="inv-label">Պաշտոնական Հրավեր</p>
+
+            <!-- BellIcon -->
+            <svg class="inv-bell" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+              <path
+                d="M32 4C32 4 28 8 28 12C28 12 18 16 16 28C14 40 12 44 12 44H52C52 44 50 40 48 28C46 16 36 12 36 12C36 8 32 4 32 4Z"
+                fill="currentColor" opacity="0.9" />
+              <ellipse cx="32" cy="44" rx="20" ry="3" fill="currentColor" opacity="0.7" />
+              <circle cx="32" cy="52" r="4" fill="currentColor" />
+              <path d="M26 52C26 55.3137 28.6863 58 32 58C35.3137 58 38 55.3137 38 52" stroke="currentColor"
+                stroke-width="2" fill="none" />
+              <line x1="32" y1="4" x2="32" y2="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <circle cx="32" cy="2" r="2" fill="currentColor" />
+            </svg>
+
+            <p class="inv-text">
+              Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու
+              <span class="text-crimson fw-semibold">Արամ Հակոբյանի</span>
+              Վերջին Զանգի հանդիսավոր արարողությանը, որը տեղի կունենա
+              <span class="text-crimson">Հովհաննես Թումանյանի անվան հ. 32 հիմնական դպրոցում</span>,
+              <span class="text-crimson fw-semibold">2026 թ. Մայիսի 25-ին</span>, ժամը՝
+              <span class="text-crimson fw-semibold">11:00-ին</span>:
+            </p>
+
+            <!-- DecorativeBorder -->
+            <div class="decorative-border db-sm">
+              <div class="db-line"></div>
+              <div class="db-diamonds">
+                <div class="db-diamond small"></div>
+                <div class="db-diamond large"></div>
+                <div class="db-diamond small"></div>
+              </div>
+              <div class="db-line"></div>
+            </div>
+
+            <!-- Details grid -->
+            <div class="inv-details">
+              <div class="inv-detail">
+                <!-- Calendar icon -->
+                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                  <line x1="16" x2="16" y1="2" y2="6" />
+                  <line x1="8" x2="8" y1="2" y2="6" />
+                  <line x1="3" x2="21" y1="10" y2="10" />
+                </svg>
+                <span class="detail-label">Ամսաթիվ</span>
+                <span class="detail-value">25 Մայիսի, 2026</span>
+              </div>
+              <div class="inv-detail">
+                <!-- Clock icon -->
+                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                <span class="detail-label">Ժամ</span>
+                <span class="detail-value">11:00</span>
+              </div>
+              <div class="inv-detail">
+                <!-- MapPin icon -->
+                <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span class="detail-label">Վայր</span>
+                <span class="detail-value">Շահսուվարյան 3, Երևան</span>
+              </div>
+            </div>
+
+            <!-- Map placeholder -->
+            <div class="map-placeholder">
+              <div class="map-content">
+                <svg class="map-pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <p class="map-title">Հովհաննես Թումանյանի անվան հ. 32 հիմնական դպրոց</p>
+                <p class="map-address">Շահսուվարյան փողոց 3, Երևան, Հայաստան</p>
+              </div>
+              <!-- Decorative grid pattern -->
+              <div class="map-grid"></div>
+            </div>
+
+            <!-- ArmenianOrnament bottom -->
+            <svg class="ornament ornament-inv-bottom" viewBox="0 0 400 40" fill="none" aria-hidden="true">
+              <line x1="0" y1="20" x2="120" y2="20" stroke="currentColor" stroke-width="1" opacity="0.4" />
+              <line x1="280" y1="20" x2="400" y2="20" stroke="currentColor" stroke-width="1" opacity="0.4" />
+              <path d="M190 10L200 0L210 10L200 20Z" fill="currentColor" opacity="0.6" />
+              <path d="M170 20L180 10L190 20L180 30Z" fill="currentColor" opacity="0.3" />
+              <path d="M210 20L220 10L230 20L220 30Z" fill="currentColor" opacity="0.3" />
+              <circle cx="140" cy="20" r="2" fill="currentColor" opacity="0.4" />
+              <circle cx="155" cy="20" r="1.5" fill="currentColor" opacity="0.3" />
+              <circle cx="245" cy="20" r="1.5" fill="currentColor" opacity="0.3" />
+              <circle cx="260" cy="20" r="2" fill="currentColor" opacity="0.4" />
+              <path d="M195 20H205M200 15V25" stroke="currentColor" stroke-width="0.5" opacity="0.4" />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== CELEBRATION SECTION ====== -->
+    <section id="celebration" class="section celebration-section" data-animate>
+      <div class="container">
+        <div class="section-header" data-animate-child>
+          <!-- Wine icon -->
+          <svg class="section-icon icon-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8 22h8" />
+            <path d="M12 11v11" />
+            <path d="m19 3-7 8-7-8Z" />
+          </svg>
+          <h2 class="section-title">Տոնական Խնջույք</h2>
+          <div class="decorative-border">
+            <div class="db-line"></div>
+            <div class="db-diamonds">
+              <div class="db-diamond small"></div>
+              <div class="db-diamond large"></div>
+              <div class="db-diamond small"></div>
+            </div>
+            <div class="db-line"></div>
+          </div>
+          <p class="section-description">
+            Պաշտոնական արարողությունից հետո սիրով հրավիրում ենք Ձեզ միանալու
+            մեր տոնական ընթրիքին՝ լի ուրախությամբ, երաժշտությամբ և ջերմ մթնոլորտով։
+          </p>
+        </div>
+
+        <div class="celebration-grid">
+          <div class="celebration-image-wrap" data-animate-child data-delay="200">
+            <div class="celebration-image">
+              <img src="assets/restaurant.webp" alt="Elegant restaurant interior set for a celebratory dinner">
+            </div>
+          </div>
+
+          <div class="celebration-details" data-animate-child data-delay="400">
+            <div class="celebration-card">
+              <h3 class="celebration-card-title">Տոնական Ընթրիք</h3>
+
+              <div class="celebration-items">
+                <div class="celebration-item">
+                  <div class="celebration-item-icon">
+                    <!-- Wine icon -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" aria-hidden="true">
+                      <path d="M8 22h8" />
+                      <path d="M12 11v11" />
+                      <path d="m19 3-7 8-7-8Z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="celebration-item-label">Ռեստորան</p>
+                    <p class="celebration-item-value">Արարատ Հոլլ Ռեստորան</p>
+                  </div>
+                </div>
+
+                <div class="celebration-item">
+                  <div class="celebration-item-icon">
+                    <!-- MapPin icon -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" aria-hidden="true">
+                      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="celebration-item-label">Հասցե</p>
+                    <p class="celebration-item-value">Աբովյան 28, Երևան</p>
+                  </div>
+                </div>
+
+                <div class="celebration-item">
+                  <div class="celebration-item-icon">
+                    <!-- Clock icon -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="celebration-item-label">Ժամ</p>
+                    <p class="celebration-item-value">14:00 - Սկսած</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="celebration-quote">
+                <p>«Բարձրացնենք բաժակները հանուն անցած հիանալի տարիների և մեր լուսավոր ապագայի»</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== GALLERY SECTION ====== -->
+    <section id="gallery" class="section gallery-section" data-animate>
+      <div class="container">
+        <div class="section-header" data-animate-child>
+          <!-- Camera icon -->
+          <svg class="section-icon icon-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
+            <circle cx="12" cy="13" r="3" />
+          </svg>
+          <h2 class="section-title">Հիշարժան Պահեր</h2>
+          <div class="decorative-border">
+            <div class="db-line"></div>
+            <div class="db-diamonds">
+              <div class="db-diamond small"></div>
+              <div class="db-diamond large"></div>
+              <div class="db-diamond small"></div>
+            </div>
+            <div class="db-line"></div>
+          </div>
+          <p class="section-description">
+            Ակնթարթներ, ժպիտներ և հուշեր, որոնք դարձնում են
+            այս օրն անմոռանալի։
+          </p>
+        </div>
+
+        <div class="gallery-grid" data-animate-child data-delay="200">
+          <div class="gallery-item gallery-tall">
+            <div class="gallery-img-wrap aspect-3-4">
+              <img src="assets/golden-bell.webp" alt="Golden school bell with red ribbon">
+              <div class="gallery-overlay"></div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-img-wrap aspect-4-3">
+              <img src="assets/ceremony-hall.webp" alt="Ceremonial hall decorated for graduation">
+              <div class="gallery-overlay"></div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-img-wrap aspect-4-3">
+              <img src="assets/classroom.webp" alt="Nostalgic school classroom with sunlight">
+              <div class="gallery-overlay"></div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-img-wrap aspect-4-3">
+              <img src="assets/ribbons.webp" alt="Graduation ribbons and decorations">
+              <div class="gallery-overlay"></div>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <div class="gallery-img-wrap aspect-4-3">
+              <img src="assets/restaurant.webp" alt="Elegant restaurant interior for celebration">
+              <div class="gallery-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== RSVP SECTION ====== -->
+    <section id="rsvp" class="section rsvp-section" data-animate>
+      <div class="container container-sm">
+        <div class="section-header" data-animate-child>
+          <!-- Heart icon -->
+          <svg class="section-icon icon-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path
+              d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+          </svg>
+          <h2 class="section-title">Կմիանա՞ք Մեզ</h2>
+          <div class="decorative-border">
+            <div class="db-line"></div>
+            <div class="db-diamonds">
+              <div class="db-diamond small"></div>
+              <div class="db-diamond large"></div>
+              <div class="db-diamond small"></div>
+            </div>
+            <div class="db-line"></div>
+          </div>
+          <p class="section-description">
+            Ձեր ներկայությունը կդարձնի այս օրն էլ ավելի հիշարժան։
+            Խնդրում ենք հաստատել Ձեր մասնակցությունը։
+          </p>
+        </div>
+
+        <div data-animate-child data-delay="200">
+          <!-- Success state (hidden by default) -->
+          <div id="rsvp-success" class="rsvp-success" style="display: none;">
+            <div class="rsvp-success-icon">
+              <!-- Check icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <h3 class="rsvp-success-title">Շնորհակալություն</h3>
+            <p class="rsvp-success-text">
+              Ձեր պատասխանը գրանցված է։ Անհամբեր սպասում ենք
+              այս զգացմունքային օրը միասին նշելուն։
+            </p>
+            <!-- ArmenianOrnament -->
+            <svg class="ornament ornament-sm" viewBox="0 0 400 40" fill="none" aria-hidden="true">
+              <line x1="0" y1="20" x2="120" y2="20" stroke="currentColor" stroke-width="1" opacity="0.4" />
+              <line x1="280" y1="20" x2="400" y2="20" stroke="currentColor" stroke-width="1" opacity="0.4" />
+              <path d="M190 10L200 0L210 10L200 20Z" fill="currentColor" opacity="0.6" />
+              <path d="M170 20L180 10L190 20L180 30Z" fill="currentColor" opacity="0.3" />
+              <path d="M210 20L220 10L230 20L220 30Z" fill="currentColor" opacity="0.3" />
+              <circle cx="140" cy="20" r="2" fill="currentColor" opacity="0.4" />
+              <circle cx="155" cy="20" r="1.5" fill="currentColor" opacity="0.3" />
+              <circle cx="245" cy="20" r="1.5" fill="currentColor" opacity="0.3" />
+              <circle cx="260" cy="20" r="2" fill="currentColor" opacity="0.4" />
+              <path d="M195 20H205M200 15V25" stroke="currentColor" stroke-width="0.5" opacity="0.4" />
+            </svg>
+          </div>
+
+          <!-- Form (shown by default) -->
+          <form id="rsvp-form" class="rsvp-form">
+            <div class="rsvp-form-header">
+              <svg class="rsvp-bell" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                <path
+                  d="M32 4C32 4 28 8 28 12C28 12 18 16 16 28C14 40 12 44 12 44H52C52 44 50 40 48 28C46 16 36 12 36 12C36 8 32 4 32 4Z"
+                  fill="currentColor" opacity="0.9" />
+                <ellipse cx="32" cy="44" rx="20" ry="3" fill="currentColor" opacity="0.7" />
+                <circle cx="32" cy="52" r="4" fill="currentColor" />
+                <path d="M26 52C26 55.3137 28.6863 58 32 58C35.3137 58 38 55.3137 38 52" stroke="currentColor"
+                  stroke-width="2" fill="none" />
+                <line x1="32" y1="4" x2="32" y2="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <circle cx="32" cy="2" r="2" fill="currentColor" />
+              </svg>
+              <p class="rsvp-respond-label">Խնդրում ենք արձագանքել</p>
+            </div>
+
+            <div class="rsvp-fields">
+              <!-- Name -->
+              <div class="rsvp-field">
+                <label for="rsvp-name" class="rsvp-label">Անուն Ազգանուն</label>
+                <input type="text" id="rsvp-name" name="name" required placeholder="Մուտքագրեք Ձեր անունն ու ազգանունը"
+                  class="rsvp-input">
+              </div>
+
+              <!-- Attendance -->
+              <div class="rsvp-field">
+                <label class="rsvp-label">Ներկա կգտնվե՞ք</label>
+                <div class="attendance-buttons">
+                  <button type="button" id="btn-accept" class="attendance-btn" data-value="yes">
+                    Սիրով կմասնակցեմ
+                  </button>
+                  <button type="button" id="btn-decline" class="attendance-btn" data-value="no">
+                    Ցավոք, չեմ կարող
+                  </button>
+                </div>
+              </div>
+
+              <!-- Number of guests (hidden by default) -->
+              <div id="guests-field" class="rsvp-field" style="display: none;">
+                <label for="rsvp-guests" class="rsvp-label">Հյուրերի Քանակը</label>
+                <select id="rsvp-guests" name="guests" class="rsvp-select">
+                  <option value="1">1 Հյուր</option>
+                  <option value="2">2 Հյուր</option>
+                  <option value="3">3 Հյուր</option>
+                  <option value="4">4 Հյուր</option>
+                  <option value="5">5+ Հյուր</option>
+                </select>
+              </div>
+
+              <!-- Message -->
+              <div class="rsvp-field">
+                <label for="rsvp-message" class="rsvp-label">Մաղթանք Շրջանավարտին</label>
+                <textarea id="rsvp-message" name="message" rows="4" placeholder="Գրեք Ձեր մաղթանքը..."
+                  class="rsvp-textarea"></textarea>
+              </div>
+
+              <!-- Submit -->
+              <button type="submit" class="rsvp-submit">
+                <!-- Send icon -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="m22 2-7 20-4-9-9-4Z" />
+                  <path d="M22 2 11 13" />
+                </svg>
+                Ուղարկել
+              </button>
+            </div>
+
+            <!-- ArmenianOrnament -->
+            <svg class="ornament ornament-sm" viewBox="0 0 400 40" fill="none" aria-hidden="true">
+              <line x1="0" y1="20" x2="120" y2="20" stroke="currentColor" stroke-width="1" opacity="0.4" />
+              <line x1="280" y1="20" x2="400" y2="20" stroke="currentColor" stroke-width="1" opacity="0.4" />
+              <path d="M190 10L200 0L210 10L200 20Z" fill="currentColor" opacity="0.6" />
+              <path d="M170 20L180 10L190 20L180 30Z" fill="currentColor" opacity="0.3" />
+              <path d="M210 20L220 10L230 20L220 30Z" fill="currentColor" opacity="0.3" />
+              <circle cx="140" cy="20" r="2" fill="currentColor" opacity="0.4" />
+              <circle cx="155" cy="20" r="1.5" fill="currentColor" opacity="0.3" />
+              <circle cx="245" cy="20" r="1.5" fill="currentColor" opacity="0.3" />
+              <circle cx="260" cy="20" r="2" fill="currentColor" opacity="0.4" />
+              <path d="M195 20H205M200 15V25" stroke="currentColor" stroke-width="0.5" opacity="0.4" />
+            </svg>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <!-- BellIcon -->
+        <svg class="footer-bell" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+          <path
+            d="M32 4C32 4 28 8 28 12C28 12 18 16 16 28C14 40 12 44 12 44H52C52 44 50 40 48 28C46 16 36 12 36 12C36 8 32 4 32 4Z"
+            fill="currentColor" opacity="0.9" />
+          <ellipse cx="32" cy="44" rx="20" ry="3" fill="currentColor" opacity="0.7" />
+          <circle cx="32" cy="52" r="4" fill="currentColor" />
+          <path d="M26 52C26 55.3137 28.6863 58 32 58C35.3137 58 38 55.3137 38 52" stroke="currentColor"
+            stroke-width="2" fill="none" />
+          <line x1="32" y1="4" x2="32" y2="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <circle cx="32" cy="2" r="2" fill="currentColor" />
+        </svg>
+        <!-- ArmenianOrnament -->
+        <svg class="ornament ornament-footer" viewBox="0 0 400 40" fill="none" aria-hidden="true">
+          <line x1="0" y1="20" x2="120" y2="20" stroke="currentColor" stroke-width="1" opacity="0.4" />
+          <line x1="280" y1="20" x2="400" y2="20" stroke="currentColor" stroke-width="1" opacity="0.4" />
+          <path d="M190 10L200 0L210 10L200 20Z" fill="currentColor" opacity="0.6" />
+          <path d="M170 20L180 10L190 20L180 30Z" fill="currentColor" opacity="0.3" />
+          <path d="M210 20L220 10L230 20L220 30Z" fill="currentColor" opacity="0.3" />
+          <circle cx="140" cy="20" r="2" fill="currentColor" opacity="0.4" />
+          <circle cx="155" cy="20" r="1.5" fill="currentColor" opacity="0.3" />
+          <circle cx="245" cy="20" r="1.5" fill="currentColor" opacity="0.3" />
+          <circle cx="260" cy="20" r="2" fill="currentColor" opacity="0.4" />
+          <path d="M195 20H205M200 15V25" stroke="currentColor" stroke-width="0.5" opacity="0.4" />
+        </svg>
+        <p class="footer-name">Արամ Հակոբյան</p>
+        <p class="footer-class">Վերջին Զանգ — 2026 Շրջանավարտներ</p>
+        <p class="footer-school">Հովհաննես Թումանյանի անվան հ. 32 հիմնական դպրոց, ք. Երևան</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

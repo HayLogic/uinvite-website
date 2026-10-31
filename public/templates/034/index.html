@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Դավիթ & Մարիա - Հարսանյաց Հրավեր</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <div class="hero__bg">
+            <picture>
+                <source media="(max-width: 768px)" srcset="assets/hero-mobile.webp">
+                <img src="assets/hero-desktop.webp" alt="Wedding Background" class="hero__bg-img">
+            </picture>
+            <div class="hero__overlay"></div>
+        </div>
+        
+        <div class="hero__content">
+            <p class="hero__subtitle reveal-up">Սիրով հրավիրում ենք</p>
+            <h1 class="hero__title reveal-up" style="transition-delay: 0.2s;">
+                <span class="name">Դավիթ</span>
+                <span class="ampersand">&</span>
+                <span class="name">Մարիա</span>
+            </h1>
+            <p class="hero__date reveal-up" style="transition-delay: 0.4s;">10 · 10 · 2026</p>
+        </div>
+        
+        <div class="scroll-indicator reveal-in" style="transition-delay: 1s;">
+            <span>Ներքև</span>
+            <div class="scroll-line"></div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Welcome / Quote -->
+        <section class="quote section">
+            <div class="container text-center">
+                <p class="quote__text reveal-up">
+                    «Եվ երկուսը կդառնան մեկ մարմին...»
+                </p>
+                <p class="quote__sub reveal-up" style="transition-delay: 0.2s;">
+                    Անչափ ուրախ կլինենք կիսելու մեր կյանքի ամենակարևոր ու հիշարժան օրը Ձեզ հետ: Ձեր ներկայությունը կկրկնապատկի մեր երջանկությունը:
+                </p>
+            </div>
+        </section>
+
+        <!-- Image Break -->
+        <section class="image-break section">
+            <div class="image-break__wrapper reveal-scale">
+                <img src="assets/couple.webp" alt="Դավիթ և Մարիա">
+            </div>
+        </section>
+
+        <!-- Details / Timeline -->
+        <section class="timeline section" id="details">
+            <div class="container">
+                <h2 class="section-title reveal-up">Օրվա Ծրագիրը</h2>
+                <div class="timeline__container">
+                    <div class="timeline__line"></div>
+                    
+                    <div class="timeline__item reveal-left">
+                        <div class="timeline__time">14:00</div>
+                        <div class="timeline__dot"></div>
+                        <div class="timeline__content">
+                            <h3>Պսակադրություն</h3>
+                            <p>Սուրբ Գրիգոր Լուսավորիչ Մայր Եկեղեցի<br>Երևան, Տիգրան Մեծի պողոտա</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline__item reveal-right">
+                        <div class="timeline__time">16:30</div>
+                        <div class="timeline__dot"></div>
+                        <div class="timeline__content">
+                            <h3>Հարսանյաց Ֆուրշետ</h3>
+                            <p>Դվին Մյուզիք Հոլի Այգի<br>Հյուրերի դիմավորում և ֆոտոսեսիա</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline__item reveal-left">
+                        <div class="timeline__time">18:00</div>
+                        <div class="timeline__dot"></div>
+                        <div class="timeline__content">
+                            <h3>Տոնական Ընթրիք</h3>
+                            <p>Դվին Մյուզիք Հոլ<br>Երևան, Պարոնյան փող., 40</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown -->
+        <section class="countdown section">
+            <div class="container text-center">
+                <h2 class="section-title reveal-up">Մինչև Մեր Օրը</h2>
+                <div class="countdown__wrapper reveal-up" style="transition-delay: 0.2s;">
+                    <div class="count-item">
+                        <span id="days">00</span>
+                        <label>Օր</label>
+                    </div>
+                    <div class="count-item">
+                        <span id="hours">00</span>
+                        <label>Ժամ</label>
+                    </div>
+                    <div class="count-item">
+                        <span id="minutes">00</span>
+                        <label>Րոպե</label>
+                    </div>
+                    <div class="count-item">
+                        <span id="seconds">00</span>
+                        <label>Վրկ</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Form -->
+        <section class="rsvp section" id="rsvp">
+            <div class="container text-center">
+                <h2 class="section-title reveal-up">Հաստատել Ներկայությունը</h2>
+                <p class="rsvp__desc reveal-up" style="transition-delay: 0.1s;">Խնդրում ենք հաստատել ձեր ներկայությունը մինչև Սեպտեմբերի 20-ը:</p>
+                
+                <form class="rsvp__form reveal-up" style="transition-delay: 0.2s;" id="rsvpForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Ձեր Անունը Ազգանունը" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="attendance" required>
+                            <option value="" disabled selected>Կկարողանա՞ք ներկա գտնվել</option>
+                            <option value="yes">Այո, սիրով կգամ</option>
+                            <option value="no">Ցավոք, չեմ կարող</option>
+                        </select>
+                    </div>
+                    <div class="form-group" id="guests-group">
+                        <input type="number" id="guests" placeholder="Հյուրերի քանակը (ներառյալ Դուք)" min="1" max="5">
+                    </div>
+                    <button type="submit" class="btn-submit">Ուղարկել</button>
+                </form>
+
+                <div class="rsvp__success" id="rsvpSuccess">
+                    <div class="success-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </div>
+                    <h3>Շնորհակալություն</h3>
+                    <p>Ձեր պատասխանը հաջողությամբ գրանցվեց:</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container text-center">
+            <h2 class="footer__names reveal-up">Դավիթ & Մարիա</h2>
+            <p class="footer__date reveal-up" style="transition-delay: 0.1s;">10.10.2026</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

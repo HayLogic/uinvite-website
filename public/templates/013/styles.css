@@ -1,0 +1,1650 @@
+/* =============================================
+   Armenian Baptism Invitation - Main Stylesheet
+   ============================================= */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito+Sans:wght@300;400;500;600&display=swap');
+
+/* CSS Variables */
+:root {
+    /* Warm ivory/cream base */
+    --background: hsl(40, 33%, 98%);
+    --foreground: hsl(30, 10%, 25%);
+
+    /* Card with subtle warmth */
+    --card: hsl(40, 40%, 97%);
+    --card-foreground: hsl(30, 10%, 25%);
+
+    /* Antique gold primary */
+    --primary: hsl(38, 60%, 50%);
+    --primary-foreground: hsl(40, 33%, 98%);
+
+    /* Soft cream secondary */
+    --secondary: hsl(35, 30%, 92%);
+    --secondary-foreground: hsl(30, 10%, 25%);
+
+    /* Muted warm tones */
+    --muted: hsl(35, 20%, 94%);
+    --muted-foreground: hsl(30, 8%, 50%);
+
+    /* Borders */
+    --border: hsl(35, 25%, 88%);
+
+    /* Custom colors for baptism theme */
+    --gold: hsl(38, 60%, 50%);
+    --gold-light: hsl(40, 50%, 75%);
+    --gold-dark: hsl(38, 50%, 40%);
+    --ivory: hsl(40, 33%, 98%);
+    --cream: hsl(35, 30%, 92%);
+
+    /* Fonts */
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Nunito Sans', sans-serif;
+
+    --radius: 0.5rem;
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--background);
+    color: var(--foreground);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* =============================================
+   Animations
+   ============================================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(-25%) translateX(-50%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+
+    50% {
+        transform: translateY(0) translateX(-50%);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fade-in-delay {
+    animation: fadeIn 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+.animate-fade-in-delay-2 {
+    animation: fadeIn 0.8s ease-out 0.4s forwards;
+    opacity: 0;
+}
+
+.animate-fade-in-delay-3 {
+    animation: fadeIn 0.8s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.animate-bounce {
+    animation: bounce 1s infinite;
+}
+
+.reveal-item {
+    opacity: 0;
+}
+
+/* =============================================
+   Utilities
+   ============================================= */
+.text-gradient-gold {
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gold-glow {
+    box-shadow: 0 0 30px hsla(38, 60%, 50%, 0.3);
+}
+
+.divider-ornament {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divider-ornament::before,
+.divider-ornament::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+}
+
+.divider-ornament::before {
+    background: linear-gradient(to right, transparent, hsla(38, 60%, 50%, 0.5));
+}
+
+.divider-ornament::after {
+    background: linear-gradient(to left, transparent, hsla(38, 60%, 50%, 0.5));
+}
+
+.backdrop-blur {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* =============================================
+   Hero Section
+   ============================================= */
+.hero-section {
+    position: relative;
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+}
+
+.hero-background img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            hsla(40, 33%, 98%, 0.4),
+            hsla(40, 33%, 98%, 0.2),
+            hsla(40, 33%, 98%, 0.8));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 1.5rem;
+    max-width: 56rem;
+    margin: 0 auto;
+}
+
+.hero-cross {
+    margin-bottom: 2rem;
+}
+
+.hero-cross svg {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto;
+    color: var(--primary);
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--muted-foreground);
+    margin-bottom: 2rem;
+}
+
+.hero-child-section {
+    margin-top: 1rem;
+}
+
+.hero-child-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--muted-foreground);
+    margin-bottom: 0.5rem;
+}
+
+.hero-child-name {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 500;
+    font-style: italic;
+}
+
+.hero-date-badge {
+    margin-top: 3rem;
+    display: inline-block;
+}
+
+.hero-date-card {
+    background: hsla(40, 40%, 97%, 0.8);
+    border: 1px solid hsla(38, 60%, 50%, 0.3);
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+}
+
+.hero-date-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted-foreground);
+    margin-bottom: 0.25rem;
+}
+
+.hero-date {
+    font-size: clamp(1.5rem, 4vw, 1.875rem);
+}
+
+.hero-time {
+    color: var(--muted-foreground);
+    margin-top: 0.25rem;
+}
+
+
+/* =============================================
+   Event Details Section
+   ============================================= */
+.details-section {
+    position: relative;
+    padding: 6rem 0 8rem;
+    overflow: hidden;
+}
+
+.details-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, var(--background), hsla(35, 30%, 92%, 0.5), var(--background));
+}
+
+.details-fade-top,
+.details-fade-bottom {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 8rem;
+}
+
+.details-fade-top {
+    top: 0;
+    background: linear-gradient(to bottom, var(--background), transparent);
+}
+
+.details-fade-bottom {
+    bottom: 0;
+    background: linear-gradient(to top, var(--background), transparent);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.section-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: clamp(1.875rem, 5vw, 3rem);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.section-divider-line {
+    height: 1px;
+    width: 6rem;
+}
+
+.section-divider-line.left {
+    background: linear-gradient(to right, transparent, hsla(38, 60%, 50%, 0.6));
+}
+
+.section-divider-line.right {
+    background: linear-gradient(to left, transparent, hsla(38, 60%, 50%, 0.6));
+}
+
+.section-divider-diamond {
+    width: 0.75rem;
+    height: 0.75rem;
+    transform: rotate(45deg);
+    border: 1px solid hsla(38, 60%, 50%, 0.6);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    align-items: center;
+}
+
+@media (min-width: 1024px) {
+    .details-grid {
+        grid-template-columns: 3fr 2fr;
+    }
+
+    .restaurant-grid {
+        grid-template-columns: 2fr 3fr;
+    }
+}
+
+.details-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 640px) {
+    .details-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+.detail-card {
+    position: relative;
+    background: hsla(40, 40%, 97%, 0.8);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid hsla(38, 60%, 50%, 0.1);
+    transition: all 0.5s ease;
+}
+
+.detail-card:hover {
+    border-color: hsla(38, 60%, 50%, 0.4);
+    box-shadow: 0 25px 50px -12px hsla(38, 60%, 50%, 0.1);
+    transform: translateY(-4px);
+}
+
+.detail-card-corner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3rem;
+    height: 3rem;
+    overflow: hidden;
+}
+
+.detail-card-corner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-top: 1px solid hsla(38, 60%, 50%, 0.3);
+    border-right: 1px solid hsla(38, 60%, 50%, 0.3);
+    border-top-right-radius: 1rem;
+}
+
+.detail-card-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.detail-icon-wrapper {
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(to bottom right, hsla(38, 60%, 50%, 0.2), hsla(38, 60%, 50%, 0.05));
+    transition: all 0.3s ease;
+}
+
+.detail-card:hover .detail-icon-wrapper {
+    background: linear-gradient(to bottom right, hsla(38, 60%, 50%, 0.3), hsla(38, 60%, 50%, 0.1));
+}
+
+.detail-icon-wrapper svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--primary);
+    transition: transform 0.3s ease;
+}
+
+.detail-card:hover .detail-icon-wrapper svg {
+    transform: scale(1.1);
+}
+
+.detail-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted-foreground);
+    margin-bottom: 0.25rem;
+}
+
+.detail-value {
+    font-size: 1.125rem;
+    font-family: var(--font-heading);
+    line-height: 1.4;
+}
+
+.details-image-wrapper {
+    position: relative;
+}
+
+.details-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.5rem;
+    aspect-ratio: 4/3;
+}
+
+.details-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.details-image-container:hover img {
+    transform: scale(1.05);
+}
+
+.details-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, hsla(30, 10%, 25%, 0.4), transparent, transparent);
+}
+
+.details-image-caption {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    color: var(--primary-foreground);
+}
+
+.details-image-frame {
+    position: absolute;
+    border: 1px solid hsla(38, 60%, 50%, 0.2);
+    border-radius: 1.5rem;
+    z-index: -1;
+}
+
+.details-image-frame.outer {
+    inset: -0.75rem;
+}
+
+.details-image-frame.inner {
+    inset: -1.5rem;
+    border-color: hsla(38, 60%, 50%, 0.1);
+}
+
+/* Spiritual Meaning Box */
+.spiritual-box {
+    position: relative;
+    background: linear-gradient(to bottom right, var(--card), hsla(35, 30%, 92%, 0.5));
+    border-radius: 1.5rem;
+    padding: 2rem 3rem;
+    border: 1px solid hsla(38, 60%, 50%, 0.2);
+    text-align: center;
+    overflow: hidden;
+}
+
+.spiritual-corner {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+}
+
+.spiritual-corner.top-left {
+    top: 1rem;
+    left: 1rem;
+    border-left: 2px solid hsla(38, 60%, 50%, 0.3);
+    border-top: 2px solid hsla(38, 60%, 50%, 0.3);
+    border-top-left-radius: 0.5rem;
+}
+
+.spiritual-corner.top-right {
+    top: 1rem;
+    right: 1rem;
+    border-right: 2px solid hsla(38, 60%, 50%, 0.3);
+    border-top: 2px solid hsla(38, 60%, 50%, 0.3);
+    border-top-right-radius: 0.5rem;
+}
+
+.spiritual-corner.bottom-left {
+    bottom: 1rem;
+    left: 1rem;
+    border-left: 2px solid hsla(38, 60%, 50%, 0.3);
+    border-bottom: 2px solid hsla(38, 60%, 50%, 0.3);
+    border-bottom-left-radius: 0.5rem;
+}
+
+.spiritual-corner.bottom-right {
+    bottom: 1rem;
+    right: 1rem;
+    border-right: 2px solid hsla(38, 60%, 50%, 0.3);
+    border-bottom: 2px solid hsla(38, 60%, 50%, 0.3);
+    border-bottom-right-radius: 0.5rem;
+}
+
+.spiritual-icon {
+    font-size: 1.875rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.spiritual-title {
+    font-size: clamp(1.5rem, 4vw, 1.875rem);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.spiritual-text {
+    color: var(--muted-foreground);
+    line-height: 1.8;
+    max-width: 48rem;
+    margin: 0 auto;
+    font-size: 1.125rem;
+}
+
+.spiritual-ornament {
+    margin-top: 1.5rem;
+    color: var(--primary);
+    font-size: 1.25rem;
+    letter-spacing: 0.5em;
+}
+
+/* =============================================
+   Family Section
+   ============================================= */
+.family-section {
+    position: relative;
+    padding: 6rem 0 8rem;
+    background: var(--background);
+    overflow: hidden;
+}
+
+.family-bg-dove {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 37.5rem;
+    height: 37.5rem;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.family-bg-dove img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.family-content {
+    position: relative;
+    z-index: 10;
+    max-width: 56rem;
+    margin: 0 auto;
+}
+
+.family-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.family-icon-wrapper {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.family-icon {
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: linear-gradient(to bottom right, hsla(38, 60%, 50%, 0.2), hsla(38, 60%, 50%, 0.05));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.family-icon svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--primary);
+}
+
+.family-title {
+    font-size: clamp(1.875rem, 5vw, 3rem);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.family-subtitle {
+    color: var(--muted-foreground);
+    font-size: 1.125rem;
+}
+
+/* Parents Card */
+.parents-card {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.parents-card-inner {
+    display: inline-block;
+    background: linear-gradient(to bottom right, var(--card), hsla(35, 30%, 92%, 0.5));
+    border-radius: 1.5rem;
+    padding: 2rem 3rem;
+    border: 1px solid hsla(38, 60%, 50%, 0.2);
+    box-shadow: 0 25px 50px -12px hsla(38, 60%, 50%, 0.05);
+}
+
+.parents-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted-foreground);
+    margin-bottom: 0.75rem;
+}
+
+.parents-names {
+    font-size: clamp(1.875rem, 5vw, 2.25rem);
+    font-family: var(--font-heading);
+    font-weight: 500;
+}
+
+.parents-divider {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.parents-divider-line {
+    width: 2rem;
+    height: 1px;
+    background: hsla(38, 60%, 50%, 0.4);
+}
+
+.parents-divider-heart {
+    color: var(--primary);
+}
+
+/* Decorative Line */
+.family-decorative-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 4rem;
+}
+
+.decorative-line-gradient {
+    height: 1px;
+    width: 5rem;
+}
+
+.decorative-line-gradient.left {
+    background: linear-gradient(to right, transparent, hsla(38, 60%, 50%, 0.5), hsla(38, 60%, 50%, 0.5));
+}
+
+.decorative-line-gradient.right {
+    background: linear-gradient(to left, transparent, hsla(38, 60%, 50%, 0.5), hsla(38, 60%, 50%, 0.5));
+}
+
+.decorative-diamond {
+    position: relative;
+}
+
+.decorative-diamond-outer {
+    width: 1rem;
+    height: 1rem;
+    transform: rotate(45deg);
+    border: 2px solid hsla(38, 60%, 50%, 0.4);
+    background: var(--background);
+}
+
+.decorative-diamond-inner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.decorative-diamond-inner::after {
+    content: '';
+    width: 0.375rem;
+    height: 0.375rem;
+    transform: rotate(45deg);
+    background: hsla(38, 60%, 50%, 0.6);
+}
+
+/* Godparents Grid */
+.godparents-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .godparents-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.godparent-card {
+    position: relative;
+    background: var(--card);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    border: 1px solid hsla(38, 60%, 50%, 0.15);
+    text-align: center;
+    height: 100%;
+    transition: all 0.5s ease;
+}
+
+.godparent-card:hover {
+    border-color: hsla(38, 60%, 50%, 0.4);
+    box-shadow: 0 25px 50px -12px hsla(38, 60%, 50%, 0.1);
+}
+
+.godparent-icon {
+    position: absolute;
+    top: -1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: linear-gradient(to bottom right, var(--primary), var(--gold-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.godparent-icon span {
+    color: var(--primary-foreground);
+    font-size: 1.125rem;
+}
+
+.godparent-content {
+    padding-top: 1rem;
+}
+
+.godparent-label {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted-foreground);
+    margin-bottom: 0.75rem;
+}
+
+.godparent-name {
+    font-size: clamp(1.5rem, 4vw, 1.875rem);
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+}
+
+.godparent-description {
+    color: var(--muted-foreground);
+    line-height: 1.7;
+    font-size: 0.875rem;
+}
+
+/* =============================================
+   Invitation Message Section
+   ============================================= */
+.invitation-section {
+    position: relative;
+    padding: 6rem 0 8rem;
+    overflow: hidden;
+}
+
+.invitation-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+}
+
+.invitation-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.invitation-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, var(--background), transparent, var(--background));
+}
+
+.invitation-content {
+    position: relative;
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.invitation-card {
+    position: relative;
+    background: hsla(40, 40%, 97%, 0.6);
+    border-radius: 1.5rem;
+    padding: 2.5rem 4rem;
+    border: 1px solid hsla(38, 60%, 50%, 0.2);
+    box-shadow: 0 25px 50px -12px hsla(38, 60%, 50%, 0.05);
+    text-align: center;
+}
+
+.invitation-corner {
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+}
+
+.invitation-corner.top-left {
+    top: 1.5rem;
+    left: 1.5rem;
+}
+
+.invitation-corner.top-left::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, hsla(38, 60%, 50%, 0.6), transparent);
+}
+
+.invitation-corner.top-left::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, hsla(38, 60%, 50%, 0.6), transparent);
+}
+
+.invitation-corner.top-right {
+    top: 1.5rem;
+    right: 1.5rem;
+}
+
+.invitation-corner.top-right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to left, hsla(38, 60%, 50%, 0.6), transparent);
+}
+
+.invitation-corner.top-right::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, hsla(38, 60%, 50%, 0.6), transparent);
+}
+
+.invitation-corner.bottom-left {
+    bottom: 1.5rem;
+    left: 1.5rem;
+}
+
+.invitation-corner.bottom-left::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, hsla(38, 60%, 50%, 0.6), transparent);
+}
+
+.invitation-corner.bottom-left::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to top, hsla(38, 60%, 50%, 0.6), transparent);
+}
+
+.invitation-corner.bottom-right {
+    bottom: 1.5rem;
+    right: 1.5rem;
+}
+
+.invitation-corner.bottom-right::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to left, hsla(38, 60%, 50%, 0.6), transparent);
+}
+
+.invitation-corner.bottom-right::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to top, hsla(38, 60%, 50%, 0.6), transparent);
+}
+
+.invitation-cross {
+    margin-bottom: 2rem;
+}
+
+.invitation-cross-inner {
+    display: inline-block;
+    padding: 1rem;
+    border-radius: 50%;
+    background: linear-gradient(to bottom right, hsla(38, 60%, 50%, 0.2), hsla(38, 60%, 50%, 0.05));
+}
+
+.invitation-cross svg {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--primary);
+}
+
+.invitation-heading {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.invitation-heading span {
+    display: block;
+    font-weight: 500;
+}
+
+.invitation-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.invitation-divider-line {
+    height: 1px;
+    width: 3rem;
+}
+
+.invitation-divider-line.left {
+    background: linear-gradient(to right, transparent, hsla(38, 60%, 50%, 0.5));
+}
+
+.invitation-divider-line.right {
+    background: linear-gradient(to left, transparent, hsla(38, 60%, 50%, 0.5));
+}
+
+.invitation-divider-star {
+    color: var(--primary);
+    font-size: 1.25rem;
+}
+
+.invitation-message {
+    color: var(--muted-foreground);
+    font-size: 1.125rem;
+    line-height: 1.8;
+}
+
+.invitation-message p {
+    margin-bottom: 1.5rem;
+}
+
+.invitation-message p:last-child {
+    margin-bottom: 0;
+}
+
+.invitation-quote {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid hsla(38, 60%, 50%, 0.2);
+}
+
+.invitation-quote blockquote {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 1.875rem);
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.invitation-quote cite {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    margin-top: 1rem;
+    font-style: normal;
+    letter-spacing: 0.05em;
+}
+
+.invitation-ornament {
+    margin-top: 2.5rem;
+    color: var(--primary);
+    font-size: 1.5rem;
+}
+
+/* =============================================
+   RSVP Section
+   ============================================= */
+.rsvp-section {
+    position: relative;
+    padding: 6rem 0 8rem;
+    overflow: hidden;
+}
+
+.rsvp-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, var(--background), hsla(35, 30%, 92%, 0.4), var(--background));
+}
+
+.rsvp-blur-left,
+.rsvp-blur-right {
+    position: absolute;
+    width: 16rem;
+    height: 16rem;
+    background: hsla(38, 60%, 50%, 0.05);
+    border-radius: 50%;
+    filter: blur(48px);
+}
+
+.rsvp-blur-left {
+    top: 5rem;
+    left: 2.5rem;
+}
+
+.rsvp-blur-right {
+    bottom: 5rem;
+    right: 2.5rem;
+}
+
+.rsvp-content {
+    position: relative;
+    z-index: 10;
+    max-width: 32rem;
+    margin: 0 auto;
+}
+
+.rsvp-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.rsvp-icon-wrapper {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.rsvp-icon {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: linear-gradient(to bottom right, hsla(38, 60%, 50%, 0.2), hsla(38, 60%, 50%, 0.05));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rsvp-icon svg {
+    width: 1.75rem;
+    height: 1.75rem;
+    color: var(--primary);
+}
+
+.rsvp-title {
+    font-size: clamp(1.875rem, 5vw, 3rem);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+}
+
+.rsvp-subtitle {
+    color: var(--muted-foreground);
+}
+
+.rsvp-form {
+    background: hsla(40, 40%, 97%, 0.8);
+    border-radius: 1.5rem;
+    padding: 2rem 2.5rem;
+    border: 1px solid hsla(38, 60%, 50%, 0.15);
+    box-shadow: 0 25px 50px -12px hsla(38, 60%, 50%, 0.05);
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group:last-of-type {
+    margin-bottom: 0;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted-foreground);
+    margin-bottom: 0.75rem;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    background: hsla(40, 33%, 98%, 0.5);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    color: var(--foreground);
+    transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px hsla(38, 60%, 50%, 0.1);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--muted-foreground);
+}
+
+.form-textarea {
+    resize: none;
+    min-height: 6rem;
+}
+
+.radio-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border: 2px solid var(--border);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.radio-option:hover {
+    border-color: hsla(38, 60%, 50%, 0.4);
+}
+
+.radio-option.selected {
+    border-color: var(--primary);
+    background: hsla(38, 60%, 50%, 0.1);
+}
+
+.radio-option input {
+    display: none;
+}
+
+.radio-option svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--muted-foreground);
+}
+
+.radio-option.selected svg {
+    color: var(--primary);
+}
+
+.radio-option span {
+    transition: all 0.3s ease;
+}
+
+.radio-option.selected span {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1.25rem 2rem;
+    background: linear-gradient(to right, var(--primary), var(--gold-dark));
+    color: var(--primary-foreground);
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    letter-spacing: 0.05em;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.submit-btn:hover {
+    opacity: 0.9;
+    box-shadow: 0 25px 50px -12px hsla(38, 60%, 50%, 0.3);
+}
+
+.submit-btn:hover svg {
+    transform: translateX(4px);
+}
+
+.submit-btn svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.submit-spinner {
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid hsla(255, 255%, 255%, 0.3);
+    border-top-color: var(--primary-foreground);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.rsvp-deadline {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    margin-top: 2rem;
+}
+
+/* Success State */
+.rsvp-success {
+    background: var(--card);
+    border-radius: 1.5rem;
+    padding: 3rem 4rem;
+    border: 1px solid hsla(38, 60%, 50%, 0.3);
+    box-shadow: 0 25px 50px -12px hsla(38, 60%, 50%, 0.1);
+    text-align: center;
+    position: relative;
+}
+
+.rsvp-success-sparkle {
+    position: absolute;
+    color: hsla(38, 60%, 50%, 0.4);
+    animation: pulse 2s infinite;
+}
+
+.rsvp-success-sparkle.top-right {
+    top: 1rem;
+    right: 1rem;
+}
+
+.rsvp-success-sparkle.bottom-left {
+    bottom: 1rem;
+    left: 1rem;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.rsvp-success-icon-wrapper {
+    width: 6rem;
+    height: 6rem;
+    margin: 0 auto 2rem;
+    border-radius: 50%;
+    background: linear-gradient(to bottom right, hsla(38, 60%, 50%, 0.3), hsla(38, 60%, 50%, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rsvp-success-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background: linear-gradient(to bottom right, var(--primary), var(--gold-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rsvp-success-icon svg {
+    width: 2rem;
+    height: 2rem;
+    color: var(--primary-foreground);
+}
+
+.rsvp-success-title {
+    font-size: clamp(1.875rem, 5vw, 2.25rem);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.rsvp-success-message {
+    color: var(--muted-foreground);
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+}
+
+.rsvp-success-blessing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    font-size: 1.25rem;
+}
+
+.rsvp-success-blessing svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: currentColor;
+}
+
+/* =============================================
+   Footer
+   ============================================= */
+.footer {
+    position: relative;
+    padding: 4rem 0;
+    overflow: hidden;
+}
+
+.footer-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, hsla(35, 30%, 92%, 0.7), hsla(35, 30%, 92%, 0.4), var(--background));
+}
+
+.footer-content {
+    position: relative;
+    z-index: 10;
+    max-width: 56rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-decoration {
+    margin-bottom: 2rem;
+}
+
+.footer-decoration-inner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.footer-decoration-line {
+    height: 1px;
+    width: 3rem;
+}
+
+.footer-decoration-line.left {
+    background: linear-gradient(to right, transparent, hsla(38, 60%, 50%, 0.4));
+}
+
+.footer-decoration-line.right {
+    background: linear-gradient(to left, transparent, hsla(38, 60%, 50%, 0.4));
+}
+
+.footer-cross {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background: linear-gradient(to bottom right, hsla(38, 60%, 50%, 0.2), hsla(38, 60%, 50%, 0.05));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-cross svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--primary);
+}
+
+.footer-family {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 4vw, 1.875rem);
+    margin-bottom: 0.5rem;
+}
+
+.footer-blessing {
+    color: var(--muted-foreground);
+}
+
+.footer-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 2rem 0;
+    color: hsla(38, 60%, 50%, 0.6);
+}
+
+.footer-info {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+}
+
+.footer-date {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    color: hsla(30, 10%, 25%, 0.8);
+    margin-bottom: 0.25rem;
+}
+
+.footer-closing {
+    margin-top: 2rem;
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-style: italic;
+    color: var(--primary);
+}
+
+/* =============================================
+   Scrollbar
+   ============================================= */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--cream);
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsla(38, 60%, 50%, 0.5);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsla(38, 60%, 50%, 0.7);
+}
+
+/* =============================================
+   Responsive Adjustments
+   ============================================= */
+@media (max-width: 768px) {
+    .invitation-card {
+        padding: 2rem;
+    }
+
+    .rsvp-form {
+        padding: 1.5rem;
+    }
+
+    .spiritual-box {
+        padding: 1.5rem;
+    }
+
+    .parents-card-inner {
+        padding: 1.5rem 2rem;
+    }
+
+    .radio-group {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* View Results Button */
+.view-results-btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid hsla(38, 60%, 50%, 0.4);
+    border-radius: 2rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.view-results-btn:hover {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 10px 20px -10px var(--primary);
+    transform: translateY(-2px);
+}

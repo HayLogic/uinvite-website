@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ոսկե Հոբելյանի Հրավեր</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <nav id="main-nav" class="nav">
+        <div class="nav-countdown">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" class="sparkle"
+                style="color: hsl(42,80%,75%); animation-duration: 3s;">
+                <path d="M12 2 L13.5 9 L20 10.5 L13.5 12 L12 19 L10.5 12 L4 10.5 L10.5 9 Z" />
+            </svg>
+            <span class="nav-countdown-label">Հաշվարկ՝</span>
+
+            <span class="nav-countdown-item">
+                <span id="cd-days" class="nav-countdown-value">00</span>
+                <span class="nav-countdown-label" style="text-transform: none; letter-spacing: normal;">Օր</span>
+            </span>
+            <span class="nav-countdown-item">
+                <span id="cd-hours" class="nav-countdown-value">00</span>
+                <span class="nav-countdown-label" style="text-transform: none; letter-spacing: normal;">Ժամ</span>
+            </span>
+            <span class="nav-countdown-item">
+                <span id="cd-minutes" class="nav-countdown-value">00</span>
+                <span class="nav-countdown-label" style="text-transform: none; letter-spacing: normal;">Րոպե</span>
+            </span>
+            <span class="nav-countdown-item">
+                <span id="cd-seconds" class="nav-countdown-value">00</span>
+                <span class="nav-countdown-label" style="text-transform: none; letter-spacing: normal;">Վրկ</span>
+            </span>
+
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" class="sparkle"
+                style="color: hsl(42,80%,75%); animation-duration: 3.5s; animation-delay: 1s;">
+                <path d="M12 2 L13.5 9 L20 10.5 L13.5 12 L12 19 L10.5 12 L4 10.5 L10.5 9 Z" />
+            </svg>
+        </div>
+
+        <div class="nav-links">
+            <a href="#about" class="nav-link">Մասին</a>
+            <a href="#details" class="nav-link">Մանրամասներ</a>
+            <a href="#speakers" class="nav-link">Հյուրեր</a>
+            <a href="#gallery" class="nav-link">Պատկերասրահ</a>
+            <a href="#directions" class="nav-link">Ուղեցույց</a>
+            <a href="#rsvp" class="nav-link">Հաստատում</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero hero-bg relative">
+        <div id="confetti-container" class="absolute inset-0 z-10" style="pointer-events: none; overflow: hidden;">
+        </div>
+        <div id="sparkles-container" class="absolute inset-0 z-10" style="pointer-events: none; overflow: hidden;">
+        </div>
+
+        <div class="hero-content z-10">
+            <div class="flex justify-center gap-3" style="margin-bottom: 24px;">
+                <svg viewBox="0 0 60 30" fill="none" class="relative" style="width: 64px; height: 32px; opacity: 0.6;">
+                    <path d="M5 15 Q15 5 30 15 Q45 25 55 15" stroke="hsl(42,55%,54%)" stroke-width="2" fill="none"
+                        stroke-linecap="round" />
+                    <path d="M5 15 Q15 25 30 15 Q45 5 55 15" stroke="hsl(348,45%,45%)" stroke-width="2" fill="none"
+                        stroke-linecap="round" />
+                </svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="sparkle relative"
+                    style="color: hsl(42,80%,75%); margin-top: 4px; animation-delay: 1s; animation-duration: 4s;">
+                    <path d="M12 2 L13.5 9 L20 10.5 L13.5 12 L12 19 L10.5 12 L4 10.5 L10.5 9 Z" />
+                </svg>
+                <svg viewBox="0 0 60 30" fill="none" class="relative" style="width: 64px; height: 32px; opacity: 0.6;">
+                    <path d="M5 15 Q15 5 30 15 Q45 25 55 15" stroke="hsl(42,55%,54%)" stroke-width="2" fill="none"
+                        stroke-linecap="round" />
+                    <path d="M5 15 Q15 25 30 15 Q45 5 55 15" stroke="hsl(348,45%,45%)" stroke-width="2" fill="none"
+                        stroke-linecap="round" />
+                </svg>
+            </div>
+
+            <p class="section-title-sub">Ոսկե Հոբելյան</p>
+            <h1 class="hero-title">
+                Հրավիրված եք<br />
+                <span style="color: hsl(42,80%,72%);">Նշելու 50-Ամյակը։</span>
+            </h1>
+            <p class="hero-subtitle">
+                Խնդրում ենք միանալ մեզ՝ նշելու անմոռանալի երեկոն՝ ի պատիվ<br />
+                <span class="text-foreground semibold">Արամի 50-ամյակի</span>
+            </p>
+
+            <div class="hero-badges">
+                <div class="hero-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg><span>Շաբաթ, Հոկտեմբերի 18, 2025</span></div>
+                <div class="hero-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg><span>18:30 — մինչև ուշ գիշեր</span></div>
+                <div class="hero-badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg><span>Դվին Մյուզիք Հոլ, Երևան</span></div>
+            </div>
+
+            <a href="#rsvp" class="shimmer-btn">Հաստատել Մասնակցությունը ✨</a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container section-reveal">
+            <div class="section-title">
+                <p class="section-title-sub">Տոնակատարության Մասին</p>
+                <h2 class="section-title-main">
+                    Հիսուն Տարվա<br /><em class="text-primary">Ուրախություն և Ծիծաղ</em>
+                </h2>
+            </div>
+            <div class="grid-2">
+                <div class="about-text">
+                    <p>
+                        Կես դարի պատմություններ, արկածներ և հիշողություններ. և սա դեռ սկիզբն է։ Արամը վերջին 50 տարիներն
+                        անցկացրել է՝ լցնելով աշխարհը ջերմությամբ, բարությամբ և կյանքի հանդեպ անսպառ կիրքով։
+                    </p>
+                    <p>
+                        Ուսանողական խենթ տարիներից մինչև ընտանեկան ջերմ հավաքույթների ժամանակ անկեղծ ծիծաղը՝
+                        յուրաքանչյուր տարի եղել է ավելի հարուստ, քան նախորդը:
+                    </p>
+                    <p>
+                        Այժմ ձեր հերթն է բարձրացնել բաժակը։ Եկեք միասին նշենք այս կարևոր իրադարձությունը, որին նա միշտ
+                        արժանի է եղել։
+                    </p>
+                    <div class="flex gap-3" style="margin-top: 16px;">
+                        <svg viewBox="0 0 60 30" fill="none" class="relative"
+                            style="width: 64px; height: 32px; opacity: 0.6;">
+                            <path d="M5 15 Q15 5 30 15 Q45 25 55 15" stroke="hsl(42,55%,54%)" stroke-width="2"
+                                fill="none" stroke-linecap="round" />
+                            <path d="M5 15 Q15 25 30 15 Q45 5 55 15" stroke="hsl(348,45%,45%)" stroke-width="2"
+                                fill="none" stroke-linecap="round" />
+                        </svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="sparkle relative"
+                            style="color: hsl(42,80%,75%); margin-top: 2px; animation-delay: 0.5s; animation-duration: 3s;">
+                            <path d="M12 2 L13.5 9 L20 10.5 L13.5 12 L12 19 L10.5 12 L4 10.5 L10.5 9 Z" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="assets/about-photo.webp" alt="Elegant celebration setting with champagne"
+                        class="about-image" />
+                    <div class="about-image-decor"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENT DETAILS -->
+    <section id="details" class="relative">
+        <div class="absolute inset-0"
+            style="background: radial-gradient(ellipse at center, hsl(42,55%,54%) 0%, transparent 70%); opacity: 0.05;">
+        </div>
+        <div class="container section-reveal relative z-10">
+            <div class="section-title">
+                <p class="section-title-sub">Միջոցառման Մանրամասներ</p>
+                <h2 class="section-title-main">
+                    Երեկոն՝<br /><em class="text-primary">Համառոտ</em>
+                </h2>
+            </div>
+            <div class="grid-4">
+
+                <div class="detail-card detail-card-center">
+                    <div class="detail-card-icon-wrap">
+                        <svg viewBox="0 0 48 48" fill="none" style="width: 32px; height: 32px;">
+                            <rect x="18" y="20" width="12" height="22" rx="2" fill="currentColor" opacity="0.9" />
+                            <rect x="22" y="14" width="4" height="8" rx="1" fill="hsl(36,79%,88%)" opacity="0.6" />
+                            <ellipse cx="24" cy="13" rx="3" ry="4" fill="hsl(30,90%,65%)" opacity="0.9" />
+                            <ellipse cx="24" cy="11" rx="1.5" ry="2.5" fill="hsl(45,100%,85%)" />
+                        </svg>
+                    </div>
+                    <p class="section-title-sub" style="margin-bottom: 8px;">Ամսաթիվ</p>
+                    <p class="font-display bold" style="font-size: 18px; margin-bottom: 4px; color: var(--foreground)">
+                        Շաբաթ</p>
+                    <p class="text-muted" style="font-size: 14px;">Հոկտեմբերի 18, 2025</p>
+                </div>
+
+                <div class="detail-card detail-card-center">
+                    <div class="detail-card-icon-wrap">
+                        <svg viewBox="0 0 48 48" fill="none" style="width: 32px; height: 32px;">
+                            <path
+                                d="M24 6 L27.5 16.5 L39 16.5 L29.5 23 L33 34 L24 27.5 L15 34 L18.5 23 L9 16.5 L20.5 16.5 Z"
+                                fill="currentColor" opacity="0.9" />
+                        </svg>
+                    </div>
+                    <p class="section-title-sub" style="margin-bottom: 8px;">Ժամանակ</p>
+                    <p class="font-display bold" style="font-size: 18px; margin-bottom: 4px; color: var(--foreground)">
+                        18:30</p>
+                    <p class="text-muted" style="font-size: 14px;">Կոկտեյլների ժամ՝ սկսած 18:00-ից</p>
+                </div>
+
+                <div class="detail-card detail-card-center">
+                    <div class="detail-card-icon-wrap">
+                        <svg viewBox="0 0 48 48" fill="none" style="width: 32px; height: 32px;">
+                            <ellipse cx="24" cy="19" rx="11" ry="14" fill="currentColor" opacity="0.9" />
+                            <ellipse cx="20" cy="14" rx="4" ry="5" fill="hsl(348,45%,65%)" opacity="0.5" />
+                            <path d="M24 33 Q26 36 24 39 Q22 42 24 45" stroke="currentColor" stroke-width="1.5"
+                                fill="none" stroke-linecap="round" />
+                            <path d="M22 33 L26 33" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <p class="section-title-sub" style="margin-bottom: 8px;">Վայր</p>
+                    <p class="font-display bold" style="font-size: 18px; margin-bottom: 4px; color: var(--foreground)">
+                        Դվին Մյուզիք Հոլ</p>
+                    <p class="text-muted" style="font-size: 14px;">Պարոնյան փողոց 40, Երևան</p>
+                </div>
+
+                <div class="detail-card detail-card-center">
+                    <div class="detail-card-icon-wrap">
+                        <svg viewBox="0 0 48 48" fill="none" style="width: 32px; height: 32px;">
+                            <path d="M18 8 L14 22 Q14 30 24 30 Q34 30 34 22 L30 8 Z" fill="currentColor"
+                                opacity="0.85" />
+                            <path d="M18 8 L30 8 L28 16 Q26 22 24 22 Q22 22 20 16 Z" fill="hsl(42,80%,75%)"
+                                opacity="0.7" />
+                            <rect x="22" y="30" width="4" height="8" rx="1" fill="currentColor" />
+                            <rect x="18" y="38" width="12" height="2" rx="1" fill="currentColor" />
+                            <circle cx="20" cy="18" r="1.5" fill="hsl(36,79%,95%)" opacity="0.8" />
+                            <circle cx="27" cy="14" r="1" fill="hsl(36,79%,95%)" opacity="0.8" />
+                        </svg>
+                    </div>
+                    <p class="section-title-sub" style="margin-bottom: 8px;">Դրես Կոդ</p>
+                    <p class="font-display bold" style="font-size: 18px; margin-bottom: 4px; color: var(--foreground)">
+                        Սև Փողկապ (Black Tie)</p>
+                    <p class="text-muted" style="font-size: 14px;">Խրախուսվում է գլամուրային հագուստ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPEAKERS -->
+    <section id="speakers">
+        <div class="container section-reveal">
+            <div class="section-title">
+                <p class="section-title-sub">Հատուկ Հյուրեր</p>
+                <h2 class="section-title-main">
+                    Պատվավոր<br /><em class="text-primary">Հյուրեր</em>
+                </h2>
+                <p class="text-muted" style="max-width: 450px; margin: 16px auto 0;">
+                    Սիրելի ընկերներ և ընտանիքի անդամներ, ովքեր երեկոյի ընթացքում կկիսվեն կենացներով, հիշողություններով և
+                    մի քանի անակնկալներով։
+                </p>
+            </div>
+
+            <div class="grid-3">
+                <!-- Guest 1 -->
+                <div class="detail-card">
+                    <div class="detail-card-flex" style="margin-bottom: 16px;">
+                        <img src="assets/guest-1.webp" alt="Anna Hovhannisyan" class="guest-avatar" />
+                        <div>
+                            <p class="font-display semibold" style="font-size: 16px; margin-bottom: 2px;">Աննա
+                                Հովհաննիսյան</p>
+                            <p class="text-primary"
+                                style="font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase;">Դպրոցական
+                                Ընկերուհի</p>
+                        </div>
+                    </div>
+                    <p class="font-display italic text-muted"
+                        style="font-size: 14px; padding-left: 12px; border-left: 2px solid hsla(42,55%,54%,0.4);">
+                        «50 տարվա ընկերություն, և ես դեռ հիշում եմ մեր դպրոցական խենթությունները։»
+                    </p>
+                </div>
+
+                <!-- Guest 2 -->
+                <div class="detail-card">
+                    <div class="detail-card-flex" style="margin-bottom: 16px;">
+                        <img src="assets/guest-2.webp" alt="Gor Sargsyan" class="guest-avatar" />
+                        <div>
+                            <p class="font-display semibold" style="font-size: 16px; margin-bottom: 2px;">Գոռ
+                                Սարգսյան
+                            </p>
+                            <p class="text-primary"
+                                style="font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase;">
+                                Համալսարանական
+                                Ընկեր</p>
+                        </div>
+                    </div>
+                    <p class="font-display italic text-muted"
+                        style="font-size: 14px; padding-left: 12px; border-left: 2px solid hsla(42,55%,54%,0.4);">
+                        «Առաջին կուրսից մինչև ոսկե հոբելյան․ ի՜նչ ճանապարհ անցանք միասին։»
+                    </p>
+                </div>
+
+                <!-- Guest 3 -->
+                <div class="detail-card">
+                    <div class="detail-card-flex" style="margin-bottom: 16px;">
+                        <img src="assets/guest-3.webp" alt="Mane and Davit" class="guest-avatar" />
+                        <div>
+                            <p class="font-display semibold" style="font-size: 16px; margin-bottom: 2px;">Մանե և Դավիթ
+                            </p>
+                            <p class="text-primary"
+                                style="font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase;">Երեխաները
+                            </p>
+                        </div>
+                    </div>
+                    <p class="font-display italic text-muted"
+                        style="font-size: 14px; padding-left: 12px; border-left: 2px solid hsla(42,55%,54%,0.4);">
+                        «Դու մեզ նվիրել ես աշխարհը։ Այսօր քո հերթն է լիարժեք վայելելու։»
+                    </p>
+                </div>
+
+                <!-- Guest 4 -->
+                <div class="detail-card">
+                    <div class="detail-card-flex" style="margin-bottom: 16px;">
+                        <img src="assets/guest-4.webp" alt="Tigran Petrosyan" class="guest-avatar" />
+                        <div>
+                            <p class="font-display semibold" style="font-size: 16px; margin-bottom: 2px;">Տիգրան
+                                Պետրոսյան
+                            </p>
+                            <p class="text-primary"
+                                style="font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase;">Գործընկեր
+                            </p>
+                        </div>
+                    </div>
+                    <p class="font-display italic text-muted"
+                        style="font-size: 14px; padding-left: 12px; border-left: 2px solid hsla(42,55%,54%,0.4);">
+                        «Իսկական պրոֆեսիոնալ և լավ ընկեր: Կենացդ՝ նոր ձեռքբերումների համար։»
+                    </p>
+                </div>
+
+                <!-- Guest 5 -->
+                <div class="detail-card">
+                    <div class="detail-card-flex" style="margin-bottom: 16px;">
+                        <img src="assets/guest-5.webp" alt="Lilit Simonyan" class="guest-avatar" />
+                        <div>
+                            <p class="font-display semibold" style="font-size: 16px; margin-bottom: 2px;">Լիլիթ Սիմոնյան
+                            </p>
+                            <p class="text-primary"
+                                style="font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase;">Պարի
+                                Ուսուցչուհի</p>
+                        </div>
+                    </div>
+                    <p class="font-display italic text-muted"
+                        style="font-size: 14px; padding-left: 12px; border-left: 2px solid hsla(42,55%,54%,0.4);">
+                        «Նա դեռևս ունի ամենալավ շարժումները պարահրապարակում: Հավատացեք ինձ։»
+                    </p>
+                </div>
+
+                <!-- Guest 6 -->
+                <div class="detail-card">
+                    <div class="detail-card-flex" style="margin-bottom: 16px;">
+                        <img src="assets/guest-6.webp" alt="Armen and Shushan" class="guest-avatar" />
+                        <div>
+                            <p class="font-display semibold" style="font-size: 16px; margin-bottom: 2px;">Արմեն և Շուշան
+                            </p>
+                            <p class="text-primary"
+                                style="font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase;">Ընտանիքի
+                                Բարեկամներ</p>
+                        </div>
+                    </div>
+                    <p class="font-display italic text-muted"
+                        style="font-size: 14px; padding-left: 12px; border-left: 2px solid hsla(42,55%,54%,0.4);">
+                        «Իսկական ընտանիքի մարդ և հավատարիմ ընկեր, ում հետ միշտ հաճելի է կիսել ուրախությունը։»
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+        <div class="container section-reveal">
+            <div class="section-title">
+                <p class="section-title-sub">Տրամադրություն և Մթնոլորտ</p>
+                <h2 class="section-title-main">
+                    Անմոռանալի<br /><em class="text-primary">Երեկո</em>
+                </h2>
+            </div>
+            <div class="grid-gallery">
+
+                <div class="gallery-tile" style="animation-delay: 0s;">
+                    <img src="assets/gallery-1.webp" alt="Golden Moments" />
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-hover">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" class="sparkle text-primary"
+                            style="color: hsl(42,80%,75%); filter: drop-shadow(0 0 8px hsl(42,80%,75%));">
+                            <path d="M12 2 L13.5 9 L20 10.5 L13.5 12 L12 19 L10.5 12 L4 10.5 L10.5 9 Z" />
+                        </svg>
+                    </div>
+                    <div class="gallery-text">Անմոռանալի Պահեր</div>
+                </div>
+
+                <div class="gallery-tile" style="animation-delay: 1.5s;">
+                    <img src="assets/gallery-2.webp" alt="A Celebration of Life" />
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-hover">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" class="sparkle text-primary"
+                            style="color: hsl(42,80%,75%); filter: drop-shadow(0 0 8px hsl(42,80%,75%));">
+                            <path d="M12 2 L13.5 9 L20 10.5 L13.5 12 L12 19 L10.5 12 L4 10.5 L10.5 9 Z" />
+                        </svg>
+                    </div>
+                    <div class="gallery-text">Տոնական Տրամադրություն</div>
+                </div>
+
+                <div class="gallery-tile" style="animation-delay: 3s;">
+                    <img src="assets/gallery-3.webp" alt="Fifty & Fabulous" />
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-hover">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" class="sparkle text-primary"
+                            style="color: hsl(42,80%,75%); filter: drop-shadow(0 0 8px hsl(42,80%,75%));">
+                            <path d="M12 2 L13.5 9 L20 10.5 L13.5 12 L12 19 L10.5 12 L4 10.5 L10.5 9 Z" />
+                        </svg>
+                    </div>
+                    <div class="gallery-text">Կյանքի Լավագույն Տարիները</div>
+                </div>
+
+                <div class="gallery-tile" style="animation-delay: 4.5s;">
+                    <img src="assets/gallery-4.webp" alt="The Grand Ballroom" />
+                    <div class="gallery-overlay"></div>
+                    <div class="gallery-hover">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" class="sparkle text-primary"
+                            style="color: hsl(42,80%,75%); filter: drop-shadow(0 0 8px hsl(42,80%,75%));">
+                            <path d="M12 2 L13.5 9 L20 10.5 L13.5 12 L12 19 L10.5 12 L4 10.5 L10.5 9 Z" />
+                        </svg>
+                    </div>
+                    <div class="gallery-text">Շքեղ Միջավայր</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHT: HOW TO GET THERE -->
+    <section id="directions" class="relative">
+        <div class="absolute inset-0"
+            style="background: radial-gradient(ellipse at center, hsl(348,45%,40%) 0%, transparent 65%); opacity: 0.05;">
+        </div>
+        <div class="container section-reveal relative z-10">
+            <div class="section-title">
+                <p class="section-title-sub">Վայր</p>
+                <h2 class="section-title-main">
+                    Ինչպես<br /><em class="text-primary">Հասնել</em>
+                </h2>
+            </div>
+
+            <div class="grid-2">
+                <!-- Map placeholder -->
+                <div class="map-card">
+                    <div class="map-card-icon">
+                        <svg viewBox="0 0 48 48" fill="currentColor" style="width: 32px; height: 32px;">
+                            <path
+                                d="M24 4C15.163 4 8 11.163 8 20c0 12 16 24 16 24s16-12 16-24c0-8.837-7.163-16-16-16Zm0 22c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6Z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-display semibold"
+                            style="font-size: 24px; color: var(--foreground); margin-bottom: 4px;">
+                            Դվին Մյուզիք Հոլ
+                        </p>
+                        <p class="font-body text-primary" style="font-size: 15px; letter-spacing: 0.05em;">
+                            Պարոնյան փողոց 40<br />Երևան, Հայաստան
+                        </p>
+                    </div>
+                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="map-btn">
+                        Բացել Քարտեզում ↗
+                    </a>
+                </div>
+
+                <!-- Transport options -->
+                <div class="flex-col gap-4">
+                    <div class="transport-card detail-card-flex">
+                        <div class="transport-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <rect x="4" y="3" width="16" height="16" rx="2"></rect>
+                                <path d="M4 11h16"></path>
+                                <path d="M12 3v8"></path>
+                                <path d="M8 19l-2 3"></path>
+                                <path d="M18 22l-2-3"></path>
+                                <path d="M8 15h.01"></path>
+                                <path d="M16 15h.01"></path>
+                            </svg></div>
+                        <div>
+                            <p class="font-display semibold" style="margin-bottom: 4px; font-size: 18px;">Մետրոյով</p>
+                            <p class="text-muted" style="font-size: 14px;">Իջեք «Մարշալ Բաղրամյան» կայարանում։ Սրահը
+                                գտնվում է 10 րոպե ոտքով քայլելու հեռավորության վրա։</p>
+                        </div>
+                    </div>
+                    <div class="transport-card detail-card-flex">
+                        <div class="transport-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2">
+                                </path>
+                                <circle cx="7" cy="17" r="2"></circle>
+                                <path d="M9 17h6"></path>
+                                <circle cx="17" cy="17" r="2"></circle>
+                                <path d="M3 12h18"></path>
+                                <path d="M12 7v3h4"></path>
+                            </svg></div>
+                        <div>
+                            <p class="font-display semibold" style="margin-bottom: 4px; font-size: 18px;">Տաքսիով</p>
+                            <p class="text-muted" style="font-size: 14px;">Օգտագործեք GG կամ Yandex հավելվածները՝ որպես
+                                վերջնակետ նշելով «Դվին Մյուզիք Հոլ»։</p>
+                        </div>
+                    </div>
+                    <div class="transport-card detail-card-flex">
+                        <div class="transport-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path
+                                    d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2">
+                                </path>
+                                <circle cx="7" cy="17" r="2"></circle>
+                                <path d="M9 17h6"></path>
+                                <circle cx="17" cy="17" r="2"></circle>
+                                <path d="M3 12h18"></path>
+                            </svg></div>
+                        <div>
+                            <p class="font-display semibold" style="margin-bottom: 4px; font-size: 18px;">Ավտոմեքենայով
+                            </p>
+                            <p class="text-muted" style="font-size: 14px;">Առկա է ընդարձակ ավտոկայանատեղի հյուրերի
+                                համար՝ նաև անվճար կայանման ծառայությամբ (valet parking)։</p>
+                        </div>
+                    </div>
+                    <div class="transport-card detail-card-flex">
+                        <div class="transport-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                                <path d="M9 22v-4h6v4"></path>
+                                <path d="M8 6h.01"></path>
+                                <path d="M16 6h.01"></path>
+                                <path d="M12 6h.01"></path>
+                                <path d="M12 10h.01"></path>
+                                <path d="M12 14h.01"></path>
+                                <path d="M16 10h.01"></path>
+                                <path d="M16 14h.01"></path>
+                                <path d="M8 10h.01"></path>
+                                <path d="M8 14h.01"></path>
+                            </svg></div>
+                        <div>
+                            <p class="font-display semibold" style="margin-bottom: 4px; font-size: 18px;">Մոտակա
+                                Հյուրանոցներ
+                            </p>
+                            <p class="text-muted" style="font-size: 14px;">«Դվին» հյուրանոցային համալիրը և «Արմենիա
+                                Մարիոթը» առաջարկում են բարձրակարգ սպասարկում խնջույքից հետո հանգստանալու համար։
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP -->
+    <section id="rsvp" class="relative">
+        <div class="absolute inset-0"
+            style="background: radial-gradient(ellipse at center bottom, hsl(42,55%,40%) 0%, transparent 65%); opacity: 0.05;">
+        </div>
+        <div class="container-sm section-reveal relative z-10">
+            <div class="section-title">
+                <p class="section-title-sub">Հաստատում (RSVP)</p>
+                <h2 class="section-title-main">
+                    Կմիանա՞ք<br /><em class="text-primary">Տոնակատարությանը</em>
+                </h2>
+                <p class="text-muted" style="max-width: 350px; margin: 16px auto 0;">
+                    Խնդրում ենք պատասխանել մինչև <strong class="text-foreground">Սեպտեմբերի 30, 2025</strong>, որպեսզի
+                    մենք կարողանանք ամրագրել ձեր տեղը։
+                </p>
+            </div>
+
+            <!-- Submitted State -->
+            <div id="rsvp-success" style="display: none; text-align: center; padding: 64px 0;">
+                <div style="color: hsl(42,55%,54%); margin-bottom: 16px; display: flex; justify-content: center;">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 3h-2M7 3h2M12 18v4M9 22h6M6 3l1 7c2 2 5 2 7 2V3M18 3l-1 7c-2 2-5 2-7 2"></path>
+                    </svg>
+                </div>
+                <h3 id="rsvp-success-title" class="font-display text-primary"
+                    style="font-size: 30px; margin-bottom: 12px;">Կհանդիպենք Այնտեղ։</h3>
+                <p class="text-muted" style="font-size: 18px;">
+                    Ձեր մասնակցությունը հաստատված է: Անհամբեր սպասում ենք միասին տոնելուն։
+                </p>
+            </div>
+
+            <!-- Form -->
+            <form id="rsvp-form">
+                <div class="form-group">
+                    <label class="form-label">Ձեր Անունը</label>
+                    <input id="rsvp-name" class="gold-input" placeholder="օր.՝ Արմեն և Անի Խաչատրյաններ" required />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Հյուրերի Քանակը</label>
+                    <input type="number" min="1" max="10" class="gold-input" value="1" required />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Կմասնակցե՞ք</label>
+                    <div class="attendance-options">
+                        <label class="attendance-label active">
+                            <input type="radio" name="attendance" value="yes" style="display: none;" checked />
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                style="display:inline; vertical-align:text-bottom; margin-right: 4px;">
+                                <path
+                                    d="M5.8 11.3 2 22l10.7-3.79M4 3h.01M22 8h.01M15 2h.01M22 20h.01M22 2l-2.24.75a2.9 2.9 0 0 0-1.96 3.12v0c.1.86-.57 1.63-1.45 1.63h-.38c-.86 0-1.6.6-1.76 1.44L14 10M22 13l-1.52.5a2.95 2.95 0 0 0-1.95 3.11v0c.08.82-.53 1.54-1.35 1.56H17c-.88 0-1.61.59-1.75 1.46L15 20">
+                                </path>
+                            </svg> Անպայման։
+                        </label>
+                        <label class="attendance-label">
+                            <input type="radio" name="attendance" value="maybe" style="display: none;" />
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                style="display:inline; vertical-align:text-bottom; margin-right: 4px;">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg> Հնարավոր է
+                        </label>
+                        <label class="attendance-label">
+                            <input type="radio" name="attendance" value="no" style="display: none;" />
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                style="display:inline; vertical-align:text-bottom; margin-right: 4px;">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M16 16s-1.5-2-4-2-4 2-4 2"></path>
+                                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                            </svg> Չեմ Կարող Գալ
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Անձնական Նամակ (ըստ ցանկության)</label>
+                    <textarea class="gold-input" style="min-height: 120px; resize: none;"
+                        placeholder="Կիսվեք հիշողությամբ, բարեմաղթանքով կամ մի քանի բարի խոսքով..."></textarea>
+                </div>
+                <button type="submit" class="shimmer-btn w-full relative"
+                    style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    Ուղարկել Իմ Հաստատումը <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="flex justify-center gap-2" style="margin-bottom: 12px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="sparkle"
+                style="color: hsl(42,55%,54%); animation-delay: 0.2s; animation-duration: 3s;">
+                <path d="M12 2 L13.5 9 L20 10.5 L13.5 12 L12 19 L10.5 12 L4 10.5 L10.5 9 Z" />
+            </svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="sparkle"
+                style="color: hsl(42,80%,75%); animation-delay: 1s; animation-duration: 4s;">
+                <path d="M12 2 L13.5 9 L20 10.5 L13.5 12 L12 19 L10.5 12 L4 10.5 L10.5 9 Z" />
+            </svg>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="sparkle"
+                style="color: hsl(42,55%,54%); animation-delay: 0.5s; animation-duration: 3.5s;">
+                <path d="M12 2 L13.5 9 L20 10.5 L13.5 12 L12 19 L10.5 12 L4 10.5 L10.5 9 Z" />
+            </svg>
+        </div>
+        <p class="font-display italic text-muted" style="font-size: 14px;">
+            «Արամի 50-ամյակը՝ լի անմոռանալի պահերով և ջերմությամբ։»
+        </p>
+        <p class="uppercase"
+            style="font-size: 12px; color: hsla(36,40%,65%,0.5); margin-top: 8px; letter-spacing: 0.1em;">
+            Արամ · 2025
+        </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

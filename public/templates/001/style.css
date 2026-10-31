@@ -1,0 +1,959 @@
+/* Wedding Template Styles */
+
+@font-face {
+    font-family: 'ArmAllegroU';
+    src: url('fonts/ArmAllegroU.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Reset and Globals */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F4ECEC;
+}
+
+.wedding-template {
+    min-height: 100vh;
+    background-color: #F4ECEC;
+    font-family: 'Noto Sans Armenian', 'Inter', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Header */
+.template-header {
+    padding: 10px 40px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+.template-header-content {
+    display: flex;
+    align-items: center;
+    width: 319px;
+}
+
+.header-icon {
+    width: 100px;
+    height: auto;
+}
+
+.header-text {
+    font-family: 'Noto Sans Armenian', 'Georgia', serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 30px;
+    color: #C681A7;
+    text-align: center;
+}
+
+/* Hero Section */
+.template-hero {
+    position: relative;
+    background-color: #F4ECEC;
+}
+
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 80px 80px 0;
+    position: relative;
+    min-height: 800px;
+}
+
+.hero-left {
+    width: 630px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.couple-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 120px;
+    font-weight: 400;
+    line-height: 160px;
+    color: #5E5E5E;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.ampersand {
+    color: #5E5E5E;
+    margin: 0 10px;
+}
+
+.save-the-date {
+    font-family: 'Great Vibes', cursive;
+    font-size: 80px;
+    line-height: 106px;
+    font-weight: 400;
+    color: #C681A7;
+    text-align: center;
+}
+
+.wedding-date {
+    font-family: 'Waterfall', serif;
+    font-size: 60px;
+    line-height: 70px;
+    font-weight: 400;
+    color: #353535;
+    margin: 0;
+    text-align: center;
+}
+
+/* Photo Frame */
+.hero-right {
+    z-index: 2;
+}
+
+.photo-frame {
+    position: relative;
+    width: 482px;
+    height: 664px;
+}
+
+.photo-blur {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 220px 220px 0px 0px;
+    overflow: hidden;
+    filter: blur(20px);
+    z-index: 1;
+}
+
+.photo-blur img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-main {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border-radius: 210px 210px 0px 0px;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.couple-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Decorative Background */
+.hero-bg-flower {
+    position: absolute;
+    left: 43%;
+    top: 359px;
+    width: 400px;
+    height: auto;
+    opacity: 0.6;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Music Toggle Button */
+.start-button-container {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.music-toggle-btn {
+    width: 70px;
+    height: 70px;
+    background: #FFFFFF;
+    border: 2px solid #C681A7;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(198, 129, 167, 0.3);
+    color: #C681A7;
+    padding: 0;
+}
+
+.music-toggle-btn:hover {
+    background-color: #FDF4F8;
+    transform: scale(1.1);
+}
+
+.music-toggle-btn .play-icon,
+.music-toggle-btn .pause-icon {
+    line-height: 0;
+}
+
+.music-toggle-btn.is-playing {
+    /* Subtle pulsing instead of rotation to keep the pause icon stable */
+    animation: pulse-music 2s infinite;
+}
+
+@keyframes pulse-music {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .start-button-container {
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .music-toggle-btn {
+        width: 60px;
+        height: 60px;
+    }
+
+    .music-toggle-btn svg {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Friends and Relatives Section */
+.friends-relatives {
+    padding: 100px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #F4ECEC;
+}
+
+.friends-relatives-content {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.section-title {
+    font-family: 'ArmAllegroU', serif;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 92px;
+    color: #C681A7;
+    text-align: center;
+    margin: 0;
+}
+
+.section-description {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 33px;
+    color: #4A4A4A;
+    text-align: center;
+    max-width: 774px;
+    margin: 0;
+}
+
+.photo-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.photo-item {
+    height: 377px;
+    overflow: hidden;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-1 {
+    width: 407px;
+}
+
+.photo-2 {
+    width: 332px;
+}
+
+.photo-3 {
+    width: 491px;
+}
+
+/* Wedding Calendar Section */
+.wedding-calendar {
+    padding: 80px 80px;
+    background-color: #F4ECEC;
+    display: flex;
+    justify-content: center;
+}
+
+.calendar-container {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calendar-month {
+    font-family: 'ArmAllegroU', serif;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 92px;
+    color: #C681A7;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.calendar-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.day-names,
+.dates-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.day-names span {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: 32px;
+    line-height: 44px;
+    color: #4A4A4A;
+    width: 80px;
+    text-align: center;
+}
+
+.dates-row span {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: 32px;
+    line-height: 44px;
+    width: 80px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.date-inactive {
+    color: #868686;
+}
+
+.date-active {
+    color: #4A4A4A;
+    z-index: 1;
+}
+
+.heart-icon {
+    position: absolute;
+    width: 96px;
+    height: auto;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Event Details Section */
+.event-details {
+    padding: 100px 80px;
+    background-color: #F4ECEC;
+    display: flex;
+    justify-content: center;
+}
+
+.events-container {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+.event-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+.event-icon {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.event-title {
+    font-family: 'ArmAllegroU', serif;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 92px;
+    color: #C681A7;
+    margin: 0;
+}
+
+.event-time {
+    font-family: 'ArmAllegroU', serif;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: 92px;
+    color: #727272;
+}
+
+.event-venue {
+    font-family: 'ArmAllegroU', serif;
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 74px;
+    color: #727272;
+    margin: 5px 0;
+}
+
+.event-address {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 27px;
+    color: #727272;
+}
+
+.event-map {
+    width: 100%;
+    margin-top: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(198, 129, 167, 0.2);
+    border: 2px solid #C681A7;
+}
+
+.event-map iframe {
+    width: 100%;
+    height: 350px;
+    display: block;
+}
+
+/* Secondary Gallery Section */
+.secondary-gallery {
+    padding: 60px 80px 100px;
+    background-color: #F4ECEC;
+    display: flex;
+    justify-content: center;
+}
+
+.gallery-container {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    height: 380px;
+    /* Aligned with highest photos */
+}
+
+.gallery-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.gallery-column img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.side-photo {
+    width: 407px;
+    height: 377px;
+}
+
+.last-photo {
+    width: 545px;
+}
+
+.stacked-photos {
+    width: 288px;
+    height: 377px;
+}
+
+.stacked-photo.top {
+    height: 129px;
+}
+
+.stacked-photo.bottom {
+    height: 234px;
+}
+
+/* RSVP Form Section */
+.rsvp-section {
+    padding: 100px 80px;
+    background-color: #F4ECEC;
+    display: flex;
+    justify-content: center;
+}
+
+.rsvp-container {
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.rsvp-instruction {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 33px;
+    color: #727272;
+    text-align: center;
+    max-width: 525px;
+}
+
+.rsvp-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+    width: 100%;
+    max-width: 840px;
+}
+
+.form-group-radio {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.custom-radio {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: 20px;
+    color: #727272;
+    position: relative;
+    user-select: none;
+}
+
+.custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.radio-mark {
+    position: relative;
+    height: 28px;
+    width: 28px;
+    background-color: rgba(198, 129, 167, 0.1);
+    border: 1px solid #C681A7;
+    border-radius: 50%;
+}
+
+.radio-mark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 4px;
+    top: 4px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #C681A7;
+}
+
+.custom-radio input:checked~.radio-mark:after {
+    display: block;
+}
+
+.form-group-input {
+    width: 100%;
+}
+
+.bottom-border-input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #5E5E5E;
+    background: transparent;
+    padding: 10px 0;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: 20px;
+    color: #5E5E5E;
+    outline: none;
+}
+
+.bottom-border-input::placeholder {
+    color: #5E5E5E;
+    opacity: 0.6;
+}
+
+.submit-button {
+    margin-top: 20px;
+    width: 388px;
+    height: 59px;
+    background: transparent;
+    border: 1px solid #5E5E5E;
+    border-radius: 4px;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: 20px;
+    color: #5E5E5E;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: rgba(94, 94, 94, 0.1);
+}
+
+.rsvp-footer {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-title {
+    font-family: 'ArmAllegroU', serif;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: normal;
+    color: #C681A7;
+    text-align: center;
+}
+
+.footer-bottom-icon {
+    width: 260px;
+    height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1280px) {
+    .hero-left {
+        left: 40px;
+    }
+
+    .hero-right {
+        right: 40px;
+    }
+
+    .couple-names {
+        font-size: 90px;
+        line-height: 120px;
+    }
+
+    .save-the-date {
+        font-size: 60px;
+        line-height: 80px;
+    }
+
+    .wedding-date {
+        font-size: 48px;
+    }
+
+    .photo-frame {
+        width: 400px;
+        height: 550px;
+    }
+}
+
+@media (max-width: 480px) {
+    .template-header {
+        padding: 10px 20px;
+    }
+
+    .template-header-content {
+        width: auto;
+    }
+
+    .header-icon {
+        width: 50px;
+    }
+
+    .header-text {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .template-hero {
+        padding: 20px;
+        min-height: auto;
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    .hero-left {
+        position: relative;
+        left: auto;
+        top: auto;
+        order: 1;
+        margin-bottom: 20px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .couple-names {
+        font-size: 50px;
+        line-height: 67px;
+        white-space: normal;
+    }
+
+    .save-the-date {
+        font-size: 44px;
+        line-height: 59px;
+        margin: 10px 0;
+    }
+
+    .wedding-date {
+        font-size: 28px;
+        line-height: 32px;
+    }
+
+    .hero-right {
+        position: relative;
+        right: auto;
+        top: auto;
+        order: 2;
+        margin-left: 76px;
+    }
+
+    .photo-frame {
+        width: 267px;
+        height: 368px;
+        filter: drop-shadow(0px 0px 23px rgba(0, 0, 0, 0.2));
+    }
+
+    .photo-blur {
+        filter: blur(20.5px);
+    }
+
+    .photo-blur,
+    .photo-main {
+        border-radius: 133px 133px 0 0;
+    }
+
+    .hero-bg-flower {
+        position: absolute;
+        left: 10px;
+        top: 500px;
+        width: 120px;
+        opacity: 0.6;
+        z-index: 3;
+    }
+
+    /* Friends and Relatives Section Mobile */
+    .friends-relatives {
+        padding: 40px 20px;
+    }
+
+    .section-title {
+        font-size: 32px;
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+
+    .section-description {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    .photo-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .photo-item {
+        width: 100% !important;
+        height: 250px;
+    }
+
+    .photo-3 {
+        grid-column: span 2;
+        height: 300px;
+    }
+
+    /* Calendar Mobile */
+    .wedding-calendar {
+        padding: 40px 20px;
+    }
+
+    .calendar-month {
+        font-size: 32px;
+        line-height: normal;
+        margin-bottom: 20px;
+    }
+
+    .calendar-grid {
+        gap: 20px;
+    }
+
+    .day-names span,
+    .dates-row span {
+        font-size: 16px;
+        line-height: normal;
+        width: auto;
+        flex: 1;
+    }
+
+    .heart-icon {
+        width: 45px;
+    }
+
+    /* Event Details Mobile */
+    .event-details {
+        padding: 40px 20px;
+    }
+
+    .events-container {
+        gap: 50px;
+    }
+
+    .event-icon {
+        width: 60px;
+    }
+
+    .event-title,
+    .event-time {
+        font-size: 32px;
+        line-height: normal;
+    }
+
+    .event-venue {
+        font-size: 24px;
+        line-height: normal;
+    }
+
+    .event-address {
+        font-size: 16px;
+        line-height: normal;
+    }
+
+    .event-map {
+        margin-top: 20px;
+    }
+
+    .event-map iframe {
+        height: 250px;
+    }
+
+    /* Secondary Gallery Mobile */
+    .secondary-gallery {
+        padding: 40px 20px;
+    }
+
+    .gallery-container {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+    }
+
+    .side-photo {
+        width: 100%;
+        height: 250px;
+    }
+
+    .last-photo {
+        display: none;
+    }
+
+    .stacked-photos {
+        width: 100%;
+        height: 200px;
+        flex-direction: row;
+        gap: 15px;
+    }
+
+    .stacked-photo {
+        flex: 1;
+        height: 100% !important;
+    }
+
+    /* RSVP Form Mobile */
+    .rsvp-section {
+        padding: 40px 20px 60px;
+    }
+
+    .rsvp-container {
+        gap: 30px;
+    }
+
+    .rsvp-instruction {
+        font-size: 18px;
+        line-height: normal;
+    }
+
+    .form-group-radio {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .submit-button {
+        width: 100%;
+        max-width: 388px;
+    }
+
+    .footer-title {
+        font-size: 32px;
+    }
+
+    .footer-bottom-icon {
+        width: 180px;
+    }
+}

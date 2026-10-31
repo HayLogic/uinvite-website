@@ -1,0 +1,1287 @@
+<!doctype html>
+<html lang="hy">
+
+<head>
+
+<meta charset="utf-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+>
+
+<title>Աննա & Դավիթ · Wedding Invitation</title>
+
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+    background: #24170f;
+}
+
+body {
+    overflow: hidden;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* =====================================================
+   MUSIC
+===================================================== */
+
+#backgroundMusic {
+    display: none;
+}
+
+
+/* Music toggle */
+
+#musicToggle {
+
+    position: fixed;
+
+    right: 22px;
+    bottom: 22px;
+
+    width: 48px;
+    height: 48px;
+
+    padding: 0;
+
+    border: 1px solid rgba(255,255,255,.75);
+    border-radius: 50%;
+
+    background: rgba(43,28,18,.78);
+
+    color: #fff4df;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 100000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(.75);
+
+    transition:
+        opacity .5s ease,
+        visibility .5s ease,
+        transform .35s ease,
+        background .3s ease;
+
+    box-shadow:
+        0 7px 22px rgba(0,0,0,.28);
+}
+
+
+/* Show after opening */
+
+body.main-visible #musicToggle {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: scale(1);
+}
+
+
+/* Playing animation */
+
+#musicToggle.playing {
+
+    animation:
+        musicPulse 1.8s ease-in-out infinite;
+}
+
+
+@keyframes musicPulse {
+
+    0%,
+    100% {
+
+        box-shadow:
+            0 7px 22px rgba(0,0,0,.28);
+
+    }
+
+    50% {
+
+        box-shadow:
+            0 7px 30px rgba(255,220,175,.45);
+
+    }
+
+}
+
+
+/* Button press */
+
+#musicToggle:active {
+
+    transform: scale(.9);
+
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+#intro {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    overflow: hidden;
+
+    background: #2b1c12;
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transition:
+        opacity 1.15s ease,
+        visibility 1.15s ease;
+}
+
+
+#intro.hide {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   INTRO BACKGROUND
+===================================================== */
+
+#introBg {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+            rgba(35,22,14,.10),
+            rgba(35,22,14,.28)
+        ),
+
+        url("assets/background.jpg")
+        center/cover
+        no-repeat;
+
+    transform: scale(1.035);
+}
+
+
+/* =====================================================
+   SCENE
+===================================================== */
+
+.scene {
+
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    perspective: 1800px;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   ENVELOPE WRAPPER
+===================================================== */
+
+.envelope-wrap {
+
+    position: relative;
+
+    width: min(74vw, 650px);
+
+    aspect-ratio: 4 / 5;
+
+    transform-style: preserve-3d;
+
+    transform:
+        rotateX(10deg)
+        rotateY(-14deg)
+        rotateZ(-4deg)
+        translateZ(35px);
+
+    transition:
+        transform .22s ease-out;
+}
+
+
+/* =====================================================
+   ENVELOPE
+===================================================== */
+
+.envelope {
+
+    position: absolute;
+
+    inset: 0;
+
+    transform-style: preserve-3d;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 55px 85px rgba(0,0,0,.48),
+        0 12px 25px rgba(0,0,0,.3);
+}
+
+
+/* =====================================================
+   COUPLE PHOTO
+===================================================== */
+
+.photo {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        url("assets/couple.jpg")
+        center/cover
+        no-repeat;
+
+    border-radius: 4px;
+
+    transition:
+        filter 1s ease,
+        transform 1.2s ease;
+
+    filter:
+        brightness(.72)
+        saturate(.8);
+}
+
+
+.envelope.open .photo {
+
+    filter:
+        brightness(1)
+        saturate(1);
+
+    transform: scale(1.025);
+}
+
+
+/* =====================================================
+   GLASS
+===================================================== */
+
+.glass {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    border:
+        1px solid rgba(255,255,255,.72);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.35),
+            rgba(255,255,255,.07) 44%,
+            rgba(255,224,190,.15)
+        );
+
+    box-shadow:
+        inset 0 0 45px rgba(255,255,255,.18);
+
+    backdrop-filter:
+        blur(.7px);
+}
+
+
+/* =====================================================
+   ENVELOPE FOLDS
+===================================================== */
+
+.flap {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+}
+
+
+.left {
+
+    z-index: 6;
+
+    clip-path:
+        polygon(
+            0 0,
+            50% 50%,
+            0 100%
+        );
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.30),
+            rgba(255,255,255,.04)
+        );
+
+    border-right:
+        1px solid rgba(255,255,255,.65);
+}
+
+
+.right {
+
+    z-index: 6;
+
+    clip-path:
+        polygon(
+            100% 0,
+            50% 50%,
+            100% 100%
+        );
+
+    background:
+        linear-gradient(
+            225deg,
+            rgba(255,255,255,.28),
+            rgba(255,255,255,.04)
+        );
+
+    border-left:
+        1px solid rgba(255,255,255,.65);
+}
+
+
+.bottom {
+
+    z-index: 7;
+
+    clip-path:
+        polygon(
+            0 100%,
+            50% 50%,
+            100% 100%
+        );
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(255,255,255,.31),
+            rgba(255,255,255,.04)
+        );
+
+    border-top:
+        1px solid rgba(255,255,255,.7);
+}
+
+
+/* =====================================================
+   TOP FLAP
+===================================================== */
+
+.top-flap {
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 53%;
+
+    z-index: 12;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.47),
+            rgba(255,255,255,.13) 48%,
+            rgba(255,220,185,.18)
+        );
+
+    border-bottom:
+        1px solid rgba(255,255,255,.82);
+
+    transform-origin:
+        top center;
+
+    transform:
+        rotateX(0);
+
+    transition:
+        transform 1.45s
+        cubic-bezier(.18,.72,.2,1);
+}
+
+
+.envelope.open .top-flap {
+
+    transform:
+        rotateX(-178deg)
+        translateZ(7px);
+}
+
+
+/* =====================================================
+   SEAL
+===================================================== */
+
+#seal {
+
+    position: absolute;
+
+    left: 42%;
+    top: 52%;
+
+    width:
+        clamp(
+            80px,
+            14vw,
+            112px
+        );
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    z-index: 40;
+
+    cursor: pointer;
+
+    transform:
+        translate(-50%,-50%)
+        translateZ(55px)
+        rotate(-2deg);
+
+    filter:
+        drop-shadow(
+            0 9px 8px
+            rgba(35,15,5,.5)
+        );
+
+    transition:
+        transform .4s ease,
+        opacity .6s ease;
+}
+
+
+#seal img {
+
+    display: block;
+
+    width: 170px;
+
+    height: auto;
+
+    pointer-events: none;
+}
+
+
+#seal:hover {
+
+    transform:
+        translate(-50%,-50%)
+        translateZ(78px)
+        scale(1.08)
+        rotate(-2deg);
+}
+
+
+.envelope.open #seal {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+        translate(-50%,-50%)
+        translateZ(140px)
+        scale(.08)
+        rotate(45deg);
+}
+
+
+/* =====================================================
+   LIGHT SWEEP
+===================================================== */
+
+.shine {
+
+    position: absolute;
+
+    inset: -20%;
+
+    z-index: 25;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(255,245,220,.55) 50%,
+            transparent 65%
+        );
+
+    transform:
+        translateX(-100%);
+}
+
+
+.envelope.open .shine {
+
+    animation:
+        sweep 1.45s ease forwards;
+}
+
+
+@keyframes sweep {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateX(-100%);
+    }
+
+    30% {
+
+        opacity: .7;
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translateX(100%);
+    }
+
+}
+
+
+/* =====================================================
+   HINT
+===================================================== */
+
+.hint {
+
+    position: absolute;
+
+    bottom: 6vh;
+
+    left: 50%;
+
+    z-index: 60;
+
+    transform:
+        translateX(-50%);
+
+    color:
+        rgba(255,244,225,.92);
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 2px 7px rgba(0,0,0,.55);
+
+    transition:
+        opacity .4s ease;
+}
+
+
+/* =====================================================
+   MAIN PAGE
+===================================================== */
+
+#main {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    background: #fff;
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+
+body.main-visible #main {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+#mainFrame {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+
+    background: #fff;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .envelope-wrap {
+
+        width: 88vw;
+
+        transform:
+            rotateX(8deg)
+            rotateY(-9deg)
+            rotateZ(-3deg)
+            translateZ(25px);
+    }
+
+
+    .hint {
+
+        font-size: 12px;
+
+        bottom: 4vh;
+    }
+
+
+    #musicToggle {
+
+        right: 14px;
+
+        bottom: 14px;
+
+        width: 44px;
+
+        height: 44px;
+
+        font-size: 18px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<audio
+    id="backgroundMusic"
+    loop
+    preload="auto"
+>
+    <source
+        src="music.mp3"
+        type="audio/mpeg"
+    >
+</audio>
+
+
+<!-- =====================================================
+     MUSIC TOGGLE
+===================================================== -->
+
+<button
+    id="musicToggle"
+    type="button"
+    aria-label="Երաժշտություն"
+>
+    ♫
+</button>
+
+
+<!-- =====================================================
+     INTRO SCREEN
+===================================================== -->
+
+<section id="intro">
+
+    <div id="introBg"></div>
+
+
+    <div
+        class="scene"
+        id="scene"
+    >
+
+        <div
+            class="envelope-wrap"
+            id="envelopeWrap"
+        >
+
+            <div
+                class="envelope"
+                id="envelope"
+            >
+
+                <div class="photo"></div>
+
+                <div class="glass"></div>
+
+
+                <div class="flap left"></div>
+
+                <div class="flap right"></div>
+
+                <div class="flap bottom"></div>
+
+                <div class="top-flap"></div>
+
+
+                <div class="shine"></div>
+
+
+                <!-- SEAL -->
+
+                <button
+                    id="seal"
+                    type="button"
+                    aria-label="Բացել հրավիրատոմսը"
+                >
+
+                    <img
+                        src="assets/seal.png"
+                        alt=""
+                    >
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="hint"
+            id="hint"
+        >
+            Սեղմեք կնիքի վրա
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MAIN INVITATION
+===================================================== -->
+
+<section id="main">
+
+    <iframe
+        id="mainFrame"
+        src="./main.html"
+        title="Wedding invitation"
+    ></iframe>
+
+</section>
+
+
+<script>
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const intro =
+    document.getElementById("intro");
+
+const envelope =
+    document.getElementById("envelope");
+
+const seal =
+    document.getElementById("seal");
+
+const scene =
+    document.getElementById("scene");
+
+const wrap =
+    document.getElementById("envelopeWrap");
+
+const hint =
+    document.getElementById("hint");
+
+const music =
+    document.getElementById("backgroundMusic");
+
+const musicToggle =
+    document.getElementById("musicToggle");
+
+
+/* =====================================================
+   STATE
+===================================================== */
+
+let opened = false;
+
+
+/* =====================================================
+   UPDATE MUSIC BUTTON
+===================================================== */
+
+function updateMusicButton() {
+
+    if (!music || !musicToggle) {
+        return;
+    }
+
+
+    if (music.paused) {
+
+        musicToggle.textContent = "♫";
+
+        musicToggle.classList.remove(
+            "playing"
+        );
+
+    } else {
+
+        musicToggle.textContent = "Ⅱ";
+
+        musicToggle.classList.add(
+            "playing"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   START MUSIC
+===================================================== */
+
+function startMusic() {
+
+    if (!music) {
+        return;
+    }
+
+
+    music.volume = 0.7;
+
+
+    const playPromise =
+        music.play();
+
+
+    if (playPromise !== undefined) {
+
+        playPromise
+            .then(function () {
+
+                updateMusicButton();
+
+            })
+            .catch(function (error) {
+
+                console.log(
+                    "Music playback error:",
+                    error
+                );
+
+            });
+
+    }
+
+}
+
+
+/* =====================================================
+   OPEN ENVELOPE
+===================================================== */
+
+seal.addEventListener(
+    "click",
+    function () {
+
+        if (opened) {
+            return;
+        }
+
+
+        opened = true;
+
+
+        /* =========================================
+           START MUSIC ON USER CLICK
+        ========================================= */
+
+        startMusic();
+
+
+        /* =========================================
+           OPEN ENVELOPE
+        ========================================= */
+
+        envelope.classList.add(
+            "open"
+        );
+
+
+        /* =========================================
+           HIDE HINT
+        ========================================= */
+
+        hint.style.opacity = "0";
+
+
+        /* =========================================
+           SHOW MAIN PAGE
+        ========================================= */
+
+        setTimeout(
+            function () {
+
+                intro.classList.add(
+                    "hide"
+                );
+
+
+                document.body.classList.add(
+                    "main-visible"
+                );
+
+
+                document.body.style.overflow =
+                    "hidden";
+
+            },
+            1450
+        );
+
+    }
+);
+
+
+/* =====================================================
+   MUSIC TOGGLE
+===================================================== */
+
+musicToggle.addEventListener(
+    "click",
+    function (event) {
+
+        /*
+         * Prevent click from affecting
+         * envelope / page.
+         */
+
+        event.stopPropagation();
+
+
+        if (!music) {
+            return;
+        }
+
+
+        /* =====================================
+           PAUSE
+        ===================================== */
+
+        if (!music.paused) {
+
+            music.pause();
+
+            updateMusicButton();
+
+            return;
+        }
+
+
+        /* =====================================
+           PLAY
+        ===================================== */
+
+        music.volume = 0.7;
+
+
+        music.play()
+            .then(function () {
+
+                updateMusicButton();
+
+            })
+            .catch(function (error) {
+
+                console.log(
+                    "Music playback error:",
+                    error
+                );
+
+            });
+
+    }
+);
+
+
+/* =====================================================
+   MUSIC EVENTS
+===================================================== */
+
+if (music) {
+
+    music.addEventListener(
+        "play",
+        updateMusicButton
+    );
+
+
+    music.addEventListener(
+        "pause",
+        updateMusicButton
+    );
+
+}
+
+
+/* =====================================================
+   3D MOUSE MOVEMENT
+===================================================== */
+
+scene.addEventListener(
+    "mousemove",
+    function (e) {
+
+        if (opened) {
+            return;
+        }
+
+
+        const x =
+            e.clientX /
+            window.innerWidth -
+            0.5;
+
+
+        const y =
+            e.clientY /
+            window.innerHeight -
+            0.5;
+
+
+        /* աջ / ձախ */
+
+        targetY =
+            x * 16;
+
+
+        /* վերև / ներքև */
+
+        targetX =
+            -y * 7;
+
+    }
+);
+
+
+/* =====================================================
+   SMOOTH MOVEMENT
+===================================================== */
+
+let currentX = 0;
+
+let currentY = 0;
+
+let targetX = 0;
+
+let targetY = 0;
+
+
+function animateEnvelope() {
+
+    if (!opened) {
+
+        currentX +=
+            (targetX - currentX)
+            * 0.035;
+
+
+        currentY +=
+            (targetY - currentY)
+            * 0.035;
+
+
+        wrap.style.transform = `
+
+            rotateX(${currentX}deg)
+
+            rotateY(${currentY}deg)
+
+            rotateZ(-3deg)
+
+            translateZ(35px)
+
+        `;
+
+    }
+
+
+    requestAnimationFrame(
+        animateEnvelope
+    );
+
+}
+
+
+animateEnvelope();
+
+
+/* =====================================================
+   MOBILE TOUCH
+===================================================== */
+
+scene.addEventListener(
+    "touchmove",
+    function (e) {
+
+        if (
+            opened ||
+            !e.touches.length
+        ) {
+            return;
+        }
+
+
+        const touch =
+            e.touches[0];
+
+
+        const x =
+            touch.clientX /
+            window.innerWidth -
+            0.5;
+
+
+        const y =
+            touch.clientY /
+            window.innerHeight -
+            0.5;
+
+
+        targetY =
+            x * 16;
+
+
+        targetX =
+            -y * 7;
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+/* =====================================================
+   TOUCH END
+===================================================== */
+
+scene.addEventListener(
+    "touchend",
+    function () {
+
+        if (opened) {
+            return;
+        }
+
+
+        targetX = 0;
+
+        targetY = 0;
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

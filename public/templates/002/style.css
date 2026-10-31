@@ -1,0 +1,574 @@
+/* Template 002 Styles */
+
+@font-face {
+    font-family: 'Dolly Pro';
+    src: url('fonts/Dolly-Pro-Reg.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+}
+
+.wedding-template {
+    width: 100%;
+    min-height: 1969px;
+    /* Exact height for desktop (1306 + 663) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.template-hero {
+    width: 100%;
+    height: 850px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-container {
+    width: 1380px;
+    height: 773px;
+    position: relative;
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+.hero-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-photo-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.hero-photo-border {
+    position: absolute;
+    width: 478px;
+    height: 704px;
+    left: calc(50% - 478px/2 + 17px);
+    top: calc(50% - 704px/2 + 3.5px);
+    border: 3px solid #FFFFFF;
+    border-radius: 200px 200px 0px 0px;
+    z-index: 2;
+}
+
+.hero-photo-container {
+    position: absolute;
+    width: 472px;
+    height: 694px;
+    left: calc(50% - 472px/2 + 11px);
+    top: calc(50% - 694px/2 + 8.5px);
+    background-color: #FF678F;
+    border-radius: 200px 200px 0px 0px;
+    overflow: hidden;
+    z-index: 3;
+}
+
+.hero-photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.star-wrapper {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    left: 836px;
+    top: 67px;
+    z-index: 4;
+}
+
+.star-icon {
+    width: 100%;
+    height: 100%;
+}
+
+.age-number {
+    position: absolute;
+    width: 35px;
+    height: 75px;
+    left: calc(50% - 35px/2);
+    top: calc(50% - 75px/2);
+    font-family: 'Dolly Pro', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 70px;
+    line-height: 70px;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.name-wrapper {
+    position: absolute;
+    width: 395px;
+    height: 120px;
+    left: calc(50% - 395px/2 - 326.23px);
+    top: 602.46px;
+    z-index: 5;
+    transform: rotate(-5.42deg);
+}
+
+.person-name {
+    font-family: 'Dolly Pro', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 120px;
+    line-height: 120px;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    -webkit-text-stroke: 10px #FF678F;
+    paint-order: stroke fill;
+}
+
+/* Invitation Text Section Styles */
+.invitation-text-section {
+    position: absolute;
+    width: 733px;
+    height: 343px;
+    left: calc(50% - 733px/2);
+    top: 883px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    z-index: 10;
+}
+
+.text-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.invitation-title {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 57px;
+    text-align: center;
+    color: #FF678F;
+}
+
+.invitation-description {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    color: #434343;
+}
+
+.date-time-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 301px;
+}
+
+.date-display,
+.time-display {
+    font-family: 'Dolly Pro', sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    color: #FFFFFF;
+    letter-spacing: 0.08em;
+    text-align: center;
+}
+
+.date-display {
+    font-size: 62px;
+    line-height: 62px;
+    -webkit-text-stroke: 4px #FF678F;
+    paint-order: stroke fill;
+}
+
+.time-display {
+    font-size: 54px;
+    line-height: 54px;
+    -webkit-text-stroke: 3px #FF678F;
+    paint-order: stroke fill;
+}
+
+/* Guest Questionnaire Section Styles */
+.rsvp-section {
+    position: absolute;
+    width: 1380px;
+    height: 663px;
+    left: calc(50% - 1380px/2);
+    top: 1306px;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.rsvp-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.rsvp-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rsvp-title {
+    position: absolute;
+    width: 791px;
+    height: 95px;
+    left: calc(50% - 791px/2 + 0.5px);
+    top: 50px;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-weight: 700;
+    font-size: 70px;
+    line-height: 95px;
+    text-align: center;
+    color: #FFFFFF;
+    -webkit-text-stroke: 3px #FF678F;
+    paint-order: stroke fill;
+    z-index: 2;
+}
+
+.form-container {
+    position: absolute;
+    width: 645px;
+    height: 428px;
+    left: calc(50% - 645px/2 + 0.5px);
+    top: 185px;
+    background: rgba(255, 103, 143, 0.7);
+    border-radius: 40px;
+    z-index: 3;
+    padding: 30px 53px;
+}
+
+#template-rsvp-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    width: 100%;
+}
+
+.form-group-radio {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}
+
+.question-label {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 30px;
+    color: #FFFFFF;
+}
+
+.radio-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.custom-radio {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+.custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-mark {
+    width: 29px;
+    height: 29px;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.radio-inner {
+    width: 17px;
+    height: 17px;
+    background: #FFFFFF;
+    border-radius: 50%;
+    display: none;
+}
+
+.custom-radio input:checked~.radio-mark .radio-inner {
+    display: block;
+}
+
+.radio-label {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    color: #FFFFFF;
+}
+
+.form-group-input {
+    width: 100%;
+}
+
+.bottom-border-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #FFFFFF;
+    padding: 7px 0;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    color: #FFFFFF;
+    outline: none;
+}
+
+.bottom-border-input::placeholder {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.rsvp-submit {
+    position: absolute;
+    width: 545px;
+    height: 54px;
+    left: calc(50% - 545px/2);
+    top: 344px;
+    background: #FFFFFF;
+    border-radius: 41px;
+    border: none;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 27px;
+    color: #FF678F;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive adjustment - scaling for desktop/tablet */
+@media (max-width: 1440px) and (min-width: 481px) {
+    .wedding-template {
+        transform: scale(min(1, calc(95vw / 1380)));
+        transform-origin: top center;
+    }
+}
+
+/* Mobile specific version based on Figma */
+@media (max-width: 480px) {
+    .wedding-template {
+        min-height: 1405px;
+        /* Exact height for mobile (898 + 507) */
+    }
+
+    .template-hero {
+        height: 560px;
+    }
+
+    .hero-container {
+        width: 335px;
+        height: 529px;
+        margin-top: 20px;
+        transform: none;
+    }
+
+    .hero-photo-border {
+        width: 276px;
+        height: 406px;
+        left: calc(50% - 276px/2 + 5.5px);
+        top: calc(50% - 406px/2 - 21.5px);
+        border-width: 2px;
+    }
+
+    .hero-photo-container {
+        width: 276px;
+        height: 406px;
+        left: calc(50% - 276px/2 - 4.5px);
+        top: calc(50% - 406px/2 - 11.5px);
+    }
+
+    .star-wrapper {
+        width: 106px;
+        height: 106px;
+        left: 214px;
+        top: 40px;
+    }
+
+    .age-number {
+        font-size: 50px;
+        line-height: 50px;
+    }
+
+    .name-wrapper {
+        width: 263px;
+        height: 80px;
+        left: calc(50% - 263px/2 - 3px);
+        top: 440.46px;
+    }
+
+    .person-name {
+        font-size: 80px;
+        line-height: 80px;
+        -webkit-text-stroke: 8px #FF678F;
+    }
+
+    /* Mobile Text Section */
+    .invitation-text-section {
+        width: 335px;
+        height: 269px;
+        left: calc(50% - 335px/2);
+        top: 589px;
+        gap: 24px;
+    }
+
+    .text-block {
+        gap: 20px;
+    }
+
+    .invitation-title {
+        font-size: 24px;
+        line-height: 33px;
+    }
+
+    .invitation-description {
+        font-size: 20px;
+        line-height: 27px;
+    }
+
+    .date-time-block {
+        width: 146px;
+        gap: 20px;
+    }
+
+    .date-display {
+        font-size: 30px;
+        line-height: 30px;
+        -webkit-text-stroke: 2px #FF678F;
+    }
+
+    .time-display {
+        font-size: 28px;
+        line-height: 28px;
+        -webkit-text-stroke: 2px #FF678F;
+    }
+
+    /* Mobile RSVP Section */
+    .rsvp-section {
+        width: 375px;
+        height: 507px;
+        left: calc(50% - 375px/2);
+        top: 898px;
+        border-radius: 4px;
+    }
+
+    .rsvp-title {
+        width: 335px;
+        height: 33px;
+        left: calc(50% - 335px/2);
+        top: 24px;
+        font-size: 24px;
+        line-height: 33px;
+        -webkit-text-stroke: 2px #FF678F;
+    }
+
+    .form-container {
+        width: 335px;
+        height: 396px;
+        left: calc(50% - 335px/2);
+        top: 87px;
+        border-radius: 20px;
+        padding: 24px 20px;
+    }
+
+    #template-rsvp-form {
+        gap: 24px;
+    }
+
+    .question-label {
+        font-size: 18px;
+        line-height: 25px;
+    }
+
+    .radio-options {
+        gap: 16px;
+    }
+
+    .radio-mark {
+        width: 24px;
+        height: 24px;
+    }
+
+    .radio-inner {
+        width: 14px;
+        height: 14px;
+    }
+
+    .radio-label {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .bottom-border-input {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .rsvp-submit {
+        width: 295px;
+        height: 50px;
+        left: calc(50% - 295px/2);
+        top: 322px;
+        font-size: 18px;
+        line-height: 25px;
+    }
+}

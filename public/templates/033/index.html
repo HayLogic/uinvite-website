@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Հրավիրված եք - Ծննդյան Տոն</title>
+	<meta name="description" content="Միացեք մեզ՝ նշելու այս անմոռանալի ծննդյան տոնը">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<main class="main">
+
+		<!-- Hero Background Image -->
+		<div class="hero-bg">
+			<img src="assets/party-celebration.webp" alt="Celebration background" class="hero-bg__image">
+			<div class="hero-bg__gradient"></div>
+			<div class="hero-bg__vignette"></div>
+		</div>
+
+		<!-- Background Animation Canvases -->
+		<canvas id="balloonsCanvas" class="canvas-layer canvas-layer--bg" aria-hidden="true"></canvas>
+		<canvas id="sparklesCanvas" class="canvas-layer canvas-layer--sparkles" aria-hidden="true"></canvas>
+		<canvas id="confettiCanvas" class="canvas-layer canvas-layer--confetti" aria-hidden="true"></canvas>
+
+		<!-- Fireworks Canvas (hidden by default) -->
+		<canvas id="fireworksCanvas" class="canvas-layer canvas-layer--fireworks" style="display:none;" aria-hidden="true"></canvas>
+
+		<!-- Main Content -->
+		<div class="content">
+
+			<!-- Animated Headline -->
+			<h1 id="headline" class="headline" data-text="ՀՐԱՎԻՐՎԱԾ ԵՔ" aria-label="Հրավիրված եք"></h1>
+
+			<!-- Subtitle -->
+			<p class="subtitle">
+				Միացեք մեզ՝ նշելու Անիի անմոռանալի ծննդյան տոնը,
+				լի ուրախությամբ, ծիծաղով և հիանալի հիշողություններով
+			</p>
+
+			<!-- Birthday Cake (SVG) -->
+			<div class="cake-wrapper">
+				<div class="cake-container" aria-label="Ծննդյան տորթ վառվող մոմերով">
+					<svg viewBox="0 0 200 200" class="cake-svg">
+						<defs>
+							<linearGradient id="cakeGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+								<stop offset="0%" stop-color="#8B4513"/>
+								<stop offset="50%" stop-color="#A0522D"/>
+								<stop offset="100%" stop-color="#6B3410"/>
+							</linearGradient>
+							<linearGradient id="frostingGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+								<stop offset="0%" stop-color="#FFF5EE"/>
+								<stop offset="100%" stop-color="#FFE4E1"/>
+							</linearGradient>
+							<linearGradient id="plateGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+								<stop offset="0%" stop-color="#E8E8E8"/>
+								<stop offset="100%" stop-color="#C0C0C0"/>
+							</linearGradient>
+						</defs>
+
+						<!-- Plate -->
+						<ellipse cx="100" cy="185" rx="95" ry="12" fill="url(#plateGradient)"/>
+
+						<!-- Cake layers -->
+						<rect x="20" y="120" width="160" height="60" rx="5" fill="url(#cakeGradient)"/>
+						<rect x="30" y="80" width="140" height="45" rx="5" fill="url(#cakeGradient)"/>
+
+						<!-- Frosting -->
+						<path d="M20 120 Q30 110 40 120 Q50 110 60 120 Q70 110 80 120 Q90 110 100 120 Q110 110 120 120 Q130 110 140 120 Q150 110 160 120 Q170 110 180 120"
+							fill="none" stroke="#FFB6C1" stroke-width="8" stroke-linecap="round"/>
+						<path d="M30 80 Q40 70 50 80 Q60 70 70 80 Q80 70 90 80 Q100 70 110 80 Q120 70 130 80 Q140 70 150 80 Q160 70 170 80"
+							fill="none" stroke="url(#frostingGradient)" stroke-width="10" stroke-linecap="round"/>
+
+						<!-- Decorations -->
+						<circle cx="50" cy="150" r="6" fill="#FF6B6B"/>
+						<circle cx="80" cy="145" r="5" fill="#FFD93D"/>
+						<circle cx="120" cy="148" r="6" fill="#6BCB77"/>
+						<circle cx="150" cy="145" r="5" fill="#FF9F45"/>
+
+						<!-- Candles with flames -->
+						<!-- Candle 1 (offset -60) -->
+						<g transform="translate(40, 75)">
+							<rect x="-3" y="-30" width="6" height="30" fill="#FFE4B5" rx="2"/>
+							<rect x="-2" y="-28" width="1" height="26" fill="#FFF8DC" opacity="0.5"/>
+							<g id="flame-group-0">
+								<ellipse id="flame-outer-0" cx="0" cy="-45" rx="8" ry="20" fill="#FF8C00" opacity="0.6"/>
+								<ellipse id="flame-inner-0" cx="0" cy="-45" rx="4" ry="12" fill="#FFFF00" opacity="0.9"/>
+								<ellipse id="flame-core-0" cx="0" cy="-45" rx="2" ry="7" fill="#FFFFFF" opacity="0.9"/>
+							</g>
+						</g>
+
+						<!-- Candle 2 (offset -30) -->
+						<g transform="translate(70, 75)">
+							<rect x="-3" y="-30" width="6" height="30" fill="#FFE4B5" rx="2"/>
+							<rect x="-2" y="-28" width="1" height="26" fill="#FFF8DC" opacity="0.5"/>
+							<g id="flame-group-1">
+								<ellipse id="flame-outer-1" cx="0" cy="-45" rx="8" ry="20" fill="#FF8C00" opacity="0.6"/>
+								<ellipse id="flame-inner-1" cx="0" cy="-45" rx="4" ry="12" fill="#FFFF00" opacity="0.9"/>
+								<ellipse id="flame-core-1" cx="0" cy="-45" rx="2" ry="7" fill="#FFFFFF" opacity="0.9"/>
+							</g>
+						</g>
+
+						<!-- Candle 3 (offset 0) -->
+						<g transform="translate(100, 75)">
+							<rect x="-3" y="-30" width="6" height="30" fill="#FFE4B5" rx="2"/>
+							<rect x="-2" y="-28" width="1" height="26" fill="#FFF8DC" opacity="0.5"/>
+							<g id="flame-group-2">
+								<ellipse id="flame-outer-2" cx="0" cy="-45" rx="8" ry="20" fill="#FF8C00" opacity="0.6"/>
+								<ellipse id="flame-inner-2" cx="0" cy="-45" rx="4" ry="12" fill="#FFFF00" opacity="0.9"/>
+								<ellipse id="flame-core-2" cx="0" cy="-45" rx="2" ry="7" fill="#FFFFFF" opacity="0.9"/>
+							</g>
+						</g>
+
+						<!-- Candle 4 (offset 30) -->
+						<g transform="translate(130, 75)">
+							<rect x="-3" y="-30" width="6" height="30" fill="#FFE4B5" rx="2"/>
+							<rect x="-2" y="-28" width="1" height="26" fill="#FFF8DC" opacity="0.5"/>
+							<g id="flame-group-3">
+								<ellipse id="flame-outer-3" cx="0" cy="-45" rx="8" ry="20" fill="#FF8C00" opacity="0.6"/>
+								<ellipse id="flame-inner-3" cx="0" cy="-45" rx="4" ry="12" fill="#FFFF00" opacity="0.9"/>
+								<ellipse id="flame-core-3" cx="0" cy="-45" rx="2" ry="7" fill="#FFFFFF" opacity="0.9"/>
+							</g>
+						</g>
+
+						<!-- Candle 5 (offset 60) -->
+						<g transform="translate(160, 75)">
+							<rect x="-3" y="-30" width="6" height="30" fill="#FFE4B5" rx="2"/>
+							<rect x="-2" y="-28" width="1" height="26" fill="#FFF8DC" opacity="0.5"/>
+							<g id="flame-group-4">
+								<ellipse id="flame-outer-4" cx="0" cy="-45" rx="8" ry="20" fill="#FF8C00" opacity="0.6"/>
+								<ellipse id="flame-inner-4" cx="0" cy="-45" rx="4" ry="12" fill="#FFFF00" opacity="0.9"/>
+								<ellipse id="flame-core-4" cx="0" cy="-45" rx="2" ry="7" fill="#FFFFFF" opacity="0.9"/>
+							</g>
+						</g>
+					</svg>
+				</div>
+			</div>
+
+			<!-- Section Title -->
+			<div class="section-title">
+				<h2 class="section-title__text">Տոնակատարությունը կսկսվի</h2>
+			</div>
+
+			<!-- Countdown Timer -->
+			<div class="countdown-wrapper">
+				<div id="countdown" class="countdown" role="timer" aria-label="Հետհաշվարկ">
+					<div class="flip-digit" id="digit-days">
+						<div class="flip-digit__card">
+							<div class="flip-digit__static">
+								<div class="flip-digit__value-container">
+									<span class="flip-digit__value">00</span>
+								</div>
+								<div class="flip-digit__divider"></div>
+							</div>
+						</div>
+						<span class="flip-digit__label">Օր</span>
+					</div>
+
+					<span class="countdown__separator">:</span>
+
+					<div class="flip-digit" id="digit-hours">
+						<div class="flip-digit__card">
+							<div class="flip-digit__static">
+								<div class="flip-digit__value-container">
+									<span class="flip-digit__value">00</span>
+								</div>
+								<div class="flip-digit__divider"></div>
+							</div>
+						</div>
+						<span class="flip-digit__label">Ժամ</span>
+					</div>
+
+					<span class="countdown__separator">:</span>
+
+					<div class="flip-digit" id="digit-minutes">
+						<div class="flip-digit__card">
+							<div class="flip-digit__static">
+								<div class="flip-digit__value-container">
+									<span class="flip-digit__value">00</span>
+								</div>
+								<div class="flip-digit__divider"></div>
+							</div>
+						</div>
+						<span class="flip-digit__label">Րոպե</span>
+					</div>
+
+					<span class="countdown__separator">:</span>
+
+					<div class="flip-digit" id="digit-seconds">
+						<div class="flip-digit__card">
+							<div class="flip-digit__static">
+								<div class="flip-digit__value-container">
+									<span class="flip-digit__value">00</span>
+								</div>
+								<div class="flip-digit__divider"></div>
+							</div>
+						</div>
+						<span class="flip-digit__label">Վրկ</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Date and Location -->
+			<div class="event-info">
+				<div class="event-info__row">
+					<svg class="event-info__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+						<path stroke-linecap="round" stroke-linejoin="round"
+							d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+					</svg>
+					<span id="event-date" class="event-info__text"></span>
+				</div>
+				<div class="event-info__row">
+					<svg class="event-info__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+						<path stroke-linecap="round" stroke-linejoin="round"
+							d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+						<path stroke-linecap="round" stroke-linejoin="round"
+							d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+					</svg>
+					<span class="event-info__text">«Ֆլորենս» ռեստորան, Բարբյուսի փող. 29, Երևան</span>
+				</div>
+			</div>
+
+			<!-- RSVP Button -->
+			<div class="rsvp-btn-wrapper">
+				<button id="rsvpBtn" class="rsvp-btn">
+					<span class="rsvp-btn__text">Գրանցվել Հիմա</span>
+				</button>
+			</div>
+
+			<!-- Footer -->
+			<p id="rsvp-deadline" class="footer-text"></p>
+		</div>
+
+		<!-- RSVP Form Modal -->
+		<div id="rsvpOverlay" class="modal-overlay">
+			<div class="rsvp-form-card" onclick="event.stopPropagation()">
+				<button id="rsvpCloseBtn" class="rsvp-form-card__close" aria-label="Փակել">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+						stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="18" y1="6" x2="6" y2="18"/>
+						<line x1="6" y1="6" x2="18" y2="18"/>
+					</svg>
+				</button>
+
+				<!-- Form Content -->
+				<div id="rsvpFormContent">
+					<h2 class="rsvp-form-card__title">Հրավիրված Եք!</h2>
+					<form id="rsvpFormEl" class="rsvp-form">
+						<div class="form-group">
+							<label for="name" class="form-group__label">Ձեր Անունը</label>
+							<input id="name" type="text" required class="form-group__input" placeholder="Մուտքագրեք ձեր անունը">
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="form-group__label">Էլ․ Հասցե</label>
+							<input id="email" type="email" required class="form-group__input" placeholder="Մուտքագրեք ձեր էլ․ հասցեն">
+						</div>
+
+						<div class="form-group">
+							<span class="form-group__label">Կմասնակցե՞ք</span>
+							<div class="radio-group">
+								<label class="radio-label">
+									<input type="radio" name="attending" value="yes" required class="radio-label__input">
+									<span class="radio-label__text">Այո, սիրով կմասնակցեմ</span>
+								</label>
+								<label class="radio-label">
+									<input type="radio" name="attending" value="no" class="radio-label__input">
+									<span class="radio-label__text">Ցավոք, չեմ կարողանա</span>
+								</label>
+							</div>
+						</div>
+
+						<button type="submit" class="rsvp-form__submit">Ուղարկել</button>
+					</form>
+				</div>
+
+				<!-- Success Message (hidden by default) -->
+				<div id="rsvpSuccess" class="success-message" style="display:none;">
+					<h3 class="success-message__title">Շնորհակալություն!</h3>
+					<p class="success-message__text">Անհամբեր սպասում ենք ձեզ հետ նշելուն!</p>
+				</div>
+			</div>
+		</div>
+
+	</main>
+
+	<script src="script.js"></script>
+</body>
+</html>

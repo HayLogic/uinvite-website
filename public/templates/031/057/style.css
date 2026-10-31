@@ -1,0 +1,3649 @@
+:root{
+  --ivory:#f6f1e7;
+  --cocoa:#4a3b2e;
+  --gold:#b79a6c;
+  --card:#fbf7f0;
+  --muted:#7d6f60;
+  --border:#ded2c0;
+
+  --serif:"Noto Serif Armenian",Georgia,serif;
+  --sans:"Noto Sans Armenian",system-ui,sans-serif;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background-color:white;
+
+  height: 100VH;
+  color:var(--cocoa);
+  font-family:var(--sans);
+
+  background-image:
+    radial-gradient(
+      circle at 20% 15%,
+      rgba(183,154,108,.14) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      rgba(183,154,108,.11) 0%,
+      transparent 50%
+    );
+
+  background-attachment:fixed;
+}
+
+h1,
+h2,
+h3{
+  font-family:var(--serif);
+  font-weight:400;
+  margin:0;
+}
+
+img{
+  display:block;
+  max-width:100%;
+}
+
+.script{
+  font-family:var(--serif);
+  font-style:italic;
+}
+
+.wrap{
+  max-width:36rem;
+  margin:0 auto;
+  padding-bottom:5rem;
+}
+
+.center{
+  text-align:center;
+}
+
+.muted{
+  color:var(--muted);
+}
+
+.rule{
+  height:1px;
+  background:rgba(183,154,108,.5);
+}
+
+.divider{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:.75rem;
+  padding:0 1.5rem;
+}
+
+.divider span.l{
+  height:1px;
+  width:4rem;
+  background:rgba(183,154,108,.5);
+}
+
+.divider span.h{
+  color:var(--gold);
+  font-size:.75rem;
+}
+
+section{
+  padding:3rem 1.5rem;
+}
+
+h2.title{
+  text-align:center;
+  font-size:1.5rem;
+  text-transform:uppercase;
+  letter-spacing:.22em;
+}
+
+
+/* =====================================================
+   OPENING SCREEN
+===================================================== */
+
+.opening-screen {
+  position: fixed;
+  inset: 0;
+
+  z-index: 99999;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      #fffdf8 0%,
+      #faf5eb 55%,
+      #eee5d6 100%
+    );
+
+  cursor: pointer;
+
+  opacity: 1;
+  visibility: visible;
+
+  transition:
+    opacity .9s ease,
+    visibility .9s ease;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.opening-content {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.opening-title {
+  position: relative;
+
+  z-index: 5;
+
+  margin-top: 7vh;
+
+  text-align: center;
+}
+
+
+.opening-script {
+  font-family:
+    "Noto Serif Armenian",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(3rem, 8vw, 5rem);
+
+  font-weight: 400;
+
+  color: #b58a3d;
+
+  line-height: 1.1;
+
+  letter-spacing: .02em;
+
+  text-shadow:
+    0 1px 0 #fff,
+    0 2px 3px rgba(120,85,30,.12);
+}
+
+
+/* =====================================================
+   TITLE DECORATION
+===================================================== */
+
+.opening-decoration {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 14px;
+
+  margin-top: 8px;
+}
+
+
+.opening-decoration span {
+  width: 90px;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #c49a50
+    );
+}
+
+
+.opening-decoration span:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      #c49a50,
+      transparent
+    );
+}
+
+
+.opening-decoration b {
+  color: #bb8d3c;
+
+  font-size: 18px;
+
+  font-weight: 400;
+}
+
+
+/* =====================================================
+   HEART FRAME
+===================================================== */
+
+.heart-frame {
+
+  position: relative;
+
+  width: min(72vw, 540px);
+
+  margin-top: 3vh;
+
+  filter:
+    drop-shadow(
+      0 18px 28px
+      rgba(100,75,35,.18)
+    );
+
+  transition:
+    transform .9s ease;
+}
+
+
+.heart-svg {
+
+  display: block;
+
+  width: 100%;
+
+  height: auto;
+
+  overflow: visible;
+}
+
+
+/* =====================================================
+   HEART GOLD BORDER
+===================================================== */
+
+.heart-border {
+
+  fill: none;
+
+  stroke: #c49a4c;
+
+  stroke-width: 5;
+
+  vector-effect: non-scaling-stroke;
+
+  opacity: .85;
+}
+
+
+/* SECOND DELICATE BORDER */
+
+.heart-border {
+
+  paint-order: stroke;
+}
+
+
+/* =====================================================
+   PHOTO LIGHT OVERLAY
+===================================================== */
+
+.heart-overlay {
+
+  fill: url(#heartGradient);
+
+  opacity: 0;
+}
+
+
+/* =====================================================
+   INSTRUCTION
+===================================================== */
+
+.opening-instruction {
+
+  position: absolute;
+
+  z-index: 10;
+
+  left: 50%;
+
+  bottom: 4.5%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+  width: 100%;
+}
+
+
+.opening-instruction p {
+
+  margin: 25%;
+
+  font-family:
+    "Noto Serif Armenian",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(.85rem, 2.5vw, 1.1rem);
+
+  color: #a9803b;
+
+  letter-spacing: .03em;
+
+  text-shadow:
+    0 1px 4px rgba(255,255,255,.9);
+}
+
+
+/* =====================================================
+   INSTRUCTION DECORATION
+===================================================== */
+
+.instruction-decoration {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 10px;
+}
+
+
+.instruction-decoration span {
+
+  width: 55px;
+
+  height: 1px;
+
+  background: #c29a50;
+}
+
+
+.instruction-decoration b {
+
+  color: #bd9040;
+
+  font-size: 13px;
+
+  font-weight: 400;
+}
+
+
+/* =====================================================
+   ARROW
+===================================================== */
+
+.opening-arrow {
+
+  margin-top: 8px;
+
+  font-family: Arial, sans-serif;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  color: #b78a3e;
+
+  animation:
+    opening-arrow 1.8s ease-in-out infinite;
+}
+
+
+@keyframes opening-arrow {
+
+  0%,
+  100% {
+    transform: translateY(0);
+
+    opacity: .5;
+  }
+
+  50% {
+    transform: translateY(8px);
+
+    opacity: 1;
+  }
+
+}
+
+
+/* =====================================================
+   OPEN ANIMATION
+===================================================== */
+
+.opening-screen.opening {
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+}
+
+
+.opening-screen.opening .heart-frame {
+
+  transform:
+    scale(1.06);
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .opening-title {
+
+    margin-top: 8vh;
+
+  }
+
+
+  .opening-script {
+
+    font-size: 3.1rem;
+
+  }
+
+
+  .opening-decoration span {
+
+    width: 60px;
+
+  }
+
+
+  .heart-frame {
+
+    width: 88vw;
+
+    margin-top: 3vh;
+
+  }
+
+
+  .heart-border {
+
+    stroke-width: 4;
+
+  }
+
+
+  .opening-instruction {
+
+    bottom: 3.5%;
+
+  }
+
+
+  .opening-instruction p {
+
+    font-size: .72rem;
+
+  }
+
+
+  .instruction-decoration span {
+
+    width: 45px;
+
+  }
+
+}
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+body.opened main{
+  animation:
+    rise-in
+    900ms
+    ease-out;
+}
+
+
+@keyframes rise-in{
+
+  from{
+    opacity:0;
+    transform:translateY(18px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+
+main.wrap{
+  position:relative;
+  z-index:1;
+
+  opacity:1;
+
+  transition:
+    opacity .7s ease,
+    transform .7s ease;
+}
+
+
+/* Initially main page stays behind envelope */
+#envelope{
+  z-index:9999;
+}
+
+
+/* When envelope opens */
+body.opening main.wrap{
+  opacity:1;
+}
+
+
+/* Envelope disappears */
+body.opened #envelope{
+  opacity:0;
+  pointer-events:none;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+/* =========================================================
+   HERO WITH NAMES ON PHOTO
+========================================================= */
+
+.hero{
+  padding:0;
+}
+
+
+.hero-card{
+  position:relative;
+
+  margin:0;
+
+  overflow:hidden;
+
+  border-radius:4px;
+
+  border:
+    1px solid
+    rgba(183,154,108,.35);
+
+  box-shadow:
+    0 25px 45px -25px
+    rgba(74,59,46,.55);
+}
+
+
+.hero-card img{
+  display:block;
+
+  width:100%;
+
+  aspect-ratio:4 / 5;
+
+  object-fit:cover;
+}
+
+
+/* Նուրբ մուգ/ոսկեգույն overlay */
+
+.hero-card::after{
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(35,25,18,.58) 0%,
+      rgba(35,25,18,.20) 35%,
+      transparent 65%
+    );
+
+  pointer-events:none;
+}
+
+
+/* Տեքստը նկարի վրա */
+
+.hero-overlay{
+  position:absolute;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  z-index:2;
+
+  padding:
+    2.5rem
+    1.5rem
+    2rem;
+
+  text-align:center;
+
+  color:#fffaf2;
+}
+
+
+/* փոքր ◆ */
+
+.hero-ornament{
+  margin-bottom:.5rem;
+
+  font-size:.55rem;
+
+  color:#d9bd8b;
+
+  letter-spacing:.3em;
+}
+
+
+/* Անուններ */
+
+.hero-overlay h1{
+  margin:0;
+
+  font-family:
+    "Noto Serif Armenian",
+    Georgia,
+    serif;
+
+  font-size:3.2rem;
+
+  line-height:2.15;
+
+  font-weight:400;
+
+  letter-spacing:.03em;
+
+  text-shadow:
+    0 2px 12px
+    rgba(0,0,0,.35);
+}
+
+
+.hero-overlay h1 span{
+  color:#d5b77f;
+
+  padding:
+    0 .25rem;
+}
+
+
+/* Հարսանեկան հրավեր */
+
+.hero-overlay p{
+  margin:.65rem 0 0;
+
+  font-size:1rem;
+
+  text-transform:uppercase;
+
+  letter-spacing:.3em;
+
+  color:#f3e6d2;
+
+  text-shadow:
+    0 1px 8px
+    rgba(0,0,0,.35);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+  .hero{
+    padding:
+      0;
+  }
+
+  .hero-overlay{
+    padding:
+      2rem 1rem 1.4rem;
+  }
+
+ 
+
+
+}
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.dayblock{
+  padding:1.75rem 0 0;
+
+  text-align:center;
+}
+
+.dayblock .lab{
+  font-family:var(--serif);
+
+  font-size:.78rem;
+
+  text-transform:uppercase;
+
+  letter-spacing:.5em;
+
+  opacity:.85;
+}
+
+.datewrap{
+  margin-top:1.5rem;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:2rem;
+}
+
+.datewrap .v{
+  height:5rem;
+  width:1px;
+
+  background:
+    rgba(74,59,46,.3);
+}
+
+.datewrap .mid{
+  min-width:7.5rem;
+
+  font-family:var(--serif);
+}
+
+.datewrap .mid .a{
+  font-size:.85rem;
+  opacity:.7;
+}
+
+.datewrap .mid .b{
+  margin-top:.25rem;
+
+  font-size:2.9rem;
+
+  line-height:1.2;
+}
+
+.datewrap .mid .c{
+  margin-top:.25rem;
+
+  font-size:1.15rem;
+
+  opacity:.85;
+}
+
+
+
+
+/* =========================================================
+   EXACT HEART FLOURISH
+========================================================= */
+
+
+
+.flourish-image img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}
+
+/* Mobile */
+/* =========================================================
+   GUEST INVITATION SECTION
+========================================================= */
+
+.guest-section{
+  position:relative;
+
+  max-width:620px;
+
+  margin:0 auto;
+
+  padding:
+    4.5rem 1.5rem
+    4rem;
+
+  text-align:center;
+
+  color:#5f5042;
+}
+
+
+/* =========================================================
+   TOP ORNAMENT
+========================================================= */
+
+.guest-ornament{
+  margin-bottom:1.25rem;
+
+  font-family:Georgia, serif;
+
+  font-size:.75rem;
+
+  color:#b79a6c;
+
+  letter-spacing:.35em;
+
+  opacity:.8;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.guest-title{
+  margin:0;
+
+  font-family:
+    "Noto Serif Armenian",
+    Georgia,
+    serif;
+
+  font-size:1.65rem;
+
+  line-height:1.35;
+
+  font-weight:400;
+
+  letter-spacing:.08em;
+
+  color:#604f3d;
+}
+
+
+/* =========================================================
+   DECORATIVE LINE
+========================================================= */
+
+.guest-line{
+  width:75px;
+
+  height:1px;
+
+  margin:
+    1.25rem auto
+    1.5rem;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #b79a6c,
+      transparent
+    );
+
+  position:relative;
+}
+
+
+/* small center point */
+
+.guest-line::after{
+  content:"◆";
+
+  position:absolute;
+
+  left:50%;
+  top:50%;
+
+  transform:
+    translate(-50%,-50%);
+
+  padding:0 .4rem;
+
+  background:#fff;
+
+  font-size:.35rem;
+
+  color:#b79a6c;
+}
+
+
+/* =========================================================
+   MAIN TEXT
+========================================================= */
+
+.guest-text{
+  max-width:30rem;
+
+  margin:0 auto;
+
+  font-family:
+    "Noto Serif Armenian",
+    Georgia,
+    serif;
+
+  font-size:1rem;
+
+  line-height:2;
+
+  font-weight:400;
+
+  color:#7b6b5b;
+
+  letter-spacing:.015em;
+}
+
+
+/* =========================================================
+   NAMES
+========================================================= */
+
+.guest-names{
+  margin:
+    1.75rem 0 0;
+
+  font-family:
+    "Noto Serif Armenian",
+    Georgia,
+    serif;
+
+  font-size:1.25rem;
+
+  line-height:1.4;
+
+  font-style:italic;
+
+  color:#80603b;
+
+  letter-spacing:.08em;
+}
+
+
+/* =========================================================
+   SMALL DECORATIVE LINES AROUND NAMES
+========================================================= */
+
+.guest-names::before,
+.guest-names::after{
+  content:"";
+
+  display:inline-block;
+
+  width:28px;
+
+  height:1px;
+
+  vertical-align:middle;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(183,154,108,.6)
+    );
+
+  margin:
+    0 .65rem;
+}
+
+.guest-names::after{
+  background:
+    linear-gradient(
+      90deg,
+      rgba(183,154,108,.6),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+  .guest-section{
+    padding:
+      3.5rem 1.25rem
+      3rem;
+  }
+
+  .guest-title{
+    font-size:1.4rem;
+
+    letter-spacing:.05em;
+  }
+
+  .guest-text{
+    font-size:1rem;
+
+    line-height:1.85;
+
+    max-width:22rem;
+  }
+
+  .guest-names{
+    font-size:1.1rem;
+  }
+
+  .guest-names::before,
+  .guest-names::after{
+    width:18px;
+
+    margin:
+      0 .4rem;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:380px){
+
+  .guest-section{
+    padding:
+      3rem 1rem;
+  }
+
+  .guest-title{
+    font-size:1.25rem;
+  }
+
+  .guest-text{
+    font-size:.78rem;
+
+    line-height:1.8;
+  }
+
+  .guest-names{
+    font-size:1rem;
+  }
+
+}
+/* =========================================================
+   CALENDAR
+========================================================= */
+
+.calgrid{
+  margin:1.5rem auto 0;
+
+  display:grid;
+
+  max-width:24rem;
+
+  grid-template-columns:
+    repeat(7,1fr);
+
+  text-align:center;
+}
+
+.calgrid .dl{
+  font-size:.5rem;
+
+  letter-spacing:.1em;
+
+  color:var(--muted);
+}
+
+.calgrid .cell{
+  margin-top:.75rem;
+
+  display:flex;
+
+  height:2.5rem;
+
+  align-items:center;
+  justify-content:center;
+
+  font-family:var(--serif);
+
+  font-size:1.05rem;
+
+  opacity:.85;
+}
+
+.calgrid .day{
+  position:relative;
+
+  display:flex;
+
+  height:2.5rem;
+  width:2.5rem;
+
+  align-items:center;
+  justify-content:center;
+
+  font-family:var(--serif);
+
+  font-size:1.05rem;
+
+  color:var(--ivory);
+
+  opacity:1;
+}
+
+.calgrid .day svg{
+  position:absolute;
+
+  inset:0;
+
+  height:100%;
+  width:100%;
+
+  color:var(--cocoa);
+}
+
+.calgrid .day span{
+  position:relative;
+
+  margin-top:-2px;
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+/* =========================================================
+   SCHEDULE
+========================================================= */
+
+.schedule-section {
+  width: 100%;
+  padding: 0 1rem 3rem;
+}
+
+
+.timeline {
+  position: relative;
+
+  width: 100%;
+  max-width: 520px;
+
+  height: 540px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   SVG
+========================================================= */
+
+.timeline-svg {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  display: block;
+}
+
+
+/* =========================================================
+   MAIN LINE
+========================================================= */
+
+#timelinePath {
+  fill: none;
+
+  stroke: var(--cocoa);
+
+  stroke-width: 1.05;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.timeline-dot {
+  fill: var(--cocoa);
+
+  stroke: none;
+}
+
+
+/* =========================================================
+   MOVING HEART
+========================================================= */
+
+.moving-heart {
+  pointer-events: none;
+  fill: var(--cocoa);
+  stroke: none;
+  transition: none;
+}
+
+/* =========================================================
+   EVENT TEXT
+========================================================= */
+
+.tl-item {
+  position: absolute;
+
+  z-index: 5;
+
+  width: 44%;
+
+  pointer-events: none;
+
+  color: var(--cocoa);
+
+  transition:
+    opacity .25s ease;
+}
+
+
+.event-time {
+  font-family:
+    "Noto Serif Armenian",
+    serif;
+
+  font-size: 1.35rem;
+
+  line-height: 1.1;
+
+  font-style: italic;
+
+  font-weight: 400;
+
+  color: var(--cocoa);
+
+  transition:
+    font-weight .25s ease,
+    transform .25s ease;
+}
+
+
+.event-name {
+  margin-top: .18rem;
+
+  font-family:
+    "Noto Sans Armenian",
+    sans-serif;
+
+  font-size: .70rem;
+
+  line-height: 1.3;
+
+  color: var(--cocoa);
+
+  transition:
+    font-weight .25s ease;
+}
+
+
+/* =========================================================
+   POSITIONS
+========================================================= */
+
+/* 11:00 — left */
+
+.event-1 {
+  top: 20%;
+  left:33%;
+
+  text-align: right;
+}
+
+
+/* 12:30 — right */
+
+.event-2 {
+      top: 44%;
+    left: 60%;
+
+  text-align: left;
+}
+
+
+/* 15:00 — left */
+
+.event-3 {
+  top: 60%;
+  left: 4%;
+
+  text-align: right;
+}
+
+
+/* 17:30 — right */
+
+.event-4 {
+  top: 84%;
+  right: 4%;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   ACTIVE EVENT
+========================================================= */
+
+.tl-item.active .event-time {
+  font-weight: 700;
+
+  transform: scale(1.03);
+}
+
+
+.tl-item.active .event-name {
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .schedule-section {
+    padding-left: .6rem;
+    padding-right: .6rem;
+  }
+
+  .timeline {
+    height: 540px;
+  }
+
+  .event-time {
+    font-size: 1.30rem;
+  }
+
+  .event-name {
+    font-size: .67rem;
+  }
+
+  .tl-item {
+    width: 44%;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .timeline {
+    height: 530px;
+  }
+
+  .event-time {
+    font-size: 1.22rem;
+  }
+
+  .event-name {
+    font-size: .61rem;
+  }
+
+}
+/* =========================================================
+   COUNTDOWN SECTION
+========================================================= */
+
+.countdown-section {
+  position: relative;
+
+  width: min(680px, 92vw);
+
+  margin: 4rem auto 2rem;
+
+  padding: 3.5rem 1.25rem;
+
+  text-align: center;
+
+  color: var(--cocoa);
+
+  background: transparent;
+}
+
+
+/* Header */
+
+.countdown-header {
+  text-align: center;
+}
+
+.countdown-small {
+  margin: 0 0 .7rem;
+
+  font-family: var(--sans);
+
+  font-size: .65rem;
+
+  font-weight: 500;
+
+  letter-spacing: .35em;
+
+  color: var(--gold);
+}
+
+
+.countdown-title {
+  margin: 0;
+
+  font-family: var(--serif);
+
+  font-size: clamp(2rem, 7vw, 3rem);
+
+  font-weight: 400;
+
+  letter-spacing: .04em;
+
+  color: var(--cocoa);
+}
+
+
+/* Decorative line */
+
+.countdown-line {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: .8rem;
+
+  width: min(260px, 70vw);
+
+  margin: 1.5rem auto 2.8rem;
+}
+
+
+.countdown-line span {
+  height: 1px;
+
+  flex: 1;
+
+  background: var(--gold);
+}
+
+
+.countdown-line b {
+  font-size: 1rem;
+
+  font-weight: 400;
+
+  color: var(--gold);
+}
+
+
+/* Countdown */
+
+.countdown {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 1.1rem;
+
+  width: 100%;
+}
+
+
+.count-item {
+  min-width: 4.7rem;
+
+  text-align: center;
+}
+
+
+.count-item strong {
+  display: block;
+
+  font-family: var(--serif);
+
+  font-size: clamp(2.5rem, 8vw, 4rem);
+
+  font-weight: 400;
+
+  line-height: 1;
+
+  color: var(--cocoa);
+
+  font-variant-numeric: tabular-nums;
+}
+
+
+.count-item span {
+  display: block;
+
+  margin-top: .65rem;
+
+  font-family: var(--sans);
+
+  font-size: .6rem;
+
+  letter-spacing: .22em;
+
+  color: rgba(39, 35, 31, .65);
+}
+
+
+/* Dividers */
+
+.count-divider {
+  width: 1px;
+
+  height: 3.8rem;
+
+  background: rgba(183, 151, 91, .45);
+}
+
+
+/* Date */
+
+.countdown-date {
+  margin: 2.5rem 0 0;
+
+  font-family: var(--serif);
+
+  font-size: .95rem;
+
+  letter-spacing: .38em;
+
+  color: var(--gold);
+}
+
+
+/* Mobile */
+
+@media (max-width: 500px) {
+
+  .countdown-section {
+    width: 100%;
+
+    margin: 3rem auto 1rem;
+
+    padding: 2.8rem .5rem;
+  }
+
+  .countdown-title {
+    font-size: 2rem;
+  }
+
+  .countdown {
+    gap: .45rem;
+  }
+
+  .count-item {
+    min-width: 3.7rem;
+  }
+
+  .count-item strong {
+    font-size: 2.25rem;
+  }
+
+  .count-item span {
+    font-size: .48rem;
+
+    letter-spacing: .12em;
+  }
+
+  .count-divider {
+    height: 3rem;
+  }
+
+  .countdown-date {
+    font-size: .8rem;
+
+    letter-spacing: .25em;
+  }
+}
+/* =========================================================
+   GALLERY SLIDER
+========================================================= */
+
+.gallery-section {
+  width: min(900px, 94vw);
+
+  margin: 4rem auto;
+
+  padding: 2rem 0;
+
+  overflow: hidden;
+}
+
+
+/* Header */
+
+.gallery-header {
+  text-align: center;
+
+  margin-bottom: 2rem;
+}
+
+.gallery-small {
+  margin: 0 0 .5rem;
+
+  font-family: var(--sans);
+
+  font-size: .62rem;
+
+  letter-spacing: .32em;
+
+  color: var(--gold);
+}
+
+.gallery-title {
+  margin: 0;
+
+  font-family: var(--serif);
+
+  font-size: clamp(2rem, 6vw, 3rem);
+
+  font-weight: 400;
+
+  color: var(--cocoa);
+}
+
+.gallery-line {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: .7rem;
+
+  width: 230px;
+
+  margin: 1.2rem auto 0;
+}
+
+.gallery-line span {
+  height: 1px;
+
+  flex: 1;
+
+  background: var(--gold);
+}
+
+.gallery-line b {
+  color: var(--gold);
+
+  font-size: .9rem;
+
+  font-weight: 400;
+}
+
+
+/* Slider */
+
+.gallery-slider {
+  width: 100%;
+
+  overflow: hidden;
+
+  touch-action: pan-y;
+
+  cursor: grab;
+}
+
+.gallery-slider:active {
+  cursor: grabbing;
+}
+
+
+.gallery-track {
+  display: flex;
+
+  gap: 18px;
+
+  transition:
+    transform .75s cubic-bezier(.22,.61,.36,1);
+
+  will-change: transform;
+}
+
+
+/* Individual image */
+
+.gallery-slide {
+  flex: 0 0 calc((100% - 36px) / 3);
+
+  aspect-ratio: 4 / 5;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background: #eee7dc;
+}
+
+
+.gallery-slide img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform .6s ease;
+}
+
+
+.gallery-slide:hover img {
+  transform: scale(1.04);
+}
+
+
+/* Dots */
+
+.gallery-dots {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: 1.4rem;
+}
+
+.gallery-dots span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: rgba(39,35,31,.25);
+
+  transition:
+    width .3s ease,
+    background .3s ease;
+}
+
+.gallery-dots span.active {
+  width: 22px;
+
+  border-radius: 10px;
+
+  background: var(--gold);
+}
+
+
+/* =========================================================
+   MOBILE — 2 IMAGES
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .gallery-section {
+    width: 94vw;
+
+    margin: 3rem auto;
+  }
+
+  .gallery-track {
+    gap: 12px;
+  }
+
+  .gallery-slide {
+    flex: 0 0 calc((100% - 12px) / 2);
+
+    aspect-ratio: 3 / 4;
+
+    border-radius: 22px;
+  }
+
+}
+/* =========================================================
+   DRESS CODE
+========================================================= */
+
+.dress-code-section {
+  width: min(900px, 94vw);
+
+  margin: 4rem auto;
+
+  padding: 2rem 1rem 3rem;
+
+  text-align: center;
+
+  color: #b8862b;
+}
+
+
+/* TOP DECORATION */
+
+.dress-code-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 1.2rem;
+
+  width: 100%;
+}
+
+
+.dress-code-top span {
+  height: 1px;
+
+  flex: 1;
+
+  background: #c49742;
+}
+
+
+.outline-heart {
+  font-family: Georgia, serif;
+
+  font-size: 3.2rem;
+
+  line-height: .8;
+
+  font-weight: 300;
+
+  color: #b8862b;
+}
+
+
+/* TITLE */
+
+.dress-code-title {
+  margin: 2.2rem 0 1.3rem;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: clamp(2rem, 7vw, 3.2rem);
+
+  font-weight: 400;
+
+  letter-spacing: .18em;
+
+  color: #b8862b;
+}
+
+
+/* DIVIDER */
+
+.dress-code-divider {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 1rem;
+
+  width: min(280px, 65vw);
+
+  margin: 0 auto;
+}
+
+
+.dress-code-divider span {
+  height: 1px;
+
+  flex: 1;
+
+  background: #c49742;
+}
+
+
+.dress-code-divider b {
+  font-family: Georgia, serif;
+
+  font-size: 1rem;
+
+  font-weight: 400;
+
+  color: #b8862b;
+}
+
+
+/* TEXT */
+
+.dress-code-text {
+  margin: 2.5rem auto 0;
+
+  font-family: var(--serif);
+
+  font-size: clamp(1rem, 3vw, 1.25rem);
+
+  line-height: 1.9;
+
+  color: #70583c;
+}
+
+
+/* COLORS TITLE */
+
+.colors-title {
+  margin: 4rem 0 2rem;
+
+  font-family: var(--serif);
+
+  font-size: 1.15rem;
+
+  font-weight: 400;
+
+  letter-spacing: .18em;
+
+  color: #b8862b;
+}
+
+
+/* =========================================================
+   HEART PALETTE
+========================================================= */
+
+.heart-palette {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: clamp(.7rem, 2vw, 1.2rem);
+
+  flex-wrap: nowrap;
+}
+
+
+.palette-heart {
+  width: clamp(55px, 8vw, 78px);
+
+  height: clamp(55px, 8vw, 78px);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-family: Arial, sans-serif;
+
+  font-size: clamp(3rem, 6vw, 4.2rem);
+
+  line-height: 1;
+
+  color: var(--heart-color);
+
+  /* gold outline effect */
+  -webkit-text-stroke: 2px #b8862b;
+
+  text-shadow:
+    0 2px 3px rgba(120, 80, 20, .15);
+
+  transition:
+    transform .3s ease;
+}
+
+
+.palette-heart:hover {
+  transform: translateY(-5px);
+}
+
+
+/* PINK PALETTE */
+
+.heart-1 {
+  --heart-color: #f8dedf;
+}
+
+.heart-2 {
+  --heart-color: #f2c2c7;
+}
+
+.heart-3 {
+  --heart-color: #e9a5ae;
+}
+
+.heart-4 {
+  --heart-color: #d98796;
+}
+
+.heart-5 {
+  --heart-color: #c56f81;
+}
+
+.heart-6 {
+  --heart-color: #aa4f68;
+}
+
+
+/* =========================================================
+   BOTTOM DECORATION
+========================================================= */
+
+.dress-code-bottom {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 1.2rem;
+
+  margin-top: 4rem;
+}
+
+
+.dress-code-bottom span {
+  height: 1px;
+
+  flex: 1;
+
+  background: #c49742;
+}
+
+
+.dress-code-bottom .outline-heart {
+  font-size: 3rem;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .dress-code-section {
+    width: 94vw;
+
+    margin: 3rem auto;
+
+    padding:
+      1.5rem .25rem 2.5rem;
+  }
+
+
+  .dress-code-title {
+    font-size: 2rem;
+
+    letter-spacing: .12em;
+
+    margin-top: 1.8rem;
+  }
+
+
+  .dress-code-text {
+    font-size: .95rem;
+
+    line-height: 1.8;
+
+    margin-top: 2rem;
+  }
+
+
+  .colors-title {
+    margin-top: 3.2rem;
+
+    font-size: 1rem;
+  }
+
+
+  .heart-palette {
+    gap: .25rem;
+
+    justify-content: space-between;
+  }
+
+
+  .palette-heart {
+    width: 50px;
+
+    height: 50px;
+
+    font-size: 3rem;
+
+    -webkit-text-stroke: 1.5px #b8862b;
+  }
+
+
+  .outline-heart {
+    font-size: 2.7rem;
+  }
+
+
+  .dress-code-bottom {
+    margin-top: 3rem;
+  }
+
+}
+/* =========================================================
+   RSVP — ՄԱՍՆԱԿՑՈՒԹՅԱՆ ՀԱՍՏԱՏՈՒՄ
+========================================================= */
+
+.rsvp-section {
+  position: relative;
+
+  width: min(620px, 92vw);
+
+  margin: 5rem auto;
+
+  padding: 3.5rem 1.5rem 4rem;
+
+  text-align: center;
+
+  background: #faf7f1;
+
+  border: 1px solid rgba(184, 134, 43, .35);
+
+  border-radius: 32px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.rsvp-section .section-title {
+  margin: 0 0 2.5rem;
+
+  font-family: var(--serif);
+
+  font-size: clamp(1.8rem, 6vw, 2.5rem);
+
+  font-weight: 400;
+
+  letter-spacing: .06em;
+
+  color: #b8862b;
+}
+
+
+/* Small decorative line */
+
+.rsvp-section .section-title::after {
+  content: "♥";
+
+  display: block;
+
+  width: 180px;
+
+  margin: 1rem auto 0;
+
+  padding-top: .8rem;
+
+  border-top: 1px solid #c49742;
+
+  font-size: .9rem;
+
+  color: #c56f81;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.rsvp-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1.7rem;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   FIELD
+========================================================= */
+
+.rsvp-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: .65rem;
+}
+
+
+.rsvp-label {
+  font-family: var(--serif);
+
+  font-size: 1rem;
+
+  letter-spacing: .03em;
+
+  color: #70583c;
+}
+
+
+/* =========================================================
+   INPUT + SELECT
+========================================================= */
+
+.rsvp-input {
+  width: 100%;
+
+  min-height: 48px;
+
+  box-sizing: border-box;
+
+  padding: .8rem 1rem;
+
+  border: 1px solid rgba(184, 134, 43, .45);
+
+  border-radius: 14px;
+
+  outline: none;
+
+  background: #fffdf9;
+
+  font-family: var(--sans);
+
+  font-size: .9rem;
+
+  color: #4d4035;
+
+  transition:
+    border-color .25s ease,
+    box-shadow .25s ease;
+}
+
+
+.rsvp-input:focus {
+  border-color: #b8862b;
+
+  box-shadow:
+    0 0 0 3px rgba(197, 111, 129, .12);
+}
+
+
+select.rsvp-input {
+  cursor: pointer;
+
+  appearance: none;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, #b8862b 50%),
+    linear-gradient(135deg, #b8862b 50%, transparent 50%);
+
+  background-position:
+    calc(100% - 18px) 21px,
+    calc(100% - 13px) 21px;
+
+  background-size:
+    5px 5px,
+    5px 5px;
+
+  background-repeat: no-repeat;
+}
+
+
+/* =========================================================
+   RADIO BUTTONS
+========================================================= */
+
+.rsvp-radio {
+  display: flex;
+
+  align-items: center;
+
+  gap: .7rem;
+
+  padding: .65rem .8rem;
+
+  border: 1px solid rgba(184, 134, 43, .22);
+
+  border-radius: 12px;
+
+  background: rgba(255,255,255,.45);
+
+  font-family: var(--sans);
+
+  font-size: .85rem;
+
+  color: #5e5045;
+
+  cursor: pointer;
+
+  transition:
+    background .25s ease,
+    border-color .25s ease;
+}
+
+
+.rsvp-radio:hover {
+  border-color: rgba(184, 134, 43, .55);
+
+  background: #fffaf7;
+}
+
+
+.rsvp-radio input {
+  appearance: none;
+
+  width: 18px;
+  height: 18px;
+
+  margin: 0;
+
+  border: 1px solid #b8862b;
+
+  border-radius: 50%;
+
+  background: #fff;
+
+  cursor: pointer;
+
+  position: relative;
+
+  flex-shrink: 0;
+}
+
+
+.rsvp-radio input:checked {
+  border-color: #b8862b;
+
+  background: #fff;
+}
+
+
+.rsvp-radio input:checked::after {
+  content: "";
+
+  position: absolute;
+
+  width: 9px;
+  height: 9px;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: #c56f81;
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.rsvp-submit {
+  width: 100%;
+
+  min-height: 52px;
+
+  margin-top: .5rem;
+
+  border: 1px solid #b8862b;
+
+  border-radius: 16px;
+
+  background: #b8862b;
+
+  color: #fffdf8;
+
+  font-family: var(--sans);
+
+  font-size: .75rem;
+
+  font-weight: 500;
+
+  letter-spacing: .22em;
+
+  cursor: pointer;
+
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    box-shadow .25s ease;
+}
+
+
+.rsvp-submit:hover {
+  background: #a57420;
+
+  box-shadow:
+    0 8px 20px rgba(120, 85, 25, .16);
+
+  transform: translateY(-2px);
+}
+
+
+.rsvp-submit:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================================
+   THANK YOU
+========================================================= */
+
+.rsvp-thanks {
+  margin: 1.8rem 0 0;
+
+  padding: 1rem;
+
+  border-radius: 14px;
+
+  background: rgba(197, 111, 129, .08);
+
+  font-family: var(--serif);
+
+  font-size: 1rem;
+
+  line-height: 1.6;
+
+  color: #8f5966;
+}
+
+
+.rsvp-thanks.hidden {
+  display: none;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .rsvp-section {
+    width: 94vw;
+
+    margin: 3rem auto;
+
+    padding:
+      2.7rem 1rem
+      3rem;
+
+    border-radius: 26px;
+  }
+
+  .rsvp-section .section-title {
+    font-size: 1.75rem;
+
+    letter-spacing: .03em;
+  }
+
+  .rsvp-form {
+    gap: 1.4rem;
+  }
+
+  .rsvp-label {
+    font-size: .95rem;
+  }
+
+  .rsvp-input {
+    min-height: 50px;
+
+    font-size: .85rem;
+  }
+
+  .rsvp-radio {
+    font-size: .8rem;
+
+    padding: .7rem;
+  }
+
+  .rsvp-submit {
+    min-height: 54px;
+
+    font-size: .7rem;
+  }
+
+}
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+  padding:3.5rem 1.5rem 0;
+
+  text-align:center;
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+#toast{
+  position:fixed;
+
+  top:1rem;
+  left:50%;
+
+  transform:
+    translateX(-50%);
+
+  z-index:60;
+
+  background:var(--cocoa);
+
+  color:var(--ivory);
+
+  padding:.6rem 1.1rem;
+
+  border-radius:4px;
+
+  font-size:.8rem;
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transition:
+    opacity .3s;
+}
+
+#toast.show{
+  opacity:1;
+}
+/* =========================================================
+   FINAL 3D FLAP EDGES + DECORATIVE LINES
+========================================================= */
+
+.flap-face{
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffefa 0%,
+      #faf4e9 58%,
+      #f1e6d7 100%
+    );
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      50% 68%
+    );
+
+  border-top-left-radius:6px;
+  border-top-right-radius:6px;
+
+  box-shadow:
+    inset 0 -3px 4px
+    rgba(120,95,65,.13),
+
+    inset 0 1px 1px
+    rgba(255,255,255,.95),
+
+    0 14px 25px -17px
+    rgba(74,59,46,.72);
+
+  backface-visibility:hidden;
+
+  overflow:hidden;
+}
+
+
+/* LEFT 3D EDGE */
+.flap-face .left-edge{
+  position:absolute;
+
+  left:0;
+  top:0;
+
+  width:18px;
+  height:100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(110,88,62,.18),
+      rgba(255,255,255,.55),
+      transparent
+    );
+
+  pointer-events:none;
+}
+
+
+/* RIGHT 3D EDGE */
+.flap-face .right-edge{
+  position:absolute;
+
+  right:0;
+  top:0;
+
+  width:18px;
+  height:100%;
+
+  background:
+    linear-gradient(
+      270deg,
+      rgba(110,88,62,.18),
+      rgba(255,255,255,.55),
+      transparent
+    );
+
+  pointer-events:none;
+}
+/* =========================================================
+   SUBTLE ENVELOPE FOLD LINES
+========================================================= */
+
+/* Ձախ ներքևի ծալքի գիծ */
+.fold-left::after{
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  right:0;
+
+  width:1px;
+  height:100%;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 5%,
+      rgba(150,120,85,.28) 45%,
+      rgba(150,120,85,.12) 90%,
+      transparent
+    );
+
+  transform:
+    rotate(39deg);
+
+  transform-origin:top center;
+
+  opacity:.75;
+}
+
+
+/* Աջ ներքևի ծալքի գիծ */
+.fold-right::after{
+  content:"";
+
+  position:absolute;
+
+  top:0;
+  left:0;
+
+  width:1px;
+  height:100%;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 5%,
+      rgba(150,120,85,.28) 45%,
+      rgba(150,120,85,.12) 90%,
+      transparent
+    );
+
+  transform:
+    rotate(-39deg);
+
+  transform-origin:top center;
+
+  opacity:.75;
+}
+
+
+/* Ներքևի կենտրոնական ծալքի գիծ */
+.fold-bottom::after{
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+  top:0;
+
+  width:1px;
+  height:100%;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(150,120,85,.08),
+      rgba(150,120,85,.28),
+      rgba(150,120,85,.08)
+    );
+
+  transform:
+    rotate(0deg);
+
+  opacity:.65;
+}
+
+
+/* Թեթև ներքին եզրագիծ ամբողջ ծրարի վրա */
+.pocket::after{
+  content:"";
+
+  position:absolute;
+
+  inset:6px;
+
+  z-index:18;
+
+  border:
+    1px solid
+    rgba(183,154,108,.22);
+
+  border-radius:4px;
+
+  pointer-events:none;
+}
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes soft-pulse{
+
+  0%,
+  100%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.05);
+  }
+
+}
+
+
+@keyframes flip-digit{
+
+  from{
+    opacity:.25;
+
+    transform:
+      translateY(-40%);
+  }
+
+  to{
+    opacity:1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:500px){
+
+  #envelope{
+    padding:1rem;
+  }
+
+  .env-btn{
+    width:22rem;
+    height:14.7rem;
+  }
+
+  .seal{
+    width:7rem;
+    height:7rem;
+
+    top:55%;
+  }
+
+  .card-out{
+    height:10rem;
+  }
+
+  .card-inner strong{
+    font-size:1.25rem;
+  }
+
+  .hint{
+    margin-top:2rem;
+
+    font-size:.55rem;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+========================================================= */
+
+@media(max-width:360px){
+
+  .env-btn{
+    width:20rem;
+    height:13.4rem;
+  }
+
+  .seal{
+    width:4rem;
+    height:4rem;
+  }
+
+  .card-out{
+    left:1rem;
+    right:1rem;
+  }
+
+}
+/* =========================================================
+   FINAL: OPEN ENVELOPE FROM 4 SIDES
+========================================================= */
+
+/* TOP → UP */
+body.opening .flap{
+  transform:translateY(-120%) !important;
+  opacity:0 !important;
+}
+
+
+/* LEFT → LEFT */
+body.opening .fold-left{
+  transform:translateX(-120%) !important;
+  opacity:0 !important;
+}
+
+
+/* RIGHT → RIGHT */
+body.opening .fold-right{
+  transform:translateX(120%) !important;
+  opacity:0 !important;
+}
+
+
+/* BOTTOM → DOWN */
+body.opening .fold-bottom{
+  transform:translateY(120%) !important;
+  opacity:0 !important;
+}
+
+
+/* Flower pattern fades with envelope */
+body.opening .env-pattern{
+  opacity:0 !important;
+  transform:scale(.96);
+  transition:
+    opacity .7s ease,
+    transform .7s ease;
+}
+
+
+/* Seal disappears */
+body.opening .seal{
+  opacity:0 !important;
+  transform:
+    translate(-50%,-50%)
+    scale(.4)
+    rotate(-15deg) !important;
+}
+
+
+/* IMPORTANT:
+   Card must NOT come out
+*/
+body.opening .card-out{
+  opacity:0 !important;
+  transform:none !important;
+}
+
+
+/* Main page */
+main.wrap{
+  position:relative;
+  z-index:1;
+}
+
+
+/* Main page visible during opening */
+body.opening main.wrap{
+  opacity:1;
+}
+
+
+/* Envelope completely disappears */
+body.opened #envelope{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+
+/* =========================================================
+   INVITATION CARD — FINAL POSITION & RESPONSIVE FIX
+========================================================= */
+
+.card-out{
+  position:absolute;
+
+  left:1rem;
+  right:1rem;
+
+  bottom:.7rem;
+
+  width:auto;
+
+  height:12rem;
+
+  z-index:50 !important;
+
+  overflow:hidden;
+
+  border-radius:5px;
+
+  opacity:0;
+
+  transform:
+    translateY(0)
+    translateZ(20px)
+    scale(1);
+
+  padding:0;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffdf9 0%,
+      #faf3e7 100%
+    );
+
+  border:
+    1px solid
+    rgba(183,154,108,.4);
+
+  box-shadow:
+    0 22px 45px -25px
+    rgba(74,59,46,.5);
+
+  transition:
+    opacity .8s ease,
+    transform 1.2s
+    cubic-bezier(.18,.8,.25,1);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.card-out .in{
+  position:relative;
+
+  z-index:5;
+
+  width:100%;
+  height:100%;
+
+  display:flex !important;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  text-align:center;
+
+  padding:
+    1.5rem
+    1.25rem;
+
+  overflow:hidden;
+}
+
+
+/* Small top text */
+
+.card-out .in > span:first-child{
+  display:block;
+
+  width:100%;
+
+  margin-bottom:.5rem;
+
+  font-family:var(--serif);
+
+  font-size:.55rem;
+
+  line-height:1.4;
+
+  letter-spacing:.22em;
+
+  text-transform:uppercase;
+
+  color:#9a856c;
+
+  white-space:nowrap;
+}
+
+
+/* Main title */
+
+.card-out .in .script{
+  display:block;
+
+  width:100%;
+
+  margin:0;
+
+  font-family:var(--serif);
+
+  font-size:1.65rem !important;
+
+  line-height:1.2;
+
+  font-weight:400;
+
+  color:#735b42;
+
+  white-space:normal;
+
+  overflow-wrap:break-word;
+}
+
+
+/* Decorative line */
+
+.card-out .in i{
+  display:block;
+
+  flex:none;
+
+  width:3.5rem;
+
+  height:1px;
+
+  margin:.65rem 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #b79a6c,
+      transparent
+    );
+}
+
+
+/* Description */
+
+.card-out .in small{
+  display:block;
+
+  width:100%;
+
+  max-width:28rem;
+
+  margin:0;
+
+  font-family:var(--serif);
+
+  font-size:.65rem;
+
+  line-height:1.55;
+
+  color:#887762;
+
+  white-space:normal;
+
+  overflow-wrap:break-word;
+
+  word-break:normal;
+}
+
+
+/* Date */
+
+.card-out .in small:last-child{
+  margin-top:.65rem;
+
+  font-size:.52rem;
+
+  line-height:1.3;
+
+  letter-spacing:.18em;
+
+  color:#a1845c;
+}
+
+
+/* Inner border */
+
+.card-out::before{
+  content:"";
+
+  position:absolute;
+
+  inset:9px;
+
+  z-index:2;
+
+  border:
+    1px solid
+    rgba(183,154,108,.25);
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   OPEN STATE
+========================================================= */
+
+/*
+   IMPORTANT:
+   Previously this was -8.5rem.
+   That was making the card go too high.
+*/
+
+body.opening .card-out{
+  opacity:1 !important;
+
+  transform:
+    translateY(-3.2rem)
+    translateZ(25px)
+    scale(1) !important;
+
+  z-index:50 !important;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width:600px){
+
+  .card-out{
+
+    left:.7rem;
+    right:.7rem;
+
+    height:10.5rem;
+
+    bottom:.6rem;
+  }
+
+
+  .card-out .in{
+
+    padding:
+      1rem
+      .9rem;
+  }
+
+
+  .card-out .in > span:first-child{
+
+    font-size:.45rem;
+
+    letter-spacing:.16em;
+
+    margin-bottom:.4rem;
+  }
+
+
+  .card-out .in .script{
+
+    font-size:1.25rem !important;
+
+    line-height:1.15;
+  }
+
+
+  .card-out .in i{
+
+    width:2.8rem;
+
+    margin:.45rem 0;
+  }
+
+
+  .card-out .in small{
+
+    font-size:.52rem;
+
+    line-height:1.45;
+
+    max-width:95%;
+  }
+
+
+  .card-out .in small:last-child{
+
+    margin-top:.4rem;
+
+    font-size:.45rem;
+
+    letter-spacing:.12em;
+  }
+
+
+  /*
+     Less movement on mobile
+  */
+
+  body.opening .card-out{
+
+    transform:
+      translateY(-2rem)
+      translateZ(20px)
+      scale(1) !important;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width:400px){
+
+  .card-out{
+
+    left:.5rem;
+    right:.5rem;
+
+    height:9.5rem;
+
+    bottom:.5rem;
+  }
+
+
+  .card-out .in{
+
+    padding:
+      .8rem
+      .7rem;
+  }
+
+
+  .card-out .in > span:first-child{
+
+    font-size:.38rem;
+
+    letter-spacing:.12em;
+
+    margin-bottom:.25rem;
+  }
+
+
+  .card-out .in .script{
+
+    font-size:1.05rem !important;
+
+    line-height:1.1;
+  }
+
+
+  .card-out .in i{
+
+    width:2.3rem;
+
+    margin:.35rem 0;
+  }
+
+
+  .card-out .in small{
+
+    font-size:.45rem;
+
+    line-height:1.35;
+
+    max-width:94%;
+  }
+
+
+  .card-out .in small:last-child{
+
+    margin-top:.3rem;
+
+    font-size:.38rem;
+
+    letter-spacing:.1em;
+  }
+
+
+  body.opening .card-out{
+
+    transform:
+      translateY(-1.5rem)
+      translateZ(15px)
+      scale(1) !important;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width:340px){
+
+  .card-out{
+
+    height:8.8rem;
+  }
+
+
+  .card-out .in .script{
+
+    font-size:.95rem !important;
+  }
+
+
+  .card-out .in small{
+
+    font-size:.4rem;
+
+    line-height:1.3;
+  }
+
+
+  body.opening .card-out{
+
+    transform:
+      translateY(-1rem)
+      translateZ(10px)
+      scale(1) !important;
+  }
+}
+
+/* =========================================================
+   MUSIC TOGGLE
+========================================================= */
+
+.music-toggle {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+
+    width: 46px;
+    height: 46px;
+
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.92);
+
+    color: var(--gold);
+
+    font-size: 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 99999;
+
+    box-shadow:
+        0 6px 20px rgba(74,59,46,.18);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: scale(.8);
+
+    transition:
+        opacity .4s ease,
+        visibility .4s ease,
+        transform .3s ease;
+}
+
+
+/* Show after invitation opens */
+
+body.opened .music-toggle {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+
+/* Playing */
+
+.music-toggle.playing {
+    animation: music-pulse 1.7s ease-in-out infinite;
+}
+
+
+@keyframes music-pulse {
+
+    0%, 100% {
+        box-shadow:
+            0 6px 20px rgba(74,59,46,.18);
+    }
+
+    50% {
+        box-shadow:
+            0 6px 25px rgba(183,154,108,.45);
+    }
+
+}
+
+
+/* Click */
+
+.music-toggle:active {
+    transform: scale(.92);
+}
+
+
+/* Mobile */
+
+@media (max-width:600px) {
+
+    .music-toggle {
+        right: 14px;
+        bottom: 14px;
+
+        width: 43px;
+        height: 43px;
+
+        font-size: 18px;
+        top:500px;
+    }
+
+}
+
+/* =====================================================
+   FINAL MESSAGE
+===================================================== */
+
+.final-message {
+    width: min(90%, 650px);
+    margin: 0 auto ;
+
+    text-align: center;
+
+    font-family:
+        "Noto Serif Armenian",
+        Georgia,
+        serif;
+
+    color: #3d4650;
+
+    position: relative;
+}
+
+
+/* Decorative lines */
+
+.final-message-line {
+    width: 55px;
+    height: 1px;
+
+    margin: 0 auto 28px;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #b99a5f,
+        transparent
+    );
+
+    opacity: .8;
+}
+
+
+/* Main text */
+
+.final-message p {
+    margin: 0;
+
+    font-size: 18px;
+
+    line-height: 2;
+
+    font-weight: 400;
+
+    letter-spacing: .15px;
+}
+
+
+/* Second paragraph */
+
+.final-message-last {
+    margin-top: 22px !important;
+
+    font-size: 17px !important;
+
+    color: #56606a;
+}
+
+
+/* Heart */
+
+.final-message .heart {
+    display: inline-block;
+
+    margin-left: 5px;
+
+    color: #b99a5f;
+
+    font-size: 18px;
+
+    transform: translateY(1px);
+
+    animation: heartBeat 2s ease-in-out infinite;
+}
+
+
+/* Elegant animation */
+
+@keyframes heartBeat {
+
+    0%, 100% {
+        transform: translateY(1px) scale(1);
+    }
+
+    50% {
+        transform: translateY(1px) scale(1.12);
+    }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .final-message {
+        width: 88%;
+        margin: 0 auto;
+    }
+
+    .final-message p {
+        font-size: 16px;
+        line-height: 1.9;
+    }
+
+    .final-message-last {
+        font-size: 15.5px !important;
+        margin-top: 18px !important;
+    }
+
+    .final-message-line {
+        margin-bottom: 22px;
+    }
+
+}

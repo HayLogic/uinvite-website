@@ -1,0 +1,269 @@
+```html
+<!doctype html>
+<html lang="hy">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>50-ամյակի հրավեր</title>
+
+    <meta name="description"
+        content="50-ամյակի գեղեցիկ հրավիրատոմս՝ անուն, օր, ժամ, ռեստորան և տոնական հրավեր։" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+Armenian:wght@300;400;500;600&family=Noto+Sans+Armenian:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<audio id="backgroundMusic" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button
+    id="musicToggle"
+    class="music-toggle"
+    type="button"
+    aria-label="Երաժշտություն"
+>
+    ♫
+</button>
+<div id="toast"></div>
+
+
+<!-- ================= ENVELOPE ================= -->
+
+<div id="envelope">
+
+    <img
+        class="bg"
+        src="assets/background.png"
+        alt=""
+        aria-hidden="true"
+    />
+
+    <div class="veil"></div>
+
+
+    <div class="envelope-content">
+
+        <button
+            class="env-btn"
+            id="openBtn"
+            aria-label="Բացել հրավերը"
+        >
+
+
+            <!-- ================= BIG INVITATION CARD ================= -->
+
+            <div class="card-out">
+
+                <div class="card-inner">
+                  <div class="card-small">
+                        ՀՐԱՎԵՐ
+                    </div>
+                  <div class="main-container">
+    <div class="birthday-image">
+
+                        <img
+                            src="assets/1.png"
+                            alt="50-ամյակի տոնական նկար"
+                        />
+
+                    </div>
+
+                    <!-- Small heading -->
+<div>
+
+
+
+                    <!-- Main title -->
+
+                     
+                        <img src="assets/50.png" class="five">
+                
+
+
+                    <!-- Person name -->
+
+                    <div class="birthday-name">
+                        ԱՆՈՒՆ ԱԶԳԱՆՈՒՆ
+                    </div>
+</div>
+                  </div>
+
+                    
+
+
+                    <!-- Celebration image -->
+
+                
+
+
+                    <!-- Invitation text -->
+
+<div class="card-text">
+
+                        Սիրով հրավիրում եմ Ձեզ<br>
+
+                        միասին նշելու իմ կյանքի<br>
+
+                        գեղեցիկ հոբելյանը՝
+
+                    </div>
+
+
+                    <!-- Number 50 -->
+
+                
+                       <div class="card-title">
+                        50-ամյակը
+                    </div>
+
+                    
+
+
+                    <!-- Date -->
+
+                    <div class="event-info">
+
+                        <div class="info-item">
+
+                            <span class="info-label">
+                                ՕՐ
+                            </span>
+
+                            <span class="info-value">
+                                07 ՀՈՒԼԻՍ 2027
+                            </span>
+
+                        </div>
+
+
+                        <!-- Time -->
+
+                        <div class="info-item">
+
+                            <span class="info-label">
+                                ԺԱՄ
+                            </span>
+
+                            <span class="info-value">
+                                19:00
+                            </span>
+
+                        </div>
+
+
+                        <!-- Restaurant -->
+
+                        <div class="info-item">
+
+                            <span class="info-label">
+                                ՎԱՅՐ
+                            </span>
+
+                            <span class="info-value">
+                                «ՌԵՍՏՈՐԱՆԻ ԱՆՈՒՆ»
+                                <br><a href="#">Տես Քարտեզի վրա</a>
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Final invitation -->
+
+                    <div class="invitation-message">
+
+                        Ձեր ներկայությունը կդարձնի<br>
+                        այս օրը առավել հիշարժան։<br><br>
+
+                        Սպասում եմ Ձեզ սիրով ❤️
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= ENVELOPE ================= -->
+
+            <div class="env-back"></div>
+
+
+            <!-- Envelope pocket -->
+
+            <div class="pocket">
+
+                <img
+                    class="env-pattern"
+                    src="assets/envelope-pattern.png"
+                    alt=""
+                />
+
+
+                <div class="fold fold-left"></div>
+
+                <div class="fold fold-right"></div>
+
+                <div class="fold fold-bottom"></div>
+
+            </div>
+
+
+            <!-- Envelope flap -->
+
+            <div class="flap">
+
+                <div class="flap-face">
+
+                    <span class="left-edge"></span>
+
+                    <span class="right-edge"></span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Wax seal -->
+
+            <div class="seal">
+
+                <img
+                    src="assets/wax-seal.png"
+                    alt=""
+                />
+
+            </div>
+
+
+        </button>
+
+
+        <p class="hint">
+            Բացել հրավերը
+        </p>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
+```

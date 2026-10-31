@@ -1,0 +1,1143 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    overflow: hidden;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* =====================================================
+   ENVELOPE INTRO
+===================================================== */
+
+.envelope-intro {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    opacity: 1;
+    visibility: visible;
+
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+}
+
+
+/*
+   Երբ ծրարը ավարտում է իր անիմացիան
+*/
+
+.envelope-intro.hide {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   SCENE
+===================================================== */
+
+.scene {
+
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    perspective: 1800px;
+
+    background: #3b281c;
+}
+
+
+/* =====================================================
+   BACKGROUND IMAGE
+===================================================== */
+
+.background {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    background-image:
+        url("background.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    transform: scale(1.04);
+
+    filter:
+        brightness(.88)
+        saturate(.9);
+
+}
+
+
+/* =====================================================
+   WARM SUN
+===================================================== */
+
+.sun-light {
+
+    position: absolute;
+
+    width: 75vw;
+    height: 75vw;
+
+    max-width: 900px;
+    max-height: 900px;
+
+    left: -30vw;
+    top: -35vw;
+
+    border-radius: 50%;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,226,178,.82) 0%,
+            rgba(255,190,115,.32) 30%,
+            rgba(255,155,75,.10) 52%,
+            transparent 72%
+        );
+
+    filter: blur(25px);
+}
+
+
+/* =====================================================
+   PARTICLES
+===================================================== */
+
+.light-particle {
+
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: rgba(255,226,178,.65);
+
+    z-index: 3;
+
+    animation:
+        floatingParticle
+        5s
+        infinite
+        ease-in-out;
+}
+
+.particle-1 {
+    left: 18%;
+    top: 22%;
+    animation-delay: .5s;
+}
+
+.particle-2 {
+    left: 78%;
+    top: 25%;
+    animation-delay: 1.4s;
+}
+
+.particle-3 {
+    left: 12%;
+    top: 65%;
+    animation-delay: 2.2s;
+}
+
+.particle-4 {
+    left: 84%;
+    top: 67%;
+    animation-delay: 3s;
+}
+
+.particle-5 {
+    left: 65%;
+    top: 15%;
+    animation-delay: 3.7s;
+}
+
+
+@keyframes floatingParticle {
+
+    0%,
+    100% {
+
+        opacity: .15;
+
+        transform:
+            translateY(0)
+            scale(.8);
+
+    }
+
+    50% {
+
+        opacity: .75;
+
+        transform:
+            translateY(-25px)
+            scale(1.3);
+
+    }
+}
+
+
+/* =====================================================
+   ENVELOPE WRAPPER
+===================================================== */
+
+.envelope-wrapper {
+
+    position: relative;
+
+    width: min(70vw, 650px);
+
+    aspect-ratio: 4 / 5;
+
+    z-index: 20;
+
+    transform-style: preserve-3d;
+
+    transform:
+        rotateX(12deg)
+        rotateY(-16deg)
+        rotateZ(-4deg)
+        translateZ(40px);
+
+    transition:
+        transform .25s ease-out;
+}
+
+
+/* =====================================================
+   ENVELOPE
+===================================================== */
+
+.envelope {
+
+    position: absolute;
+
+    inset: 0;
+
+    transform-style: preserve-3d;
+
+    border-radius: 4px;
+
+    box-shadow:
+
+        0 60px 80px rgba(0,0,0,.42),
+
+        0 20px 30px rgba(0,0,0,.28);
+}
+
+
+/* =====================================================
+   COUPLE PHOTO
+===================================================== */
+
+.couple-photo {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background-image:
+        url("couple.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    border-radius: 4px;
+
+    transition:
+        filter 1.1s ease,
+        transform 1.2s ease;
+}
+
+
+/*
+   Closed state
+*/
+
+.envelope:not(.open)
+.couple-photo {
+
+    filter:
+        brightness(.72)
+        saturate(.78)
+        contrast(.96);
+
+}
+
+
+/*
+   Open state
+*/
+
+.envelope.open
+.couple-photo {
+
+    filter:
+        brightness(1)
+        saturate(1)
+        contrast(1.03);
+
+    transform:
+        scale(1.025);
+}
+
+
+/* =====================================================
+   TRANSPARENT GLASS
+===================================================== */
+
+.glass {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.32),
+            rgba(255,255,255,.07) 43%,
+            rgba(255,227,198,.16)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.72);
+
+    box-shadow:
+
+        inset 0 0 50px
+        rgba(255,255,255,.16),
+
+        inset 0 0 3px
+        rgba(255,255,255,.8);
+
+    backdrop-filter:
+        blur(.8px);
+
+}
+
+
+/* =====================================================
+   SIDE FOLDS
+===================================================== */
+
+.fold {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+
+/* LEFT */
+
+.fold-left {
+
+    clip-path:
+        polygon(
+            0 0,
+            50% 50%,
+            0 100%
+        );
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.34),
+            rgba(255,255,255,.04)
+        );
+
+    border-right:
+        1px solid
+        rgba(255,255,255,.7);
+}
+
+
+/* RIGHT */
+
+.fold-right {
+
+    clip-path:
+        polygon(
+            100% 0,
+            50% 50%,
+            100% 100%
+        );
+
+    background:
+        linear-gradient(
+            225deg,
+            rgba(255,255,255,.31),
+            rgba(255,255,255,.04)
+        );
+
+    border-left:
+        1px solid
+        rgba(255,255,255,.68);
+}
+
+
+/* BOTTOM */
+
+.fold-bottom {
+
+    clip-path:
+        polygon(
+            0 100%,
+            50% 50%,
+            100% 100%
+        );
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(255,255,255,.32),
+            rgba(255,255,255,.05)
+        );
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.72);
+}
+
+
+/* =====================================================
+   TOP FLAP
+===================================================== */
+
+.top-flap {
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 54%;
+
+    z-index: 12;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.47),
+            rgba(255,255,255,.13) 48%,
+            rgba(255,221,188,.18)
+        );
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.82);
+
+    transform-origin:
+        top center;
+
+    transform:
+        rotateX(0deg);
+
+    transition:
+        transform 1.35s
+        cubic-bezier(.18,.72,.2,1);
+
+    backface-visibility:
+        visible;
+}
+
+
+/*
+   REAL 3D OPEN
+*/
+
+.envelope.open
+.top-flap {
+
+    transform:
+        rotateX(-178deg)
+        translateZ(8px);
+
+}
+
+
+/* =====================================================
+   ENVELOPE EDGES
+===================================================== */
+
+.edge {
+
+    position: absolute;
+
+    z-index: 15;
+
+    pointer-events: none;
+
+    opacity: .7;
+}
+
+
+.edge-top {
+
+    left: 0;
+    right: 0;
+    top: 0;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,.9);
+}
+
+
+.edge-left {
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background:
+        rgba(255,255,255,.7);
+}
+
+
+.edge-right {
+
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background:
+        rgba(255,255,255,.65);
+}
+
+
+.edge-bottom {
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 1px;
+
+    background:
+        rgba(255,255,255,.5);
+}
+
+
+/* =====================================================
+   THREAD
+===================================================== */
+
+.thread {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 145%;
+
+    height: 3px;
+
+    z-index: 18;
+
+    background:
+
+        repeating-linear-gradient(
+            90deg,
+            #9b6a3c 0 5px,
+            #e5c18d 5px 9px
+        );
+
+    box-shadow:
+        0 1px 3px rgba(0,0,0,.4);
+
+    transform-origin:
+        center;
+
+    transition:
+        opacity .7s ease,
+        transform .8s ease;
+}
+
+
+/* diagonal */
+
+.thread-one {
+
+    transform:
+        translate(-50%,-50%)
+        rotate(45deg);
+}
+
+
+/* second diagonal */
+
+.thread-two {
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-45deg);
+}
+
+
+/* hide after opening */
+
+.envelope.open
+.thread {
+
+    opacity: 0;
+
+}
+
+
+.envelope.open
+.thread-one {
+
+    transform:
+        translate(-50%,-50%)
+        rotate(45deg)
+        scaleX(.55);
+}
+
+
+.envelope.open
+.thread-two {
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-45deg)
+        scaleX(.55);
+}
+
+
+/* =====================================================
+   SEAL
+===================================================== */
+
+.seal {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width:
+        clamp(
+            80px,
+            14vw,
+            115px
+        );
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    z-index: 40;
+
+    cursor: pointer;
+
+    transform:
+
+        translate(-50%,-50%)
+
+        translateZ(50px)
+
+        rotate(-2deg);
+
+    filter:
+        drop-shadow(
+            0 9px 8px
+            rgba(40,18,5,.48)
+        );
+
+    transition:
+
+        transform .4s
+        cubic-bezier(.2,.8,.2,1),
+
+        opacity .65s ease;
+}
+
+
+/* seal image */
+
+.seal img {
+
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    pointer-events: none;
+
+    user-select: none;
+}
+
+
+/* hover */
+
+.seal:hover {
+
+    transform:
+
+        translate(-50%,-50%)
+
+        translateZ(75px)
+
+        scale(1.08)
+
+        rotate(-2deg);
+}
+
+
+/* opened */
+
+.envelope.open
+.seal {
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transform:
+
+        translate(-50%,-50%)
+
+        translateZ(140px)
+
+        scale(.1)
+
+        rotate(45deg);
+}
+
+
+/* =====================================================
+   REFLECTION
+===================================================== */
+
+.reflection {
+
+    position: absolute;
+
+    inset: -20%;
+
+    z-index: 25;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    background:
+
+        linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(255,247,225,.5) 48%,
+            transparent 60%
+        );
+
+    transform:
+        translateX(-110%);
+}
+
+
+.envelope.open
+.reflection {
+
+    animation:
+        glassReflection
+        1.5s
+        ease
+        forwards;
+}
+
+
+@keyframes glassReflection {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateX(-110%);
+
+    }
+
+    30% {
+
+        opacity: .75;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            translateX(110%);
+
+    }
+}
+
+
+/* =====================================================
+   OPENING GLOW
+===================================================== */
+
+.opening-glow {
+
+    position: absolute;
+
+    inset: -20%;
+
+    z-index: 35;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(255,228,177,.7),
+            rgba(255,210,150,.16) 32%,
+            transparent 65%
+        );
+
+    transform:
+        scale(.7);
+}
+
+
+.envelope.open
+.opening-glow {
+
+    animation:
+        openingGlow
+        1.4s
+        ease
+        forwards;
+}
+
+
+@keyframes openingGlow {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(.7);
+
+    }
+
+    35% {
+
+        opacity: .8;
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform:
+            scale(1.35);
+
+    }
+}
+
+
+/* =====================================================
+   CLICK HINT
+===================================================== */
+
+.click-hint {
+
+    position: absolute;
+
+    bottom: 7vh;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 50;
+
+    color:
+        rgba(255,244,224,.88);
+
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        0 2px 5px rgba(0,0,0,.4);
+
+    transition:
+        opacity .5s ease;
+}
+
+
+.envelope-intro.opened
+.click-hint {
+
+    opacity: 0;
+}
+
+
+/* =====================================================
+   MAIN PAGE
+===================================================== */
+
+.main-page {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform:
+        scale(1.035);
+
+    transition:
+
+        opacity 1.2s ease,
+
+        transform 1.2s ease,
+
+        visibility 1.2s ease;
+
+    overflow-y: auto;
+}
+
+
+/*
+   Main page appears
+*/
+
+body.show-main
+.main-page {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        scale(1);
+
+}
+
+
+/* =====================================================
+   DEMO MAIN PAGE
+===================================================== */
+
+.main-hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #f4eee5,
+            #e8dccd
+        );
+}
+
+
+.main-content {
+
+    max-width: 650px;
+
+}
+
+
+.small-title {
+
+    margin-bottom: 20px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    font-size: 13px;
+
+    color: #9b7955;
+}
+
+
+.main-content h1 {
+
+    font-size:
+        clamp(
+            42px,
+            8vw,
+            82px
+        );
+
+    font-weight: 400;
+
+    color: #49372a;
+
+    margin-bottom: 20px;
+}
+
+
+.main-date {
+
+    font-size: 22px;
+
+    letter-spacing: 7px;
+
+    color: #a37b50;
+
+    margin-bottom: 25px;
+}
+
+
+.main-text {
+
+    max-width: 500px;
+
+    margin: auto;
+
+    line-height: 1.8;
+
+    color: #705b49;
+
+    font-size: 17px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .envelope-wrapper {
+
+        width: 88vw;
+
+        transform:
+
+            rotateX(8deg)
+
+            rotateY(-9deg)
+
+            rotateZ(-3deg)
+
+            translateZ(25px);
+    }
+
+
+    .click-hint {
+
+        bottom: 4vh;
+
+        font-size: 12px;
+
+        letter-spacing: 1.5px;
+    }
+
+
+    .sun-light {
+
+        width: 100vw;
+        height: 100vw;
+
+        left: -45vw;
+        top: -40vw;
+    }
+
+}
+

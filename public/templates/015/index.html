@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Միացեք մեզ մեր սեռի բացահայտման արարողությանը և եղեք ամենահուզիչ պահի մասնակիցը:">
+    <title>Աղջի՞կ, թե՞ տղա - Սեռի բացահայտման արարողություն</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="../public/favicon.ico">
+</head>
+
+<body>
+    <!-- ========================================
+         HERO SECTION
+    ======================================== -->
+    <section class="hero">
+        <!-- Background image with overlay -->
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+
+        <!-- Confetti container -->
+        <div class="confetti-container" aria-hidden="true"></div>
+
+        <!-- Floating balloons -->
+        <svg class="balloon balloon-1 animate-float" viewBox="0 0 60 80" aria-hidden="true">
+            <defs>
+                <radialGradient id="balloon-pink-1" cx="40%" cy="35%" r="50%">
+                    <stop offset="0%" stop-color="hsl(340, 60%, 85%)" />
+                    <stop offset="100%" stop-color="hsl(340, 60%, 75%)" />
+                </radialGradient>
+            </defs>
+            <ellipse cx="30" cy="30" rx="22" ry="28" fill="url(#balloon-pink-1)" />
+            <polygon points="30,58 27,62 33,62" fill="hsl(340, 60%, 75%)" />
+            <path d="M30 62 Q28 70 30 78" stroke="hsl(340, 60%, 75%)" stroke-width="1" fill="none" />
+        </svg>
+
+        <svg class="balloon balloon-2 animate-float-delay" viewBox="0 0 60 80" aria-hidden="true">
+            <defs>
+                <radialGradient id="balloon-blue-1" cx="40%" cy="35%" r="50%">
+                    <stop offset="0%" stop-color="hsl(200, 60%, 88%)" />
+                    <stop offset="100%" stop-color="hsl(200, 60%, 78%)" />
+                </radialGradient>
+            </defs>
+            <ellipse cx="30" cy="30" rx="22" ry="28" fill="url(#balloon-blue-1)" />
+            <polygon points="30,58 27,62 33,62" fill="hsl(200, 60%, 78%)" />
+            <path d="M30 62 Q28 70 30 78" stroke="hsl(200, 60%, 78%)" stroke-width="1" fill="none" />
+        </svg>
+
+        <svg class="balloon balloon-3 animate-float-slow" viewBox="0 0 60 80" aria-hidden="true">
+            <defs>
+                <radialGradient id="balloon-pink-2" cx="40%" cy="35%" r="50%">
+                    <stop offset="0%" stop-color="hsl(340, 60%, 85%)" />
+                    <stop offset="100%" stop-color="hsl(340, 60%, 75%)" />
+                </radialGradient>
+            </defs>
+            <ellipse cx="30" cy="30" rx="22" ry="28" fill="url(#balloon-pink-2)" />
+            <polygon points="30,58 27,62 33,62" fill="hsl(340, 60%, 75%)" />
+            <path d="M30 62 Q28 70 30 78" stroke="hsl(340, 60%, 75%)" stroke-width="1" fill="none" />
+        </svg>
+
+        <svg class="balloon balloon-4 animate-float" viewBox="0 0 60 80" aria-hidden="true">
+            <defs>
+                <radialGradient id="balloon-blue-2" cx="40%" cy="35%" r="50%">
+                    <stop offset="0%" stop-color="hsl(200, 60%, 88%)" />
+                    <stop offset="100%" stop-color="hsl(200, 60%, 78%)" />
+                </radialGradient>
+            </defs>
+            <ellipse cx="30" cy="30" rx="22" ry="28" fill="url(#balloon-blue-2)" />
+            <polygon points="30,58 27,62 33,62" fill="hsl(200, 60%, 78%)" />
+            <path d="M30 62 Q28 70 30 78" stroke="hsl(200, 60%, 78%)" stroke-width="1" fill="none" />
+        </svg>
+
+        <!-- Decorative circles -->
+        <div class="deco-circle deco-circle-1 animate-pulse-soft"></div>
+        <div class="deco-circle deco-circle-2 animate-pulse-soft"></div>
+
+        <!-- Hero content -->
+        <div class="hero-content">
+            <p class="hero-subtitle">Դուք հրավիրված եք հատուկ օրվա</p>
+            <h1 class="hero-title">
+                <span class="text-gradient">Արքայազն</span>
+                <span class="hero-or">թե՞</span>
+                <span class="text-gradient">Արքայադուստր</span>
+                <span class="emoji">💙💖</span>
+            </h1>
+            <p class="hero-description">
+                Միացեք մեզ և բացահայտեք մեր փոքրիկի գաղտնիքը։ Եղեք մեր ամենահուզիչ պահի մասնակիցը։
+            </p>
+            <a href="#rsvp" class="hero-btn">Հաստատել ներկայությունը ✨</a>
+        </div>
+    </section>
+
+    <!-- ========================================
+         EVENT INFO SECTION
+    ======================================== -->
+    <section class="event-info">
+        <div class="deco-blob-1"></div>
+        <div class="deco-blob-2"></div>
+
+        <div class="event-info-inner">
+            <div class="section-header">
+                <h2 class="section-title text-gradient">Հիշեք օրը</h2>
+                <p class="section-description">
+                    Մի քաղցր անակնկալ է սպասվում, և մենք կուզենայինք, որ դուք ներկա լինեք բացահայտմանը:
+                </p>
+            </div>
+
+            <div class="event-grid">
+                <div class="event-image">
+                    <img src="assets/baby-shoes.webp" alt="Վարդագույն և կապույտ մանկական կոշիկներ">
+                </div>
+
+                <div class="event-details">
+                    <div class="detail-card">
+                        <span class="detail-icon">📅</span>
+                        <div class="detail-content">
+                            <p class="detail-label">Ամսաթիվ</p>
+                            <p class="detail-value">15 Մարտի, 2025</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <span class="detail-icon">⏰</span>
+                        <div class="detail-content">
+                            <p class="detail-label">Ժամ</p>
+                            <p class="detail-value">15:00</p>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <span class="detail-icon">📍</span>
+                        <div class="detail-content">
+                            <p class="detail-label">Վայր</p>
+                            <p class="detail-value">Մեր տան բակում, Երևան</p>
+                        </div>
+                    </div>
+
+                    <p class="event-note">🎉 Ուրախություն, հյուրասիրություն և մեծ բացահայտում:</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         PHOTO GALLERY SECTION
+    ======================================== -->
+    <section class="photo-gallery">
+        <div class="gallery-inner">
+            <div class="section-header">
+                <h2 class="section-title text-gradient">Փոքրիկ ակնարկ</h2>
+                <p class="section-description">
+                    Մենք պատրաստվում ենք մեծ օրվան, ամեն ինչ հեքիաթային է լինելու: ✨
+                </p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item gallery-item-large">
+                    <img src="assets/party-decor.webp" alt="Երեկույթի ձևավորում փուչիկներով" loading="lazy">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/baby-shoes.webp" alt="Մանկական կոշիկներ" loading="lazy">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/cupcakes.webp" alt="Թեմատիկ կեքսեր" loading="lazy">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/baby-flatlay-1.webp" alt="Մանկական պարագաներ" loading="lazy">
+                    <div class="gallery-overlay"></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/gifts.webp" alt="Նվերների տուփեր" loading="lazy">
+                    <div class="gallery-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         WHAT TO EXPECT SECTION
+    ======================================== -->
+    <section class="what-to-expect">
+        <div class="deco-blob-1"></div>
+        <div class="deco-blob-2"></div>
+
+        <div class="expect-inner">
+            <div class="section-header">
+                <h2 class="section-title text-gradient">Ինչ է սպասվում</h2>
+                <p class="section-description">
+                    Սիրով, ծիծաղով և փոքրիկ անակնկալով լի երեկո 🎀
+                </p>
+            </div>
+
+            <div class="expect-grid">
+                <div class="expect-card">
+                    <span class="expect-emoji">🎈</span>
+                    <h3 class="expect-title">Խաղեր և Զվարճանք</h3>
+                    <p class="expect-description">Ինտերակտիվ խաղեր և գուշակություններ բոլորի համար</p>
+                </div>
+
+                <div class="expect-card">
+                    <span class="expect-emoji">🧁</span>
+                    <h3 class="expect-title">Քաղցրավենիք</h3>
+                    <p class="expect-description">Համեղ թեմատիկ աղանդեր և հյուրասիրություն</p>
+                </div>
+
+                <div class="expect-card">
+                    <span class="expect-emoji">📸</span>
+                    <h3 class="expect-title">Լուսանկարներ</h3>
+                    <p class="expect-description">Անմահացրեք պահերը մեր գեղեցիկ ֆոտոանկյունում</p>
+                </div>
+
+                <div class="expect-card">
+                    <span class="expect-emoji">🎁</span>
+                    <h3 class="expect-title">Մեծ Բացահայտումը</h3>
+                    <p class="expect-description">Այն պահը, որին բոլորս սպասում էինք:</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         TEAM VOTE SECTION
+    ======================================== -->
+    <section class="team-vote">
+        <div class="deco-blob"></div>
+
+        <div class="vote-inner">
+            <div class="vote-grid">
+                <div class="vote-content">
+                    <h2 class="vote-title text-gradient">Ի՞նչ եք կարծում</h2>
+                    <p class="vote-description">Քվեարկեք՝ տղա՞, թե՞ աղջիկ 🤔</p>
+
+                    <div class="vote-buttons">
+                        <button id="vote-boy" class="vote-btn vote-btn-boy">
+                            <span class="emoji">💙</span>
+                            Տղա
+                        </button>
+
+                        <button id="vote-girl" class="vote-btn vote-btn-girl">
+                            <span class="emoji">💖</span>
+                            Աղջիկ
+                        </button>
+                    </div>
+
+                    <p id="vote-result" class="vote-result"></p>
+                </div>
+
+                <div class="vote-image">
+                    <img src="assets/cupcakes.webp" alt="Թեմատիկ կեքսեր" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         RSVP SECTION
+    ======================================== -->
+    <section id="rsvp" class="rsvp">
+        <div class="deco-blob"></div>
+
+        <div class="rsvp-inner">
+            <div class="section-header">
+                <h2 class="section-title text-gradient">Կմիանա՞ք մեզ</h2>
+                <p class="section-description">
+                    Մենք շատ ուրախ կլինենք տեսնել ձեզ այս առանձնահատուկ օրը 💌
+                </p>
+            </div>
+
+            <!-- Main RSVP content -->
+            <div id="rsvp-main" class="rsvp-main">
+                <div class="rsvp-grid">
+                    <!-- Image side -->
+                    <div class="rsvp-image">
+                        <div class="rsvp-image-inner">
+                            <img src="assets/question-flowers.webp" alt="Ծաղկե հարցական նշան">
+                        </div>
+                    </div>
+
+                    <!-- Form side -->
+                    <form id="rsvp-form" class="rsvp-form">
+                        <div class="form-dots">
+                            <div class="form-dot form-dot-1"></div>
+                            <div class="form-dot form-dot-2"></div>
+                            <div class="form-dot form-dot-3"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="name">Ձեր Անունը ✏️</label>
+                            <input type="text" id="name" class="form-input" placeholder="Ինչպե՞ս դիմենք ձեզ"
+                                maxlength="100" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">Ներկա կլինե՞ք 🎈</label>
+                            <div class="attending-buttons">
+                                <button type="button" id="attending-yes" class="attending-btn">
+                                    <span class="emoji">🎉</span>
+                                    Այո, կգամ:
+                                </button>
+                                <button type="button" id="attending-no" class="attending-btn">
+                                    <span class="emoji">😢</span>
+                                    Ցավոք, չեմ կարող
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="guests-group" class="form-group guests-group">
+                            <label class="form-label" for="guests">Քանի՞ հյուր է լինելու 👥</label>
+                            <select id="guests" class="form-input form-select">
+                                <option value="1">1 հոգի</option>
+                                <option value="2">2 հոգի</option>
+                                <option value="3">3 հոգի</option>
+                                <option value="4">4 հոգի</option>
+                                <option value="5">5 հոգի</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="comment">
+                                Թողնել մեկնաբանություն 💬 <span class="form-label-optional">(ոչ պարտադիր)</span>
+                            </label>
+                            <textarea id="comment" class="form-input form-textarea" rows="3"
+                                placeholder="Որևէ գեղեցիկ խոսք մեզ համար:" maxlength="500"></textarea>
+                        </div>
+
+                        <button type="submit" id="submit-btn" class="submit-btn" disabled>
+                            Հաստատել ✨
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Thank you message -->
+            <div id="rsvp-thankyou" class="rsvp-thankyou">
+                <div class="thankyou-card">
+                    <div class="thankyou-icon">🎉</div>
+                    <h2 id="thankyou-title" class="thankyou-title text-gradient">Շնորհակալություն</h2>
+                    <p id="thankyou-message" class="thankyou-message"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <span class="footer-emoji">💕</span>
+            <p class="footer-title text-gradient">
+                Անհամբեր սպասում ենք այս առանձնահատուկ պահը ձեզ հետ նշելուն
+            </p>
+            <p class="footer-message">
+                Սիրով՝ Ապագա ծնողներ 💙💖
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

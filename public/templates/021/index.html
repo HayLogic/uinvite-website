@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Նարեկ & Լիլիթ | Հարսանյաց Հրավեր</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="layout-wrapper">
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-gradient"></div>
+            <div class="hero-particles" id="particles-container"></div>
+
+            <div class="decorative-circle circle-top"></div>
+            <div class="decorative-circle circle-bottom animate-pulse"></div>
+
+            <div class="hero-content">
+                <div class="hero-photo animate-fade-up">
+                    <img src="assets/hero.webp" alt="Александр и Анна">
+                </div>
+
+                <svg class="floral-ornament top-ornament" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M200 90 C150 40, 50 60, 20 20 C10 5, 30 -5, 50 15 C80 40, 100 80, 200 90Z"
+                        fill="url(#gold-gradient-svg)" fill-opacity="0.2" />
+                    <path d="M200 90 C250 40, 350 60, 380 20 C390 5, 370 -5, 350 15 C320 40, 300 80, 200 90Z"
+                        fill="url(#gold-gradient-svg)" fill-opacity="0.2" />
+                    <path d="M170 80 C130 50, 80 40, 60 10" stroke="url(#gold-gradient-svg)" stroke-width="1.5"
+                        stroke-linecap="round" stroke-opacity="0.4" class="animate-pulse-fx" />
+                    <path d="M230 80 C270 50, 320 40, 340 10" stroke="url(#gold-gradient-svg)" stroke-width="1.5"
+                        stroke-linecap="round" stroke-opacity="0.4" class="animate-pulse-fx" />
+                    <path d="M140 60 C100 30, 40 30, 10 50" stroke="hsl(43, 65%, 55%)" stroke-width="0.5" fill="none"
+                        stroke-opacity="0.3" />
+                    <path d="M260 60 C300 30, 360 30, 390 50" stroke="hsl(43, 65%, 55%)" stroke-width="0.5" fill="none"
+                        stroke-opacity="0.3" />
+                    <circle cx="200" cy="80" r="6" fill="hsl(43, 65%, 55%)" fill-opacity="0.4"
+                        class="animate-pulse-glow" />
+                    <circle cx="200" cy="80" r="3" fill="hsl(40, 30%, 92%)" fill-opacity="0.8" />
+                    <circle cx="120" cy="50" r="2" fill="hsl(40, 30%, 92%)" fill-opacity="0.5" class="animate-float" />
+                    <circle cx="280" cy="50" r="2" fill="hsl(40, 30%, 92%)" fill-opacity="0.5" class="animate-float" />
+                    <circle cx="70" cy="25" r="3" fill="hsl(43, 65%, 55%)" fill-opacity="0.4"
+                        class="animate-float-slow" />
+                    <circle cx="330" cy="25" r="3" fill="hsl(43, 65%, 55%)" fill-opacity="0.4"
+                        class="animate-float-slow" />
+                    <path d="M40 45 L43 50 L40 55 L37 50 Z" fill="hsl(43, 65%, 55%)" fill-opacity="0.6" />
+                    <path d="M360 45 L363 50 L360 55 L357 50 Z" fill="hsl(43, 65%, 55%)" fill-opacity="0.6" />
+                    <defs>
+                        <linearGradient id="gold-gradient-svg" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="hsl(43, 50%, 75%)" />
+                            <stop offset="50%" stop-color="hsl(43, 65%, 55%)" />
+                            <stop offset="100%" stop-color="hsl(43, 50%, 75%)" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+
+                <p class="hero-subtitle">Հարսանյաց Հրավեր</p>
+                <h1 class="hero-title">Նարեկ</h1>
+                <p class="hero-ampersand">&</p>
+                <h1 class="hero-title">Լիլիթ</h1>
+                <p class="hero-date">15 Օգոստոսի 2026</p>
+
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item glassmorphism">
+                        <span class="countdown-value" id="days">00</span>
+                        <span class="countdown-label">օր</span>
+                    </div>
+                    <div class="countdown-item glassmorphism">
+                        <span class="countdown-value" id="hours">00</span>
+                        <span class="countdown-label">ժամ</span>
+                    </div>
+                    <div class="countdown-item glassmorphism">
+                        <span class="countdown-value" id="minutes">00</span>
+                        <span class="countdown-label">րոպե</span>
+                    </div>
+                    <div class="countdown-item glassmorphism">
+                        <span class="countdown-value" id="seconds">00</span>
+                        <span class="countdown-label">վայրկյան</span>
+                    </div>
+                </div>
+
+                <button class="btn-primary"
+                    onclick="document.getElementById('rsvp').scrollIntoView({behavior: 'smooth'})">
+                    Պատասխանել հրավերին
+                </button>
+
+                <svg class="floral-ornament bottom-ornament" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M200 90 C150 40, 50 60, 20 20 C10 5, 30 -5, 50 15 C80 40, 100 80, 200 90Z"
+                        fill="url(#gold-gradient-svg-2)" fill-opacity="0.2" />
+                    <path d="M200 90 C250 40, 350 60, 380 20 C390 5, 370 -5, 350 15 C320 40, 300 80, 200 90Z"
+                        fill="url(#gold-gradient-svg-2)" fill-opacity="0.2" />
+                    <path d="M170 80 C130 50, 80 40, 60 10" stroke="url(#gold-gradient-svg-2)" stroke-width="1.5"
+                        stroke-linecap="round" stroke-opacity="0.4" class="animate-pulse-fx" />
+                    <path d="M230 80 C270 50, 320 40, 340 10" stroke="url(#gold-gradient-svg-2)" stroke-width="1.5"
+                        stroke-linecap="round" stroke-opacity="0.4" class="animate-pulse-fx" />
+                    <path d="M140 60 C100 30, 40 30, 10 50" stroke="hsl(43, 65%, 55%)" stroke-width="0.5" fill="none"
+                        stroke-opacity="0.3" />
+                    <path d="M260 60 C300 30, 360 30, 390 50" stroke="hsl(43, 65%, 55%)" stroke-width="0.5" fill="none"
+                        stroke-opacity="0.3" />
+                    <circle cx="200" cy="80" r="6" fill="hsl(43, 65%, 55%)" fill-opacity="0.4"
+                        class="animate-pulse-glow" />
+                    <circle cx="200" cy="80" r="3" fill="hsl(40, 30%, 92%)" fill-opacity="0.8" />
+                    <circle cx="120" cy="50" r="2" fill="hsl(40, 30%, 92%)" fill-opacity="0.5" class="animate-float" />
+                    <circle cx="280" cy="50" r="2" fill="hsl(40, 30%, 92%)" fill-opacity="0.5" class="animate-float" />
+                    <circle cx="70" cy="25" r="3" fill="hsl(43, 65%, 55%)" fill-opacity="0.4"
+                        class="animate-float-slow" />
+                    <circle cx="330" cy="25" r="3" fill="hsl(43, 65%, 55%)" fill-opacity="0.4"
+                        class="animate-float-slow" />
+                    <path d="M40 45 L43 50 L40 55 L37 50 Z" fill="hsl(43, 65%, 55%)" fill-opacity="0.6" />
+                    <path d="M360 45 L363 50 L360 55 L357 50 Z" fill="hsl(43, 65%, 55%)" fill-opacity="0.6" />
+                    <defs>
+                        <linearGradient id="gold-gradient-svg-2" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="hsl(43, 50%, 75%)" />
+                            <stop offset="50%" stop-color="hsl(43, 65%, 55%)" />
+                            <stop offset="100%" stop-color="hsl(43, 50%, 75%)" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section id="story" class="section">
+            <div class="container reveal">
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-diamond"></div>
+                    <div class="divider-line"></div>
+                </div>
+
+                <h2 class="section-title">Մեր Պատմությունը</h2>
+                <p class="story-text">
+                    Ամեն ինչ սկսվեց մեկ պատահական հանդիպումից... ու վերածվեց մեծ սիրո։
+                    Մենք միասին անցել ենք ուրախությունների ու փորձությունների միջով և ամեն օր համոզվում ենք՝ մենք
+                    ստեղծված ենք իրար համար։
+                    Այժմ մենք պատրաստ ենք սկսել մեր կյանքի նոր գլուխը և ուզում ենք կիսել այս կարևոր օրը ձեզ հետ։
+                </p>
+
+                <div class="story-grid">
+                    <div class="story-card glassmorphism reveal"
+                        style="--delay: 300ms; padding: 0; overflow: hidden; position: relative;">
+                        <img src="assets/story_1.webp" alt="Առաջին հանդիպում"
+                            style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; opacity: 0.5; z-index: 0;">
+                        <span style="position: relative; z-index: 1;">Առաջին<br>հանդիպում</span>
+                    </div>
+                    <div class="story-card glassmorphism reveal"
+                        style="--delay: 500ms; padding: 0; overflow: hidden; position: relative;">
+                        <img src="assets/story_2.webp" alt="Մեր սերը"
+                            style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; opacity: 0.5; z-index: 0;">
+                        <span style="position: relative; z-index: 1;">Մեր սերը</span>
+                    </div>
+                    <div class="story-card glassmorphism reveal"
+                        style="--delay: 700ms; padding: 0; overflow: hidden; position: relative;">
+                        <img src="assets/story_3.webp" alt="Առաջարկություն"
+                            style="width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; opacity: 0.5; z-index: 0;">
+                        <span style="position: relative; z-index: 1;">Առաջարկություն</span>
+                    </div>
+                </div>
+
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-diamond"></div>
+                    <div class="divider-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Details Section -->
+        <section id="details" class="section bg-emerald">
+            <div class="container reveal">
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-diamond"></div>
+                    <div class="divider-line"></div>
+                </div>
+
+                <h2 class="section-title">Միջոցառման Մանրամասներ</h2>
+
+                <div class="details-grid">
+                    <div class="details-card glassmorphism reveal" style="--delay: 200ms">
+                        <svg class="details-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="18" height="18" x="3" y="4" rx="2" ry="2" />
+                            <line x1="16" x2="16" y1="2" y2="6" />
+                            <line x1="8" x2="8" y1="2" y2="6" />
+                            <line x1="3" x2="21" y1="10" y2="10" />
+                        </svg>
+                        <p class="details-label">Ամսաթիվ</p>
+                        <p class="details-value">15 Օգոստոսի 2026, Շաբաթ</p>
+                    </div>
+                    <div class="details-card glassmorphism reveal" style="--delay: 350ms">
+                        <svg class="details-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <polyline points="12 6 12 12 16 14" />
+                        </svg>
+                        <p class="details-label">Ժամ</p>
+                        <p class="details-value">Հյուրերի հավաք՝ 16:00</p>
+                    </div>
+                    <div class="details-card glassmorphism reveal" style="--delay: 500ms">
+                        <svg class="details-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        <p class="details-label">Վայր</p>
+                        <p class="details-value">Saint Thaddeus Church<br>Morena Restaurant</p>
+                    </div>
+                </div>
+
+                <div class="maps-grid reveal" style="--delay: 600ms">
+                    <div class="map-container glassmorphism-dark">
+                        <h3 class="map-title">Պսակադրություն</h3>
+                        <p class="map-subtitle">Saint Thaddeus Church</p>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d763.401085886713!2d44.4413006999326!3d40.06192972524641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406ac79fbd202f49%3A0x63bbd0dfb332e576!2sSaint%20Thaddeus%20Church!5e0!3m2!1sen!2sam!4v1772001170138!5m2!1sen!2sam"
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="map-container glassmorphism-dark">
+                        <h3 class="map-title">Խնջույք</h3>
+                        <p class="map-subtitle">Morena Restaurant</p>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3053.699308397342!2d44.44492679999999!3d40.05981080000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406ac7a2d72958cb%3A0x972b0680bc2422dd!2sMorena%20Restaurant!5e0!3m2!1sen!2sam!4v1772001090673!5m2!1sen!2sam"
+                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-diamond"></div>
+                    <div class="divider-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="section">
+            <div class="container">
+                <div class="reveal">
+                    <div class="divider">
+                        <div class="divider-line"></div>
+                        <div class="divider-diamond"></div>
+                        <div class="divider-line"></div>
+                    </div>
+                    <h2 class="section-title">Օրվա Ծրագիրը</h2>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-line"></div>
+
+                    <div class="timeline-item reveal" style="--delay: 200ms">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glassmorphism left">
+                            <span class="timeline-time">16:00</span>
+                            <h3 class="timeline-title">Հյուրերի ժամանում</h3>
+                            <p class="timeline-desc">Դիմավորում և հյուրասիրություն</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item reveal" style="--delay: 350ms">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glassmorphism right">
+                            <span class="timeline-time">17:00</span>
+                            <h3 class="timeline-title">Պսակադրություն</h3>
+                            <p class="timeline-desc">Saint Thaddeus Church</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item reveal" style="--delay: 500ms">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glassmorphism left">
+                            <span class="timeline-time">18:00</span>
+                            <h3 class="timeline-title">Խնջույք</h3>
+                            <p class="timeline-desc">Morena Restaurant</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item reveal" style="--delay: 650ms">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glassmorphism right">
+                            <span class="timeline-time">21:00</span>
+                            <h3 class="timeline-title">Տորթի Կտրում</h3>
+                            <p class="timeline-desc">Երեկոյի քաղցր պահը</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item reveal" style="--delay: 800ms">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content glassmorphism left">
+                            <span class="timeline-time">00:00</span>
+                            <h3 class="timeline-title">Ավարտ</h3>
+                            <p class="timeline-desc">Շնորհակալություն մեզ հետ լինելու համար</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <div class="divider">
+                        <div class="divider-line"></div>
+                        <div class="divider-diamond"></div>
+                        <div class="divider-line"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dresscode Section -->
+        <section id="dresscode" class="section bg-emerald">
+            <div class="container reveal">
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-diamond"></div>
+                    <div class="divider-line"></div>
+                </div>
+
+                <h2 class="section-title">Դրես կոդ</h2>
+                <p class="dresscode-text">
+                    Ուրախ կլինենք տեսնել ձեզ նրբագեղ հագուստով: Խնդրում ենք,
+                    պահպանել հետևյալ գունային երանգները.
+                </p>
+
+                <div class="colors-wrap">
+                    <div class="color-item reveal-scale" style="--delay: 300ms">
+                        <div class="color-circle" style="background-color: hsl(152, 32%, 25%)"></div>
+                        <span class="color-name">Զմրուխտե</span>
+                    </div>
+                    <div class="color-item reveal-scale" style="--delay: 400ms">
+                        <div class="color-circle" style="background-color: hsl(43, 50%, 65%)"></div>
+                        <span class="color-name">Ոսկեգույն</span>
+                    </div>
+                    <div class="color-item reveal-scale" style="--delay: 500ms">
+                        <div class="color-circle" style="background-color: hsl(40, 30%, 90%)"></div>
+                        <span class="color-name">Փղոսկրագույն</span>
+                    </div>
+                    <div class="color-item reveal-scale" style="--delay: 600ms">
+                        <div class="color-circle" style="background-color: hsl(152, 15%, 40%)"></div>
+                        <span class="color-name">Ձիթապտղագույն</span>
+                    </div>
+                    <div class="color-item reveal-scale" style="--delay: 700ms">
+                        <div class="color-circle" style="background-color: hsl(30, 20%, 75%)"></div>
+                        <span class="color-name">Բեժ</span>
+                    </div>
+                    <div class="color-item reveal-scale" style="--delay: 800ms">
+                        <div class="color-circle" style="background-color: hsl(0, 0%, 15%)"></div>
+                        <span class="color-name">Սև</span>
+                    </div>
+                </div>
+
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-diamond"></div>
+                    <div class="divider-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section">
+            <div class="container reveal" style="max-width: 800px;">
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-diamond"></div>
+                    <div class="divider-line"></div>
+                </div>
+
+                <h2 class="section-title">Պատկերասրահ</h2>
+                <p class="gallery-subtitle">Մեր տոնի դեկորատիվ տարրերը</p>
+
+                <div class="gallery-grid">
+                    <div class="gallery-item glassmorphism reveal" style="--delay: 200ms;">
+                        <img src="assets/gallery_1.webp" alt="Նկար 1"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="gallery-item glassmorphism reveal" style="--delay: 300ms;">
+                        <img src="assets/gallery_2.webp" alt="Նկար 2"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="gallery-item glassmorphism reveal" style="--delay: 400ms;">
+                        <img src="assets/gallery_3.webp" alt="Նկար 3"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="gallery-item glassmorphism reveal" style="--delay: 500ms;">
+                        <img src="assets/gallery_4.webp" alt="Նկար 4"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="gallery-item glassmorphism reveal" style="--delay: 600ms;">
+                        <img src="assets/gallery_5.webp" alt="Նկար 5"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div class="gallery-item glassmorphism reveal" style="--delay: 700ms;">
+                        <img src="assets/gallery_6.webp" alt="Նկար 6"
+                            style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-diamond"></div>
+                    <div class="divider-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section id="rsvp" class="section bg-emerald">
+            <div class="container reveal" style="max-width: 600px;">
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-diamond"></div>
+                    <div class="divider-line"></div>
+                </div>
+
+                <h2 class="section-title">Ներկայության Հաստատում</h2>
+                <p class="gallery-subtitle">Խնդրում ենք տեղեկացնել ձեր ներկայության մասին</p>
+
+                <div id="rsvp-success" class="rsvp-success glassmorphism-dark" style="display: none;">
+                    <p class="success-title">Շնորհակալություն!</p>
+                    <p class="success-subtitle">Ձեր պատասխանը գրանցված է 💚</p>
+                </div>
+
+                <form id="rsvp-form" class="rsvp-form glassmorphism">
+                    <div class="form-group">
+                        <label class="form-label">Անուն Ազգանուն</label>
+                        <input type="text" class="form-input" placeholder="Արամ Արամյան" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Կներկայանա՞ք</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="attending" value="yes" required>
+                                <span>Այո, սիրով</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="attending" value="no" required>
+                                <span>Ցավոք, ոչ</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Անձանց քանակը</label>
+                        <input type="number" class="form-input short-input" min="1" max="10" value="1">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Մեկնաբանություն</label>
+                        <textarea class="form-input text-area" placeholder="Բարեմաղթանքներ, ալերգիաներ, հարցեր..."
+                            rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary form-btn">Ուղարկել</button>
+                </form>
+
+                <div class="divider">
+                    <div class="divider-line"></div>
+                    <div class="divider-diamond"></div>
+                    <div class="divider-line"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <svg class="floral-ornament top-ornament" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg"
+                style="width: 160px; margin: 0 auto 16px; opacity: 0.4;">
+                <path d="M200 90 C150 40, 50 60, 20 20 C10 5, 30 -5, 50 15 C80 40, 100 80, 200 90Z"
+                    fill="hsl(43, 65%, 55%)" fill-opacity="0.2" />
+                <path d="M200 90 C250 40, 350 60, 380 20 C390 5, 370 -5, 350 15 C320 40, 300 80, 200 90Z"
+                    fill="hsl(43, 65%, 55%)" fill-opacity="0.2" />
+                <path d="M170 80 C130 50, 80 40, 60 10" stroke="hsl(43, 65%, 55%)" stroke-width="1.5"
+                    stroke-linecap="round" stroke-opacity="0.4" />
+                <path d="M230 80 C270 50, 320 40, 340 10" stroke="hsl(43, 65%, 55%)" stroke-width="1.5"
+                    stroke-linecap="round" stroke-opacity="0.4" />
+            </svg>
+            <p class="footer-title">Սիրով սպասում ենք!</p>
+            <p class="footer-subtitle">Նարեկ & Լիլիթ • 15.08.2026</p>
+            <svg class="floral-ornament bottom-ornament" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg"
+                style="width: 160px; margin: 16px auto 0; opacity: 0.4;">
+                <path d="M200 90 C150 40, 50 60, 20 20 C10 5, 30 -5, 50 15 C80 40, 100 80, 200 90Z"
+                    fill="hsl(43, 65%, 55%)" fill-opacity="0.2" />
+                <path d="M200 90 C250 40, 350 60, 380 20 C390 5, 370 -5, 350 15 C320 40, 300 80, 200 90Z"
+                    fill="hsl(43, 65%, 55%)" fill-opacity="0.2" />
+                <path d="M170 80 C130 50, 80 40, 60 10" stroke="hsl(43, 65%, 55%)" stroke-width="1.5"
+                    stroke-linecap="round" stroke-opacity="0.4" />
+                <path d="M230 80 C270 50, 320 40, 340 10" stroke="hsl(43, 65%, 55%)" stroke-width="1.5"
+                    stroke-linecap="round" stroke-opacity="0.4" />
+            </svg>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

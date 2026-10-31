@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="hy">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Նշանադրության հրավիրատոմս</title>
+
+    <meta name="description"
+        content="Նուրբ և էլեգանտ նշանադրության հրավիրատոմս">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Noto+Serif+Armenian:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --pink: #d96f8b;
+            --dark-pink: #b94f70;
+            --soft-pink: #f8dce4;
+            --text: #684752;
+            --white: #ffffff;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: #f6dfe6;
+            color: var(--text);
+            font-family: "Noto Serif Armenian", serif;
+            overflow-x: hidden;
+        }
+
+        /* =====================================
+           MAIN INVITATION
+        ===================================== */
+
+        .invitation {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+
+            position: relative;
+            overflow: hidden;
+
+            background-image:
+                linear-gradient(
+                    rgba(255, 244, 247, 0.12),
+                    rgba(255, 244, 247, 0.12)
+                ),
+                url("assets/bg.png");
+
+            background-size: 100% auto;
+     
+            background-repeat: repeat-y;
+
+            box-shadow:
+                0 0 50px rgba(120, 70, 90, 0.15);
+        }
+
+        /* =====================================
+           SOFT OVERLAY
+        ===================================== */
+
+        .invitation::before {
+            content: "";
+            position: absolute;
+            inset: 18px;
+
+            border: 1px solid rgba(217, 111, 139, 0.45);
+
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        .invitation::after {
+            content: "";
+            position: absolute;
+            inset: 25px;
+
+            border: 1px solid rgba(255, 255, 255, 0.7);
+
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        /* =====================================
+           GENERAL SECTION
+        ===================================== */
+
+        .section {
+            position: relative;
+            padding: 90px 60px;
+
+            text-align: center;
+
+            background: rgba(255, 248, 250, 0.18);
+
+            border-bottom: 1px solid rgba(217, 111, 139, 0.12);
+
+            z-index: 2;
+        }
+
+        /* =====================================
+           HERO
+        ===================================== */
+
+        .hero {
+            min-height: 850px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            padding: 100px 50px 80px;
+
+            text-align: center;
+
+            position: relative;
+        }
+
+        .hero-content {
+            width: min(760px, 92%);
+
+            padding: 55px 45px;
+
+            background: rgba(255, 250, 251, 0.70);
+
+            backdrop-filter: blur(3px);
+
+            border-radius: 28px;
+
+            box-shadow:
+                0 15px 50px rgba(160, 90, 110, 0.08);
+
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .top-text {
+            font-size: 18px;
+            line-height: 1.9;
+
+            color: #79545f;
+
+            margin-bottom: 20px;
+        }
+
+        .heart {
+            color: var(--pink);
+            font-size: 28px;
+
+            margin: 10px 0;
+        }
+
+        /* =====================================
+           TITLE
+        ===================================== */
+
+        .main-title {
+            font-family: "Marck Script", cursive;
+
+            font-size: 25px;
+
+            font-weight: 400;
+
+            color: var(--pink);
+
+            line-height: 1;
+
+            margin: 15px 0 20px;
+
+            text-shadow:
+                0 4px 12px rgba(180, 70, 100, 0.10);
+        }
+
+        .ornament {
+            width: 80%;
+            max-width: 500px;
+
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            margin: 40px auto;
+        }
+
+        .ornament::before,
+        .ornament::after {
+            content: "";
+
+            height: 1px;
+
+            flex: 1;
+
+            background:
+                linear-gradient(
+                    to right,
+                    transparent,
+                    rgba(217, 111, 139, 0.7)
+                );
+        }
+
+        .ornament::after {
+            background:
+                linear-gradient(
+                    to left,
+                    transparent,
+                    rgba(217, 111, 139, 0.7)
+                );
+        }
+
+        .diamond {
+            font-size: 30px;
+            color: var(--pink);
+        }
+
+        /* =====================================
+           RING
+        ===================================== */
+
+        .ring-area {
+            position: relative;
+
+            width: 300px;
+            height: 240px;
+
+            margin: 25px auto 10px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ribbon {
+            position: absolute;
+
+            width: 430px;
+            height: 32px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(239, 173, 190, 0.85),
+                    rgba(255, 225, 232, 0.95),
+                    rgba(239, 173, 190, 0.85),
+                    transparent
+                );
+
+            border-radius: 50%;
+
+            transform: rotate(-8deg);
+
+            opacity: 0.8;
+        }
+
+        .ribbon.second {
+            transform: rotate(9deg);
+            opacity: 0.5;
+        }
+
+        .ring {
+            position: relative;
+            z-index: 2;
+
+            font-size: 120px;
+
+            filter:
+                drop-shadow(
+                    0 12px 12px rgba(110, 60, 80, 0.15)
+                );
+
+            animation: floatRing 4s ease-in-out infinite;
+        }
+
+        @keyframes floatRing {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-9px);
+            }
+        }
+
+        /* =====================================
+           SECTION TITLE
+        ===================================== */
+
+        .section-title {
+            font-family: "Marck Script", cursive;
+
+            font-size: 58px;
+
+            font-weight: 400;
+
+            color: var(--pink);
+
+            margin-bottom: 40px;
+        }
+
+        .section-title::after {
+            content: "♡";
+
+            display: block;
+
+            font-family: serif;
+
+            font-size: 22px;
+
+            margin-top: 8px;
+
+            color: var(--pink);
+        }
+
+        /* =====================================
+           INFO
+        ===================================== */
+
+        .info-container {
+            width: min(850px, 100%);
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            background: rgba(255, 250, 251, 0.70);
+
+            border-radius: 25px;
+
+            overflow: hidden;
+
+            border: 1px solid rgba(255,255,255,.8);
+
+            box-shadow:
+                0 15px 45px rgba(150, 80, 100, .08);
+        }
+
+        .info-card {
+            padding: 35px 20px;
+
+            border-right:
+                1px solid rgba(217,111,139,.18);
+        }
+
+        .info-card:last-child {
+            border-right: none;
+        }
+
+        .icon {
+            font-size: 40px;
+
+            color: var(--pink);
+
+            margin-bottom: 10px;
+        }
+
+        .label {
+            font-size: 16px;
+
+            color: #966b77;
+
+            margin-bottom: 10px;
+        }
+
+        .value {
+            font-size: 32px;
+
+            color: var(--pink);
+
+            font-weight: 600;
+        }
+
+        .sub-value {
+            margin-top: 6px;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+        /* =====================================
+           MESSAGE
+        ===================================== */
+
+        .message-box {
+            width: min(700px, 100%);
+
+            margin: auto;
+
+            padding: 45px 40px;
+
+            background:
+                rgba(255, 250, 251, 0.68);
+
+            border-radius: 25px;
+
+            border:
+                1px solid rgba(255,255,255,.75);
+
+            box-shadow:
+                0 15px 45px rgba(150,80,100,.07);
+        }
+
+        .message {
+            font-size: 19px;
+
+            line-height: 2.1;
+
+            color: #73525d;
+        }
+
+        .heart-line {
+            color: var(--pink);
+
+            font-size: 28px;
+
+            margin-top: 25px;
+        }
+
+        /* =====================================
+           COUNTDOWN
+        ===================================== */
+
+        .countdown {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+
+            margin-top: 30px;
+        }
+
+        .time-box {
+            width: 105px;
+
+            padding: 20px 10px;
+
+            background:
+                rgba(255,250,251,.72);
+
+            border:
+                1px solid rgba(217,111,139,.22);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 8px 25px rgba(150,80,100,.06);
+        }
+
+        .time-number {
+            font-size: 30px;
+
+            color: var(--pink);
+
+            font-weight: 600;
+        }
+
+        .time-label {
+            margin-top: 6px;
+
+            font-size: 11px;
+
+            color: #8c6671;
+        }
+
+        /* =====================================
+           LOCATION
+        ===================================== */
+
+        .location-card {
+            width: min(650px, 100%);
+
+            margin: auto;
+
+            padding: 45px;
+
+            background:
+                rgba(255,250,251,.72);
+
+            border-radius: 25px;
+
+            border:
+                1px solid rgba(255,255,255,.8);
+        }
+
+        .location-name {
+            font-size: 24px;
+
+            color: var(--pink);
+
+            margin-bottom: 10px;
+        }
+
+        .location-address {
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+        .location-button {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            margin-top: 25px;
+
+            padding: 15px 30px;
+
+            background: var(--pink);
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 50px;
+
+            font-size: 15px;
+
+            box-shadow:
+                0 10px 25px rgba(217,111,139,.22);
+
+            transition: .3s;
+        }
+
+        .location-button:hover {
+            transform: translateY(-3px);
+
+            background: var(--dark-pink);
+        }
+
+        /* =====================================
+           RSVP
+        ===================================== */
+
+        .rsvp {
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+
+        .rsvp-box {
+            width: min(650px, 100%);
+
+            margin: auto;
+
+            padding: 45px;
+
+            background:
+                rgba(255, 239, 244, .82);
+
+            border-radius: 25px;
+
+            border:
+                1px solid rgba(255,255,255,.8);
+        }
+
+        .rsvp-text {
+            font-size: 17px;
+
+            line-height: 1.9;
+        }
+
+        .rsvp-button {
+            display: inline-block;
+
+            margin-top: 25px;
+
+            padding: 15px 32px;
+
+            border-radius: 50px;
+
+            border: 1px solid var(--pink);
+
+            color: var(--pink);
+
+            text-decoration: none;
+
+            background: rgba(255,255,255,.55);
+
+            transition: .3s;
+        }
+
+        .rsvp-button:hover {
+            background: var(--pink);
+
+            color: white;
+        }
+
+        /* =====================================
+           FOOTER
+        ===================================== */
+
+        .footer {
+            position: relative;
+
+            padding: 75px 30px;
+
+            text-align: center;
+
+            background:
+                rgba(225, 142, 163, .82);
+
+            color: white;
+        }
+
+        .footer-heart {
+            font-size: 40px;
+
+            margin-bottom: 15px;
+        }
+
+        .footer-text {
+            font-size: 16px;
+
+            line-height: 1.9;
+        }
+
+        /* =====================================
+           MOBILE
+        ===================================== */
+
+        @media (max-width: 700px) {
+
+            .invitation {
+                background-size: auto 100%;
+                background-attachment: scroll;
+            }
+
+            .hero {
+                min-height: 720px;
+
+                padding:
+                    80px 25px 60px;
+            }
+
+            .hero-content {
+                padding:
+                    40px 22px;
+            }
+
+            .top-text {
+                font-size: 15px;
+            }
+
+            .main-title {
+                font-size: 25px;
+            }
+
+            .section {
+                padding:
+                    70px 22px;
+            }
+
+            .section-title {
+                font-size: 46px;
+            }
+
+            .info-container {
+                grid-template-columns: 1fr;
+            }
+
+            .info-card {
+                border-right: none;
+
+                border-bottom:
+                    1px solid rgba(217,111,139,.18);
+            }
+
+            .info-card:last-child {
+                border-bottom: none;
+            }
+
+            .message-box,
+            .location-card,
+            .rsvp-box {
+                padding:
+                    35px 22px;
+            }
+
+            .message {
+                font-size: 16px;
+            }
+
+            .ring-area {
+                transform: scale(.85);
+            }
+
+            .time-box {
+                width: 82px;
+            }
+
+            .time-number {
+                font-size: 25px;
+            }
+        }
+
+/* =========================================
+   RSVP — ELEGANT ENGAGEMENT STYLE
+========================================= */
+
+.rsvp-section {
+    position: relative;
+    padding: 90px 20px 110px;
+    text-align: center;
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.rsvp-section .section-title {
+    font-family: "Marck Script", cursive;
+    font-size: clamp(44px, 7vw, 62px);
+    font-weight: 400;
+    color: #c96882;
+    margin-bottom: 42px;
+    line-height: 1.2;
+
+    text-shadow:
+        0 2px 8px rgba(180, 90, 115, 0.10);
+}
+
+
+/* =========================================
+   RSVP BOX
+========================================= */
+
+.rsvp-box {
+    width: min(620px, 100%);
+    margin: 0 auto;
+
+    padding: 45px 40px 42px;
+
+    background:
+        rgba(255, 255, 255, 0.86);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    border: 1px solid rgba(201, 104, 130, 0.22);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 18px 50px rgba(120, 70, 85, 0.10);
+
+    position: relative;
+}
+
+
+/* Decorative heart */
+
+.rsvp-box::before {
+    content: "♡";
+
+    position: absolute;
+
+    top: -18px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 42px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fffafa;
+
+    border: 1px solid rgba(201, 104, 130, 0.25);
+
+    border-radius: 50%;
+
+    color: #c96882;
+
+    font-size: 20px;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.rsvp-text {
+    max-width: 500px;
+
+    margin: 0 auto 35px;
+
+    color: #75545f;
+
+    font-size: 16px;
+
+    line-height: 2;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.rsvp-form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+
+    text-align: left;
+}
+
+
+/* =========================================
+   FIELD
+========================================= */
+
+.rsvp-field {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.rsvp-label {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #7e5662;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.rsvp-input {
+    width: 100%;
+
+    min-height: 51px;
+
+    padding: 13px 16px;
+
+    border-radius: 13px;
+
+    border:
+        1px solid rgba(201, 104, 130, 0.25);
+
+    background:
+        rgba(255, 249, 251, 0.92);
+
+    color: #654650;
+
+    font-family:
+        "Noto Serif Armenian",
+        serif;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        .25s ease;
+}
+
+
+/* Placeholder */
+
+.rsvp-input::placeholder {
+    color: #b696a0;
+}
+
+
+/* Focus */
+
+.rsvp-input:focus {
+    background: #ffffff;
+
+    border-color: #ce7189;
+
+    box-shadow:
+        0 0 0 4px rgba(206, 113, 137, 0.08);
+}
+
+
+/* Select */
+
+select.rsvp-input {
+    cursor: pointer;
+}
+
+
+/* =========================================
+   RADIO
+========================================= */
+
+.rsvp-radio {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    min-height: 48px;
+
+    padding: 11px 15px;
+
+    border-radius: 13px;
+
+    background:
+        rgba(255, 247, 249, 0.75);
+
+    border:
+        1px solid rgba(201, 104, 130, 0.15);
+
+    color: #73525d;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    transition:
+        .25s ease;
+}
+
+
+/* Hover */
+
+.rsvp-radio:hover {
+    background: #ffffff;
+
+    border-color:
+        rgba(201, 104, 130, 0.30);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   CUSTOM RADIO
+========================================= */
+
+.rsvp-radio input {
+    appearance: none;
+
+    width: 19px;
+    height: 19px;
+
+    min-width: 19px;
+
+    margin: 0;
+
+    border-radius: 50%;
+
+    border:
+        1.5px solid #d18a9c;
+
+    background: white;
+
+    position: relative;
+
+    cursor: pointer;
+}
+
+
+/* Checked */
+
+.rsvp-radio input:checked {
+    background: #c96882;
+
+    border-color: #c96882;
+}
+
+
+/* Checked dot */
+
+.rsvp-radio input:checked::after {
+    content: "";
+
+    position: absolute;
+
+    width: 7px;
+    height: 7px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    top: 50%;
+    left: 50%;
+
+    transform:
+        translate(-50%, -50%);
+}
+
+
+/* =========================================
+   SUBMIT
+========================================= */
+
+.rsvp-submit {
+    width: 100%;
+
+    min-height: 54px;
+
+    margin-top: 5px;
+
+    border: none;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d77b94,
+            #c35c78
+        );
+
+    color: white;
+
+    font-family:
+        "Noto Serif Armenian",
+        serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    letter-spacing: .5px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(195, 92, 120, 0.22);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+/* Hover */
+
+.rsvp-submit:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 30px rgba(195, 92, 120, 0.28);
+}
+
+
+/* Click */
+
+.rsvp-submit:active {
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   THANK YOU
+========================================= */
+
+.rsvp-thanks {
+    margin: 25px auto 0;
+
+    padding: 20px;
+
+    max-width: 500px;
+
+    border-radius: 17px;
+
+    background:
+        rgba(255, 247, 249, 0.95);
+
+    border:
+        1px solid rgba(201, 104, 130, 0.22);
+
+    color: #bd5d78;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+    text-align: center;
+}
+
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .rsvp-section {
+        padding:
+            70px 16px 80px;
+    }
+
+    .rsvp-section .section-title {
+        font-size: 45px;
+
+        margin-bottom: 32px;
+    }
+
+    .rsvp-box {
+        padding:
+            40px 20px 30px;
+
+        border-radius: 23px;
+    }
+
+    .rsvp-text {
+        font-size: 14px;
+
+        line-height: 1.9;
+
+        margin-bottom: 28px;
+    }
+
+    .rsvp-form {
+        gap: 20px;
+    }
+
+    .rsvp-label {
+        font-size: 13px;
+    }
+
+    .rsvp-input {
+        min-height: 49px;
+
+        font-size: 14px;
+    }
+
+    .rsvp-radio {
+        min-height: 46px;
+
+        padding: 10px 12px;
+
+        font-size: 13px;
+    }
+
+    .rsvp-submit {
+        min-height: 52px;
+
+        font-size: 13px;
+    }
+}
+
+#musicButton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+    border: 1px solid rgba(217,111,139,.35);
+
+    background: rgba(255,255,255,.92);
+    color: #d96f8b;
+
+    font-size: 21px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 25px rgba(120,70,90,.15);
+
+    z-index: 9999;
+
+    transition: .3s ease;
+}
+
+#musicButton.playing {
+    animation: musicPulse 1.8s infinite;
+}
+
+@keyframes musicPulse {
+    0%,100% {
+        transform: scale(1);
+        box-shadow: 0 8px 25px rgba(120,70,90,.15);
+    }
+
+    50% {
+        transform: scale(1.06);
+        box-shadow: 0 8px 30px rgba(217,111,139,.35);
+    }
+}
+
+@media(max-width:700px) {
+    #musicButton {
+        top: 14px;
+        right: 14px;
+        width: 44px;
+        height: 44px;
+        font-size: 19px;
+    }
+}
+    </style>
+</head>
+
+
+<body>
+<!-- MUSIC -->
+<audio id="backgroundMusic" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicButton" aria-label="Երաժշտություն">♫</button>
+    <main class="invitation">
+
+
+        <!-- =====================================
+             HERO
+        ====================================== -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="top-text">
+
+                    Սիրով հրավիրում ենք Ձեզ<br>
+                    մեր նշանադրության օրվան
+
+                </div>
+
+                <div class="heart">
+                    ♡
+                </div>
+
+                <h1 class="main-title">
+                    Նշանադրություն
+                </h1>
+
+                <div class="ornament">
+                    <span class="diamond">♢</span>
+                </div>
+
+
+                <div class="ring-area">
+
+                    <div class="ribbon"></div>
+
+                    <div class="ribbon second"></div>
+
+                    <div class="ring">
+                        <img src="assets/1.png" width="100%">
+                    </div>
+
+                </div>
+
+                <div class="heart">
+                    ─── ♡ ───
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             DATE / TIME / LOCATION
+        ====================================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                Մեր օրը
+            </h2>
+
+
+            <div class="info-container">
+
+
+                <div class="info-card">
+
+                    <div class="icon">
+                        ♡
+                    </div>
+
+                    <div class="label">
+                        Ամսաթիվ
+                    </div>
+
+                    <div class="value">
+                        25
+                    </div>
+
+                    <div class="sub-value">
+
+                        ՀՈԿՏԵՄԲԵՐ<br>
+                        2026
+
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="icon">
+                        ◷
+                    </div>
+
+                    <div class="label">
+                        Ժամը
+                    </div>
+
+                    <div class="value">
+                        18:00
+                    </div>
+
+                    <div class="sub-value">
+                        Սիրով սպասում ենք
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="icon">
+                        ♡
+                    </div>
+
+                    <div class="label">
+                        Վայր
+                    </div>
+
+                    <div class="value">
+                        Երևան
+                    </div>
+
+                    <div class="sub-value">
+                        Հանդիսությունների սրահ
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             MESSAGE
+        ====================================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                Սիրով սպասում ենք
+            </h2>
+
+
+            <div class="message-box">
+
+                <p class="message">
+
+                    Ձեր ներկայությունը մեզ համար
+                    այս գեղեցիկ օրվա ամենաթանկ
+                    նվերն է։
+
+                    <br><br>
+
+                    Եկեք միասին կիսենք մեր ուրախությունը
+                    և ստեղծենք գեղեցիկ հիշողություններ։
+
+                </p>
+
+
+                <div class="heart-line">
+                    ♡
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             COUNTDOWN
+        ====================================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                Մինչև մեր օրը
+            </h2>
+
+
+            <div class="countdown">
+
+
+                <div class="time-box">
+
+                    <div
+                        class="time-number"
+                        id="days">
+                        00
+                    </div>
+
+                    <div class="time-label">
+                        ՕՐ
+                    </div>
+
+                </div>
+
+
+                <div class="time-box">
+
+                    <div
+                        class="time-number"
+                        id="hours">
+                        00
+                    </div>
+
+                    <div class="time-label">
+                        ԺԱՄ
+                    </div>
+
+                </div>
+
+
+                <div class="time-box">
+
+                    <div
+                        class="time-number"
+                        id="minutes">
+                        00
+                    </div>
+
+                    <div class="time-label">
+                        ՐՈՊԵ
+                    </div>
+
+                </div>
+
+
+                <div class="time-box">
+
+                    <div
+                        class="time-number"
+                        id="seconds">
+                        00
+                    </div>
+
+                    <div class="time-label">
+                        ՎԱՅՐԿՅԱՆ
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             LOCATION
+        ====================================== -->
+
+        <section class="section">
+
+            <h2 class="section-title">
+                Վայրը
+            </h2>
+
+
+            <div class="location-card">
+
+                <div class="location-name">
+                    Հանդիսությունների սրահ
+                </div>
+
+                <div class="location-address">
+
+                    Երևան, Հայաստան
+
+                </div>
+
+
+                <!-- Այստեղ տեղադրեք Google Maps-ի իրական հղումը -->
+
+                <a
+                    href="#"
+                    class="location-button"
+                    target="_blank">
+
+                    📍 Բացել քարտեզը
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             RSVP
+        ====================================== -->
+
+        <section class="section rsvp-section">
+
+            <h2 class="section-title">
+                Մասնակցության հաստատում
+            </h2>
+
+
+            <div class="rsvp-box">
+
+                <p class="rsvp-text">
+
+                    Խնդրում ենք հաստատել Ձեր
+                    մասնակցությունը, որպեսզի կարողանանք
+                    օրը կազմակերպել Ձեզ համար
+                    առավել գեղեցիկ և հարմարավետ։
+
+                </p>
+
+    </div>
+   
+    <form id="rsvpForm" class="rsvp-form">
+      <div class="rsvp-field">
+        <label class="rsvp-label" for="name">Անուն Ազգանուն</label>
+        <input class="rsvp-input" type="text" id="name" name="name" required="">
+      </div>
+      <div class="rsvp-field">
+        <span class="rsvp-label">Կկարողանա՞ք ներկա գտնվել միջոցառմանը</span>
+        <label class="rsvp-radio"><input type="radio" name="attendance" value="Այո, կգամ" required=""> Այո, կգամ</label>
+        <label class="rsvp-radio"><input type="radio" name="attendance" value="Ցավոք չեմ կարողանա"> Ցավոք չեմ կարողանա</label>
+      </div>
+      <div class="rsvp-field">
+    <label class="rsvp-label" for="guest_count">
+        Քանի՞ հոգով եք մասնակցելու
+    </label>
+
+    <select id="guest_count" name="guest_count" class="rsvp-input" required="">
+        <option value="">Ընտրեք</option>
+        <option value="1">1 հոգի</option>
+        <option value="2">2 հոգի</option>
+        <option value="3">3 հոգի</option>
+        <option value="4">4 հոգի</option>
+        <option value="5">5 հոգի</option>
+        <option value="6">6 հոգի</option>
+          <option value="7">7 հոգի</option>
+        <option value="8">8 հոգի</option>
+        <option value="9">9 հոգի</option>
+    </select>
+</div>
+      <div class="rsvp-field">
+        <span class="rsvp-label">Ու՞մ կողմից եք հրավիրված</span>
+        <label class="rsvp-radio"><input type="radio" name="side" value="Փեսայի" required=""> Փեսայի կողմից</label>
+        <label class="rsvp-radio"><input type="radio" name="side" value="Հարսի"> Հարսի կողմից</label>
+      </div>
+      <button type="submit" class="rsvp-submit">ՈՒՂԱՐԿԵԼ</button>
+     
+    </form>
+     <p id="rsvpThanks" class="rsvp-thanks hidden">Շնորհակալություն։ Անհամբեր սպասում ենք Ձեզ։</p>
+  </section>
+
+
+         
+
+
+
+        <!-- =====================================
+             FOOTER
+        ====================================== -->
+
+        <footer class="footer">
+
+            <div class="footer-heart">
+                ♡
+            </div>
+
+            <div class="footer-text">
+
+                Սիրով սպասում ենք Ձեզ<br>
+
+                մեր գեղեցիկ օրվա մասնակիցը լինելու
+
+            </div>
+
+        </footer>
+
+
+    </main>
+
+
+    <!-- =====================================
+         COUNTDOWN JAVASCRIPT
+    ====================================== -->
+
+    <script>
+
+        const engagementDate =
+            new Date(
+                "October 25, 2026 18:00:00"
+            ).getTime();
+
+
+        function updateCountdown() {
+
+            const now =
+                new Date().getTime();
+
+            const distance =
+                engagementDate - now;
+
+
+            if (distance <= 0) {
+
+                document.getElementById("days")
+                    .innerText = "00";
+
+                document.getElementById("hours")
+                    .innerText = "00";
+
+                document.getElementById("minutes")
+                    .innerText = "00";
+
+                document.getElementById("seconds")
+                    .innerText = "00";
+
+                return;
+            }
+
+
+            const days =
+                Math.floor(
+                    distance /
+                    (1000 * 60 * 60 * 24)
+                );
+
+
+            const hours =
+                Math.floor(
+                    (distance %
+                        (1000 * 60 * 60 * 24)) /
+                    (1000 * 60 * 60)
+                );
+
+
+            const minutes =
+                Math.floor(
+                    (distance %
+                        (1000 * 60 * 60)) /
+                    (1000 * 60)
+                );
+
+
+            const seconds =
+                Math.floor(
+                    (distance %
+                        (1000 * 60)) /
+                    1000
+                );
+
+
+            document.getElementById("days")
+                .innerText =
+                String(days).padStart(2, "0");
+
+
+            document.getElementById("hours")
+                .innerText =
+                String(hours).padStart(2, "0");
+
+
+            document.getElementById("minutes")
+                .innerText =
+                String(minutes).padStart(2, "0");
+
+
+            document.getElementById("seconds")
+                .innerText =
+                String(seconds).padStart(2, "0");
+
+        }
+
+
+        updateCountdown();
+
+        setInterval(
+            updateCountdown,
+            1000
+        );
+const backgroundMusic = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
+
+let musicPlaying = false;
+let musicStarted = false;
+
+
+/* =========================
+   START MUSIC
+========================= */
+
+function startMusic() {
+
+    if (musicStarted) return;
+
+    backgroundMusic.play()
+        .then(() => {
+
+            musicPlaying = true;
+            musicStarted = true;
+
+            musicButton.innerHTML = "Ⅱ";
+            musicButton.classList.add("playing");
+
+        })
+        .catch(() => {
+            // Browser blocked playback.
+            // Another user interaction will try again.
+        });
+}
+
+
+/* =========================
+   CLICK MUSIC BUTTON
+========================= */
+
+function toggleMusic(event) {
+
+    event.stopPropagation();
+
+    if (musicPlaying) {
+
+        backgroundMusic.pause();
+
+        musicPlaying = false;
+
+        musicButton.innerHTML = "♫";
+        musicButton.classList.remove("playing");
+
+    } else {
+
+        backgroundMusic.play()
+            .then(() => {
+
+                musicPlaying = true;
+                musicStarted = true;
+
+                musicButton.innerHTML = "Ⅱ";
+                musicButton.classList.add("playing");
+
+            })
+            .catch(() => {});
+    }
+}
+
+
+/* =========================
+   BUTTON CLICK
+========================= */
+
+musicButton.addEventListener(
+    "click",
+    toggleMusic
+);
+
+
+/* =========================
+   FIRST CLICK
+========================= */
+
+document.addEventListener(
+    "click",
+    startMusic,
+    { once: true }
+);
+
+
+/* =========================
+   FIRST TOUCH
+========================= */
+
+document.addEventListener(
+    "touchstart",
+    startMusic,
+    {
+        once: true,
+        passive: true
+    }
+);
+
+
+/* =========================
+   POINTER
+   Works on mobile + desktop
+========================= */
+
+document.addEventListener(
+    "pointerdown",
+    startMusic,
+    {
+        once: true,
+        passive: true
+    }
+);
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,468 @@
+/* Template 005 - Gender Reveal Party Styles */
+
+@font-face {
+    font-family: 'Lily Script One';
+    src: url('https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap');
+}
+
+@font-face {
+    font-family: 'Noto Sans Armenian';
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+Armenian:wght@400;600&display=swap');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    overflow-x: hidden;
+    background: #FFFFFF;
+}
+
+.gender-reveal-template {
+    position: relative;
+    width: 100%;
+    /* Remove min-height to allow content-based height reporting */
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 80px;
+}
+
+/* Background */
+.template-bg {
+    position: absolute;
+    /* Changed from fixed */
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.template-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+    transform: scale(1.5);
+    transform-origin: top center;
+    object-position: top;
+}
+
+/* Common Section Settings */
+section,
+.top-icon,
+.bottom-icon,
+.arrow-divider {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Top Icon - Balloons */
+.top-icon {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.top-icon img {
+    width: 494px;
+    height: auto;
+    max-width: 90%;
+}
+
+/* Hero Section */
+.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 40px;
+    gap: 40px;
+}
+
+.teddy-left,
+.teddy-right {
+    width: 360px;
+    height: auto;
+}
+
+.teddy-left img,
+.teddy-right img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    max-width: 697px;
+}
+
+.save-the-date {
+    font-family: 'Lily Script One', cursive;
+    font-weight: 400;
+    font-size: 105px;
+    line-height: 1.2;
+    text-align: center;
+    color: #89735D;
+}
+
+.event-date {
+    font-family: 'Lily Script One', cursive;
+    font-weight: 400;
+    font-size: 105px;
+    line-height: 1.2;
+    text-align: center;
+    color: #89735D;
+}
+
+/* Invitation Section */
+.invitation-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 26px;
+    max-width: 853px;
+}
+
+.invitation-title {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 1.4;
+    text-align: center;
+    color: #89735D;
+}
+
+.invitation-description {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.5;
+    text-align: center;
+    color: #6E6E6E;
+}
+
+/* Arrow Divider */
+.arrow-divider {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+
+
+/* Location Section */
+.location-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    gap: 20px;
+}
+
+.location-label {
+    font-family: 'Lily Script One', cursive;
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 1.2;
+    color: #89735D;
+    text-align: center;
+}
+
+.venue-name {
+    font-family: 'Lily Script One', cursive;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 1.2;
+    color: #6E6E6E;
+    text-align: center;
+    max-width: 794px;
+}
+
+.map-button {
+    box-sizing: border-box;
+    width: 300px;
+    height: 60px;
+    border: 0.5px solid #89735D;
+    border-radius: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    color: #89735D;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.map-button:hover {
+    background: #89735D;
+    color: #FFFFFF;
+}
+
+/* Bottom Icon */
+.bottom-icon {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.bottom-icon img {
+    width: 374px;
+    height: auto;
+    max-width: 80%;
+}
+
+/* RSVP Notice Section */
+.rsvp-notice-section {
+    padding: 40px 20px;
+    text-align: center;
+    max-width: 1045px;
+}
+
+.rsvp-notice {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 1.4;
+    color: #89735D;
+}
+
+/* RSVP Form Section */
+.rsvp-section {
+    width: 100%;
+    max-width: 840px;
+    padding: 0 20px;
+}
+
+.form-container {
+    width: 100%;
+}
+
+#template-rsvp-form {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.form-group-radio {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.question-label {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.4;
+    color: #6E6E6E;
+}
+
+.radio-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.custom-radio {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+}
+
+.custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-mark {
+    width: 29px;
+    height: 29px;
+    border: 2px solid #89735D;
+    border-radius: 50%;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.radio-inner {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    left: 4px;
+    top: 4px;
+    background: #89735D;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.custom-radio input:checked~.radio-mark .radio-inner {
+    opacity: 1;
+}
+
+.radio-label {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: #6E6E6E;
+}
+
+.form-group-input {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.bottom-border-input {
+    width: 100%;
+    height: 47px;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: #6E6E6E;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #6E6E6E;
+    outline: none;
+}
+
+.rsvp-submit {
+    width: 100%;
+    height: 61px;
+    background: #89735D;
+    border-radius: 84px;
+    border: none;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFFFFF;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s ease;
+}
+
+.rsvp-submit:hover {
+    background: #7a6654;
+}
+
+/* Mobile specific version */
+@media (max-width: 768px) {
+
+    .save-the-date,
+    .event-date {
+        font-size: 64px;
+    }
+
+    .invitation-title {
+        font-size: 32px;
+    }
+
+    .location-label {
+        font-size: 50px;
+    }
+
+    .venue-name {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-icon {
+        padding-top: 5px;
+    }
+
+    .top-icon img {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .hero-section {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 5px 10px 20px;
+        gap: 5px;
+    }
+
+    .teddy-left,
+    .teddy-right {
+        width: 48%;
+        min-width: auto;
+        height: auto;
+        order: 1;
+    }
+
+    .hero-content {
+        width: 100%;
+        order: 2;
+        margin-top: 10px;
+    }
+
+    .save-the-date,
+    .event-date {
+        font-size: 38px;
+        margin: 0;
+    }
+
+    .invitation-title {
+        font-size: 22px;
+    }
+
+    .invitation-description {
+        font-size: 16px;
+    }
+
+    .location-label {
+        font-size: 40px;
+    }
+
+    .venue-name {
+        font-size: 24px;
+    }
+
+    .map-button {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .bottom-icon {
+        padding: 10px 0;
+    }
+
+    .bottom-icon img {
+        width: 250px;
+    }
+
+    .rsvp-notice {
+        font-size: 20px;
+    }
+
+    .question-label {
+        font-size: 18px;
+    }
+}

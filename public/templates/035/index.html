@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Դավիթ & Մարիա — Հարսանյաց Հրավեր</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ========== SCRATCH-TO-REVEAL OVERLAY ========== -->
+    <div class="scratch-overlay" id="scratchOverlay">
+        <div class="scratch-overlay__bg"></div>
+        <div class="scratch-container">
+            <p class="scratch-hint">Ջնջեք՝ մեր ամենակարևոր օրը տեսնելու համար</p>
+            <div class="scratch-card" id="scratchCard">
+                <canvas id="scratchCanvas"></canvas>
+                <div class="scratch-card__content">
+                    <p class="scratch-card__names">Դավիթ & Մարիա</p>
+                    <p class="scratch-card__date">15 Հոկտեմբերի, 2026</p>
+                </div>
+            </div>
+            <p class="scratch-subhint">Օգտագործեք մատը կամ մկնիկը ջնջելու համար</p>
+        </div>
+    </div>
+
+    <!-- ========== MAIN WEDDING SITE ========== -->
+    <div class="wedding-site" id="weddingSite">
+
+        <!-- Hero Section -->
+        <header class="hero" id="home">
+            <div class="hero__bg">
+                <picture>
+                    <source media="(max-width: 768px)" srcset="assets/hero-mobile.webp">
+                    <img src="assets/hero-desktop.webp" alt="Wedding Background" class="hero__bg-img">
+                </picture>
+                <div class="hero__overlay"></div>
+            </div>
+
+            <div class="hero__content">
+                <div class="hero__flourish">✦</div>
+                <p class="hero__subtitle reveal-up">Մենք ամուսնանում ենք</p>
+                <h1 class="hero__title reveal-up" style="transition-delay: 0.2s;">
+                    <span class="name">Դավիթ</span>
+                    <span class="ampersand">&</span>
+                    <span class="name">Մարիա</span>
+                </h1>
+                <p class="hero__date reveal-up" style="transition-delay: 0.4s;">15 Հոկտեմբերի, 2026</p>
+                <div class="hero__flourish reveal-up" style="transition-delay: 0.5s;">✦</div>
+            </div>
+
+            <div class="scroll-indicator reveal-in" style="transition-delay: 1s;">
+                <span>Ներքև</span>
+                <div class="scroll-line"></div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Love Story Section -->
+            <section class="love-story section" id="story">
+                <div class="container text-center">
+                    <div class="section-ornament reveal-up">❦</div>
+                    <h2 class="section-title reveal-up">Մեր Պատմությունը</h2>
+                    <div class="love-story__timeline">
+                        <div class="love-story__item reveal-up">
+                            <div class="love-story__year">2020</div>
+                            <h3>Ինչպես ծանոթացանք</h3>
+                            <p>Մենք առաջին անգամ հանդիպեցինք Երևանի կենտրոնում գտնվող մի հարմարավետ սրճարանում: Պատահական հանդիպումը վերածվեց ժամերի զրույցի և ծիծաղի, որը մեզանից ոչ մեկը չէր ցանկանում ավարտել:</p>
+                        </div>
+                        <div class="love-story__divider reveal-scale">
+                            <span>♥</span>
+                        </div>
+                        <div class="love-story__item reveal-up">
+                            <div class="love-story__year">2022</div>
+                            <h3>Առաջին համատեղ ուղևորությունը</h3>
+                            <p>Մեր ինքնաբուխ ուղևորությունը դեպի հատարամ ամրապնդեց մեր կապը: Միասին դիմավորելով մայրամուտը՝ մենք հասկացանք, որ սա իսկապես յուրահատուկ զգացմունք է:</p>
+                        </div>
+                        <div class="love-story__divider reveal-scale">
+                            <span>♥</span>
+                        </div>
+                        <div class="love-story__item reveal-up">
+                            <div class="love-story__year">2025</div>
+                            <h3>Առաջարկությունը</h3>
+                            <p>Աշնանային գեղեցիկ երեկոյի ընթացքում Դավիթը ծնկի իջավ ու արեց այն կարևոր քայլը: Երջանկության արցունքների միջով Մարիան ասաց «Այո», և մնացածն արդեն պատմություն է:</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Couple Photo Break -->
+            <section class="image-break section">
+                <div class="image-break__wrapper reveal-scale">
+                    <img src="assets/couple.webp" alt="Դավիթ և Մարիա">
+                </div>
+            </section>
+
+            <!-- Event Details -->
+            <section class="event-details section" id="details">
+                <div class="container">
+                    <div class="section-ornament reveal-up">❦</div>
+                    <h2 class="section-title reveal-up">Օրվա Ծրագիրը</h2>
+
+                    <div class="events-grid">
+                        <div class="event-card reveal-up" style="transition-delay: 0.1s;">
+                            <div class="event-card__icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                    <path d="M2 17l10 5 10-5"/>
+                                    <path d="M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
+                            <div class="event-card__time">14:00</div>
+                            <h3>Պսակադրություն</h3>
+                            <p>Սուրբ Գրիգոր Լուսավորիչ<br>Երևան, Տիգրան Մեծի պ. 9</p>
+                            <a href="#" class="event-card__link">Դիտել քարտեզի վրա →</a>
+                        </div>
+
+                        <div class="event-card reveal-up" style="transition-delay: 0.3s;">
+                            <div class="event-card__icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <div class="event-card__time">16:30</div>
+                            <h3>Հյուրերի Դիմավորում</h3>
+                            <p>Դվին Մյուզիք Հոլի Այգի<br>Երևան, Պարոնյան փող., 40</p>
+                            <a href="#" class="event-card__link">Դիտել քարտեզի վրա →</a>
+                        </div>
+
+                        <div class="event-card reveal-up" style="transition-delay: 0.5s;">
+                            <div class="event-card__icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                                    <line x1="6" y1="1" x2="6" y2="4"/>
+                                    <line x1="10" y1="1" x2="10" y2="4"/>
+                                    <line x1="14" y1="1" x2="14" y2="4"/>
+                                </svg>
+                            </div>
+                            <div class="event-card__time">18:00</div>
+                            <h3>Տոնական Ընթրիք</h3>
+                            <p>Դվին Մյուզիք Հոլ<br>Երևան, Պարոնյան փող., 40</p>
+                            <a href="#" class="event-card__link">Դիտել քարտեզի վրա →</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Countdown -->
+            <section class="countdown section">
+                <div class="container text-center">
+                    <h2 class="section-title reveal-up">Մինչև Մեր Օրը</h2>
+                    <div class="countdown__wrapper reveal-up" style="transition-delay: 0.2s;">
+                        <div class="count-item">
+                            <span id="days">00</span>
+                            <label>Օր</label>
+                        </div>
+                        <div class="count-item">
+                            <span id="hours">00</span>
+                            <label>Ժամ</label>
+                        </div>
+                        <div class="count-item">
+                            <span id="minutes">00</span>
+                            <label>Րոպե</label>
+                        </div>
+                        <div class="count-item">
+                            <span id="seconds">00</span>
+                            <label>Վրկ</label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery -->
+            <section class="gallery section" id="gallery">
+                <div class="container">
+                    <div class="section-ornament reveal-up">❦</div>
+                    <h2 class="section-title reveal-up">Մեր Լուսանկարները</h2>
+                    <div class="gallery__grid">
+                        <div class="gallery__item gallery__item--tall reveal-scale" style="transition-delay: 0.1s;">
+                            <img src="assets/gallery-1.webp" alt="Gallery 1">
+                        </div>
+                        <div class="gallery__item reveal-scale" style="transition-delay: 0.2s;">
+                            <img src="assets/gallery-2.webp" alt="Gallery 2">
+                        </div>
+                        <div class="gallery__item reveal-scale" style="transition-delay: 0.3s;">
+                            <img src="assets/gallery-3.webp" alt="Gallery 3">
+                        </div>
+                        <div class="gallery__item gallery__item--wide reveal-scale" style="transition-delay: 0.4s;">
+                            <img src="assets/gallery-4.webp" alt="Gallery 4">
+                        </div>
+                        <div class="gallery__item reveal-scale" style="transition-delay: 0.5s;">
+                            <img src="assets/gallery-5.webp" alt="Gallery 5">
+                        </div>
+                        <div class="gallery__item gallery__item--wide reveal-scale" style="transition-delay: 0.6s;">
+                            <img src="assets/gallery-6.webp" alt="Gallery 6">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- RSVP Form -->
+            <section class="rsvp section" id="rsvp">
+                <div class="container text-center">
+                    <div class="section-ornament reveal-up">❦</div>
+                    <h2 class="section-title reveal-up">Հաստատել Ներկայությունը</h2>
+                    <p class="rsvp__desc reveal-up" style="transition-delay: 0.1s;">Անչափ ուրախ կլինենք կիսելու այս օրը Ձեզ հետ: Խնդրում ենք հաստատել Ձեր ներկայությունը մինչև Սեպտեմբերի 15-ը:</p>
+
+                    <form class="rsvp__form reveal-up" style="transition-delay: 0.2s;" id="rsvpForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Ձեր Անունը Ազգանունը" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Ձեր Էլ. փոստը" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="attendance" required>
+                                <option value="" disabled selected>Կկարողանա՞ք ներկա գտնվել</option>
+                                <option value="yes">Այո, սիրով կգամ</option>
+                                <option value="no">Ցավոք, չեմ կարող</option>
+                            </select>
+                        </div>
+                        <div class="form-group" id="guests-group">
+                            <input type="number" id="guests" placeholder="Հյուրերի քանակը (ներառյալ Դուք)" min="1" max="5">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Ձեր մաղթանքը զույգին (կամավոր)" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Ուղարկել</button>
+                    </form>
+
+                    <div class="rsvp__success" id="rsvpSuccess">
+                        <div class="success-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </div>
+                        <h3>Շնորհակալություն</h3>
+                        <p>Ձեր պատասխանը հաջողությամբ գրանցվեց:</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container text-center">
+                <div class="footer__ornament">❦</div>
+                <h2 class="footer__names reveal-up">Դավիթ & Մարիա</h2>
+                <p class="footer__date reveal-up" style="transition-delay: 0.1s;">15 . 10 . 2026</p>
+                <p class="footer__tagline reveal-up" style="transition-delay: 0.2s;">Սերը հավերժ է...</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

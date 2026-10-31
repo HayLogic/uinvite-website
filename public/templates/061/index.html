@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Մարիայի Սուրբ Մկրտություն</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Noto+Serif+Armenian:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --pink:#e99bb3;
+    --pink-soft:#f8e6ec;
+    --pink-line:#f1d9e0;
+    --text:#595457;
+    --muted:#8c8387;
+    --white:#fff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    background:#fff;
+    color:var(--text);
+    font-family:"Noto Serif Armenian",serif;
+    overflow-x:hidden;
+}
+button,input{font:inherit}
+a{text-decoration:none;color:inherit}
+
+.container{
+    width:100%;
+    max-width:520px;
+    margin:auto;
+    background:#fff;
+}
+
+.section{
+    padding:26px 16px;
+    position:relative;
+}
+
+.soft-card{
+    background:#fff;
+    border:1px solid var(--pink-line);
+    border-radius:18px;
+    box-shadow:0 7px 24px rgba(150,110,120,.07);
+}
+
+/* MUSIC */
+.music-btn{
+    position:fixed;
+    top:16px;
+    right:16px;
+    width:44px;
+    height:44px;
+    border:1px solid var(--pink-line);
+    border-radius:50%;
+    background:rgba(255,255,255,.94);
+    color:var(--pink);
+    font-size:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 5px 18px rgba(100,80,90,.12);
+    z-index:1000;
+    cursor:pointer;
+}
+.music-btn.playing{animation:pulse 1.8s infinite}
+@keyframes pulse{
+    0%,100%{box-shadow:0 5px 18px rgba(100,80,90,.12)}
+    50%{box-shadow:0 5px 24px rgba(233,155,179,.38)}
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    padding:54px 18px 28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    background-image:
+        linear-gradient(to bottom,rgba(255,255,255,.04),rgba(255,255,255,.12)),
+        url("assets/hero.png");
+    background-size:cover;
+    background-position:center;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to bottom,
+        rgba(255,255,255,0) 48%,
+        rgba(255,255,255,.18) 70%,
+        rgba(255,255,255,.88) 100%
+    );
+    z-index:0;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    padding:0 8px 8px;
+}
+
+.hero-kicker{
+  font-size: 15px;
+    letter-spacing: 2px;
+    color: var(--pink);
+    margin-bottom: 8px;
+    font-weight: 500;
+    margin-top: 19px;
+}
+
+.hero-title{
+    font-family:"Great Vibes",cursive;
+    font-size:64px;
+    line-height:1;
+    font-weight:400;
+    color:var(--pink);
+    margin:30px 0 15px;
+}
+
+.hero-subtitle{
+    font-size:16px;
+    color:var(--text);
+    line-height:1.7;
+}
+
+.hero-date{
+    margin:14px auto 0;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:8px 15px;
+    border:1px solid var(--pink-line);
+    border-radius:30px;
+    background:rgba(255,255,255,.9);
+    font-family:"Montserrat",sans-serif;
+    font-size:16px;
+    color:var(--text);
+}
+
+.hero-date span{color:var(--pink)}
+
+.baby-photo{
+      width: 270px;
+    height: 260px;
+    border-radius:50%;
+    overflow:hidden;
+    margin:17px auto 0;
+    border:5px solid rgba(255,255,255,.96);
+    box-shadow:0 8px 28px rgba(110,80,90,.16);
+    margin-top: 115px;
+}
+.baby-photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* HEADINGS */
+.section-title{
+    text-align:center;
+    font-size:22px;
+    line-height:1.45;
+    font-weight:500;
+    color:var(--pink);
+    margin-bottom:15px;
+}
+.section-title::after{
+    content:"";
+    display:block;
+    width:38px;
+    height:1px;
+    background:var(--pink-line);
+    margin:9px auto 0;
+}
+
+/* DETAILS */
+.details{
+    padding-top:18px;
+}
+.details-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+.detail{
+    padding:18px 10px;
+    text-align:center;
+}
+.icon{
+    width:38px;
+    height:38px;
+    margin:0 auto 8px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--pink-soft);
+    color:var(--pink);
+    font-size:18px;
+}
+.detail-label{
+    font-family:"Montserrat",sans-serif;
+    font-size:10px;
+    letter-spacing:1px;
+    color:var(--muted);
+    margin-bottom:4px;
+}
+.detail-value{
+    color:var(--text);
+    font-size:13px;
+    line-height:1.55;
+}
+.detail-value strong{
+    color:var(--pink);
+    font-family:"Montserrat",sans-serif;
+    font-size:19px;
+    font-weight:500;
+}
+
+/* MESSAGE */
+.message{text-align:center}
+.message-card{
+    padding:25px 20px;
+}
+.message p{
+    font-size:14px;
+    line-height:2;
+    color:var(--text);
+}
+
+/* TIMELINE */
+.timeline-card{
+    padding:22px 18px;
+}
+.timeline-item{
+    display:grid;
+    grid-template-columns:46px 1fr;
+    gap:13px;
+    align-items:start;
+    position:relative;
+    padding-bottom:20px;
+}
+.timeline-item:last-child{padding-bottom:0}
+.timeline-item:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    left:22px;
+    top:43px;
+    width:1px;
+    height:calc(100% - 37px);
+    background:var(--pink-line);
+}
+.timeline-icon{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+   
+    color:var(--pink);
+    font-size:19px;
+    position:relative;
+    z-index:1;
+}
+.timeline-label{
+    font-family:"Montserrat",sans-serif;
+    font-size:15px;
+    letter-spacing:1px;
+    color:var(--pink);
+    margin:3px 0 4px;
+}
+.timeline-name{
+    font-size:15px;
+    color:var(--text);
+    line-height:1.6;
+}
+.timeline-time{
+    font-family:"Montserrat",sans-serif;
+    font-size:11px;
+    color:var(--muted);
+    margin-top:3px;
+}
+
+/* LOCATION */
+.location-card{
+    padding:23px 18px;
+    text-align:center;
+}
+.location{
+    margin-bottom:19px;
+}
+.location:last-child{margin-bottom:0}
+.location-icon{
+    width:43px;
+    height:43px;
+    margin:0 auto 9px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--pink-soft);
+    color:var(--pink);
+    font-size:20px;
+}
+.location h3{
+    font-size:15px;
+    font-weight:500;
+    color:var(--text);
+    line-height:1.55;
+    margin-bottom:4px;
+}
+.location p{
+    font-size:20px;
+    color:var(--muted);
+    line-height:1.7;
+}
+.map-btn{
+    display:inline-block;
+    margin-top:9px;
+    padding:8px 16px;
+    border:1px solid var(--pink-line);
+    border-radius:30px;
+    background:#fff;
+    color:var(--pink);
+    font-family:"Montserrat",sans-serif;
+    font-size:10px;
+}
+
+/* RSVP */
+.rsvp-card{padding:24px 18px}
+.rsvp-text{
+    text-align:center;
+    font-size:12px;
+    color:var(--muted);
+    line-height:1.8;
+    margin-bottom:16px;
+}
+.field{width:100%;margin-bottom:9px}
+.field input{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid #eadfe2;
+    border-radius:13px;
+    outline:none;
+    background:#fff;
+    color:var(--text);
+    font-size:13px;
+}
+.field input:focus{border-color:var(--pink)}
+.submit-btn{
+    width:100%;
+    padding:12px;
+    border:1px solid var(--pink-line);
+    border-radius:14px;
+    background:#fff;
+    color:var(--pink);
+    font-family:"Montserrat",sans-serif;
+    font-size:12px;
+    cursor:pointer;
+}
+
+/* GALLERY */
+/* =========================
+   GALLERY WITH CENTER BOW
+========================= */
+
+.baptism-gallery {
+    width: 100%;
+    max-width: 480px;
+    margin: 25px auto 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 175px 175px;
+
+    gap: 12px;
+
+    position: relative;
+
+    border: 4px double #c97892;
+    border-radius: 20px;
+}
+
+/* PHOTOS */
+
+.gallery-photo {
+    width: 100%;
+    height: 175px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    border: 1px solid var(--pink-line);
+
+    background: #faf6f7;
+
+    box-shadow:
+        0 6px 18px rgba(150,110,120,.08);
+}
+
+.gallery-photo img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform .4s ease;
+}
+
+.gallery-photo:hover img {
+    transform: scale(1.04);
+}
+
+
+/* =========================
+   CENTER BOW
+========================= */
+
+.gallery-bow {
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    transform: translate(-50%, -50%);
+
+    width: 145px;
+    height: 125px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+.gallery-bow img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+
+    filter: drop-shadow(
+        0 8px 12px rgba(150,100,115,.16)
+    );
+}
+
+/* MUSIC CARD */
+.music-player{
+    padding:14px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.music-icon{
+    width:43px;
+    height:43px;
+    border-radius:13px;
+    background:var(--pink-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--pink);
+    font-size:19px;
+}
+.music-info{flex:1}
+.music-info strong{
+    display:block;
+    font-size:12px;
+    color:var(--text);
+    margin-bottom:3px;
+}
+.music-info span{
+    font-family:"Montserrat",sans-serif;
+    font-size:9px;
+    color:var(--muted);
+}
+.music-control{
+    border:1px solid var(--pink-line);
+    width:39px;
+    height:39px;
+    border-radius:50%;
+    background:#fff;
+    color:var(--pink);
+    cursor:pointer;
+}
+
+/* FOOTER */
+.footer{
+    text-align:center;
+    padding:34px 20px 55px;
+}
+.footer-heart{
+    color:var(--pink);
+    font-size:18px;
+    margin-bottom:8px;
+}
+.footer-text{
+    font-family:"Great Vibes",cursive;
+    font-size:35px;
+    color:var(--pink);
+}
+.footer-small{
+    margin-top:7px;
+    font-family:"Montserrat",sans-serif;
+    font-size:9px;
+    color:var(--muted);
+}
+
+/* REVEAL */
+.reveal{
+    opacity:0;
+    transform:translateY(18px);
+    transition:opacity .7s ease,transform .7s ease;
+}
+.reveal.show{
+    opacity:1;
+    transform:none;
+}
+
+@media(max-width:380px){
+    .hero-title{font-size:56px}
+    .hero{min-height:94vh}
+    .gallery-item{height:145px}
+}
+
+/* =========================
+   RSVP SECTION
+========================= */
+
+.rsvp-section {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 80px 25px 90px;
+    text-align: center;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+/* Title */
+
+.rsvp-title {
+    margin: 0 auto 45px;
+    max-width: 620px;
+
+    font-family: "Cormorant Garamond", "Georgia", serif;
+    font-size: 30px;
+    line-height: 1.35;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+
+    color: #d98fa5;
+}
+
+/* Form */
+
+.rsvp-form {
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+/* Attendance question */
+
+.form-group-radio {
+    margin-bottom: 38px;
+}
+
+.question-label {
+    display: block;
+    margin-bottom: 22px;
+
+    font-family: "Cormorant Garamond", "Georgia", serif;
+    font-size: 21px;
+    line-height: 1.4;
+    color: #6f5960;
+}
+
+/* Radio options */
+
+.radio-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    flex-wrap: wrap;
+}
+
+.custom-radio {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    cursor: pointer;
+
+    font-family: "Cormorant Garamond", "Georgia", serif;
+    font-size: 18px;
+    color: #80666e;
+}
+
+/* Hide original radio */
+
+.custom-radio input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Outer circle */
+
+.radio-mark {
+    width: 20px;
+    height: 20px;
+
+    border: 1px solid #d9a0b0;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    transition: all 0.25s ease;
+}
+
+/* Inner circle */
+
+.radio-inner {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+    background: #d98fa5;
+
+    transform: scale(0);
+    transition: transform 0.25s ease;
+}
+
+/* Checked */
+
+.custom-radio input:checked + .radio-mark {
+    border-color: #d98fa5;
+}
+
+.custom-radio input:checked + .radio-mark .radio-inner {
+    transform: scale(1);
+}
+
+/* Hover */
+
+.custom-radio:hover .radio-mark {
+    border-color: #c97892;
+}
+
+.radio-label {
+    transition: color 0.25s ease;
+}
+
+.custom-radio:hover .radio-label {
+    color: #c97892;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+.form-group-input {
+    width: 100%;
+    margin-bottom: 28px;
+}
+
+.bottom-border-input {
+    width: 100%;
+    height: 52px;
+
+    padding: 8px 4px;
+
+    border: none;
+    border-bottom: 1px solid #e2b8c4;
+    outline: none;
+
+    background: transparent;
+
+    box-sizing: border-box;
+
+    font-family: "Cormorant Garamond", "Georgia", serif;
+    font-size: 19px;
+    color: #6f5960;
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.bottom-border-input::placeholder {
+    color: #b99da5;
+    opacity: 1;
+}
+
+.bottom-border-input:focus {
+    border-bottom-color: #d98fa5;
+    box-shadow: 0 2px 0 rgba(217, 143, 165, 0.12);
+}
+
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.rsvp-submit {
+    margin-top: 15px;
+
+    min-width: 190px;
+    padding: 14px 38px;
+
+    border: 1px solid #d98fa5;
+    border-radius: 30px;
+
+    background: #d98fa5;
+    color: #fff;
+
+    font-family: "Cormorant Garamond", "Georgia", serif;
+    font-size: 19px;
+    letter-spacing: 0.3px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.rsvp-submit:hover {
+    background: #fff;
+    color: #d98fa5;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 22px rgba(217, 143, 165, 0.18);
+}
+
+.rsvp-submit:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .rsvp-section {
+        padding: 65px 20px 75px;
+    }
+
+    .rsvp-title {
+        font-size: 25px;
+        margin-bottom: 38px;
+    }
+
+    .question-label {
+        font-size: 19px;
+    }
+
+    .radio-options {
+        gap: 18px 30px;
+    }
+
+    .custom-radio {
+        font-size: 17px;
+    }
+
+    .bottom-border-input {
+        font-size: 18px;
+    }
+
+    .rsvp-submit {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" id="musicBtn" aria-label="Երաժշտություն">♫</button>
+
+<main class="container">
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content reveal">
+          <div class="baby-photo">
+            <img src="assets/baby.png" alt="Մարիա">
+        </div>
+        <div class="hero-kicker">ՔՐԻՍՏՈՍԻ ԱՆՈՒՆՈՎ</div>
+        <div class="hero-title">Մարիա</div>
+        <div class="hero-subtitle">Սուրբ Մկրտության առիթով</div>
+
+        <div class="hero-date">
+            <span>♥</span>
+            16․12․2026&nbsp; • &nbsp;14:00
+        </div>
+
+      
+    </div>
+</section>
+
+<!-- DETAILS -->
+<section class="section details reveal">
+    <div class="">
+        <div class="detail soft-card">
+            <div class="icon">♡</div>
+           
+            <div class="detail-value">
+                <strong>16</strong><br>
+                ԴԵԿՏԵՄԲԵՐ<br>
+                2026
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MESSAGE -->
+<section class="section reveal">
+    <div class="soft-card message-card">
+        <h2 class="section-title">Սիրով հրավիրում ենք</h2>
+        <p>
+            Մեր փոքրիկ Մարիայի կյանքի այս
+            կարևոր և օրհնյալ օրը ցանկանում ենք
+            կիսել Ձեզ հետ։
+            <br><br>
+            Ձեր ներկայությունը մեր ուրախությունն
+            առավել ամբողջական կդարձնի։
+        </p>
+    </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section reveal">
+    <h2 class="section-title">Օրվա ծրագիրը</h2>
+
+    <div class="soft-card timeline-card">
+
+        <div class="timeline-item">
+            <div class="timeline-icon"><img src="assets/church.png" width="100%"></div>
+            <div>
+                <div class="timeline-label">14:00</div>
+                <div class="timeline-name">
+                    Սուրբ Մարիամ Աստվածածին եկեղեցի
+                </div>
+                <div class="timeline-time">Սուրբ Մկրտության արարողություն</div>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-icon"><img src="assets/restorant.png" width="100%"></div>
+            <div>
+                <div class="timeline-label">18:00</div>
+                <div class="timeline-name">Ռուբինա Հոլլ</div>
+                <div class="timeline-time">Տոնական ընդունելություն</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- GALLERY -->
+<!-- GALLERY -->
+<section class="section reveal">
+
+    <h2 class="section-title">Մարիայի գեղեցիկ օրը</h2>
+
+    <div class="baptism-gallery">
+
+        <div class="gallery-photo photo-1">
+            <img src="assets/dress.png" alt="Մկրտության զգեստ">
+        </div>
+
+        <div class="gallery-photo photo-2">
+            <img src="assets/cake.png" alt="Եկեղեցական ձևավորում">
+        </div>
+
+        <!-- CENTER BOW -->
+        <div class="gallery-bow">
+            <img src="assets/butterfly.png" alt="">
+        </div>
+
+        <div class="gallery-photo photo-3">
+            <img src="assets/candle.png" alt="Մկրտության մոմ">
+        </div>
+
+        <div class="gallery-photo photo-4">
+            <img src="assets/baptism-box.png" alt="Մկրտության դետալ">
+        </div>
+
+    </div>
+
+</section>
+<!-- LOCATION -->
+<section class="section reveal">
+    <div class="soft-card location-card">
+
+        <div class="location">
+         <img src="assets/church.png" width="100%">
+            <h3>Սուրբ Մարիամ Աստվածածին եկեղեցի</h3>
+            <p>16 Դեկտեմբեր · 14:00</p>
+            <a class="map-btn"
+               href="https://www.google.com/maps/search/?api=1&query=Սուրբ+Մարիամ+Աստվածածին+եկեղեցի"
+               target="_blank">
+                Տեսնել քարտեզում
+            </a>
+        </div>
+
+        <div class="location">
+            <img src="assets/restorant.png" width="100%">
+            <h3>Ռուբինա Հոլլ</h3>
+            <p>16 Դեկտեմբեր · 18:00</p>
+            <a class="map-btn"
+               href="https://www.google.com/maps/search/?api=1&query=Ռուբինա+Հոլլ"
+               target="_blank">
+                Տեսնել քարտեզում
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<!-- RSVP -->
+<section class="rsvp-section rsvp reveal"> <h2 class="rsvp-title">Խնդրում ենք Նախապես Հաստատեք Ձեր Ներկայությունը մինչև 01.12.2026</h2> <form id="template-rsvp-form" class="rsvp-form"> <div class="form-group-radio"> <label class="question-label">Կկարողանա՞ք ներկա գտնվել միջոցառմանը</label> <div class="radio-options"> <label class="custom-radio"> <input type="radio" name="attendance" value="yes" checked=""> <span class="radio-mark"> <span class="radio-inner"></span> </span> <span class="radio-label">Այո, իհարկե</span> </label> <label class="custom-radio"> <input type="radio" name="attendance" value="no"> <span class="radio-mark"> <span class="radio-inner"></span> </span> <span class="radio-label">Ցավոք, ոչ</span> </label> </div> </div> <div class="form-group-input"> <input type="text" name="guest_name" placeholder="Անուն Ազգանուն" required="" class="bottom-border-input"> </div> <div class="form-group-input"> <input type="text" name="guest_count" placeholder="Հյուրերի թիվ" class="bottom-border-input"> </div> <button type="submit" class="rsvp-submit">Ուղարկել</button> </form> </section>
+
+
+
+<!-- MUSIC -->
+<section class="section reveal">
+    <div class="soft-card music-player">
+        <div class="music-icon">♫</div>
+
+        <div class="music-info">
+            <strong>Մարիայի գեղեցիկ օրը</strong>
+            <span>Երաժշտություն</span>
+        </div>
+
+        <button class="music-control" id="musicControl">▶</button>
+    </div>
+</section>
+
+<footer class="footer reveal">
+    <div class="footer-heart">♥</div>
+    <div class="footer-text">Սպասում ենք Ձեզ սիրով</div>
+    <div class="footer-small">
+        Մարիայի Սուրբ Մկրտություն · 16․12․2026
+    </div>
+</footer>
+
+</main>
+
+<script>
+const music = document.getElementById("music");
+const musicBtn = document.getElementById("musicBtn");
+const musicControl = document.getElementById("musicControl");
+let playing = false;
+
+function updateMusicUI(){
+    musicBtn.innerHTML = playing ? "Ⅱ" : "♫";
+    musicControl.innerHTML = playing ? "Ⅱ" : "▶";
+    musicBtn.classList.toggle("playing", playing);
+}
+
+function toggleMusic(){
+    if(playing){
+        music.pause();
+        playing = false;
+        updateMusicUI();
+        return;
+    }
+
+    music.play().then(() => {
+        playing = true;
+        updateMusicUI();
+    }).catch(() => {});
+}
+
+musicBtn.addEventListener("click", toggleMusic);
+musicControl.addEventListener("click", toggleMusic);
+
+// AUTO START MUSIC ON FIRST USER INTERACTION
+let musicStarted = false;
+
+function startMusicOnInteraction() {
+    if (musicStarted || playing) return;
+
+    music.play().then(() => {
+        playing = true;
+        musicStarted = true;
+        updateMusicUI();
+
+        // Remove listeners after music starts
+        removeMusicListeners();
+
+    }).catch(() => {
+        // Browser may block autoplay until another user interaction
+    });
+}
+
+function removeMusicListeners() {
+    document.removeEventListener("touchstart", startMusicOnInteraction);
+    document.removeEventListener("pointerdown", startMusicOnInteraction);
+    document.removeEventListener("wheel", startMusicOnInteraction);
+    document.removeEventListener("scroll", startMusicOnInteraction);
+    document.removeEventListener("keydown", startMusicOnInteraction);
+}
+
+// Mobile touch
+document.addEventListener(
+    "touchstart",
+    startMusicOnInteraction,
+    { passive: true }
+);
+
+// Desktop mouse / touch
+document.addEventListener(
+    "pointerdown",
+    startMusicOnInteraction,
+    { passive: true }
+);
+
+// Mouse wheel / scroll
+document.addEventListener(
+    "wheel",
+    startMusicOnInteraction,
+    { passive: true }
+);
+
+// Scroll
+document.addEventListener(
+    "scroll",
+    startMusicOnInteraction,
+    { passive: true }
+);
+
+// Keyboard
+document.addEventListener(
+    "keydown",
+    startMusicOnInteraction
+);
+
+
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+        }
+    });
+}, {threshold:0.08});
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

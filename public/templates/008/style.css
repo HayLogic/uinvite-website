@@ -1,0 +1,647 @@
+@font-face {
+    font-family: 'SHK Dzeragir';
+    src: url('fonts/SHK_Dzeragir.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+}
+
+.template-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background: url('assets/template-bg.webp');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 1000px;
+    overflow: visible;
+    /* Allow sections to be positioned below */
+    /* Fallback */
+}
+
+.hero-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Header Group Styles */
+.header-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 50px;
+    position: absolute;
+    width: 789px;
+    height: 224px;
+    left: calc(50% - 789px/2 + 0.5px);
+    top: 20px;
+    z-index: 10;
+}
+
+.top-icon {
+    width: 170px;
+    height: 92.48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.main-title {
+    width: 789px;
+    height: 82px;
+    font-family: 'SHK Dzeragir', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 82px;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    justify-content: center;
+    color: #C1975D;
+}
+
+/* Photo Section Styles */
+.photo-section {
+    position: absolute;
+    width: 553px;
+    height: 564px;
+    left: calc(50% - 553px/2 - 1.5px);
+    /* Centered based on Figma logic */
+    top: 238px;
+    z-index: 5;
+}
+
+.photo-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.photo-border {
+    position: absolute;
+    width: 553px;
+    height: 564px;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+
+.photo-border img {
+    width: 100%;
+    height: 100%;
+}
+
+.photo-wrapper {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    left: calc(50% - 500px/2 - 2px);
+    top: 29px;
+    /* 267px absolute - 238px parent = 29px */
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.photo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Footer Group Styles */
+.footer-group {
+    position: absolute;
+    width: 417px;
+    height: 150px;
+    /* Estimated to contain date and icon */
+    left: calc(50% - 417px/2 + 0.5px);
+    top: 842px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+    gap: 20px;
+}
+
+.date-text {
+    width: 417px;
+    height: 82px;
+    font-family: 'SHK Dzeragir', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 82px;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    justify-content: center;
+    color: #C1975D;
+}
+
+.bottom-icon {
+    width: 260px;
+    height: auto;
+}
+
+.bottom-icon img {
+    width: 100%;
+}
+
+/* Invitation Text Section Styles */
+.invitation-text-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 30px;
+    position: relative;
+    width: 1280px;
+    height: 172px;
+    margin-top: 64px;
+    /* 1064px (target) - 1000px (hero height) */
+    z-index: 10;
+}
+
+.invitation-title {
+    width: 1280px;
+    height: 61px;
+    font-family: 'SHK Dzeragir', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 61px;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    justify-content: center;
+    color: #C1975D;
+}
+
+.invitation-description {
+    width: 1280px;
+    height: 81px;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    color: #777777;
+}
+
+/* Events Section Styles */
+.events-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 30px;
+    position: relative;
+    width: 796px;
+    height: auto;
+    /* Let it grow naturally */
+    margin-top: 70px;
+    /* 1306px (target) - 1064px (inv start) - 172px (inv height) */
+    z-index: 10;
+    margin-bottom: 0;
+    /* Add some spacing at the bottom before the order form */
+}
+
+.event-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 40px;
+    width: 796px;
+}
+
+.event-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 30px;
+    width: 796px;
+}
+
+.event-time,
+.event-venue {
+    width: 100%;
+    height: 61px;
+    font-family: 'SHK Dzeragir', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 61px;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    justify-content: center;
+    color: #C1975D;
+}
+
+.event-image {
+    width: 796px;
+    height: 473px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* RSVP Section Styles */
+.rsvp-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 50px;
+    position: relative;
+    width: 796px;
+    height: auto;
+    margin-top: 70px;
+    /* 2726px (target) - 1306px (events start) - length of events approx */
+    z-index: 10;
+    margin-bottom: 20px;
+}
+
+.rsvp-title {
+    width: 796px;
+    height: 122px;
+    font-family: 'SHK Dzeragir', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 61px;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    justify-content: center;
+    color: #C1975D;
+}
+
+.rsvp-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 40px;
+    width: 796px;
+}
+
+.form-group-radio {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 24px;
+    width: 796px;
+}
+
+.question-label {
+    width: 100%;
+    height: 27px;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: 20px;
+    line-height: 27px;
+    color: #777777;
+}
+
+.radio-options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 20px;
+}
+
+.custom-radio {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 14px;
+    cursor: pointer;
+    position: relative;
+}
+
+.custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-mark {
+    width: 29px;
+    height: 29px;
+    border: 2px solid #C1975D;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.radio-inner {
+    width: 17px;
+    height: 17px;
+    background: #C1975D;
+    border-radius: 50%;
+    display: none;
+}
+
+.custom-radio input:checked~.radio-mark .radio-inner {
+    display: block;
+}
+
+.radio-label {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: 20px;
+    line-height: 27px;
+    color: #777777;
+}
+
+.form-group-input {
+    width: 796px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.bottom-border-input {
+    width: 100%;
+    height: 47px;
+    border: none;
+    border-bottom: 1px solid #777777;
+    background: transparent;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: 20px;
+    color: #777777;
+    outline: none;
+}
+
+.bottom-border-input::placeholder {
+    color: #777777;
+}
+
+.rsvp-submit {
+    width: 840px;
+    height: 61px;
+    background: #DAC19E;
+    border-radius: 84px;
+    border: none;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: 22px;
+    line-height: 30px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+}
+
+.rsvp-submit:hover {
+    opacity: 0.9;
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+    .template-wrapper {
+        min-height: auto;
+    }
+
+    .hero {
+        height: 700px;
+        overflow: visible;
+    }
+
+    .header-group {
+        width: 237px;
+        height: 116px;
+        left: calc(50% - 237px/2);
+        top: 20px;
+        gap: 20px;
+    }
+
+    .top-icon {
+        width: 120px;
+        height: 65.28px;
+    }
+
+    .main-title {
+        width: 237px;
+        height: 31px;
+        font-size: 30px;
+        line-height: 31px;
+    }
+
+    .photo-section {
+        width: 313.76px;
+        height: 320px;
+        left: calc(50% - 313.76px/2 - 4.62px);
+        top: 179px;
+    }
+
+    .photo-border {
+        width: 313.76px;
+        height: 320px;
+    }
+
+    .photo-wrapper {
+        width: 262.28px;
+        height: 262.28px;
+        left: calc(50% - 262.28px/2 - 4.14px);
+        top: 22.26px;
+        /* 201.26px absolute - 179px parent = 22.26px */
+    }
+
+    .footer-group {
+        width: 190px;
+        height: 90px;
+        left: calc(50% - 190px/2 + 0.5px);
+        top: 556px;
+        gap: 20px;
+    }
+
+    .date-text {
+        width: 190px;
+        height: 33px;
+        font-size: 32px;
+        line-height: 33px;
+    }
+
+    .bottom-icon {
+        width: 190px;
+        height: 36.54px;
+    }
+
+    /* Mobile Invitation Text */
+    .invitation-text-section {
+        width: 335px;
+        height: auto;
+        margin-top: 20px;
+        /* Adjusted for mobile top 706 - hero 700 */
+    }
+
+    .invitation-title {
+        width: 335px;
+        height: 66px;
+        font-size: 32px;
+        line-height: 33px;
+    }
+
+    .invitation-description {
+        width: 335px;
+        height: 206px;
+        font-size: 18px;
+        line-height: 25px;
+    }
+
+    /* Mobile Events Section */
+    .events-section {
+        width: 335px;
+        height: auto;
+        margin-top: 60px;
+        /* Adjusted for mobile top 1068 - inv top 706 - inv height 302 */
+        gap: 40px;
+    }
+
+    .event-item {
+        width: 335px;
+        height: auto;
+        gap: 20px;
+    }
+
+    .event-info {
+        width: 335px;
+        height: 86px;
+        gap: 20px;
+    }
+
+    .event-time,
+    .event-venue {
+        width: auto;
+        height: 33px;
+        font-size: 32px;
+        line-height: 33px;
+    }
+
+    .event-image {
+        width: 335px;
+        height: 236px;
+    }
+
+    /* Mobile RSVP Section */
+    .rsvp-section {
+        width: 335px;
+        height: auto;
+        margin-top: 60px;
+        gap: 40px;
+    }
+
+    .rsvp-title {
+        width: 335px;
+        height: 132px;
+        font-size: 32px;
+        line-height: 33px;
+    }
+
+    .rsvp-form {
+        width: 335px;
+        gap: 40px;
+    }
+
+    .form-group-radio {
+        width: 335px;
+        height: 140px;
+        gap: 24px;
+    }
+
+    .question-label {
+        width: 335px;
+        height: 50px;
+        font-size: 18px;
+        line-height: 25px;
+    }
+
+    .radio-options {
+        gap: 14px;
+    }
+
+    .radio-mark {
+        width: 26px;
+        height: 26px;
+    }
+
+    .radio-inner {
+        width: 14px;
+        height: 14px;
+    }
+
+    .radio-label {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .form-group-input {
+        width: 335px;
+        gap: 16px;
+    }
+
+    .bottom-border-input {
+        height: 38px;
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .rsvp-submit {
+        width: 335px;
+        height: 50px;
+        background: #C8A26E;
+        font-size: 18px;
+        line-height: 24px;
+    }
+}

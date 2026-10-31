@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Autumn Design Gala — Հրավեր</title>
+  <meta name="description" content="The Autumn Design Gala-ի հրավեր՝ դիզայներների, ճարտարապետների և ստեղծագործ առաջնորդների ամենամյա միջոցառումը: 15 նոյեմբերի, 2026, Երևան:" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Autumn Design Gala — Հրավեր" />
+  <meta property="og:description" content="Ամենամյա միջոցառում, որը միավորում է դիզայներներին և ճարտարապետներին: 15 նոյեմբերի, 2026, Երևան:" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/hero-bg.webp" />
+
+  <link rel="icon" href="public/favicon.ico" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Cursor glow effect (desktop) -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- ==================== FLOATING NAV ==================== -->
+  <nav class="floating-nav" id="floatingNav">
+    <a href="#about">Մեր մասին</a>
+    <a href="#program">Ծրագիր</a>
+    <a href="#location">Վայրը</a>
+    <a href="#gallery">Պատկերասրահ</a>
+    <a href="#rsvp">RSVP</a>
+  </nav>
+
+  <main>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero">
+      <!-- Background -->
+      <div class="hero__bg">
+        <img src="assets/hero-bg.webp" alt="The Autumn Design Gala" />
+        <div class="hero__bg-overlay"></div>
+      </div>
+
+      <!-- Floating particles -->
+      <div class="hero__particles" id="heroParticles"></div>
+
+      <!-- Content -->
+      <div class="hero__content">
+        <div class="hero__line"></div>
+
+        <p class="hero__label">Հրավեր</p>
+
+        <div class="hero__title-wrap">
+          <h1 class="hero__title hero__title--line1">Աշնանային</h1>
+        </div>
+        <div class="hero__title-wrap">
+          <h1 class="hero__title hero__title--line2">Դիզայն Գալա</h1>
+        </div>
+
+        <p class="hero__date">15 նոյեմբերի, 2026 · 18:00 · Երևան</p>
+
+        <!-- Countdown -->
+        <div class="hero__countdown" id="countdown">
+          <div class="countdown__item">
+            <span class="countdown__number" id="countDays">---</span>
+            <span class="countdown__label">օր</span>
+          </div>
+          <div class="countdown__item">
+            <span class="countdown__number" id="countHours">--</span>
+            <span class="countdown__label">ժամ</span>
+          </div>
+          <div class="countdown__item">
+            <span class="countdown__number" id="countMinutes">--</span>
+            <span class="countdown__label">րոպե</span>
+          </div>
+          <div class="countdown__item">
+            <span class="countdown__number" id="countSeconds">--</span>
+            <span class="countdown__label">վայրկյան</span>
+          </div>
+        </div>
+
+        <div class="hero__cta">
+          <a href="#rsvp" class="btn-primary"><span>Հաստատել մասնակցությունը</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section class="section" id="about">
+      <div class="section__container">
+        <div class="about__grid">
+          <!-- Image -->
+          <div class="about__image-wrap reveal-left">
+            <img src="assets/about.webp" alt="Միջոցառման վայրը" />
+          </div>
+          <!-- Text -->
+          <div>
+            <span class="about__badge reveal delay-1">Միջոցառման մասին</span>
+            <h2 class="about__title reveal delay-2">
+              Դիզայնի և ճարտարապետության<br />գեղեցկությանը նվիրված երեկո
+            </h2>
+            <p class="about__text reveal delay-3">
+              The Autumn Design Gala-ն ամենամյա միջոցառում է, որը միավորում է դիզայներների,
+              ճարտարապետների և ստեղծագործ առաջնորդներին՝ գաղափարների և ոգեշնչման փոխանակման համար:
+              Ծրագրում՝ խոսնակների ելույթներ, ինտերակտիվ ինստալյացիաներ և ընթրիք աշնանային բնության գրկում:
+            </p>
+            <p class="about__text reveal delay-4">
+              Այս տարվա թեման է՝ <span>«Ձևի բնությունը»</span>.
+              ինչպես են օրգանական ձևերն ազդում ժամանակակից դիզայնի վրա:
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ==================== TIMELINE ==================== -->
+    <section class="section" id="program">
+      <div class="section__container">
+        <p class="section__label reveal-left">Ծրագիր</p>
+        <h2 class="section__title reveal-left delay-1">Երեկոյի ժամանակացույցը</h2>
+
+        <div class="timeline" style="margin-top: 3rem;">
+          <div class="timeline__track" id="timelineTrack"></div>
+          <ul class="timeline__list">
+
+            <li class="timeline__item reveal-left">
+              <span class="timeline__time">18:00</span>
+              <div class="timeline__dot-wrap"><div class="timeline__dot"></div></div>
+              <div class="timeline__info">
+                <h3>Ողջույնի կոկտեյլ</h3>
+                <p>Հյուրերի գրանցում և ծանոթություն</p>
+              </div>
+            </li>
+
+            <li class="timeline__item reveal-left delay-1">
+              <span class="timeline__time">18:45</span>
+              <div class="timeline__dot-wrap"><div class="timeline__dot"></div></div>
+              <div class="timeline__info">
+                <h3>Գալայի բացում</h3>
+                <p>Կազմակերպիչների ողջույնի խոսք</p>
+              </div>
+            </li>
+
+            <li class="timeline__item reveal-left delay-2">
+              <span class="timeline__time">19:00</span>
+              <div class="timeline__dot-wrap"><div class="timeline__dot"></div></div>
+              <div class="timeline__info">
+                <h3>Keynote՝ «Ձևի բնությունը»</h3>
+                <p>Բնության և դիզայնի կապի մասին հիմնական զեկույցը</p>
+              </div>
+            </li>
+
+            <li class="timeline__item reveal-left delay-3">
+              <span class="timeline__time">19:45</span>
+              <div class="timeline__dot-wrap"><div class="timeline__dot"></div></div>
+              <div class="timeline__info">
+                <h3>Պանելային քննարկում</h3>
+                <p>Առաջատար ճարտարապետների և դիզայներների երկխոսություն</p>
+              </div>
+            </li>
+
+            <li class="timeline__item reveal-left delay-4">
+              <span class="timeline__time">20:30</span>
+              <div class="timeline__dot-wrap"><div class="timeline__dot"></div></div>
+              <div class="timeline__info">
+                <h3>Ինտերակտիվ ինստալյացիաներ</h3>
+                <p>Ազատ ժամանակ ցուցադրությունները դիտելու համար</p>
+              </div>
+            </li>
+
+            <li class="timeline__item reveal-left delay-5">
+              <span class="timeline__time">21:00</span>
+              <div class="timeline__dot-wrap"><div class="timeline__dot"></div></div>
+              <div class="timeline__info">
+                <h3>Հանդիսավոր ընթրիք</h3>
+                <p>Շեֆ-խոհարարի հեղինակային մենյուն</p>
+              </div>
+            </li>
+
+            <li class="timeline__item reveal-left delay-6">
+              <span class="timeline__time">22:30</span>
+              <div class="timeline__dot-wrap"><div class="timeline__dot"></div></div>
+              <div class="timeline__info">
+                <h3>Երեկոյի ավարտ</h3>
+                <p>Երաժշտություն և շփում</p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ==================== LOCATION ==================== -->
+    <section class="section" id="location">
+      <div class="section__container">
+        <p class="section__label reveal">Վայրը</p>
+        <h2 class="section__title reveal delay-1">Ինչպես գտնել մեզ</h2>
+
+        <div class="location__grid">
+          <div class="location__info reveal-left delay-2">
+            <h3>«Արարատ Հոլ»</h3>
+            <p>
+              Հանրապետության փողոց, 10<br />
+              Երևան, 0010<br />
+              Հայաստան
+            </p>
+            <p class="small">
+              5 րոպե քայլելու ճանապարհ Հանրապետության հրապարակից:<br />
+              Առկա է կայանատեղի հյուրերի համար.
+            </p>
+          </div>
+          <div class="location__map-wrap reveal-right delay-3">
+            <iframe
+              title="Карта"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2244.3970!2d37.5847!3d55.7762!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTXCsDQ2JzM0LjMiTiAzN8KwMzUnMDQuOSJF!5e0!3m2!1sru!2sru!4v1"
+              width="100%"
+              height="300"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ==================== GALLERY ==================== -->
+    <section class="section" id="gallery">
+      <div class="section__container">
+        <p class="section__label reveal">Պատկերասրահ</p>
+        <h2 class="section__title reveal delay-1">Անցած տարիների պահերը</h2>
+
+        <div class="gallery__grid">
+          <div class="gallery__item reveal-scale delay-1">
+            <img src="assets/gallery-1.webp" alt="Ընդունելությունների սրահ" loading="lazy" />
+            <div class="gallery__overlay"><span class="gallery__caption">Ընդունելությունների սրահ</span></div>
+          </div>
+          <div class="gallery__item reveal-scale delay-2">
+            <img src="assets/gallery-2.webp" alt="Անցյալ տարվա Gala" loading="lazy" />
+            <div class="gallery__overlay"><span class="gallery__caption">Անցյալ տարվա Gala</span></div>
+          </div>
+          <div class="gallery__item reveal-scale delay-3">
+            <img src="assets/gallery-3.webp" alt="Երեկոյան մթնոլորտ" loading="lazy" />
+            <div class="gallery__overlay"><span class="gallery__caption">Երեկոյան մթնոլորտ</span></div>
+          </div>
+          <div class="gallery__item reveal-scale delay-4">
+            <img src="assets/gallery-4.webp" alt="Ինտերակտիվ ինստալյացիաներ" loading="lazy" />
+            <div class="gallery__overlay"><span class="gallery__caption">Ինտերակտիվ ինստալյացիաներ</span></div>
+          </div>
+          <div class="gallery__item reveal-scale delay-5">
+            <img src="assets/gallery-5.webp" alt="Կապերի հաստատում" loading="lazy" />
+            <div class="gallery__overlay"><span class="gallery__caption">Կապերի հաստատում</span></div>
+          </div>
+          <div class="gallery__item reveal-scale delay-6">
+            <img src="assets/gallery-6.webp" alt="Տոնական ընթրիք" loading="lazy" />
+            <div class="gallery__overlay"><span class="gallery__caption">Տոնական ընթրիք</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ==================== RSVP ==================== -->
+    <section class="section rsvp" id="rsvp">
+      <div class="rsvp__container">
+
+        <!-- Form state -->
+        <div id="rsvpForm" class="reveal">
+          <p class="section__label">RSVP</p>
+          <h2 class="section__title">Հաստատեք մասնակցությունը</h2>
+          <p class="about__text" style="text-align:center; margin: 0 auto 1rem;">
+            Լրացրեք ստորև ներկայացված ձևը՝ ձեր մասնակցությունը հաստատելու համար:
+          </p>
+
+          <form class="rsvp__form" id="rsvpFormEl" novalidate>
+            <div class="input-group reveal delay-2">
+              <input type="text" id="rsvpName" placeholder=" " required autocomplete="name" />
+              <label for="rsvpName">Ձեր անունը</label>
+              <div class="input-line"></div>
+            </div>
+            <div class="input-group reveal delay-3">
+              <input type="email" id="rsvpEmail" placeholder=" " required autocomplete="email" />
+              <label for="rsvpEmail">Email</label>
+              <div class="input-line"></div>
+            </div>
+            <div class="rsvp__submit reveal delay-4">
+              <button type="submit" class="btn-primary"><span>Հաստատել</span></button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Success state -->
+        <div class="rsvp__success" id="rsvpSuccess">
+          <div class="rsvp__success-icon">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+              <path class="check-path" d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h2 id="rsvpSuccessName">Կհանդիպենք:</h2>
+          <p id="rsvpSuccessEmail"></p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="footer__container reveal">
+      <div class="footer__brand">
+        <p>The Autumn Design Gala</p>
+        <p>15 նոյեմբերի, 2026 · Երևան</p>
+      </div>
+      <div class="footer__right">
+        <div class="footer__contacts">
+          <p class="label">Կոնտակտներ</p>
+          <p>+7 (495) 123-45-67</p>
+          <p>hello@designgala.ru</p>
+        </div>
+        <div class="footer__socials">
+          <a href="#" aria-label="Telegram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.2 4.6L2.4 11.1c-.6.2-.6.6 0 .8l4.6 1.7 1.8 5.7c.2.5.7.5 1 .2l2.6-2.1 5.1 3.8c.5.4 1 .2 1.1-.4L21.8 5.5c.2-.7-.3-1.1-.6-.9z"/>
+              <path d="M8.8 13.6l9.5-7.3"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="5"/>
+              <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

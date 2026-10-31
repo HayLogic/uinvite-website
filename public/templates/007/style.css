@@ -1,0 +1,875 @@
+@font-face {
+    font-family: 'ArmAllegroU';
+    src: url('fonts/ArmAllegroU.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'SHK Dzeragir';
+    src: url('fonts/SHK_Dzeragir.otf') format('opentype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 841px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('assets/hero-bg.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.hero-frame {
+    position: relative;
+    width: 1440px;
+    height: 841px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.names-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 100%;
+    max-width: 1200px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+.name-armen,
+.name-anahit,
+.ampersand {
+    font-family: 'ArmAllegroU';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 170px;
+    line-height: 1;
+    text-align: center;
+    color: #FFFFFF;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-armen {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.ampersand {
+    grid-row: 2;
+    grid-column: 2;
+}
+
+.name-anahit {
+    grid-row: 3;
+    grid-column: 3;
+}
+
+/* Music Toggle Button */
+.start-button-container {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.music-toggle-btn {
+    width: 70px;
+    height: 70px;
+    background: #FFFFFF;
+    border: 2px solid #F14965;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(241, 73, 101, 0.3);
+    color: #F14965;
+    padding: 0;
+}
+
+.music-toggle-btn:hover {
+    background-color: #FDEDF0;
+    transform: scale(1.1);
+}
+
+.music-toggle-btn .play-icon,
+.music-toggle-btn .pause-icon {
+    line-height: 0;
+}
+
+.music-toggle-btn.is-playing {
+    animation: pulse-music 2s infinite;
+}
+
+@keyframes pulse-music {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Base adjustment for smaller screens while keeping the design intent */
+/* Invitation Section */
+.invitation {
+    padding: 100px 0 50px;
+    background-color: #FFFFFF;
+}
+
+.content-wrapper {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.shadow-title,
+.main-title {
+    font-family: 'SHK Dzeragir';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: normal;
+    text-align: center;
+}
+
+.shadow-title {
+    color: rgba(90, 90, 90, 0.11);
+    position: absolute;
+    top: -16px;
+    width: 100%;
+}
+
+.main-title {
+    color: #5A5A5A;
+    position: relative;
+    z-index: 1;
+}
+
+.invitation-text {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    color: #777777;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* Save the Date Section */
+.save-the-date {
+    background-color: #FFFFFF;
+    padding: 50px 0 100px;
+    padding-bottom: 0;
+}
+
+.split-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    /* Stretch to align heights */
+    gap: 80px;
+}
+
+.photo-container {
+    flex: 0 0 637px;
+}
+
+.day-photo {
+    width: 100%;
+    height: 100%;
+    /* Fill container height */
+    object-fit: cover;
+    filter: drop-shadow(0px 0px 44px rgba(0, 0, 0, 0.16));
+    border-radius: 4px;
+    display: block;
+}
+
+.calendar-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Distribute space if needed, though stretch usually suffices */
+    align-items: center;
+    /* Preserve horizontal centering */
+}
+
+.calendar-container {
+    width: 100%;
+    max-width: 563px;
+    margin-top: 0;
+    /* Remove margin to allow precise alignment */
+}
+
+.month-title {
+    font-family: 'SHK Dzeragir';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 37px;
+    text-align: center;
+    color: #5A5A5A;
+    margin-bottom: 30px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 24px 0;
+    text-align: center;
+}
+
+.day-label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: #5A5A5A;
+    margin-bottom: 10px;
+}
+
+.day {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    color: #5A5A5A;
+    padding: 5px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.day.marked {
+    color: #FFFFFF;
+    z-index: 1;
+}
+
+.heart-icon {
+    position: absolute;
+    width: 60px;
+    height: 52px;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Countdown Section */
+.countdown-section {
+    padding: 100px 0;
+    background-color: #FFFFFF;
+}
+
+.countdown-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.countdown-unit .number {
+    font-family: 'SHK Dzeragir';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: normal;
+    text-align: center;
+    color: #5A5A5A;
+}
+
+.countdown-unit .label {
+    font-family: 'SHK Dzeragir';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: normal;
+    text-align: center;
+    color: #F14965;
+}
+
+.countdown-separator {
+    font-family: 'SHK Dzeragir';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: normal;
+    text-align: center;
+    color: #5A5A5A;
+    margin-bottom: 50px;
+    /* Align with numbers visually */
+}
+
+/* Timeline Section */
+.timeline-section {
+    padding: 100px 0;
+    background-color: #FFFFFF;
+}
+
+.timeline-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 135px;
+    margin-top: 50px;
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 200px;
+}
+
+.event-icon {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+.event-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.event-time {
+    font-family: 'SHK Dzeragir';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: normal;
+    color: #5A5A5A;
+}
+
+.event-label {
+    font-family: 'SHK Dzeragir';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: normal;
+    color: #F14965;
+}
+
+.event-location {
+    font-family: 'SHK Dzeragir';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.1;
+    color: #5A5A5A;
+    color: #5A5A5A;
+}
+
+/* Map Section */
+.map-section {
+    padding: 50px 0 100px;
+    background-color: #FFFFFF;
+}
+
+.map-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.map-item {
+    flex: 1;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.map-title {
+    font-family: 'SHK Dzeragir';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: normal;
+    color: #F14965;
+    text-align: center;
+}
+
+.event-map {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(241, 73, 101, 0.2);
+    border: 2px solid #F14965;
+}
+
+.event-map iframe {
+    width: 100%;
+    height: 350px;
+    display: block;
+}
+
+/* RSVP Section */
+.rsvp-section {
+    padding: 100px 0;
+    background-color: #FFFFFF;
+}
+
+.form-photo {
+    width: 637px;
+    height: 686px;
+    object-fit: cover;
+    filter: drop-shadow(0px 0px 44px rgba(0, 0, 0, 0.11));
+    border-radius: 4px;
+}
+
+.form-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 583px;
+}
+
+.rsvp-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.rsvp-options-grid {
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    justify-content: space-between;
+}
+
+.options-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Custom Radio Styling */
+.custom-radio {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    position: relative;
+}
+
+.custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-mark {
+    height: 29px;
+    width: 29px;
+    border: 2px solid #F14965;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.radio-mark::after {
+    content: "";
+    display: none;
+    width: 17px;
+    height: 17px;
+    background: #F14965;
+    border-radius: 50%;
+}
+
+.custom-radio input:checked~.radio-mark::after {
+    display: block;
+}
+
+.radio-label {
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: 20px;
+    color: #5A5A5A;
+}
+
+/* Input Fields */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form-field {
+    width: 100%;
+    position: relative;
+}
+
+.form-field input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #5A5A5A;
+    padding: 10px 0;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: 20px;
+    color: #5A5A5A;
+    background: transparent;
+    outline: none;
+}
+
+.form-field input::placeholder {
+    color: #5A5A5A;
+}
+
+.submit-button {
+    width: 100%;
+    height: 61px;
+    border: 1px solid #F14965;
+    border-radius: 4px;
+    background: transparent;
+    color: #F14965;
+    font-family: 'Noto Sans Armenian', sans-serif;
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit-button:hover {
+    background-color: #F14965;
+    color: #FFFFFF;
+}
+
+/* Mobile Responsiveness Updates */
+@media (max-width: 1440px) {
+    .hero {
+        height: 841px;
+    }
+
+    .hero-frame {
+        width: 100%;
+        transform: scale(calc(100vw / 1440));
+        transform-origin: center;
+    }
+}
+
+@media (max-width: 1200px) {
+    .split-layout {
+        gap: 40px;
+    }
+
+    .photo-container {
+        flex: 0 0 500px;
+    }
+
+    .day-photo {
+        width: 100%;
+        height: auto;
+    }
+
+    .timeline-grid {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .split-layout {
+        flex-direction: column;
+        gap: 50px;
+        align-items: center;
+    }
+
+    .photo-container {
+        flex: none;
+        width: 100%;
+        max-width: 637px;
+    }
+
+    .form-wrapper {
+        width: 100%;
+        max-width: 583px;
+    }
+
+    .map-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 280px;
+        min-height: auto;
+        align-items: center;
+        background-position: 25% center;
+    }
+
+    .hero-frame {
+        width: 100%;
+        max-width: 375px;
+        height: 280px;
+        transform: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .names-group {
+        width: 90%;
+        height: 180px;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    .name-armen,
+    .name-anahit,
+    .ampersand {
+        font-size: 40px;
+    }
+
+    .shadow-title,
+    .main-title {
+        font-size: 40px;
+    }
+
+    .invitation-text {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .calendar-grid {
+        gap: 15px 0;
+    }
+
+    .day-label,
+    .day {
+        font-size: 18px;
+    }
+
+    .heart-icon {
+        width: 45px;
+        height: 40px;
+    }
+
+    /* Countdown Mobile */
+    .countdown-section {
+        padding: 50px 0;
+    }
+
+    .countdown-container {
+        gap: 14px;
+        margin-top: 30px;
+    }
+
+    .countdown-unit .number {
+        font-size: 30px;
+    }
+
+    .countdown-unit .label {
+        font-size: 28px;
+    }
+
+    .countdown-separator {
+        font-size: 40px;
+        margin-bottom: 25px;
+    }
+
+    .countdown-section .shadow-title,
+    .countdown-section .main-title {
+        font-size: 26px;
+        line-height: 27px;
+    }
+
+    .countdown-section .shadow-title {
+        top: -6px;
+    }
+
+    /* Timeline Mobile - 2x2 Grid */
+    .timeline-section {
+        padding: 50px 0;
+    }
+
+    .timeline-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px 30px;
+        margin-top: 30px;
+    }
+
+    .timeline-item {
+        width: auto;
+        gap: 20px;
+    }
+
+    .event-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .event-time {
+        font-size: 20px;
+    }
+
+    .event-label {
+        font-size: 18px;
+    }
+
+    .event-location {
+        font-size: 16px;
+    }
+
+    .timeline-section .shadow-title,
+    .timeline-section .main-title {
+        font-size: 26px;
+        line-height: 27px;
+    }
+
+    .timeline-section .shadow-title {
+        top: 6px;
+        /* Matching mobile style for timeline */
+    }
+
+    .rsvp-section {
+        padding: 50px 0;
+    }
+
+    .rsvp-section .content-wrapper {
+        padding: 0 20px;
+    }
+
+    .rsvp-section .split-layout {
+        gap: 30px;
+    }
+
+    .form-photo {
+        width: 100%;
+        height: 361px;
+        border-radius: 4px;
+        object-fit: cover;
+    }
+
+    .form-wrapper {
+        width: 100%;
+    }
+
+    .rsvp-section .shadow-title,
+    .rsvp-section .main-title {
+        font-size: 26px;
+        line-height: 27px;
+    }
+
+    .rsvp-section .shadow-title {
+        top: 0px;
+    }
+
+    .rsvp-form {
+        gap: 30px;
+        margin-top: 30px;
+    }
+
+    .rsvp-options-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .radio-mark {
+        width: 26px;
+        height: 26px;
+    }
+
+    .radio-mark::after {
+        width: 16px;
+        height: 16px;
+    }
+
+    .radio-label {
+        font-size: 16px;
+    }
+
+    .form-field input {
+        font-size: 18px;
+    }
+
+    .submit-button {
+        height: 54px;
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .map-section {
+        padding: 50px 0;
+    }
+
+    .map-section .content-wrapper {
+        padding: 0 20px;
+    }
+
+    .map-title {
+        font-size: 24px;
+    }
+
+    .event-map iframe {
+        height: 250px;
+    }
+
+    .start-button-container {
+        bottom: 20px;
+    }
+
+    .music-toggle-btn {
+        width: 60px;
+        height: 60px;
+    }
+
+    .music-toggle-btn svg {
+        width: 28px;
+        height: 28px;
+    }
+}

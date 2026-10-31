@@ -1,0 +1,841 @@
+/* Template 003 Styles */
+html,
+body {
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F8F8F8;
+    /* Match the info section to prevent black gaps */
+    overflow-x: hidden;
+    font-family: 'Koh Santepheap', serif;
+}
+
+.invitation-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.hero-section {
+    width: 100%;
+    height: 850px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #000000;
+    /* Keep hero background black if image fails */
+}
+
+.hero-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-content {
+    /* Frame 1000002134 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 20px;
+    gap: 40px;
+    position: relative;
+    width: 100%;
+    max-width: 1208px;
+    height: auto;
+    z-index: 2;
+}
+
+.hero-title {
+    width: 100%;
+    font-family: 'Koh Santepheap';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 120px;
+    line-height: 152px;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+.hero-year {
+    width: 100%;
+    font-family: 'Koh Santepheap';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 100px;
+    line-height: 127px;
+    text-align: center;
+    color: #FFFFFF;
+    margin: 0;
+}
+
+/* Info section styles */
+.info-section {
+    width: 100%;
+    min-height: 500px;
+    /* Reduced further as requested */
+    background-color: #F8F8F8;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px;
+}
+
+.info-content {
+    /* Frame 1000002123 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 40px;
+    width: 100%;
+    max-width: 868px;
+    position: relative;
+    z-index: 2;
+}
+
+.info-title {
+    width: 100%;
+    font-family: 'Noto Sans Armenian';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 68px;
+    text-align: center;
+    color: #C49842;
+    margin: 0;
+}
+
+.info-description {
+    width: 100%;
+    font-family: 'Noto Sans Armenian';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 35px;
+    text-align: center;
+    color: #6E6E6E;
+    margin: 0;
+}
+
+.details-frame {
+    /* Frame 1000002122 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 18px;
+    width: 100%;
+    max-width: 474px;
+}
+
+.detail-item {
+    width: 100%;
+    font-family: 'Koh Santepheap';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 63px;
+    text-align: center;
+    color: #C49842;
+    margin: 0;
+}
+
+/* Decorations */
+.decorations {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.deco-disco {
+    position: absolute;
+    width: 100px;
+    left: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.8;
+}
+
+.deco-candy {
+    position: absolute;
+    width: 40px;
+}
+
+.candy-1 {
+    left: 5%;
+    top: 20%;
+    transform: rotate(-15deg);
+}
+
+.candy-2 {
+    right: 8%;
+    top: 25%;
+    transform: rotate(10deg);
+}
+
+.candy-3 {
+    left: 12%;
+    bottom: 15%;
+    transform: rotate(30deg);
+}
+
+.candy-4 {
+    right: 15%;
+    bottom: 10%;
+    transform: rotate(-20deg);
+}
+
+.deco-dot {
+    position: absolute;
+    width: 10px;
+}
+
+.dot-1 {
+    left: 20%;
+    top: 10%;
+}
+
+.dot-2 {
+    right: 25%;
+    top: 15%;
+}
+
+.dot-3 {
+    left: 30%;
+    bottom: 20%;
+}
+
+.dot-4 {
+    right: 35%;
+    bottom: 25%;
+}
+
+.dot-5 {
+    left: 50%;
+    top: 5%;
+}
+
+/* Dress Code section styles */
+.dress-code-section {
+    width: 100%;
+    min-height: 1108px;
+    background: url('assets/album-bg.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0 100px;
+}
+
+.dress-code-title {
+    font-family: 'Koh Santepheap';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 63px;
+    color: #C49842;
+    margin: 0;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+
+.dress-code-subtitle {
+    font-family: 'Noto Sans Armenian';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 35px;
+    text-align: center;
+    color: #F5F5F5;
+    margin: 0;
+    margin-bottom: 60px;
+    max-width: 868px;
+    z-index: 2;
+}
+
+.dress-code-grid {
+    width: 100%;
+    max-width: 1440px;
+    height: 900px;
+    /* Relative box for images */
+    position: relative;
+    margin: 0 auto;
+}
+
+.dc-image {
+    position: absolute;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.dc-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Row 1 Positioning */
+.dc-img-1 {
+    width: 375px;
+    height: 375px;
+    left: 80px;
+    top: 0;
+}
+
+.dc-img-2 {
+    width: 275px;
+    height: 375px;
+    left: 475px;
+    top: 0;
+}
+
+.dc-img-5 {
+    width: 295px;
+    height: 375px;
+    left: 1065px;
+    top: 0;
+}
+
+.dc-column {
+    position: absolute;
+    width: 275px;
+    left: 770px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dc-col-1 {
+    top: 0;
+}
+
+.dc-col-2 {
+    top: 495px;
+}
+
+.dc-column .dc-image {
+    position: relative;
+    /* Inside column, stack relatively */
+    margin-bottom: 20px;
+}
+
+.dc-column .dc-image:last-child {
+    margin-bottom: 0;
+}
+
+.dc-img-3,
+.dc-img-8 {
+    width: 275px;
+    height: 208px;
+}
+
+.dc-img-4,
+.dc-img-9 {
+    width: 275px;
+    height: 147px;
+}
+
+.dc-separator {
+    position: absolute;
+    width: 384px;
+    height: 0px;
+    left: calc(50% - 384px/2);
+    top: 435px;
+    /* Between rows */
+    border: 2px solid #C49842;
+}
+
+/* Row 2 Positioning (offset by ~500px) */
+.dc-img-6 {
+    width: 375px;
+    height: 375px;
+    left: 80px;
+    top: 495px;
+}
+
+.dc-img-7 {
+    width: 275px;
+    height: 375px;
+    left: 475px;
+    top: 495px;
+}
+
+.dc-img-10 {
+    width: 295px;
+    height: 375px;
+    left: 1065px;
+    top: 495px;
+}
+
+/* RSVP Section Styles */
+.rsvp-section {
+    width: 100%;
+    min-height: 800px;
+    background-color: #F8F8F8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 20px;
+}
+
+.rsvp-header {
+    width: 100%;
+    max-width: 708px;
+    font-family: 'Noto Sans Armenian';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 44px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #C49842;
+    margin-bottom: 60px;
+}
+
+.rsvp-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 534px;
+    gap: 0;
+}
+
+.rsvp-question-group {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.rsvp-question {
+    font-family: 'Noto Sans Armenian';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: #6E6E6E;
+    margin-bottom: 24px;
+}
+
+.rsvp-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rsvp-radio-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'Noto Sans Armenian';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    color: #6E6E6E;
+    cursor: pointer;
+    position: relative;
+}
+
+.rsvp-radio-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-radio {
+    width: 29px;
+    height: 29px;
+    border: 2px solid #C49842;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.custom-radio::after {
+    content: '';
+    width: 17px;
+    height: 17px;
+    background: #C49842;
+    border-radius: 50%;
+    display: none;
+}
+
+.rsvp-radio-label input:checked~.custom-radio::after {
+    display: block;
+}
+
+.rsvp-input-group {
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.rsvp-input-group input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-family: 'Noto Sans Armenian';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: #5E5E5E;
+    padding-bottom: 8px;
+    outline: none;
+}
+
+.rsvp-input-group .input-line {
+    width: 100%;
+    height: 1px;
+    background-color: #5E5E5E;
+}
+
+.rsvp-submit-btn {
+    width: 100%;
+    height: 54px;
+    background: #C49842;
+    border: 0.5px solid #FFFFFF;
+    border-radius: 6px;
+    font-family: 'Noto Sans Armenian';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    text-align: center;
+    color: #F5F5F5;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.rsvp-submit-btn:hover {
+    opacity: 0.9;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .invitation-container {
+        padding: 0;
+        margin: 0;
+    }
+
+    .hero-section {
+        height: 560px;
+    }
+
+    .hero-content {
+        /* Frame 1000002136 */
+        gap: 16px;
+        width: 100%;
+        max-width: 322px;
+        height: auto;
+        padding: 0 16px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+        line-height: 41px;
+    }
+
+    .hero-year {
+        font-size: 32px;
+        line-height: 41px;
+    }
+
+    .info-section {
+        padding: 40px 16px;
+        min-height: auto;
+    }
+
+    .info-content {
+        gap: 20px;
+    }
+
+    .info-title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+
+    .info-description {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .detail-item {
+        font-size: 22px;
+        line-height: 28px;
+    }
+
+    .details-frame {
+        gap: 10px;
+    }
+
+    .deco-disco {
+        width: 40px;
+        left: 5%;
+    }
+
+    .deco-candy {
+        width: 20px;
+    }
+
+    /* Dress Code Mobile Styles (Frame 1000002137) */
+    .dress-code-section {
+        width: 100%;
+        height: 1637px;
+        min-height: 1637px;
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+        background-size: cover;
+    }
+
+    .dress-code-title {
+        position: absolute;
+        width: 181px;
+        height: 36px;
+        left: calc(50% - 181px / 2);
+        top: 30px;
+        font-size: 28px;
+        line-height: 36px;
+        margin: 0;
+    }
+
+    .dress-code-subtitle {
+        position: absolute;
+        width: 335px;
+        height: 81px;
+        left: calc(50% - 335px / 2);
+        top: 82px;
+        font-size: 20px;
+        line-height: 27px;
+        margin: 0;
+    }
+
+    .dress-code-grid {
+        width: 375px;
+        height: 1637px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .dc-column {
+        position: static;
+        width: auto;
+        display: block;
+    }
+
+    .dc-image {
+        position: absolute;
+    }
+
+    /* Override desktop relative positioning for images inside columns */
+    .dc-column .dc-image {
+        position: absolute;
+        margin-bottom: 0;
+    }
+
+    /* Women's Dress Code (1-5) - Pattern: 2-1-2 */
+    .dc-img-1 {
+        width: 136px;
+        height: 162px;
+        left: 20px;
+        top: 193px;
+    }
+
+    .dc-img-2 {
+        width: 185px;
+        height: 162px;
+        left: 170px;
+        top: 193px;
+    }
+
+    .dc-img-3 {
+        width: 335px;
+        height: 325px;
+        left: 20px;
+        top: 369px;
+    }
+
+    .dc-img-4 {
+        width: 136px;
+        height: 162px;
+        left: 20px;
+        top: 708px;
+    }
+
+    .dc-img-5 {
+        width: 185px;
+        height: 162px;
+        left: 170px;
+        top: 708px;
+    }
+
+    .dc-separator {
+        width: 190px;
+        height: 0px;
+        left: calc(50% - 190px / 2 + 0.5px);
+        top: 900px;
+        border: 2px solid #C49842;
+    }
+
+    /* Men's Dress Code (6-10) - Pattern: 2-1-2 */
+    .dc-img-6 {
+        width: 136px;
+        height: 162px;
+        left: 20px;
+        top: 930px;
+    }
+
+    .dc-img-7 {
+        width: 185px;
+        height: 162px;
+        left: 170px;
+        top: 930px;
+    }
+
+    .dc-img-8 {
+        width: 335px;
+        height: 325px;
+        left: 20px;
+        top: 1106px;
+    }
+
+    .dc-img-9 {
+        width: 136px;
+        height: 162px;
+        left: 20px;
+        top: 1445px;
+    }
+
+    .dc-img-10 {
+        width: 185px;
+        height: 162px;
+        left: 170px;
+        top: 1445px;
+    }
+
+    /* RSVP Mobile Styles (Offsets from Section Top ~2539px) */
+    .rsvp-section {
+        width: 100%;
+        height: 470px;
+        min-height: 0;
+        overflow: hidden;
+        position: relative;
+        background-color: #F8F8F8;
+        padding: 0;
+        margin: 0;
+    }
+
+    .rsvp-header {
+        position: absolute;
+        width: 335px;
+        height: 108px;
+        left: calc(50% - 335px / 2);
+        top: 40px;
+        font-size: 20px;
+        line-height: 27px;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    .rsvp-question-group {
+        position: absolute;
+        width: 335px;
+        height: 136px;
+        top: 178px;
+        left: calc(50% - 335px / 2);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .rsvp-question {
+        font-size: 18px;
+        line-height: 25px;
+        height: 50px;
+        margin: 0;
+    }
+
+    .rsvp-options {
+        gap: 14px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .rsvp-radio-label {
+        font-size: 16px;
+        line-height: 22px;
+        gap: 14px;
+        display: flex;
+        align-items: center;
+    }
+
+    .custom-radio {
+        width: 26px;
+        height: 26px;
+    }
+
+    .custom-radio::after {
+        width: 14px;
+        height: 14px;
+    }
+
+    .rsvp-input-group {
+        position: absolute;
+        width: 335px;
+        height: 38px;
+        top: 338px;
+        left: calc(50% - 335px / 2);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .rsvp-input-group input {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .rsvp-submit-btn {
+        position: absolute;
+        width: 335px;
+        height: 54px;
+        top: 416px;
+        left: calc(50% - 335px / 2);
+        font-size: 18px;
+    }
+}

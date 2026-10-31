@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>3D Wedding Envelope</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+
+    font-family: Georgia, serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #d99c61 0%,
+            #8b5a38 32%,
+            #3b271c 75%,
+            #1d1510 100%
+        );
+}
+
+
+/* =====================================================
+   MAIN SCENE
+===================================================== */
+
+.scene {
+
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    perspective: 1800px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =====================================================
+   WARM SUN LIGHT
+===================================================== */
+
+.sun {
+
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    left: -250px;
+    top: -280px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,221,166,.95) 0%,
+            rgba(255,188,105,.45) 25%,
+            rgba(255,155,80,.12) 48%,
+            transparent 72%
+        );
+
+    filter: blur(25px);
+
+    z-index: 0;
+}
+
+
+/* =====================================================
+   BACKGROUND HILLS
+===================================================== */
+
+.hills {
+
+    position: absolute;
+
+    left: -10%;
+    right: -10%;
+
+    bottom: 28%;
+
+    height: 45%;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 100%,
+            #6f4931 0%,
+            #503522 55%,
+            transparent 70%
+        );
+
+    filter: blur(7px);
+
+    opacity: .8;
+
+    z-index: 1;
+}
+
+
+/* =====================================================
+   STONE SURFACE
+===================================================== */
+
+.stone {
+
+    position: absolute;
+
+    left: -10%;
+    right: -10%;
+
+    bottom: -20%;
+
+    height: 62%;
+
+    border-radius: 50% 50% 0 0;
+
+    background:
+
+        radial-gradient(
+            ellipse at 35% 30%,
+            rgba(255,214,168,.16),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            ellipse at 70% 55%,
+            rgba(0,0,0,.25),
+            transparent 38%
+        ),
+
+        linear-gradient(
+            125deg,
+            #655143,
+            #493a30 45%,
+            #30261f
+        );
+
+    box-shadow:
+        inset 0 25px 60px rgba(255,220,180,.12);
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   FABRIC
+===================================================== */
+
+.fabric {
+
+    position: absolute;
+
+    width: 55%;
+    height: 140px;
+
+    left: -5%;
+    bottom: 17%;
+
+    border-radius: 60%;
+
+    background:
+        linear-gradient(
+            160deg,
+            rgba(255,248,235,.7),
+            rgba(238,225,207,.38),
+            rgba(255,248,235,.62)
+        );
+
+    transform:
+        rotate(-14deg)
+        skewX(-10deg);
+
+    filter: blur(.3px);
+
+    opacity: .72;
+
+    box-shadow:
+        0 20px 35px rgba(0,0,0,.18);
+
+    z-index: 4;
+}
+
+.fabric::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 15px 0;
+
+    border-top: 1px solid rgba(255,255,255,.6);
+    border-bottom: 1px solid rgba(255,255,255,.4);
+
+    border-radius: 50%;
+}
+
+
+/* =====================================================
+   FLOWERS
+===================================================== */
+
+.flowers {
+
+    position: absolute;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+.flowers.left {
+
+    left: 1%;
+    top: 4%;
+
+    transform: rotate(-12deg);
+}
+
+.flowers.right {
+
+    right: 0%;
+    bottom: 4%;
+
+    transform: rotate(12deg);
+}
+
+
+/* stems */
+
+.flowers span {
+
+    position: absolute;
+
+    width: 2px;
+
+    height: 170px;
+
+    background:
+        linear-gradient(
+            #9b744d,
+            #c9a77c
+        );
+
+    transform-origin: bottom;
+
+    opacity: .8;
+}
+
+
+/* flowers */
+
+.flower {
+
+    position: absolute;
+
+    width: 13px;
+    height: 13px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #fff9ef 0 28%,
+            #ead9c0 30% 100%
+        );
+
+    box-shadow:
+        0 0 8px rgba(255,240,215,.35);
+}
+
+
+/* left stems */
+
+.left .s1 {
+    left: 35px;
+    top: 10px;
+    transform: rotate(28deg);
+}
+
+.left .s2 {
+    left: 90px;
+    top: 5px;
+    transform: rotate(12deg);
+}
+
+.left .s3 {
+    left: 150px;
+    top: 20px;
+    transform: rotate(-18deg);
+}
+
+.left .s4 {
+    left: 210px;
+    top: 30px;
+    transform: rotate(-30deg);
+}
+
+
+/* right stems */
+
+.right .s1 {
+    right: 50px;
+    bottom: 20px;
+    transform: rotate(-28deg);
+}
+
+.right .s2 {
+    right: 100px;
+    bottom: 5px;
+    transform: rotate(-12deg);
+}
+
+.right .s3 {
+    right: 160px;
+    bottom: 15px;
+    transform: rotate(15deg);
+}
+
+
+/* =====================================================
+   ENVELOPE WRAPPER
+===================================================== */
+
+.envelope-wrap {
+
+    position: relative;
+
+    width: min(74vw, 650px);
+
+    aspect-ratio: 4 / 5;
+
+    z-index: 20;
+
+    transform-style: preserve-3d;
+
+    transform:
+        rotateX(9deg)
+        rotateY(-13deg)
+        rotateZ(-4deg)
+        translateZ(30px);
+
+    transition:
+        transform .25s ease-out;
+}
+
+
+/* =====================================================
+   ENVELOPE
+===================================================== */
+
+.envelope {
+
+    position: absolute;
+
+    inset: 0;
+
+    transform-style: preserve-3d;
+
+    border-radius: 3px;
+
+    box-shadow:
+
+        0 55px 80px rgba(0,0,0,.35),
+
+        0 15px 30px rgba(0,0,0,.28);
+
+}
+
+
+/* =====================================================
+   COUPLE PHOTO
+===================================================== */
+
+.photo {
+
+   position: absolute;
+    inset: 0;
+
+    background-image: url("assets/couple.jpg");
+    background-size: cover;
+    background-position: center;
+
+    z-index: 1;
+}
+
+
+/* closed */
+
+.envelope:not(.open) .photo {
+
+    filter:
+        brightness(.76)
+        contrast(.98)
+        saturate(.8);
+}
+
+
+/* open */
+
+.envelope.open .photo {
+
+    filter:
+        brightness(1)
+        contrast(1.03)
+        saturate(1);
+
+    transform: scale(1.025);
+}
+
+
+/* =====================================================
+   TRANSPARENT GLASS
+===================================================== */
+
+.glass {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    border: 1px solid rgba(255,255,255,.72);
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.34),
+            rgba(255,255,255,.08) 42%,
+            rgba(255,226,194,.16)
+        );
+
+    box-shadow:
+
+        inset 0 0 40px rgba(255,255,255,.18),
+
+        inset 0 0 3px rgba(255,255,255,.8);
+
+    backdrop-filter:
+        blur(.8px);
+
+}
+
+
+/* =====================================================
+   LEFT FLAP
+===================================================== */
+
+.left-flap {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 6;
+
+    clip-path:
+        polygon(
+            0 0,
+            50% 50%,
+            0 100%
+        );
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.30),
+            rgba(255,255,255,.05)
+        );
+
+    border-right:
+        1px solid rgba(255,255,255,.65);
+}
+
+
+/* =====================================================
+   RIGHT FLAP
+===================================================== */
+
+.right-flap {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 6;
+
+    clip-path:
+        polygon(
+            100% 0,
+            50% 50%,
+            100% 100%
+        );
+
+    background:
+        linear-gradient(
+            225deg,
+            rgba(255,255,255,.28),
+            rgba(255,255,255,.05)
+        );
+
+    border-left:
+        1px solid rgba(255,255,255,.65);
+}
+
+
+/* =====================================================
+   BOTTOM FLAP
+===================================================== */
+
+.bottom-flap {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 7;
+
+    clip-path:
+        polygon(
+            0 100%,
+            50% 50%,
+            100% 100%
+        );
+
+    background:
+        linear-gradient(
+            0deg,
+            rgba(255,255,255,.30),
+            rgba(255,255,255,.04)
+        );
+
+    border-top:
+        1px solid rgba(255,255,255,.7);
+}
+
+
+/* =====================================================
+   TOP FLAP - REAL 3D
+===================================================== */
+
+.top-flap {
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 53%;
+
+    z-index: 12;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 100%
+        );
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.48),
+            rgba(255,255,255,.14) 48%,
+            rgba(255,220,185,.18)
+        );
+
+    border-bottom:
+        1px solid rgba(255,255,255,.8);
+
+    transform-origin:
+        top center;
+
+    transform:
+        rotateX(0deg);
+
+    transition:
+        transform 1.5s cubic-bezier(.2,.7,.2,1);
+
+    backface-visibility: visible;
+}
+
+
+/* OPEN */
+
+.envelope.open .top-flap {
+
+    transform:
+        rotateX(-178deg)
+        translateZ(5px);
+}
+
+
+/* =====================================================
+   EDGE HIGHLIGHTS
+===================================================== */
+
+.edge {
+
+    position: absolute;
+
+    z-index: 15;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.9),
+            transparent
+        );
+
+    opacity: .65;
+}
+
+.edge.top {
+
+    left: 0;
+    right: 0;
+    top: 0;
+
+    height: 1px;
+}
+
+.edge.left {
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(255,255,255,.8),
+            transparent
+        );
+}
+
+.edge.right {
+
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 1px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(255,255,255,.8),
+            transparent
+        );
+}
+
+
+/* =====================================================
+   TWINE
+===================================================== */
+
+.twine {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    width: 140%;
+
+    height: 3px;
+
+    z-index: 18;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(45deg);
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #a87948 0 5px,
+            #e3c08d 5px 9px
+        );
+
+    box-shadow:
+        0 1px 2px rgba(0,0,0,.4);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.twine.two {
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-45deg);
+}
+
+.envelope.open .twine {
+
+    opacity: 0;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(45deg)
+        scaleX(.5);
+}
+
+
+/* =====================================================
+   WAX SEAL
+===================================================== */
+
+.seal {
+    position: absolute;
+
+      left: 42%;
+    top: 53%;
+
+    width: clamp(78px, 14vw, 115px);
+
+    z-index: 30;
+
+    cursor: pointer;
+
+    transform:
+        translate(-50%, -50%)
+        translateZ(45px)
+        rotate(-2deg);
+
+    transition:
+        transform .45s cubic-bezier(.2,.8,.2,1),
+        opacity .7s ease;
+
+    filter:
+        drop-shadow(0 8px 7px rgba(35,15,5,.45));
+}
+
+.seal img {
+    display: block;
+
+       width: 170px;
+    height: 127px;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+
+/* Mouse over */
+
+.seal:hover {
+    transform:
+        translate(-50%, -50%)
+        translateZ(65px)
+        scale(1.08)
+        rotate(-2deg);
+}
+
+
+/* Երբ ծրարը բացվում է */
+
+.envelope.open .seal {
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        translateZ(120px)
+        scale(.12)
+        rotate(45deg);
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   GLASS LIGHT
+===================================================== */
+
+.reflection {
+
+    position: absolute;
+
+    inset: -20%;
+
+    z-index: 25;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent 35%,
+            rgba(255,244,220,.5) 48%,
+            transparent 60%
+        );
+
+    transform:
+        translateX(-100%);
+}
+
+
+.envelope.open .reflection {
+
+    animation:
+        reflection 1.5s ease forwards;
+}
+
+
+@keyframes reflection {
+
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    35% {
+        opacity: .7;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+
+/* =====================================================
+   GOLDEN PARTICLES
+===================================================== */
+
+.particle {
+
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+
+    background: rgba(255,216,157,.7);
+
+    z-index: 10;
+
+    animation:
+        float 6s infinite ease-in-out;
+}
+
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            scale(1);
+        opacity: .2;
+    }
+
+    50% {
+        transform:
+            translateY(-35px)
+            scale(1.4);
+        opacity: .8;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:700px) {
+
+    .envelope-wrap {
+
+        width: 88vw;
+
+        transform:
+            rotateX(7deg)
+            rotateY(-7deg)
+            rotateZ(-3deg);
+    }
+
+    .fabric {
+        width: 80%;
+    }
+
+    .flowers.left {
+        transform:
+            scale(.7)
+            rotate(-12deg);
+        transform-origin: left top;
+    }
+
+    .flowers.right {
+        transform:
+            scale(.65)
+            rotate(12deg);
+        transform-origin: right bottom;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="scene">
+
+
+    <!-- WARM LIGHT -->
+
+    <div class="sun"></div>
+
+
+    <!-- DISTANT HILLS -->
+
+    <div class="hills"></div>
+
+
+    <!-- STONE -->
+
+    <div class="stone"></div>
+
+
+    <!-- FABRIC -->
+
+    <div class="fabric"></div>
+
+
+    <!-- LEFT FLOWERS -->
+
+    <div class="flowers left">
+
+        <span class="s1"></span>
+        <span class="s2"></span>
+        <span class="s3"></span>
+        <span class="s4"></span>
+
+        <div class="flower" style="left:35px;top:5px"></div>
+        <div class="flower" style="left:78px;top:35px"></div>
+        <div class="flower" style="left:115px;top:15px"></div>
+        <div class="flower" style="left:155px;top:60px"></div>
+        <div class="flower" style="left:200px;top:20px"></div>
+
+    </div>
+    
+
+
+    <!-- RIGHT FLOWERS -->
+
+    <div class="flowers right">
+
+        <span class="s1"></span>
+        <span class="s2"></span>
+        <span class="s3"></span>
+
+        <div class="flower" style="right:45px;bottom:70px"></div>
+        <div class="flower" style="right:80px;bottom:30px"></div>
+        <div class="flower" style="right:125px;bottom:90px"></div>
+        <div class="flower" style="right:170px;bottom:40px"></div>
+
+    </div>
+
+
+    <!-- PARTICLES -->
+
+    <div class="particle" style="left:20%;top:25%;animation-delay:.2s"></div>
+    <div class="particle" style="left:72%;top:20%;animation-delay:1s"></div>
+    <div class="particle" style="left:15%;top:65%;animation-delay:2s"></div>
+    <div class="particle" style="left:85%;top:60%;animation-delay:3s"></div>
+
+
+    <!-- =================================================
+         3D ENVELOPE
+    ================================================= -->
+
+    <div class="envelope-wrap" id="envelopeWrap">
+
+        <div class="envelope" id="envelope">
+
+
+            <!-- COUPLE -->
+
+            <div class="photo"></div>
+
+
+            <!-- GLASS -->
+
+            <div class="glass"></div>
+
+
+            <!-- SIDE FOLDS -->
+
+            <div class="left-flap"></div>
+
+            <div class="right-flap"></div>
+
+            <div class="bottom-flap"></div>
+
+
+            <!-- TOP 3D FLAP -->
+
+            <div class="top-flap"></div>
+
+
+            <!-- EDGES -->
+
+            <div class="edge top"></div>
+            <div class="edge left"></div>
+            <div class="edge right"></div>
+
+
+            <!-- TWINE -->
+
+            <div class="twine"></div>
+
+            <div class="twine two"></div>
+
+
+            <!-- REFLECTION -->
+
+            <div class="reflection"></div>
+
+
+            <!-- WAX SEAL -->
+
+            <div class="seal" id="seal">
+    <img src="assets/seal.png" alt="Wax seal">
+</div>
+
+
+        </div>
+
+    
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   OPEN ENVELOPE
+===================================================== */
+
+const envelope =
+    document.getElementById("envelope");
+
+const seal =
+    document.getElementById("seal");
+
+
+seal.addEventListener("click", () => {
+
+    envelope.classList.toggle("open");
+
+});
+
+
+/* =====================================================
+   REAL 3D MOUSE PARALLAX
+===================================================== */
+
+const scene =
+    document.querySelector(".scene");
+
+const envelopeWrap =
+    document.getElementById("envelopeWrap");
+
+
+scene.addEventListener("mousemove", (event) => {
+
+    const x =
+        (event.clientX / window.innerWidth - .5);
+
+    const y =
+        (event.clientY / window.innerHeight - .5);
+
+
+    const rotateY =
+        x * 18;
+
+    const rotateX =
+        -y * 14;
+
+
+    envelopeWrap.style.transform = `
+
+        rotateX(${rotateX + 9}deg)
+
+        rotateY(${rotateY - 13}deg)
+
+        rotateZ(-4deg)
+
+        translateZ(30px)
+
+    `;
+
+});
+
+
+/* =====================================================
+   MOBILE TOUCH PARALLAX
+===================================================== */
+
+scene.addEventListener(
+    "touchmove",
+    (event) => {
+
+        const touch =
+            event.touches[0];
+
+        const x =
+            touch.clientX / window.innerWidth - .5;
+
+        const y =
+            touch.clientY / window.innerHeight - .5;
+
+
+        envelopeWrap.style.transform = `
+
+            rotateX(${-y * 10 + 7}deg)
+
+            rotateY(${x * 12 - 7}deg)
+
+            rotateZ(-3deg)
+
+            translateZ(30px)
+
+        `;
+    },
+    { passive: true }
+);
+
+
+/* =====================================================
+   RESET POSITION
+===================================================== */
+
+scene.addEventListener(
+    "mouseleave",
+    () => {
+
+        envelopeWrap.style.transform = `
+
+            rotateX(9deg)
+
+            rotateY(-13deg)
+
+            rotateZ(-4deg)
+
+            translateZ(30px)
+
+        `;
+
+    }
+);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Մկրտություն՝ Արեգ</title>
+    <meta name="description" content="Սիրով հրավիրում ենք մեր սիրելի որդու՝ Արեգի մկրտությանը" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <!-- ==================== HERO SECTION ==================== -->
+        <section class="hero" id="hero">
+            <!-- Parallax background -->
+            <div class="hero__bg">
+                <img src="assets/watercolor-hero.webp" alt="" class="hero__bg-img" />
+                <div class="hero__bg-overlay"></div>
+            </div>
+
+            <!-- Floating particles -->
+            <div class="particle" style="left:10%;top:20%;width:8px;height:8px;" data-delay="0"></div>
+            <div class="particle" style="left:85%;top:30%;width:6px;height:6px;" data-delay="1.5"></div>
+            <div class="particle" style="left:25%;top:70%;width:10px;height:10px;" data-delay="0.8"></div>
+            <div class="particle" style="left:70%;top:60%;width:7px;height:7px;" data-delay="2"></div>
+            <div class="particle" style="left:50%;top:15%;width:5px;height:5px;" data-delay="1"></div>
+            <div class="particle" style="left:15%;top:85%;width:9px;height:9px;" data-delay="2.5"></div>
+            <div class="particle" style="left:90%;top:75%;width:6px;height:6px;" data-delay="0.3"></div>
+
+            <!-- Animated dove -->
+            <img src="assets/dove.webp" alt="" class="hero__dove" />
+
+            <!-- Main content -->
+            <div class="hero__content">
+                <!-- Cross with glow -->
+                <div class="hero__cross-wrap animate-on-load" data-anim="flipIn">
+                    <div class="hero__cross-glow"></div>
+                    <img src="assets/cross-wreath.webp" alt="Golden cross" class="hero__cross-img" />
+                </div>
+
+                <p class="hero__invite animate-on-load" data-anim="slideUp" data-delay="0.4">Սիրով հրավիրում ենք Ձեզ
+                </p>
+
+                <div class="overflow-clip">
+                    <h1 class="hero__title animate-on-load" data-anim="slideUp" data-delay="0.7">Մկրտության</h1>
+                </div>
+
+                <div class="hero__divider animate-on-load" data-anim="scaleX" data-delay="1.2">
+                    <div class="hero__divider-line"></div>
+                    <span class="hero__divider-star">✦</span>
+                    <div class="hero__divider-line"></div>
+                </div>
+
+                <div class="overflow-clip">
+                    <p class="hero__subtitle animate-on-load" data-anim="slideUp" data-delay="1.0">մեր սիրելի որդու՝
+                    </p>
+                </div>
+
+                <div class="overflow-clip">
+                    <h2 class="hero__name animate-on-load" data-anim="fadeSlideUp" data-delay="1.3">Արեգի</h2>
+                </div>
+
+                <div class="hero__buttons animate-on-load" data-anim="fadeSlideUp" data-delay="1.8">
+                    <a href="#rsvp" class="btn btn--primary">Հաստատել մասնակցությունը</a>
+                    <a href="#details" class="btn btn--outline">Տեսնել մանրամասները</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== ABOUT SECTION ==================== -->
+        <section class="about" id="about">
+            <div class="container container--lg">
+                <!-- Section header -->
+                <div class="section-header animate-on-scroll">
+                    <img src="assets/botanical-divider.webp" alt="" class="section-header__divider-img" />
+                    <h2 class="section-header__title">Սուրբ Սկիզբ</h2>
+                    <p class="section-header__subtitle">Հավատքի, սիրո և շնորհքի ճանապարհը սկսվում է</p>
+                </div>
+
+                <!-- Asymmetric layout -->
+                <div class="about__grid">
+                    <!-- Image side -->
+                    <div class="about__image-col animate-on-scroll" data-anim="slideLeft">
+                        <div class="about__image-wrap">
+                            <div class="about__frame about__frame--inner"></div>
+                            <div class="about__frame about__frame--outer"></div>
+                            <div class="about__photo-container">
+                                <img src="assets/baby-portrait.webp" alt="Մեր փոքրիկ հրաշքը" class="about__photo" />
+                                <div class="about__photo-overlay"></div>
+                            </div>
+                            <div class="about__date-badge">
+                                <p class="about__date-badge-date">15 Սեպտ</p>
+                                <p class="about__date-badge-year">2024</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content side -->
+                    <div class="about__content-col animate-on-scroll" data-anim="slideRight">
+                        <blockquote class="about__quote">
+                            <span class="about__quote-mark">"</span>
+                            <p class="about__quote-text">«Թո՛ւյլ տվեք այդ մանուկներին և մի՛ արգելեք նրանց Ինձ մոտ գալ,
+                                որովհետև երկնքի արքայությունը այդպիսիներինն է»։</p>
+                            <cite class="about__quote-cite">— Մատթեոս 19:14</cite>
+                        </blockquote>
+
+                        <div class="about__text">
+                            <p>Մկրտությունը սուրբ խորհուրդ է, որը նշանավորում է գեղեցիկ հոգևոր ճանապարհորդության սկիզբ:
+                                Մենք մեծ ուրախությամբ հրավիրում ենք Ձեզ լինելու մեր որդու կյանքի այս օրհնված և իմաստալից
+                                պահի վկան:</p>
+                            <p>Ձեր ներկայությունը, սերն ու աղոթքները մեծ նշանակություն կունենան մեր ընտանիքի համար
+                                առաջիկա տոնակատարությանը:</p>
+                        </div>
+
+                        <div class="about__info-cards">
+                            <div class="about__info-card animate-on-scroll" data-delay="0.5">
+                                <p class="about__info-value">15:00</p>
+                                <p class="about__info-label">Արարողություն</p>
+                            </div>
+                            <div class="about__info-card animate-on-scroll" data-delay="0.65">
+                                <p class="about__info-value">17:00</p>
+                                <p class="about__info-label">Հյուրասիրություն</p>
+                            </div>
+                            <div class="about__info-card animate-on-scroll" data-delay="0.8">
+                                <p class="about__info-value">14:30</p>
+                                <p class="about__info-label">Դիմավորում</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== EVENT DETAILS SECTION ==================== -->
+        <section class="event" id="details">
+            <!-- Background -->
+            <div class="event__bg">
+                <img src="assets/baptism-scene.webp" alt="" class="event__bg-img" />
+                <div class="event__bg-overlay"></div>
+            </div>
+
+            <div class="container container--lg event__inner">
+                <!-- Header -->
+                <div class="section-header animate-on-scroll">
+                    <img src="assets/church-illustration.webp" alt="" class="event__church-icon" />
+                    <h2 class="section-header__title">Տոնակատարություն</h2>
+                    <p class="section-header__subtitle">Յուրաքանչյուր մանրուք պատրաստված սիրով</p>
+                </div>
+
+                <!-- Cards -->
+                <div class="event__cards">
+                    <div class="event__card animate-on-scroll" data-delay="0">
+                        <div class="event__card-inner">
+                            <div class="event__card-glow"></div>
+                            <div class="event__card-icon">
+                                <!-- Calendar icon SVG -->
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                                    <line x1="16" y1="2" x2="16" y2="6" />
+                                    <line x1="8" y1="2" x2="8" y2="6" />
+                                    <line x1="3" y1="10" x2="21" y2="10" />
+                                </svg>
+                            </div>
+                            <h3 class="event__card-title">Ամսաթիվ</h3>
+                            <p class="event__card-value">15 Սեպտեմբեր, 2024</p>
+                            <p class="event__card-sub">Կիրակի</p>
+                        </div>
+                    </div>
+
+                    <div class="event__card animate-on-scroll" data-delay="0.12">
+                        <div class="event__card-inner">
+                            <div class="event__card-glow"></div>
+                            <div class="event__card-icon">
+                                <!-- Clock icon SVG -->
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <polyline points="12 6 12 12 16 14" />
+                                </svg>
+                            </div>
+                            <h3 class="event__card-title">Ժամը</h3>
+                            <p class="event__card-value">15:00</p>
+                            <p class="event__card-sub">Արարողության սկիզբ</p>
+                        </div>
+                    </div>
+
+                    <div class="event__card animate-on-scroll" data-delay="0.24">
+                        <div class="event__card-inner">
+                            <div class="event__card-glow"></div>
+                            <div class="event__card-icon">
+                                <!-- MapPin icon SVG -->
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </div>
+                            <h3 class="event__card-title">Վայրը</h3>
+                            <p class="event__card-value">Սուրբ Հովհաննես եկեղեցի</p>
+                            <p class="event__card-sub">Պռոշյան 40, Երևան</p>
+                        </div>
+                    </div>
+
+                    <div class="event__card animate-on-scroll" data-delay="0.36">
+                        <div class="event__card-inner">
+                            <div class="event__card-glow"></div>
+                            <div class="event__card-icon">
+                                <!-- Heart icon SVG -->
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                                </svg>
+                            </div>
+                            <h3 class="event__card-title">Դրես Կոդ</h3>
+                            <p class="event__card-value">Տոնական</p>
+                            <p class="event__card-sub">Խրախուսվում են սպիտակ և պաստելային երանգները</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Get Directions -->
+                <div class="event__cta animate-on-scroll" data-delay="0.8">
+                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer"
+                        class="btn btn--outline btn--icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                            <circle cx="12" cy="10" r="3" />
+                        </svg>
+                        Քարտեզ
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== COUNTDOWN SECTION ==================== -->
+        <section class="countdown" id="countdown">
+            <!-- Decorative circles -->
+            <div class="countdown__circle countdown__circle--tl"></div>
+            <div class="countdown__circle countdown__circle--br"></div>
+
+            <div class="container container--md countdown__inner">
+                <div class="section-header animate-on-scroll">
+                    <p class="section-header__kicker">Պահպանեք օրը</p>
+                    <h2 class="section-header__title">Սպասված Օրը</h2>
+                    <p class="section-header__subtitle section-header__subtitle--gold">15 Սեպտեմբերի, 2024</p>
+                </div>
+
+                <div class="countdown__grid">
+                    <div class="countdown__unit animate-on-scroll" data-delay="0">
+                        <div class="countdown__card">
+                            <div class="countdown__shimmer"></div>
+                            <span class="countdown__value" id="cd-days">00</span>
+                            <span class="countdown__label">Օր</span>
+                        </div>
+                    </div>
+                    <div class="countdown__unit animate-on-scroll" data-delay="0.1">
+                        <div class="countdown__card">
+                            <div class="countdown__shimmer"></div>
+                            <span class="countdown__value" id="cd-hours">00</span>
+                            <span class="countdown__label">Ժամ</span>
+                        </div>
+                    </div>
+                    <div class="countdown__unit animate-on-scroll" data-delay="0.2">
+                        <div class="countdown__card">
+                            <div class="countdown__shimmer"></div>
+                            <span class="countdown__value" id="cd-minutes">00</span>
+                            <span class="countdown__label">Րոպե</span>
+                        </div>
+                    </div>
+                    <div class="countdown__unit animate-on-scroll" data-delay="0.3">
+                        <div class="countdown__card">
+                            <div class="countdown__shimmer"></div>
+                            <span class="countdown__value" id="cd-seconds">00</span>
+                            <span class="countdown__label">Վայրկյան</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== BIBLE QUOTE SECTION ==================== -->
+        <section class="bible-quote" id="quote">
+            <div class="bible-quote__bg">
+                <img src="assets/watercolor-section-bg.webp" alt="" class="bible-quote__bg-img" />
+                <div class="bible-quote__bg-overlay"></div>
+            </div>
+
+            <div class="container container--sm bible-quote__inner">
+                <img src="assets/dove.webp" alt="" class="bible-quote__dove animate-on-scroll" />
+                <div class="bible-quote__content animate-on-scroll">
+                    <span class="bible-quote__open-mark">"</span>
+                    <p class="bible-quote__text">Որովհետև ես ջուր կհեղեմ ծարավ հողի վրա, և առվակներ՝ չորացած երկրի վրա.
+                        իմ Հոգին կհեղեմ քո զավակների վրա, և իմ օրհնությունը՝ քո սերունդների վրա։</p>
+                    <div class="bible-quote__source">
+                        <div class="bible-quote__source-line"></div>
+                        <cite class="bible-quote__cite">Եսայի 44:3</cite>
+                        <div class="bible-quote__source-line"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== GALLERY SECTION ==================== -->
+        <section class="gallery" id="gallery">
+            <div class="container container--lg">
+                <div class="section-header animate-on-scroll">
+                    <h2 class="section-header__title">Թանկարժեք Պահեր</h2>
+                    <p class="section-header__subtitle">Յուրաքանչյուր ակնթարթ երկնքի պարգև է</p>
+                </div>
+
+                <div class="gallery__grid">
+                    <!-- Large featured image -->
+                    <div class="gallery__item gallery__item--featured animate-on-scroll">
+                        <div class="gallery__item-inner">
+                            <img src="assets/baby-portrait.webp" alt="Քնած փոքրիկ" class="gallery__img" />
+                            <div class="gallery__overlay gallery__overlay--always"></div>
+                            <div class="gallery__caption gallery__caption--always">
+                                <p class="gallery__caption-text">Մեր փոքրիկ հրաշքը</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Smaller images -->
+                    <div class="gallery__item gallery__item--small animate-on-scroll" data-anim="slideRight"
+                        data-delay="0.2">
+                        <div class="gallery__item-inner">
+                            <img src="assets/baby-feet.webp" alt="Փոքրիկ թաթիկներ" class="gallery__img" />
+                            <div class="gallery__overlay"></div>
+                            <div class="gallery__caption">
+                                <p class="gallery__caption-text">Փոքրիկ հրաշքներ</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery__item gallery__item--small animate-on-scroll" data-anim="slideRight"
+                        data-delay="0.35">
+                        <div class="gallery__item-inner">
+                            <img src="assets/baby-hand.webp" alt="Փոքրիկ ձեռք" class="gallery__img" />
+                            <div class="gallery__overlay"></div>
+                            <div class="gallery__caption">
+                                <p class="gallery__caption-text">Սիրով գրկված</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== RSVP SECTION ==================== -->
+        <section class="rsvp" id="rsvp">
+            <div class="rsvp__decor rsvp__decor--tr"></div>
+            <div class="rsvp__decor rsvp__decor--bl"></div>
+
+            <div class="container container--sm rsvp__inner">
+                <!-- Form view -->
+                <div id="rsvp-form-view">
+                    <div class="section-header animate-on-scroll">
+                        <p class="section-header__kicker">Շատ կցանկանայինք տեսնել Ձեզ այնտեղ</p>
+                        <h2 class="section-header__title">ՀԱՍՏԱՏՈՒՄ</h2>
+                        <p class="section-header__subtitle">Խնդրում ենք հաստատել ներկայությունը մինչև Սեպտեմբերի 1-ը</p>
+                    </div>
+
+                    <form id="rsvp-form" class="rsvp__form animate-on-scroll" data-delay="0.2" novalidate>
+                        <!-- Top accent -->
+                        <div class="rsvp__form-accent"></div>
+
+                        <!-- Attending toggle -->
+                        <div class="rsvp__toggle">
+                            <button type="button" class="rsvp__toggle-btn rsvp__toggle-btn--active"
+                                data-value="yes">Սիրով կգամ</button>
+                            <button type="button" class="rsvp__toggle-btn" data-value="no">Ցավոք, չեմ կարող</button>
+                        </div>
+                        <input type="hidden" name="attending" id="rsvp-attending" value="yes" />
+
+                        <div class="rsvp__field">
+                            <label class="rsvp__label" for="rsvp-name">Անուն Ազգանուն</label>
+                            <input class="rsvp__input" type="text" id="rsvp-name" name="name"
+                                placeholder="Ձեր անունն ու ազգանունը" required />
+                            <p class="rsvp__error" id="error-name"></p>
+                        </div>
+
+                        <div class="rsvp__row">
+                            <div class="rsvp__field">
+                                <label class="rsvp__label" for="rsvp-email">Էլ. հասցե</label>
+                                <input class="rsvp__input" type="email" id="rsvp-email" name="email"
+                                    placeholder="Ձեր էլ. հասցեն" required />
+                                <p class="rsvp__error" id="error-email"></p>
+                            </div>
+                            <div class="rsvp__field">
+                                <label class="rsvp__label" for="rsvp-phone">Հեռախոսահամար</label>
+                                <input class="rsvp__input" type="tel" id="rsvp-phone" name="phone"
+                                    placeholder="Ձեր հեռախոսահամարը" required />
+                                <p class="rsvp__error" id="error-phone"></p>
+                            </div>
+                        </div>
+
+                        <div class="rsvp__field">
+                            <label class="rsvp__label" for="rsvp-guests">Հյուրերի քանակը</label>
+                            <select class="rsvp__input" id="rsvp-guests" name="guests">
+                                <option value="1">1 անձ</option>
+                                <option value="2">2 անձ</option>
+                                <option value="3">3 անձ</option>
+                                <option value="4">4 անձ</option>
+                                <option value="5">5 անձ</option>
+                                <option value="6">6 անձ</option>
+                            </select>
+                        </div>
+
+                        <div class="rsvp__field">
+                            <label class="rsvp__label" for="rsvp-message">Հատուկ նշումներ կամ բարեմաղթանքներ</label>
+                            <textarea class="rsvp__input" id="rsvp-message" name="message" rows="3"
+                                placeholder="Աղոթք, օրհնանք կամ պարզապես բարեմաղթանք..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn--primary btn--full btn--submit">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13" />
+                                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                            </svg>
+                            Ուղարկել
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Success view (hidden by default) -->
+                <div id="rsvp-success-view" class="rsvp__success" style="display:none;">
+                    <div class="rsvp__success-icon">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                    </div>
+                    <h2 class="rsvp__success-title">Շնորհակալություն</h2>
+                    <p class="rsvp__success-subtitle">Անհամբեր սպասում ենք Ձեզ հետ տոնելուն</p>
+                    <p class="rsvp__success-note">Աստված օրհնի Ձեզ և Ձեր ընտանիքին ✝</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== FOOTER SECTION ==================== -->
+        <footer class="footer" id="footer">
+            <div class="footer__top-line"></div>
+            <div class="container container--xs">
+                <img src="assets/botanical-divider.webp" alt="" class="footer__divider-img animate-on-scroll" />
+
+                <div class="footer__content animate-on-scroll">
+                    <p class="footer__hope">Սպասում ենք Ձեզ մեծ սիրով</p>
+
+                    <div class="footer__contact">
+                        <a href="tel:08295292587" class="footer__link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                            </svg>
+                            Զանգահարել Աննային՝ 099 12 34 56
+                        </a>
+                        <a href="mailto:olivia@email.com" class="footer__link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
+                            </svg>
+                            anna@email.com
+                        </a>
+                    </div>
+
+                    <div class="footer__bottom-divider">
+                        <div class="footer__bottom-line"></div>
+                        <span class="footer__bottom-star">✦</span>
+                        <div class="footer__bottom-line"></div>
+                    </div>
+
+                    <p class="footer__blessing">Սիրով և օրհնությամբ՝ Ընտանիք ✝</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
