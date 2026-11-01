@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ագապի — RSVP արդյունքներ</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Noto+Serif+Armenian:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 30px 15px;
+            background: #fff;
+            color: #591427;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-family: "Great Vibes", cursive;
+            font-size: 52px;
+            font-weight: 400;
+        }
+
+        .header p {
+            margin-top: 5px;
+            font-family: "Noto Serif Armenian", serif;
+            font-size: 15px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            padding: 13px 22px;
+            border-radius: 30px;
+            font-family: "Montserrat", sans-serif;
+            font-size: 14px;
+            transition: 0.2s ease;
+        }
+
+        .excel-btn {
+            background: #591427;
+            color: #fff;
+        }
+
+        .refresh-btn {
+            background: #f5e9ec;
+            color: #591427;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #fff;
+            border: 1px solid #ead7dd;
+            border-radius: 18px;
+            padding: 22px 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(89, 20, 39, 0.06);
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 30px;
+            font-weight: 600;
+            margin-bottom: 7px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .results-card {
+            background: #fff;
+            border: 1px solid #ead7dd;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(89, 20, 39, 0.06);
+        }
+
+        .results-header {
+            padding: 20px;
+            border-bottom: 1px solid #ead7dd;
+            font-family: "Noto Serif Armenian", serif;
+            font-size: 18px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 650px;
+        }
+
+        th,
+        td {
+            padding: 15px 12px;
+            text-align: left;
+            border-bottom: 1px solid #f0e5e8;
+            font-size: 13px;
+        }
+
+        th {
+            background: #faf5f7;
+            color: #591427;
+            font-weight: 600;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .status-yes {
+            background: #e8f5eb;
+            color: #2f7d42;
+        }
+
+        .status-no {
+            background: #f9e8eb;
+            color: #a33a4f;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 45px 20px;
+            color: #888;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #777;
+        }
+
+        .error {
+            text-align: center;
+            padding: 30px;
+            color: #a33a4f;
+        }
+
+        @media (max-width: 700px) {
+
+            body {
+                padding: 20px 10px;
+            }
+
+            .header h1 {
+                font-size: 42px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-card {
+                padding: 18px 10px;
+            }
+
+            .stat-number {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="header">
+        <h1>Ագապիի</h1>
+        <p>Սուրբ Մկրտության RSVP արդյունքներ</p>
+    </header>
+
+    <div class="actions">
+
+        <button
+            class="excel-btn"
+            id="downloadExcel">
+            📥 Ներբեռնել Excel
+        </button>
+
+        <button
+            class="refresh-btn"
+            id="refreshBtn">
+            ↻ Թարմացնել
+        </button>
+
+    </div>
+
+    <!-- STATISTICS -->
+    <section class="stats">
+
+        <div class="stat-card">
+            <span class="stat-number" id="totalResponses">0</span>
+            <span class="stat-label">Ընդհանուր պատասխաններ</span>
+        </div>
+
+        <div class="stat-card">
+            <span class="stat-number" id="yesResponses">0</span>
+            <span class="stat-label">Կներկայանան</span>
+        </div>
+
+        <div class="stat-card">
+            <span class="stat-number" id="noResponses">0</span>
+            <span class="stat-label">Չեն ներկայանա</span>
+        </div>
+
+        <div class="stat-card">
+            <span class="stat-number" id="totalGuests">0</span>
+            <span class="stat-label">Ընդհանուր հյուրեր</span>
+        </div>
+
+    </section>
+
+    <!-- RESULTS -->
+    <section class="results-card">
+
+        <div class="results-header">
+            Հյուրերի պատասխանները
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Անուն Ազգանուն</th>
+                        <th>Մասնակցություն</th>
+                        <th>Հյուրերի թիվ</th>
+                        <th>Ամսաթիվ</th>
+                    </tr>
+                </thead>
+
+                <tbody id="resultsBody">
+
+                    <tr>
+                        <td colspan="5" class="loading">
+                            Բեռնվում է...
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</div>
+
+<script src="result.js"></script>
+
+</body>
+</html>
