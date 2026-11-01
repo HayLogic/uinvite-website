@@ -10,7 +10,8 @@
     "preview": "node scripts/preview.mjs",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "check:seo": "node scripts/check-seo.mjs"
+    "check:seo": "node scripts/check-seo.mjs",
+    "check:share-images": "node scripts/check-share-images.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

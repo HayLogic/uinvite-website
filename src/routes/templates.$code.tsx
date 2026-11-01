@@ -1,3 +1,4 @@
+import { templateShareImage } from "@/lib/share-image";
 import { orderMessage } from "@/i18n/translate";
 import { useTranslation } from "@/i18n/LanguageProvider";
 import { useTemplates } from "@/components/useTemplates";
@@ -37,7 +38,11 @@ export const Route = createFileRoute("/templates/$code")({
           },
           {
             property: "og:image",
-            content: new URL(loaderData.template.image, "https://uinvite.am").href,
+            content: templateShareImage(loaderData.template.category, loaderData.template.image),
+          },
+          {
+            name: "twitter:image",
+            content: templateShareImage(loaderData.template.category, loaderData.template.image),
           },
         ]
       : [],

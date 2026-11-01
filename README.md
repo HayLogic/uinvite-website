@@ -79,3 +79,9 @@ The page is prerendered with its own metadata/canonical and included in the 83-U
 Verification: TypeScript, production build, SEO check, targeted ESLint, and Chromium at 360/390/768/1210/1440 px. Each width covers all three locales, direct load/reload, WhatsApp targets, header/footer entrypoints, active navigation and returning to homepage pricing with header offset. No overflow, header overlap or application errors; external analytics stubbed as in the SEO verification. The prerendered page and enquiry links also work without JavaScript. No live deployment performed.
 
 Homepage hero phones now show the catalogue images for 055 (left), 078 (centre) and 064 (right), keeping the existing phone frames and layout.
+
+## Category sharing images (pending photo files)
+
+Wedding invitations share `/assets/meta-photo/wedding.png`; baptisms share `/assets/meta-photo/bapstrim.png`; birthday/children's invitations share `/assets/meta-photo/birthday.png`. The owner confirmed `birthday.png`; the `assets` directory spelling is normalized, while `bapstrim.png` is retained as requested. Other categories keep their existing images.
+
+The 53 affected standalone invitation entrypoints and their React viewer pages now have matching static OG/Twitter image URLs. Invitation body content and photography remain unchanged. The three PNG files have not yet been supplied: add them under `public/assets/meta-photo/`, commit them, then rebuild. `npm run check:share-images` checks all 53 pairs of documents and reports missing image files separately. It currently passes metadata checks and exits with a pending-files status for those three PNGs. No live deployment performed.
