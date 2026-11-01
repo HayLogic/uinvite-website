@@ -1,7 +1,9 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 // Keep standalone invitation index.html files separate from their React viewers.
-const codes = Array.from({ length: 80 }, (_, i) => String(i + 1).padStart(3, "0"));
+const codes = Array.from({ length: 80 }, (_, i) => String(i + 1).padStart(3, "0")).filter(
+  (code) => !["077", "078"].includes(code),
+);
 export default defineConfig({
   tanstackStart: {
     spa: { enabled: false },

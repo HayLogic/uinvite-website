@@ -75,8 +75,6 @@ import t073 from "@/assets/templateImages/073.webp";
 import t074 from "@/assets/templateImages/074.webp";
 import t075 from "@/assets/templateImages/075.webp";
 import t076 from "@/assets/templateImages/076.webp";
-import t077 from "@/assets/templateImages/077.webp";
-import t078 from "@/assets/templateImages/078.webp";
 import t079 from "@/assets/templateImages/079.webp";
 import t080 from "@/assets/templateImages/080.webp";
 
@@ -112,7 +110,7 @@ export interface Template {
   discountUntil?: string;
 }
 
-// All 001–080 cards are now published at the owner’s request.
+// 077 and 078 were removed at the owner’s request; other published IDs are unchanged.
 const catalogueImages: Record<string, string> = {
   "001": t001,
   "002": t002,
@@ -190,8 +188,6 @@ const catalogueImages: Record<string, string> = {
   "074": t074,
   "075": t075,
   "076": t076,
-  "077": t077,
-  "078": t078,
   "079": t079,
   "080": t080,
 };

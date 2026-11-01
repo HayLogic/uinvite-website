@@ -19,7 +19,7 @@ export function LanguageMetadata() {
             isCorporate
               ? "Կորպորատիվ առաջարկ — uInvite"
               : isCatalogue
-                ? "Տեսականի — 80 վեբ հրավիրատոմսերի ձևանմուշ | uInvite"
+                ? "Տեսականի — 78 վեբ հրավիրատոմսերի ձևանմուշ | uInvite"
                 : SITE_TITLE,
           );
       const description = tr(

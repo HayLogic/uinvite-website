@@ -412,16 +412,6 @@ export const templateAssignments: Record<string, TemplateAssignment> = {
     tier: "premium-start",
     badges: [],
   },
-  "077": {
-    category: "wedding",
-    tier: "standart-classic",
-    badges: [],
-  },
-  "078": {
-    category: "wedding",
-    tier: "standart-classic",
-    badges: [],
-  },
   "079": {
     category: "baptism",
     tier: "standart-start",

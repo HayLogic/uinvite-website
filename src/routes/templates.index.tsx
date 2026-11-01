@@ -27,13 +27,13 @@ export const Route = createFileRoute("/templates/")({
   loader: () => ({ catalogue: getTemplates() }),
   head: () => ({
     meta: [
-      { title: "Տեսականի — 80 վեբ հրավիրատոմսերի ձևանմուշ | uInvite" },
+      { title: "Տեսականի — 78 վեբ հրավիրատոմսերի ձևանմուշ | uInvite" },
       {
         name: "description",
         content:
           "Դիտեք uInvite-ի ամբողջ տեսականին՝ հարսանիք, նշանադրություն, կնունք, ծնունդ, մանկական, ամանորյա և կորպորատիվ վեբ հրավիրատոմսեր՝ 4,900֏-ից։",
       },
-      { property: "og:title", content: "Տեսականի — 80 վեբ հրավիրատոմսերի ձևանմուշ | uInvite" },
+      { property: "og:title", content: "Տեսականի — 78 վեբ հրավիրատոմսերի ձևանմուշ | uInvite" },
       {
         property: "og:description",
         content:
@@ -45,7 +45,7 @@ export const Route = createFileRoute("/templates/")({
       { name: "twitter:title", content: "Տեսականի — uInvite վեբ հրավիրատոմսեր" },
       {
         name: "twitter:description",
-        content: "80 պատրաստի վեբ հրավիրատոմսեր ցանկացած առիթի համար։",
+        content: "78 պատրաստի վեբ հրավիրատոմսեր ցանկացած առիթի համար։",
       },
     ],
   }),

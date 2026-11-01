@@ -403,7 +403,7 @@ function IndexInner() {
                 <span>{tr("գոհ հաճախորդ")}</span>
               </div>
               <div>
-                <strong>80</strong>
+                <strong>{TPL_DATA.length}</strong>
                 <span>{tr("ձևանմուշ")}</span>
               </div>
               <div>

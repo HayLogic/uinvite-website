@@ -63,8 +63,9 @@ for (const file of [
 ])
   await access(resolve(root, file));
 const sitemap = await readFile(resolve(root, "sitemap.xml"), "utf8");
-assert.equal((sitemap.match(/<loc>/g) || []).length, 83);
+assert.equal((sitemap.match(/<loc>/g) || []).length, 81);
 for (let n = 1; n <= 80; n++) {
+  if (n === 77 || n === 78) continue;
   const code = String(n).padStart(3, "0");
   const html = await readFile(resolve(root, `templates/${code}.html`), "utf8");
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
@@ -72,7 +73,7 @@ for (let n = 1; n <= 80; n++) {
   await access(resolve(root, `templates/${code}/index.html`));
 }
 console.log(
-  `PASS: static head metadata, raw Armenian content, one h1, Organization + 16 FAQs, 1200×630 OG (${image.length} bytes), 83 prerendered routes, preserved invitation files, sitemap and 404.`,
+  `PASS: static head metadata, raw Armenian content, one h1, Organization + 16 FAQs, 1200×630 OG (${image.length} bytes), 81 prerendered routes, preserved invitation files, sitemap and 404.`,
 );
 
 const corporate = await readFile(resolve(root, "corporate/index.html"), "utf8");
