@@ -413,42 +413,22 @@ function IndexInner() {
             </div>
           </div>
           <div className="ui-hero-visual">
-            <div className="ui-phone ui-phone-1">
-              <div className="ui-invite ui-invite-1 ui-invite-video">
-                <span className="ui-play-pulse">
-                  <Play size={14} fill="currentColor" />
-                </span>
-                <Flower2 className="ui-invite-emoji" size={28} strokeWidth={1.4} />
-                <div className="ui-invite-script">Save the date</div>
-                <div className="ui-invite-name">Անի &amp; Արամ</div>
-                <div className="ui-invite-divider" />
-                <div className="ui-invite-date">12 · 09 · 2026</div>
-              </div>
-            </div>
-            <div className="ui-phone ui-phone-2">
-              <div className="ui-invite ui-invite-2 ui-invite-video">
-                <span className="ui-play-pulse">
-                  <Play size={14} fill="currentColor" />
-                </span>
-                <Gem className="ui-invite-emoji" size={28} strokeWidth={1.4} />
-                <div className="ui-invite-script">Wedding</div>
-                <div className="ui-invite-name">Մարիամ &amp; Դավիթ</div>
-                <div className="ui-invite-divider" />
-                <div className="ui-invite-date">24 · 07 · 2026</div>
-              </div>
-            </div>
-            <div className="ui-phone ui-phone-3">
-              <div className="ui-invite ui-invite-3 ui-invite-video">
-                <span className="ui-play-pulse">
-                  <Play size={14} fill="currentColor" />
-                </span>
-                <Cake className="ui-invite-emoji" size={28} strokeWidth={1.4} />
-                <div className="ui-invite-script">Birthday</div>
-                <div className="ui-invite-name">Նարեի 5-ամյակը</div>
-                <div className="ui-invite-divider" />
-                <div className="ui-invite-date">03 · 06 · 2026</div>
-              </div>
-            </div>
+            {["063", "078", "064"].map((code, index) => {
+              const invitation = TPL_DATA.find((template) => template.code === code)!;
+              return (
+                <div key={code} className={`ui-phone ui-phone-${index + 1}`}>
+                  <img
+                    className="ui-hero-preview"
+                    src={invitation.image}
+                    alt={tr(
+                      `${TPL_CAT_LABELS[invitation.category]} հրավիրատոմսի նախադիտում՝ #${code}`,
+                    )}
+                    fetchPriority={index === 1 ? "high" : "auto"}
+                    decoding="async"
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -897,6 +877,7 @@ const styles = `
 
 .ui-hero-visual { position: relative; height: 460px; }
 .ui-phone { position: absolute; width: 210px; height: 410px; border-radius: 38px; background: var(--ui-white); border: 8px solid #0f0f10; padding: 14px; box-shadow: 0 40px 80px -25px rgba(15,15,16,.30); overflow: hidden; }
+.ui-hero-preview { display:block; width:100%; height:100%; object-fit:cover; object-position:center top; border-radius:22px; }
 .ui-phone::after { content: ""; position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 60px; height: 5px; background: #0f0f10; border-radius: 999px; }
 .ui-invite { width: 100%; height: 100%; border-radius: 22px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px 18px; text-align: center; gap: 10px; position: relative; overflow: hidden; }
 .ui-invite::before { content: ""; position: absolute; inset: 8px; border: 1px solid currentColor; border-radius: 16px; opacity: .35; }
