@@ -1,3 +1,5 @@
+import { LanguageMetadata } from "@/i18n/LanguageMetadata";
+import { LanguageProvider, useTranslation } from "@/i18n/LanguageProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
@@ -15,20 +17,21 @@ import { siteMeta, organizationSchema } from "@/lib/seo";
 import { HashScroll } from "@/components/HashScroll";
 
 function NotFoundComponent() {
+  const { tr } = useTranslation();
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Էջը չի գտնվել</h2>
+        <h2 className="mt-4 text-xl font-semibold text-foreground">{tr("Էջը չի գտնվել")}</h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          Ձեր փնտրած էջը գոյություն չունի կամ տեղափոխվել է։
+          {tr("Ձեր փնտրած էջը գոյություն չունի կամ տեղափոխվել է։")}
         </p>
         <div className="mt-6">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Գլխավոր էջ
+            {tr("Գլխավոր էջ")}
           </Link>
         </div>
       </div>
@@ -37,6 +40,7 @@ function NotFoundComponent() {
 }
 
 function ErrorComponent({ error, reset }: { error: unknown; reset: () => void }) {
+  const { tr } = useTranslation();
   console.error(error);
   const router = useRouter();
 
@@ -44,10 +48,10 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-xl font-semibold tracking-tight text-foreground">
-          This page didn't load
+          {tr("Էջը չի բեռնվել")}
         </h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Something went wrong on our end. You can try refreshing or head back home.
+          {tr("Տեղի է ունեցել սխալ։ Փորձեք կրկին կամ վերադարձեք գլխավոր էջ։")}
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
@@ -57,13 +61,13 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Try again
+            {tr("Փորձել կրկին")}
           </button>
           <a
             href="/"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
-            Գլխավոր էջ
+            {tr("Գլխավոր էջ")}
           </a>
         </div>
       </div>
@@ -74,7 +78,10 @@ function ErrorComponent({ error, reset }: { error: unknown; reset: () => void })
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: ({ matches }) => ({
     ...siteMeta(matches.at(-1)?.pathname ?? "/"),
-    links: [...siteMeta(matches.at(-1)?.pathname ?? "/").links, { rel: "stylesheet", href: appCss }],
+    links: [
+      ...siteMeta(matches.at(-1)?.pathname ?? "/").links,
+      { rel: "stylesheet", href: appCss },
+    ],
     scripts: [
       { type: "application/ld+json", children: JSON.stringify(organizationSchema) },
       {
@@ -96,7 +103,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
         <Scripts />
         <noscript>
           <img
@@ -130,6 +137,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <MetaPixelTracker />
+      <LanguageMetadata />
       <Header />
       <HashScroll />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}

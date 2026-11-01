@@ -1,3 +1,4 @@
+import { useTranslation } from "@/i18n/LanguageProvider";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
 import logoUrl from "@/assets/logo-full.png";
@@ -14,6 +15,7 @@ const NAV = [
 ] as const;
 
 export function Header() {
+  const { tr, language: activeLanguage, setLanguage } = useTranslation();
   const [open, setOpen] = useState(false);
   const [section, setSection] = useState("home");
   const location = useLocation();
@@ -88,14 +90,14 @@ export function Header() {
           <Link to="/" className="shared-logo" onClick={top}>
             <img
               src={logoUrl}
-              alt="uInvite՝ էլեկտրոնային հրավիրատոմսեր"
+              alt={tr("uInvite՝ էլեկտրոնային հրավիրատոմսեր")}
               className="shared-logo-img"
             />
           </Link>
           <nav
             id="main-navigation"
             className={`shared-menu ${open ? "open" : ""}`}
-            aria-label="Հիմնական ցանկ"
+            aria-label={tr("Հիմնական ցանկ")}
           >
             {NAV.map((item) => (
               <Link
@@ -106,7 +108,7 @@ export function Header() {
                 aria-current={active === item.id ? "location" : undefined}
                 onClick={item.id === "home" ? top : () => setOpen(false)}
               >
-                {item.label}
+                {tr(item.label)}
               </Link>
             ))}
             <Link
@@ -115,7 +117,7 @@ export function Header() {
               className="header-order header-menu-order"
               onClick={() => setOpen(false)}
             >
-              Պատվիրել հիմա
+              {tr("Պատվիրել հիմա")}
             </Link>
           </nav>
           <div className="shared-controls">
@@ -125,20 +127,19 @@ export function Header() {
               className="header-order header-compact-order"
               onClick={() => setOpen(false)}
             >
-              Պատվիրել հիմա
+              {tr("Պատվիրել հիմա")}
             </Link>
-            <div className="header-languages" role="group" aria-label="Կայքի լեզուն">
+            <div className="header-languages" role="group" aria-label={tr("Կայքի լեզուն")}>
               {languages.map((language) => (
                 <button
                   key={language.code}
                   type="button"
-                  disabled={!language.available}
-                  aria-pressed={language.available}
-                  aria-label={language.available ? language.name : `${language.name} — շուտով`}
-                  title={language.available ? language.name : "Շուտով"}
+                  onClick={() => setLanguage(language.code)}
+                  aria-pressed={activeLanguage === language.code}
+                  aria-label={language.name}
+                  title={language.name}
                 >
                   {language.label}
-                  {!language.available && <small>Շուտով</small>}
                 </button>
               ))}
             </div>
@@ -146,7 +147,7 @@ export function Header() {
               className="shared-burger"
               type="button"
               onClick={() => setOpen(!open)}
-              aria-label={open ? "Փակել ցանկը" : "Բացել ցանկը"}
+              aria-label={tr(open ? "Փակել ցանկը" : "Բացել ցանկը")}
               aria-expanded={open}
               aria-controls="main-navigation"
             >

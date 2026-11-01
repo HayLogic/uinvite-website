@@ -1,7 +1,10 @@
-/** Armenian is the only published locale. Marketing translations are not generated. */
 export const languages = [
-  { code: "hy", label: "HY", name: "Հայերեն", available: true },
-  { code: "ru", label: "RU", name: "Русский", available: false },
-  { code: "en", label: "EN", name: "English", available: false },
+  { code: "hy", label: "HY", name: "Հայերեն" },
+  { code: "ru", label: "RU", name: "Русский" },
+  { code: "en", label: "EN", name: "English" },
 ] as const;
-export const defaultLanguage = "hy";
+export type Language = (typeof languages)[number]["code"];
+export const defaultLanguage: Language = "hy";
+export function isLanguage(value: unknown): value is Language {
+  return languages.some((language) => language.code === value);
+}

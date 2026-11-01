@@ -1,3 +1,5 @@
+import { orderMessage } from "@/i18n/translate";
+import { useTranslation } from "@/i18n/LanguageProvider";
 import { useTemplates } from "@/components/useTemplates";
 import "@/components/PricingSection.css";
 import { NewYearSection } from "@/components/NewYearSection";
@@ -34,15 +36,18 @@ export const Route = createFileRoute("/templates/")({
       { property: "og:title", content: "Տեսականի — 80 վեբ հրավիրատոմսերի ձևանմուշ | uInvite" },
       {
         property: "og:description",
-        content: "Ընտրեք Ձեր միջոցառմանը համապատասխան վեբ հրավիրատոմս՝ Standart և Premium՝ Start, Classic և Plus փաթեթներով։",
+        content:
+          "Ընտրեք Ձեր միջոցառմանը համապատասխան վեբ հրավիրատոմս՝ Standart և Premium՝ Start, Classic և Plus փաթեթներով։",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/templates` },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Տեսականի — uInvite վեբ հրավիրատոմսեր" },
-      { name: "twitter:description", content: "80 պատրաստի վեբ հրավիրատոմսեր ցանկացած առիթի համար։" },
+      {
+        name: "twitter:description",
+        content: "80 պատրաստի վեբ հրավիրատոմսեր ցանկացած առիթի համար։",
+      },
     ],
-
   }),
   component: TemplatesPage,
 });
@@ -68,22 +73,29 @@ const TIER_FILTERS: { id: TierFilter; label: string }[] = [
 ];
 
 function TemplatesPage() {
+  const { tr } = useTranslation();
   const templates = useTemplates(Route.useLoaderData().catalogue);
   const [filter, setFilter] = useState<Filter>("all");
   const [tierFilter, setTierFilter] = useState<TierFilter>("all");
 
-  const routeHash = useLocation({ select: location => location.hash });
+  const routeHash = useLocation({ select: (location) => location.hash });
   const navigate = useNavigate();
   useEffect(() => {
     const parts = routeHash.replace(/^#/, "").split("&");
-    const category = parts.find(part => part.startsWith("category-"))?.replace("category-", "");
-    const tier = parts.find(part => part.startsWith("tier-"))?.replace("tier-", "");
-    setFilter(category && FILTERS.some(f => f.id === category) ? category as Filter : "all");
-    setTierFilter(tier && Object.hasOwn(tierPrices, tier) ? tier as TemplateTier : "all");
+    const category = parts.find((part) => part.startsWith("category-"))?.replace("category-", "");
+    const tier = parts.find((part) => part.startsWith("tier-"))?.replace("tier-", "");
+    setFilter(category && FILTERS.some((f) => f.id === category) ? (category as Filter) : "all");
+    setTierFilter(tier && Object.hasOwn(tierPrices, tier) ? (tier as TemplateTier) : "all");
   }, [routeHash]);
   const selectFilters = (category: Filter, tier: TierFilter) => {
-    setFilter(category); setTierFilter(tier);
-    const hash = [category !== "all" ? `category-${category}` : "", tier !== "all" ? `tier-${tier}` : ""].filter(Boolean).join("&");
+    setFilter(category);
+    setTierFilter(tier);
+    const hash = [
+      category !== "all" ? `category-${category}` : "",
+      tier !== "all" ? `tier-${tier}` : "",
+    ]
+      .filter(Boolean)
+      .join("&");
     void navigate({ to: "/templates", hash, replace: true, resetScroll: false });
   };
 
@@ -105,10 +117,10 @@ function TemplatesPage() {
 
       <section className="tpl-hero">
         <div className="tpl-container">
-          <h1>Տեսականի</h1>
+          <h1>{tr("Տեսականի")}</h1>
           <p>
-            {templates.length} պատրաստի դիզայններ՝ ընտրեք Ձեր միջոցառմանը
-            համապատասխանը։
+            {templates.length}
+            {tr(" պատրաստի դիզայններ՝ ընտրեք Ձեր միջոցառմանը համապատասխանը։")}
           </p>
         </div>
       </section>
@@ -124,7 +136,7 @@ function TemplatesPage() {
                 onClick={() => selectFilters(f.id, tierFilter)}
               >
                 {f.id === "new-year" && <Sparkles size={14} aria-hidden="true" />}
-                {f.label}
+                {tr(f.label)}
               </button>
             ))}
           </div>
@@ -136,7 +148,7 @@ function TemplatesPage() {
                 className={`tpl-tier-tab tpl-tier-${f.id} ${tierFilter === f.id ? "active" : ""}`}
                 onClick={() => selectFilters(filter, f.id)}
               >
-                {f.label}
+                {tr(f.label)}
               </button>
             ))}
           </div>
@@ -150,7 +162,7 @@ function TemplatesPage() {
           </div>
 
           {filter !== "new-year" && list.length === 0 && (
-            <p className="tpl-empty">Այս ֆիլտրով թեմփլեյթներ չկան։</p>
+            <p className="tpl-empty">{tr("Այս ֆիլտրով թեմփլեյթներ չկան։")}</p>
           )}
         </div>
       </section>
@@ -167,6 +179,7 @@ function BadgeIcon({ kind }: { kind: string }) {
 }
 
 function Countdown({ until }: { until: string }) {
+  const { tr } = useTranslation();
   const getRemaining = () => {
     const end = getDiscountDeadline(until);
     return Math.max(0, end - Date.now());
@@ -180,9 +193,15 @@ function Countdown({ until }: { until: string }) {
     return () => window.clearInterval(timer);
   }, [until]);
 
-  if (remaining === null) return <div className="discount-deadline">Զեղչը գործում է մինչև {until.split("-").reverse().join(".")}</div>;
+  if (remaining === null)
+    return (
+      <div className="discount-deadline">
+        {tr("Զեղչը գործում է մինչև ")}
+        {tr(until.split("-").reverse().join("."))}
+      </div>
+    );
   if (remaining <= 0) {
-    return <div className="tpl-sale-ended">Զեղչն ավարտվել է</div>;
+    return <div className="tpl-sale-ended">{tr("Զեղչն ավարտվել է")}</div>;
   }
 
   const total = Math.floor(remaining / 1000);
@@ -193,20 +212,25 @@ function Countdown({ until }: { until: string }) {
 
   return (
     <div className="tpl-countdown">
-      <span className="tpl-countdown-title">Զեղչի ավարտը՝</span>{" "}
+      <span className="tpl-countdown-title">{tr("Զեղչի ավարտը՝")}</span>
+      {tr(" ")}
       <span className="tpl-countdown-time">
-        <strong>{days}</strong><b>:</b>
-        <strong>{String(hours).padStart(2, "0")}</strong><b>:</b>
-        <strong>{String(minutes).padStart(2, "0")}</strong><b>:</b>
-        <strong>{String(seconds).padStart(2, "0")}</strong>
+        <strong>{days}</strong>
+        <b>:</b>
+        <strong>{tr(String(hours).padStart(2, "0"))}</strong>
+        <b>:</b>
+        <strong>{tr(String(minutes).padStart(2, "0"))}</strong>
+        <b>:</b>
+        <strong>{tr(String(seconds).padStart(2, "0"))}</strong>
       </span>
     </div>
   );
 }
 
 function TemplateCard({ t }: { t: (typeof templates)[number] }) {
+  const { tr, language } = useTranslation();
   const orderMsg = encodeURIComponent(
-    `Բարև Ձեզ! Ուզում եմ պատվիրել թեմփլեյթ #${t.code} (${categoryLabels[t.category]}, ${tierLabels[t.tier]} — ${t.price})։`,
+    orderMessage(language, t.code, categoryLabels[t.category], tierLabels[t.tier], t.price),
   );
 
   const sale = Boolean(t.discountTo && t.discountUntil);
@@ -218,13 +242,13 @@ function TemplateCard({ t }: { t: (typeof templates)[number] }) {
         to="/templates/$code"
         params={{ code: t.code }}
         className="tpl-card-stage"
-        aria-label={`Դիտել թեմփլեյթ #${t.code}`}
+        aria-label={tr(`Դիտել թեմփլեյթ #${t.code}`)}
       >
         <div className="tpl-badges">
           {t.badges.map((badge) => (
             <span key={badge} className={`tpl-badge tpl-badge-${badge}`}>
               <BadgeIcon kind={badge} />
-              {badgeLabels[badge]}
+              {tr(badgeLabels[badge])}
             </span>
           ))}
         </div>
@@ -236,12 +260,16 @@ function TemplateCard({ t }: { t: (typeof templates)[number] }) {
           <img src={t.image} alt="" loading="lazy" />
         </div>
         <div className="tpl-phone tpl-phone-main">
-          <img src={t.image} alt={`${categoryLabels[t.category]} հրավիրատոմսի նախադիտում՝ #${t.code}`} loading="lazy" />
+          <img
+            src={t.image}
+            alt={tr(`${categoryLabels[t.category]} հրավիրատոմսի նախադիտում՝ #${t.code}`)}
+            loading="lazy"
+          />
         </div>
 
         <div className="tpl-card-overlay">
           <Eye size={18} />
-          <span>Դիտել</span>
+          <span>{tr("Դիտել")}</span>
         </div>
       </Link>
 
@@ -255,32 +283,23 @@ function TemplateCard({ t }: { t: (typeof templates)[number] }) {
                 <span className="tpl-old-price">
                   <s>{oldPrice}</s>
                 </span>
-                <span className="tpl-card-price tpl-sale-price">
-                  {t.price}
-                </span>
+                <span className="tpl-card-price tpl-sale-price">{t.price}</span>
               </>
             ) : (
-              <span className="tpl-card-price">
-                {t.price}
-              </span>
+              <span className="tpl-card-price">{t.price}</span>
             )}
 
-            <span className={`tpl-tier-chip tpl-tier-${t.tier}`}>
-              {tierLabels[t.tier]}
-            </span>
+            <span className={`tpl-tier-chip tpl-tier-${t.tier}`}>{tierLabels[t.tier]}</span>
           </div>
         </div>
 
-        <h3 className="tpl-card-title">{categoryLabels[t.category]}</h3>
+        <h3 className="tpl-card-title">{tr(categoryLabels[t.category])}</h3>
         {t.discountUntil && <Countdown until={t.discountUntil} />}
 
         <div className="tpl-card-actions">
-          <Link
-            to="/templates/$code"
-            params={{ code: t.code }}
-            className="tpl-btn tpl-btn-ghost"
-          >
-            <Eye size={14} /> Դիտել
+          <Link to="/templates/$code" params={{ code: t.code }} className="tpl-btn tpl-btn-ghost">
+            <Eye size={14} />
+            {tr(" Դիտել")}
           </Link>
           <a
             href={`${WHATSAPP_URL}?text=${orderMsg}`}
@@ -288,10 +307,10 @@ function TemplateCard({ t }: { t: (typeof templates)[number] }) {
             rel="noopener noreferrer"
             className="tpl-btn tpl-btn-primary"
           >
-            <MessageCircle size={14} /> Պատվիրել
+            <MessageCircle size={14} />
+            {tr(" Պատվիրել")}
           </a>
         </div>
-              {t.discountUntil && <Countdown until={t.discountUntil} />}
       </div>
     </article>
   );

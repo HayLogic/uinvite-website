@@ -1,3 +1,4 @@
+import { useTranslation } from "@/i18n/LanguageProvider";
 import { Sparkles } from "lucide-react";
 import type { CSSProperties } from "react";
 import "./NewYearSection.css";
@@ -32,6 +33,7 @@ function EvergreenCorner({ className }: { className: string }) {
 }
 
 export function NewYearSection({ available = false }: { available?: boolean }) {
+  const { tr } = useTranslation();
   return (
     <section
       className={`new-year-section ${available ? "new-year-section-available" : ""}`}
@@ -56,21 +58,22 @@ export function NewYearSection({ available = false }: { available?: boolean }) {
         ))}
       </div>
       <div className="new-year-copy">
-        <span className="new-year-kicker">ԱՄԱՆՈՐՅԱ ՏՐԱՄԱԴՐՈՒԹՅՈՒՆ</span>
+        <span className="new-year-kicker">{tr("ԱՄԱՆՈՐՅԱ ՏՐԱՄԱԴՐՈՒԹՅՈՒՆ")}</span>
         <div className="new-year-emblem" aria-hidden="true">
           <Sparkles size={27} />
         </div>
         <h2 id="new-year-title">
-          Նոր տարվա
+          {tr("Նոր տարվա")}
           <br />
-          հրավիրատոմսեր
+          {tr("հրավիրատոմսեր")}
         </h2>
         <p>
-          Ջերմ հանդիպումներ, փայլուն պահեր
-          <br />և միասին ստեղծվող նոր հիշողություններ։
+          {tr("Ջերմ հանդիպումներ, փայլուն պահեր")}
+          <br />
+          {tr("և միասին ստեղծվող նոր հիշողություններ։")}
         </p>
         <span className="new-year-soon">
-          {available ? "Ընտրեք ձեր ամանորյա հրավիրատոմսը" : "Տոնական հավաքածուն՝ շուտով"}
+          {tr(available ? "Ընտրեք ձեր ամանորյա հրավիրատոմսը" : "Տոնական հավաքածուն՝ շուտով")}
         </span>
       </div>
     </section>

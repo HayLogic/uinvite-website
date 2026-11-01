@@ -1,3 +1,5 @@
+import { orderMessage } from "@/i18n/translate";
+import { useTranslation } from "@/i18n/LanguageProvider";
 import { useTemplates } from "@/components/useTemplates";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
@@ -26,9 +28,7 @@ export const Route = createFileRoute("/templates/$code")({
           {
             name: "description",
             content: `Վեբ հրավիրատոմս #${loaderData.template.code}՝ ${
-              categoryLabels[
-                loaderData.template.category as TemplateCategory
-              ]
+              categoryLabels[loaderData.template.category as TemplateCategory]
             }, ${loaderData.template.price}։`,
           },
           {
@@ -45,16 +45,24 @@ export const Route = createFileRoute("/templates/$code")({
 
   notFoundComponent: () => (
     <div style={{ padding: 48, textAlign: "center" }}>
-      <h1>Թեմփլեյթը չի գտնվել</h1>
-      <Link to="/templates">Վերադառնալ տեսականի</Link>
+      <h1>
+        <SiteText text="Թեմփլեյթը չի գտնվել" />
+      </h1>
+      <Link to="/templates">
+        <SiteText text="Վերադառնալ տեսականի" />
+      </Link>
     </div>
   ),
 
   errorComponent: ({ error }) => (
     <div style={{ padding: 48, textAlign: "center" }}>
-      <h1>Սխալ</h1>
+      <h1>
+        <SiteText text="Սխալ" />
+      </h1>
       <p>{(error as Error).message}</p>
-      <Link to="/templates">Վերադառնալ տեսականի</Link>
+      <Link to="/templates">
+        <SiteText text="Վերադառնալ տեսականի" />
+      </Link>
     </div>
   ),
 
@@ -62,8 +70,11 @@ export const Route = createFileRoute("/templates/$code")({
 });
 
 function TemplateViewer() {
+  const { tr, language } = useTranslation();
   const { template: initialTemplate } = Route.useLoaderData();
-  const template = useTemplates([initialTemplate]).find(item => item.code === initialTemplate.code) ?? initialTemplate;
+  const template =
+    useTemplates([initialTemplate]).find((item) => item.code === initialTemplate.code) ??
+    initialTemplate;
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -76,27 +87,34 @@ function TemplateViewer() {
   const previewUrl = `/templates/${template.code}/index.html`;
 
   const orderMsg = encodeURIComponent(
-    `Բարև Ձեզ! Ուզում եմ պատվիրել թեմփլեյթ #${template.code} (${categoryLabels[
-      template.category as TemplateCategory
-    ]}, ${tierLabels[template.tier]} — ${template.price})։`,
+    orderMessage(
+      language,
+      template.code,
+      categoryLabels[template.category],
+      tierLabels[template.tier],
+      template.price,
+    ),
   );
 
   return (
     <div className="tv-page">
       <style>{styles}</style>
 
-      <h1 className="sr-only">Հրավիրատոմս #{template.code}</h1>
+      <h1 className="sr-only">
+        {tr("Հրավիրատոմս #")}
+        {template.code}
+      </h1>
       <main className="tv-preview">
         {!loaded && (
           <div className="tv-loader">
             <div className="tv-spinner" />
-            <span>Բեռնվում է...</span>
+            <span>{tr("Բեռնվում է...")}</span>
           </div>
         )}
 
         <iframe
           src={previewUrl}
-          title={`Թեմփլեյթ #${template.code}`}
+          title={tr(`Թեմփլեյթ #${template.code}`)}
           className="tv-frame"
           onLoad={() => setLoaded(true)}
           style={{ opacity: loaded ? 1 : 0 }}
@@ -111,17 +129,17 @@ function TemplateViewer() {
           rel="noopener noreferrer"
         >
           <MessageCircle size={19} />
-          <span>Պատվիրել</span>
+          <span>{tr("Պատվիրել")}</span>
         </a>
 
         <a className="tv-action tv-call" href="tel:+37477198238">
           <Phone size={19} />
-          <span>Զանգել</span>
+          <span>{tr("Զանգել")}</span>
         </a>
 
         <Link className="tv-action tv-back" to="/templates">
           <ArrowLeft size={19} />
-          <span>Հետ գնալ</span>
+          <span>{tr("Հետ գնալ")}</span>
         </Link>
       </div>
     </div>
@@ -278,3 +296,7 @@ const styles = `
 }
 `;
 
+function SiteText({ text }: { text: string }) {
+  const { tr } = useTranslation();
+  return <>{tr(text)}</>;
+}

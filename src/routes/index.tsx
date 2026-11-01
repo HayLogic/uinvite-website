@@ -1,3 +1,5 @@
+import { orderMessage } from "@/i18n/translate";
+import { useTranslation } from "@/i18n/LanguageProvider";
 import { faqs } from "@/data/faq";
 import { faqSchema } from "@/lib/seo";
 import { PricingSection } from "@/components/PricingSection";
@@ -8,12 +10,21 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/")({
   loader: () => ({ catalogue: getTemplates() }),
   head: () => ({
-    scripts: [{ type: "application/ld+json", children: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }],
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(faqSchema).replace(/</g, "\\u003c") },
+    ],
     meta: [
       { title: "uInvite — Էլեկտրոնային հրավիրատոմսեր" },
-      { name: "description", content: "Ստեղծեք գեղեցիկ էլեկտրոնային հրավիրատոմսեր հարսանիքի, նշանադրության, կնունքի, ծննդյան և այլ առիթների համար։" },
+      {
+        name: "description",
+        content:
+          "Ստեղծեք գեղեցիկ էլեկտրոնային հրավիրատոմսեր հարսանիքի, նշանադրության, կնունքի, ծննդյան և այլ առիթների համար։",
+      },
       { property: "og:title", content: "uInvite — Էլեկտրոնային հրավիրատոմսեր" },
-      { property: "og:description", content: "Գեղեցիկ էլեկտրոնային հրավիրատոմսեր ցանկացած առիթի համար։" },
+      {
+        property: "og:description",
+        content: "Գեղեցիկ էլեկտրոնային հրավիրատոմսեր ցանկացած առիթի համար։",
+      },
     ],
   }),
   component: Index,
@@ -34,11 +45,42 @@ import {
   type TemplateCategory as TplCat,
 } from "@/data/templates";
 import {
-  Heart, Gem, Cake, Flower2, Bird, PartyPopper, Building2, Sparkles,
-  Send, Eye, ShoppingBag, Zap, Palette, Smartphone, MessageCircle,
-  Star, Check, PenTool, Play, Link2, Globe2, MapPin, Users, X, Calendar, Wallet,
-  ClipboardList, Upload, CreditCard, Info, Lock, Phone,
-  ChevronDown, Crown, Tag, Gift,
+  Heart,
+  Gem,
+  Cake,
+  Flower2,
+  Bird,
+  PartyPopper,
+  Building2,
+  Sparkles,
+  Send,
+  Eye,
+  ShoppingBag,
+  Zap,
+  Palette,
+  Smartphone,
+  MessageCircle,
+  Star,
+  Check,
+  PenTool,
+  Play,
+  Link2,
+  Globe2,
+  MapPin,
+  Users,
+  X,
+  Calendar,
+  Wallet,
+  ClipboardList,
+  Upload,
+  CreditCard,
+  Info,
+  Lock,
+  Phone,
+  ChevronDown,
+  Crown,
+  Tag,
+  Gift,
 } from "lucide-react";
 
 const CATEGORIES = [
@@ -53,14 +95,116 @@ const CATEGORIES = [
 ];
 
 const TEMPLATES = [
-  { id: 1, code: "001", price: TPL_DATA.find((t) => t.code === "001")!.price, category: "wedding", title: "Սև և սպիտակ", desc: "Էլեգանտ սև-սպիտակ ձևանմուշ՝ նուրբ տիպոգրաֆիայով։", Icon: Heart, theme: "dark", names: "Անի & Արամ", script: "Wedding", date: "12 · 09 · 2026", tag: "top" as const },
-  { id: 2, code: "002", price: TPL_DATA.find((t) => t.code === "002")!.price, category: "wedding", title: "Սեր", desc: "Դասական էսթետիկա, որը միշտ արդիական է։", Icon: Gem, theme: "ivory", names: "Մարիամ & Դավիթ", script: "Save the date", date: "24 · 07 · 2026", tag: "new" as const },
-  { id: 3, code: "003", price: TPL_DATA.find((t) => t.code === "003")!.price, category: "birthday", title: "Ծննդյան օր", desc: "Նուրբ և օդային հրավեր՝ տոնական տրամադրությամբ։", Icon: Cake, theme: "blush", names: "Նարեի 5-ամյակը", script: "Birthday", date: "03 · 06 · 2026", tag: "top" as const },
-  { id: 4, code: "004", price: TPL_DATA.find((t) => t.code === "004")!.price, category: "engagement", title: "Նշանադրություն", desc: "Ռոմանտիկ ձևավորում՝ ձեր կարևոր օրվա համար։", Icon: Flower2, theme: "rose", names: "Լիլիթ & Տիգրան", script: "Engagement", date: "18 · 05 · 2026", tag: "new" as const },
-  { id: 5, code: "005", price: TPL_DATA.find((t) => t.code === "005")!.price, category: "christening", title: "Կնունք", desc: "Հոգևոր և լուսավոր ձևանմուշ սուրբ արարողության համար։", Icon: Bird, theme: "ivory", names: "Արենի կնունքը", script: "Baptism", date: "07 · 04 · 2026" },
-  { id: 6, code: "006", price: TPL_DATA.find((t) => t.code === "006")!.price, category: "kids", title: "Մանկական տոն", desc: "Վառ ու զվարճալի դիզայն փոքրիկների համար։", Icon: PartyPopper, theme: "mint", names: "Մայայի 3-ամյակը", script: "Party Time", date: "21 · 08 · 2026", tag: "new" as const },
-  { id: 7, code: "007", price: TPL_DATA.find((t) => t.code === "007")!.price, category: "commercial", title: "Կորպորատիվ", desc: "Մինիմալիստական ձևանմուշ բիզնես միջոցառումների համար։", Icon: Building2, theme: "dark", names: "Brand Launch", script: "You're Invited", date: "15 · 10 · 2026" },
-  { id: 8, code: "008", price: TPL_DATA.find((t) => t.code === "008")!.price, category: "other", title: "Հոբելյան", desc: "Հատուկ առիթի համար ստեղծված հրավիրատոմս։", Icon: Sparkles, theme: "blush", names: "25-ամյակ", script: "Anniversary", date: "30 · 11 · 2026", tag: "top" as const },
+  {
+    id: 1,
+    code: "001",
+    price: TPL_DATA.find((t) => t.code === "001")!.price,
+    category: "wedding",
+    title: "Սև և սպիտակ",
+    desc: "Էլեգանտ սև-սպիտակ ձևանմուշ՝ նուրբ տիպոգրաֆիայով։",
+    Icon: Heart,
+    theme: "dark",
+    names: "Անի & Արամ",
+    script: "Wedding",
+    date: "12 · 09 · 2026",
+    tag: "top" as const,
+  },
+  {
+    id: 2,
+    code: "002",
+    price: TPL_DATA.find((t) => t.code === "002")!.price,
+    category: "wedding",
+    title: "Սեր",
+    desc: "Դասական էսթետիկա, որը միշտ արդիական է։",
+    Icon: Gem,
+    theme: "ivory",
+    names: "Մարիամ & Դավիթ",
+    script: "Save the date",
+    date: "24 · 07 · 2026",
+    tag: "new" as const,
+  },
+  {
+    id: 3,
+    code: "003",
+    price: TPL_DATA.find((t) => t.code === "003")!.price,
+    category: "birthday",
+    title: "Ծննդյան օր",
+    desc: "Նուրբ և օդային հրավեր՝ տոնական տրամադրությամբ։",
+    Icon: Cake,
+    theme: "blush",
+    names: "Նարեի 5-ամյակը",
+    script: "Birthday",
+    date: "03 · 06 · 2026",
+    tag: "top" as const,
+  },
+  {
+    id: 4,
+    code: "004",
+    price: TPL_DATA.find((t) => t.code === "004")!.price,
+    category: "engagement",
+    title: "Նշանադրություն",
+    desc: "Ռոմանտիկ ձևավորում՝ ձեր կարևոր օրվա համար։",
+    Icon: Flower2,
+    theme: "rose",
+    names: "Լիլիթ & Տիգրան",
+    script: "Engagement",
+    date: "18 · 05 · 2026",
+    tag: "new" as const,
+  },
+  {
+    id: 5,
+    code: "005",
+    price: TPL_DATA.find((t) => t.code === "005")!.price,
+    category: "christening",
+    title: "Կնունք",
+    desc: "Հոգևոր և լուսավոր ձևանմուշ սուրբ արարողության համար։",
+    Icon: Bird,
+    theme: "ivory",
+    names: "Արենի կնունքը",
+    script: "Baptism",
+    date: "07 · 04 · 2026",
+  },
+  {
+    id: 6,
+    code: "006",
+    price: TPL_DATA.find((t) => t.code === "006")!.price,
+    category: "kids",
+    title: "Մանկական տոն",
+    desc: "Վառ ու զվարճալի դիզայն փոքրիկների համար։",
+    Icon: PartyPopper,
+    theme: "mint",
+    names: "Մայայի 3-ամյակը",
+    script: "Party Time",
+    date: "21 · 08 · 2026",
+    tag: "new" as const,
+  },
+  {
+    id: 7,
+    code: "007",
+    price: TPL_DATA.find((t) => t.code === "007")!.price,
+    category: "commercial",
+    title: "Կորպորատիվ",
+    desc: "Մինիմալիստական ձևանմուշ բիզնես միջոցառումների համար։",
+    Icon: Building2,
+    theme: "dark",
+    names: "Brand Launch",
+    script: "You're Invited",
+    date: "15 · 10 · 2026",
+  },
+  {
+    id: 8,
+    code: "008",
+    price: TPL_DATA.find((t) => t.code === "008")!.price,
+    category: "other",
+    title: "Հոբելյան",
+    desc: "Հատուկ առիթի համար ստեղծված հրավիրատոմս։",
+    Icon: Sparkles,
+    theme: "blush",
+    names: "25-ամյակ",
+    script: "Anniversary",
+    date: "30 · 11 · 2026",
+    tag: "top" as const,
+  },
 ];
 
 function Index() {
@@ -68,22 +212,36 @@ function Index() {
 }
 
 function FaqItem({ q, a }: { q: string; a: string }) {
+  const { tr } = useTranslation();
   return (
     <details className="ui-faq-item">
-      <summary className="ui-faq-q"><span>{q}</span><ChevronDown size={20} strokeWidth={2} aria-hidden="true" /></summary>
-      <div className="ui-faq-a"><p>{a}</p></div>
+      <summary className="ui-faq-q">
+        <span>{tr(q)}</span>
+        <ChevronDown size={20} strokeWidth={2} aria-hidden="true" />
+      </summary>
+      <div className="ui-faq-a">
+        <p>{tr(a)}</p>
+      </div>
     </details>
   );
 }
 
-type Tpl = typeof TEMPLATES[number];
+type Tpl = (typeof TEMPLATES)[number];
 
-function WebInviteScreen({ screen, tpl }: { screen: "cover" | "schedule" | "map" | "rsvp"; tpl: Tpl }) {
+function WebInviteScreen({
+  screen,
+  tpl,
+}: {
+  screen: "cover" | "schedule" | "map" | "rsvp";
+  tpl: Tpl;
+}) {
   const Theme = tpl.theme;
   return (
     <div className={`ui-webinvite ui-invite-${Theme}`}>
       <div className="ui-webinvite-bar">
-        <span /><span /><span />
+        <span />
+        <span />
+        <span />
         <em>uinvite.am/{tpl.script.toLowerCase().replace(/\s+/g, "-")}</em>
       </div>
 
@@ -99,8 +257,16 @@ function WebInviteScreen({ screen, tpl }: { screen: "cover" | "schedule" | "map"
           <div className="ui-wi-section">
             <span className="ui-wi-eyebrow">Մինչև իրադարձությունը</span>
             <div className="ui-wi-countdown">
-              {[["128","Օր"],["14","Ժամ"],["32","Րոպե"],["07","Վրկ"]].map(([n,l]) => (
-                <div key={l}><strong>{n}</strong><span>{l}</span></div>
+              {[
+                ["128", "Օր"],
+                ["14", "Ժամ"],
+                ["32", "Րոպե"],
+                ["07", "Վրկ"],
+              ].map(([n, l]) => (
+                <div key={l}>
+                  <strong>{n}</strong>
+                  <span>{l}</span>
+                </div>
               ))}
             </div>
           </div>
@@ -137,14 +303,40 @@ function WebInviteScreen({ screen, tpl }: { screen: "cover" | "schedule" | "map"
           <div className="ui-wi-map">
             <svg viewBox="0 0 120 80" preserveAspectRatio="none" aria-hidden>
               <rect width="120" height="80" fill="currentColor" opacity=".06" />
-              <path d="M0 40 Q30 20 60 35 T120 30" stroke="currentColor" strokeWidth="1.5" fill="none" opacity=".35" />
-              <path d="M10 0 L20 80" stroke="currentColor" strokeWidth=".8" fill="none" opacity=".18" />
-              <path d="M70 0 L80 80" stroke="currentColor" strokeWidth=".8" fill="none" opacity=".18" />
-              <path d="M0 60 L120 55" stroke="currentColor" strokeWidth=".8" fill="none" opacity=".18" />
+              <path
+                d="M0 40 Q30 20 60 35 T120 30"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                fill="none"
+                opacity=".35"
+              />
+              <path
+                d="M10 0 L20 80"
+                stroke="currentColor"
+                strokeWidth=".8"
+                fill="none"
+                opacity=".18"
+              />
+              <path
+                d="M70 0 L80 80"
+                stroke="currentColor"
+                strokeWidth=".8"
+                fill="none"
+                opacity=".18"
+              />
+              <path
+                d="M0 60 L120 55"
+                stroke="currentColor"
+                strokeWidth=".8"
+                fill="none"
+                opacity=".18"
+              />
               <circle cx="62" cy="38" r="3.5" fill="currentColor" />
               <circle cx="62" cy="38" r="9" fill="currentColor" opacity=".18" />
             </svg>
-            <span className="ui-wi-pin"><MapPin size={14} strokeWidth={2.2} /></span>
+            <span className="ui-wi-pin">
+              <MapPin size={14} strokeWidth={2.2} />
+            </span>
           </div>
           <div className="ui-wi-cta ui-wi-cta-ghost">Բացել քարտեզով</div>
         </div>
@@ -154,10 +346,18 @@ function WebInviteScreen({ screen, tpl }: { screen: "cover" | "schedule" | "map"
         <div className="ui-webinvite-scroll">
           <span className="ui-wi-eyebrow ui-wi-eyebrow-top">RSVP</span>
           <div className="ui-wi-place">Կլինե՞ք մեզ հետ</div>
-          <div className="ui-wi-field"><span>Անուն</span><em>Անի Հակոբյան</em></div>
-          <div className="ui-wi-field"><span>Հյուրեր</span><em>2 հոգի</em></div>
+          <div className="ui-wi-field">
+            <span>Անուն</span>
+            <em>Անի Հակոբյան</em>
+          </div>
+          <div className="ui-wi-field">
+            <span>Հյուրեր</span>
+            <em>2 հոգի</em>
+          </div>
           <div className="ui-wi-choices">
-            <span className="ui-wi-chip active"><Check size={11} strokeWidth={3} /> Այո</span>
+            <span className="ui-wi-chip active">
+              <Check size={11} strokeWidth={3} /> Այո
+            </span>
             <span className="ui-wi-chip">Ոչ</span>
             <span className="ui-wi-chip">Միգուցե</span>
           </div>
@@ -169,6 +369,7 @@ function WebInviteScreen({ screen, tpl }: { screen: "cover" | "schedule" | "map"
 }
 
 function IndexInner() {
+  const { tr } = useTranslation();
   const [active, setActive] = useState<string>("all");
   return (
     <div className="ui-root">
@@ -177,25 +378,46 @@ function IndexInner() {
       <section id="home" className="ui-hero">
         <div className="ui-container ui-hero-grid">
           <div className="ui-hero-content">
-            <span className="ui-eyebrow">Էլեկտրոնային հրավիրատոմսեր</span>
-            <h1 className="ui-h1">Ժամանակակից վեբ հրավիրատոմսեր Ձեր կարևոր <span className="ui-accent">օրվա</span> համար</h1>
+            <span className="ui-eyebrow">{tr("Էլեկտրոնային հրավիրատոմսեր")}</span>
+            <h1 className="ui-h1">
+              {tr("Ժամանակակից վեբ հրավիրատոմսեր Ձեր կարևոր ")}
+              <span className="ui-accent">{tr("օրվա")}</span>
+              {tr(" համար")}
+            </h1>
             <p className="ui-lead">
-              RSVP, քարտեզ, հետհաշվարկ, լուսանկարներ և շատ ավելին՝ մեկ հղումով։
+              {tr("RSVP, քարտեզ, հետհաշվարկ, լուսանկարներ և շատ ավելին՝ մեկ հղումով։")}
             </p>
             <div className="ui-hero-cta">
-              <Link to="/templates" className="ui-btn ui-btn-ghost"><Eye size={16} /> Դիտել տեսականին</Link>
-              <a href="/#pricing" className="ui-btn ui-btn-primary"><ShoppingBag size={16} /> Պատվիրել հիմա</a>
+              <Link to="/templates" className="ui-btn ui-btn-ghost">
+                <Eye size={16} />
+                {tr(" Դիտել տեսականին")}
+              </Link>
+              <a href="/#pricing" className="ui-btn ui-btn-primary">
+                <ShoppingBag size={16} />
+                {tr(" Պատվիրել հիմա")}
+              </a>
             </div>
             <div className="ui-hero-stats">
-              <div><strong>500+</strong><span>գոհ հաճախորդ</span></div>
-              <div><strong>80</strong><span>ձևանմուշ</span></div>
-              <div><strong>48ժ</strong><span>պատրաստման ժամկետ</span></div>
+              <div>
+                <strong>500+</strong>
+                <span>{tr("գոհ հաճախորդ")}</span>
+              </div>
+              <div>
+                <strong>80</strong>
+                <span>{tr("ձևանմուշ")}</span>
+              </div>
+              <div>
+                <strong>{tr("48ժ")}</strong>
+                <span>{tr("պատրաստման ժամկետ")}</span>
+              </div>
             </div>
           </div>
           <div className="ui-hero-visual">
             <div className="ui-phone ui-phone-1">
               <div className="ui-invite ui-invite-1 ui-invite-video">
-                <span className="ui-play-pulse"><Play size={14} fill="currentColor" /></span>
+                <span className="ui-play-pulse">
+                  <Play size={14} fill="currentColor" />
+                </span>
                 <Flower2 className="ui-invite-emoji" size={28} strokeWidth={1.4} />
                 <div className="ui-invite-script">Save the date</div>
                 <div className="ui-invite-name">Անի &amp; Արամ</div>
@@ -205,7 +427,9 @@ function IndexInner() {
             </div>
             <div className="ui-phone ui-phone-2">
               <div className="ui-invite ui-invite-2 ui-invite-video">
-                <span className="ui-play-pulse"><Play size={14} fill="currentColor" /></span>
+                <span className="ui-play-pulse">
+                  <Play size={14} fill="currentColor" />
+                </span>
                 <Gem className="ui-invite-emoji" size={28} strokeWidth={1.4} />
                 <div className="ui-invite-script">Wedding</div>
                 <div className="ui-invite-name">Մարիամ &amp; Դավիթ</div>
@@ -215,7 +439,9 @@ function IndexInner() {
             </div>
             <div className="ui-phone ui-phone-3">
               <div className="ui-invite ui-invite-3 ui-invite-video">
-                <span className="ui-play-pulse"><Play size={14} fill="currentColor" /></span>
+                <span className="ui-play-pulse">
+                  <Play size={14} fill="currentColor" />
+                </span>
                 <Cake className="ui-invite-emoji" size={28} strokeWidth={1.4} />
                 <div className="ui-invite-script">Birthday</div>
                 <div className="ui-invite-name">Նարեի 5-ամյակը</div>
@@ -230,8 +456,8 @@ function IndexInner() {
       <section id="catalog" className="ui-section">
         <div className="ui-container">
           <div className="ui-section-head">
-            <h2 className="ui-h2">Տեսականի</h2>
-            <p className="ui-muted">Ընտրեք Ձեր առիթին համապատասխան ձևանմուշը</p>
+            <h2 className="ui-h2">{tr("Տեսականի")}</h2>
+            <p className="ui-muted">{tr("Ընտրեք Ձեր առիթին համապատասխան ձևանմուշը")}</p>
           </div>
 
           <CatalogTemplates />
@@ -243,20 +469,38 @@ function IndexInner() {
       <section id="why" className="ui-section ui-section-soft">
         <div className="ui-container">
           <div className="ui-section-head">
-            <h2 className="ui-h2">Ինչու՞ ընտրել uInvite-ը</h2>
-            <p className="ui-muted">Ժամանակակից վեբ հրավիրատոմս՝ ամեն ինչ մեկ հղումով</p>
+            <h2 className="ui-h2">{tr("Ինչու՞ ընտրել uInvite-ը")}</h2>
+            <p className="ui-muted">{tr("Ժամանակակից վեբ հրավիրատոմս՝ ամեն ինչ մեկ հղումով")}</p>
           </div>
           <div className="ui-features">
             {[
-              { I: Zap, t: "Արագ պատրաստում", d: "Պատրաստում ենք Ձեր վեբ հրավիրատոմսը ընդամենը 2 աշխատանքային օրվա ընթացքում։" },
-              { I: Link2, t: "Ամեն ինչ մեկ հղումով", d: "Հրավեր, քարտեզ, RSVP, հետհաշվարկ և լուսանկարներ՝ մեկ հարմար հղման մեջ։" },
-              { I: Globe2, t: "Հարմար բոլոր հյուրերի համար", d: "Հղումը հեշտությամբ ուղարկեք WhatsApp-ով, Messenger-ով, Instagram-ով կամ SMS-ով։" },
-              { I: Palette, t: "Ժամանակակից դիզայն", d: "Նորաոճ, հարմարավետ և բջջային սարքերի համար օպտիմիզացված հրավիրատոմսեր։" },
+              {
+                I: Zap,
+                t: "Արագ պատրաստում",
+                d: "Պատրաստում ենք Ձեր վեբ հրավիրատոմսը ընդամենը 2 աշխատանքային օրվա ընթացքում։",
+              },
+              {
+                I: Link2,
+                t: "Ամեն ինչ մեկ հղումով",
+                d: "Հրավեր, քարտեզ, RSVP, հետհաշվարկ և լուսանկարներ՝ մեկ հարմար հղման մեջ։",
+              },
+              {
+                I: Globe2,
+                t: "Հարմար բոլոր հյուրերի համար",
+                d: "Հղումը հեշտությամբ ուղարկեք WhatsApp-ով, Messenger-ով, Instagram-ով կամ SMS-ով։",
+              },
+              {
+                I: Palette,
+                t: "Ժամանակակից դիզայն",
+                d: "Նորաոճ, հարմարավետ և բջջային սարքերի համար օպտիմիզացված հրավիրատոմսեր։",
+              },
             ].map((f) => (
               <div key={f.t} className="ui-feature">
-                <div className="ui-feature-icon"><f.I size={26} strokeWidth={1.5} /></div>
-                <h3>{f.t}</h3>
-                <p>{f.d}</p>
+                <div className="ui-feature-icon">
+                  <f.I size={26} strokeWidth={1.5} />
+                </div>
+                <h3>{tr(f.t)}</h3>
+                <p>{tr(f.d)}</p>
               </div>
             ))}
           </div>
@@ -264,20 +508,38 @@ function IndexInner() {
           <div className="ui-why-list">
             <div className="ui-why-head">
               <Sparkles size={18} className="ui-why-spark" />
-              <h3>Ինչու՞ uInvite</h3>
+              <h3>{tr("Ինչու՞ uInvite")}</h3>
             </div>
             <ul>
               {[
-                { I: Wallet, t: "Խնայեք ժամանակ և գումար", d: "Այլևս թղթե հրավիրատոմսերի կարիք չկա։" },
-                { I: Users, t: "Իմացեք հյուրերի պատասխանը նախապես", d: "RSVP համակարգի շնորհիվ վերահսկեք ներկայությունը։" },
-                { I: MapPin, t: "Բոլոր մանրամասները մեկ տեղում", d: "Քարտեզ, ժամ, հասցե, լուսանկարներ և ավելին։" },
-                { I: Sparkles, t: "Զարմացրեք Ձեր հյուրերին", d: "Գեղեցիկ և ժամանակակից վեբ հրավիրատոմսով։" },
+                {
+                  I: Wallet,
+                  t: "Խնայեք ժամանակ և գումար",
+                  d: "Այլևս թղթե հրավիրատոմսերի կարիք չկա։",
+                },
+                {
+                  I: Users,
+                  t: "Իմացեք հյուրերի պատասխանը նախապես",
+                  d: "RSVP համակարգի շնորհիվ վերահսկեք ներկայությունը։",
+                },
+                {
+                  I: MapPin,
+                  t: "Բոլոր մանրամասները մեկ տեղում",
+                  d: "Քարտեզ, ժամ, հասցե, լուսանկարներ և ավելին։",
+                },
+                {
+                  I: Sparkles,
+                  t: "Զարմացրեք Ձեր հյուրերին",
+                  d: "Գեղեցիկ և ժամանակակից վեբ հրավիրատոմսով։",
+                },
               ].map((b) => (
                 <li key={b.t}>
-                  <span className="ui-why-check"><Check size={16} strokeWidth={2.6} /></span>
+                  <span className="ui-why-check">
+                    <Check size={16} strokeWidth={2.6} />
+                  </span>
                   <div>
-                    <strong>{b.t}</strong>
-                    <p>{b.d}</p>
+                    <strong>{tr(b.t)}</strong>
+                    <p>{tr(b.d)}</p>
                   </div>
                 </li>
               ))}
@@ -291,24 +553,48 @@ function IndexInner() {
         <div className="ui-container ui-rsvp-grid">
           <div className="ui-rsvp-copy">
             <span className="ui-eyebrow">RSVP</span>
-            <h2 className="ui-h2" style={{ color: "#fff" }}>Հյուրերի մասնակցության հաստատում</h2>
-            <p>Հյուրերը մեկ սեղմումով հաստատում կամ մերժում են մասնակցությունը, իսկ դուք տեսնում եք բոլոր պատասխանները մեկ տեղում։</p>
+            <h2 className="ui-h2" style={{ color: "#fff" }}>
+              {tr("Հյուրերի մասնակցության հաստատում")}
+            </h2>
+            <p>
+              {tr(
+                "Հյուրերը մեկ սեղմումով հաստատում կամ մերժում են մասնակցությունը, իսկ դուք տեսնում եք բոլոր պատասխանները մեկ տեղում։",
+              )}
+            </p>
             <ul className="ui-rsvp-bullets">
-              <li><Check size={16} strokeWidth={2.6} /> Մեկ սեղմումով պատասխան</li>
-              <li><Check size={16} strokeWidth={2.6} /> Հյուրերի քանակը՝ իրական ժամանակում</li>
-              <li><Check size={16} strokeWidth={2.6} /> Ավտոմատ ցուցակ՝ ձեզ համար</li>
+              <li>
+                <Check size={16} strokeWidth={2.6} />
+                {tr(" Մեկ սեղմումով պատասխան")}
+              </li>
+              <li>
+                <Check size={16} strokeWidth={2.6} />
+                {tr(" Հյուրերի քանակը՝ իրական ժամանակում")}
+              </li>
+              <li>
+                <Check size={16} strokeWidth={2.6} />
+                {tr(" Ավտոմատ ցուցակ՝ ձեզ համար")}
+              </li>
             </ul>
           </div>
           <div className="ui-rsvp-card">
             <div className="ui-rsvp-card-head">
               <ClipboardList size={18} />
-              <strong>RSVP հաշվարկ</strong>
-              <span>Live</span>
+              <strong>{tr("RSVP հաշվարկ")}</strong>
+              <span>{tr("Live")}</span>
             </div>
             <div className="ui-rsvp-stats">
-              <div><strong>87</strong><span>Հաստատել են</span></div>
-              <div><strong>9</strong><span>Մերժել են</span></div>
-              <div><strong>14</strong><span>Միգուցե</span></div>
+              <div>
+                <strong>87</strong>
+                <span>{tr("Հաստատել են")}</span>
+              </div>
+              <div>
+                <strong>9</strong>
+                <span>{tr("Մերժել են")}</span>
+              </div>
+              <div>
+                <strong>14</strong>
+                <span>{tr("Միգուցե")}</span>
+              </div>
             </div>
             <div className="ui-rsvp-list">
               {[
@@ -318,12 +604,17 @@ function IndexInner() {
                 { n: "Արամ Պետրոսյան", g: "+1", s: "no" },
               ].map((r) => (
                 <div key={r.n} className="ui-rsvp-row">
-                  <span className="ui-rsvp-name">{r.n}</span>
-                  <span className="ui-rsvp-guests">{r.g}</span>
+                  <span className="ui-rsvp-name">{tr(r.n)}</span>
+                  <span className="ui-rsvp-guests">{tr(r.g)}</span>
                   <span className={`ui-rsvp-pill ${r.s}`}>
-                    {r.s === "yes" && <><Check size={11} strokeWidth={3} /> Այո</>}
-                    {r.s === "no" && "Ոչ"}
-                    {r.s === "maybe" && "Միգուցե"}
+                    {r.s === "yes" && (
+                      <>
+                        <Check size={11} strokeWidth={3} />
+                        {tr(" Այո")}
+                      </>
+                    )}
+                    {tr(r.s === "no" && "Ոչ")}
+                    {tr(r.s === "maybe" && "Միգուցե")}
                   </span>
                 </div>
               ))}
@@ -335,8 +626,8 @@ function IndexInner() {
       <section id="faq" className="ui-section ui-section-soft">
         <div className="ui-container">
           <div className="ui-section-head">
-            <h2 className="ui-h2">Հաճախ տրվող հարցեր</h2>
-            <p className="ui-muted">Ամենից շատ տրվող հարցերի պատասխանները՝ մեկ տեղում</p>
+            <h2 className="ui-h2">{tr("Հաճախ տրվող հարցեր")}</h2>
+            <p className="ui-muted">{tr("Ամենից շատ տրվող հարցերի պատասխանները՝ մեկ տեղում")}</p>
           </div>
           <div className="ui-faq">
             {faqs.map((item, i) => (
@@ -350,31 +641,65 @@ function IndexInner() {
         <div className="ui-bg-photo" aria-hidden style={{ backgroundImage: `url(${weddingBg})` }} />
         <div className="ui-container">
           <div className="ui-section-head">
-            <h2 className="ui-h2" style={{ color: "#fff" }}>📋 Աշխատանքի փուլերը</h2>
-            <p style={{ color: "rgba(255,255,255,.7)" }}>Ընդամենը 6 պարզ քայլ՝ պատրաստի վեբ հրավիրատոմս ստանալու համար</p>
+            <h2 className="ui-h2" style={{ color: "#fff" }}>
+              {tr("📋 Աշխատանքի փուլերը")}
+            </h2>
+            <p style={{ color: "rgba(255,255,255,.7)" }}>
+              {tr("Ընդամենը 6 պարզ քայլ՝ պատրաստի վեբ հրավիրատոմս ստանալու համար")}
+            </p>
           </div>
           <div className="ui-steps">
             {[
-              { I: Eye, t: "Ընտրեք դիզայնը", d: "Դիտեք մեր պատրաստի օրինակները և ընտրեք այն շաբլոնը, որը լավագույնս համապատասխանում է Ձեր միջոցառմանը։" },
-              { I: Upload, t: "Ուղարկեք անհրաժեշտ տվյալները", d: "Մեզ տրամադրեք միջոցառման տվյալները, տեքստերը, լուսանկարները և այլ անհրաժեշտ տեղեկությունները հրավիրատոմսի պատրաստման համար։" },
-              { I: CreditCard, t: "Հաստատեք պատվերը", d: "Պատվերը հաստատվում է վճարումից հետո, որից անմիջապես սկսում ենք աշխատանքը։" },
-              { I: PenTool, t: "Պատրաստում ենք հրավիրատոմսը", d: "Մեր թիմը ձևավորում և պատրաստում է Ձեր վեբ հրավիրատոմսը՝ ընտրված փաթեթի պայմաններին համապատասխան։" },
-              { I: Link2, t: "Ստացեք պատրաստի հղումը", d: "Աշխատանքի ավարտից հետո Ձեզ տրամադրում ենք պատրաստի հղումը, որը կարող եք հեշտությամբ տարածել WhatsApp, Messenger, Instagram, Telegram կամ SMS-ի միջոցով։" },
-              { I: Users, t: "Հյուրերի պատասխանների կառավարում", d: "RSVP համակարգի միջոցով կարող եք հետևել հյուրերի մասնակցության հաստատումներին և ստանալ պատասխանները մեկ վայրում։" },
+              {
+                I: Eye,
+                t: "Ընտրեք դիզայնը",
+                d: "Դիտեք մեր պատրաստի օրինակները և ընտրեք այն շաբլոնը, որը լավագույնս համապատասխանում է Ձեր միջոցառմանը։",
+              },
+              {
+                I: Upload,
+                t: "Ուղարկեք անհրաժեշտ տվյալները",
+                d: "Մեզ տրամադրեք միջոցառման տվյալները, տեքստերը, լուսանկարները և այլ անհրաժեշտ տեղեկությունները հրավիրատոմսի պատրաստման համար։",
+              },
+              {
+                I: CreditCard,
+                t: "Հաստատեք պատվերը",
+                d: "Պատվերը հաստատվում է վճարումից հետո, որից անմիջապես սկսում ենք աշխատանքը։",
+              },
+              {
+                I: PenTool,
+                t: "Պատրաստում ենք հրավիրատոմսը",
+                d: "Մեր թիմը ձևավորում և պատրաստում է Ձեր վեբ հրավիրատոմսը՝ ընտրված փաթեթի պայմաններին համապատասխան։",
+              },
+              {
+                I: Link2,
+                t: "Ստացեք պատրաստի հղումը",
+                d: "Աշխատանքի ավարտից հետո Ձեզ տրամադրում ենք պատրաստի հղումը, որը կարող եք հեշտությամբ տարածել WhatsApp, Messenger, Instagram, Telegram կամ SMS-ի միջոցով։",
+              },
+              {
+                I: Users,
+                t: "Հյուրերի պատասխանների կառավարում",
+                d: "RSVP համակարգի միջոցով կարող եք հետևել հյուրերի մասնակցության հաստատումներին և ստանալ պատասխանները մեկ վայրում։",
+              },
             ].map((s, i) => (
               <div key={s.t} className="ui-step">
                 <span className="ui-step-num">{i + 1}</span>
-                <div className="ui-step-icon"><s.I size={22} strokeWidth={1.6} /></div>
-                <h3>{s.t}</h3>
-                <p>{s.d}</p>
+                <div className="ui-step-icon">
+                  <s.I size={22} strokeWidth={1.6} />
+                </div>
+                <h3>{tr(s.t)}</h3>
+                <p>{tr(s.d)}</p>
               </div>
             ))}
           </div>
           <div className="ui-info-note">
             <Info size={18} />
             <div>
-              <strong>ℹ️ Կարևոր տեղեկություն</strong>
-              <p>Վեբ հրավիրատոմսի հղումը մնում է ակտիվ մինչև միջոցառման օրվանից 2 ամիս անց, որից հետո հեռացվում է համակարգից։</p>
+              <strong>{tr("ℹ️ Կարևոր տեղեկություն")}</strong>
+              <p>
+                {tr(
+                  "Վեբ հրավիրատոմսի հղումը մնում է ակտիվ մինչև միջոցառման օրվանից 2 ամիս անց, որից հետո հեռացվում է համակարգից։",
+                )}
+              </p>
             </div>
           </div>
         </div>
@@ -382,12 +707,19 @@ function IndexInner() {
 
       <section id="order" className="ui-section ui-cta">
         <div className="ui-container ui-cta-box">
-          <h2 className="ui-h2">Պատրա՞ստ եք ստեղծելու ձեր հրավիրատոմսը</h2>
-          <p>Գրեք մեզ, և մենք կօգնենք ընտրել կատարյալ տարբերակը։</p>
-          <a href="https://wa.me/37477198238" className="ui-btn ui-btn-primary ui-btn-lg"><Send size={18} /> Պատվիրել հրավեր</a>
+          <h2 className="ui-h2">{tr("Պատրա՞ստ եք ստեղծելու ձեր հրավիրատոմսը")}</h2>
+          <p>{tr("Գրեք մեզ, և մենք կօգնենք ընտրել կատարյալ տարբերակը։")}</p>
+          <a href="https://wa.me/37477198238" className="ui-btn ui-btn-primary ui-btn-lg">
+            <Send size={18} />
+            {tr(" Պատվիրել հրավեր")}
+          </a>
           <div className="ui-privacy-note">
             <Lock size={14} />
-            <span>Ձեր տվյալներն օգտագործվում են բացառապես հրավիրատոմսի պատրաստման նպատակով և չեն տրամադրվում երրորդ կողմերի</span>
+            <span>
+              {tr(
+                "Ձեր տվյալներն օգտագործվում են բացառապես հրավիրատոմսի պատրաստման նպատակով և չեն տրամադրվում երրորդ կողմերի",
+              )}
+            </span>
           </div>
         </div>
       </section>
@@ -396,56 +728,109 @@ function IndexInner() {
         <div className="ui-container ui-footer-grid">
           <div>
             <div className="ui-logo">
-              <img src={logoUrl} alt="uInvite՝ էլեկտրոնային հրավիրատոմսեր" className="ui-logo-img ui-logo-img-lg" />
+              <img
+                src={logoUrl}
+                alt={tr("uInvite՝ էլեկտրոնային հրավիրատոմսեր")}
+                className="ui-logo-img ui-logo-img-lg"
+              />
             </div>
-            <p className="ui-muted">Էլեկտրոնային հրավիրատոմսեր ամեն առիթի համար։</p>
+            <p className="ui-muted">{tr("Էլեկտրոնային հրավիրատոմսեր ամեն առիթի համար։")}</p>
           </div>
           <div>
-            <h3>Կատեգորիաներ</h3>
+            <h3>{tr("Կատեգորիաներ")}</h3>
             {CATEGORIES.map((c) => (
-              <Link key={c.id} to="/templates" hash={`category-${c.id}`}>{c.label}</Link>
+              <Link key={c.id} to="/templates" hash={`category-${c.id}`}>
+                {tr(c.label)}
+              </Link>
             ))}
           </div>
           <div>
-            <h3>Կապ</h3>
+            <h3>{tr("Կապ")}</h3>
             <a href="mailto:info@uinvite.am">info@uinvite.am</a>
             <a href="tel:+37477198238">+374 77 198 238</a>
-            <a href="https://wa.me/37477198238" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="https://wa.me/37477198238" target="_blank" rel="noopener noreferrer">
+              WhatsApp
+            </a>
             <a href="viber://chat?number=%2B37477198238">Viber</a>
-            <a href="https://t.me/+37477198238" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href="https://t.me/+37477198238" target="_blank" rel="noopener noreferrer">
+              Telegram
+            </a>
           </div>
         </div>
         <div className="ui-footer-socials">
-          <a href="https://www.facebook.com/profile.php?id=61588385732686" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <a
+            href="https://www.facebook.com/profile.php?id=61588385732686"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
           </a>
-          <a href="https://www.instagram.com/uinvite.am/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          <a
+            href="https://www.instagram.com/uinvite.am/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+            </svg>
           </a>
-          <a href="https://t.me/+37477198238" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          <a
+            href="https://t.me/+37477198238"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Telegram"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+            </svg>
           </a>
-          <a href="https://wa.me/37477198238" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <a
+            href="https://wa.me/37477198238"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
           </a>
         </div>
         <div className="ui-footer-privacy">
-          <Lock size={14} /> Ձեր տվյալներն օգտագործվում են բացառապես հրավիրատոմսի պատրաստման նպատակով և չեն տրամադրվում երրորդ կողմերի։
+          <Lock size={14} />
+          {tr(
+            " Ձեր տվյալներն օգտագործվում են բացառապես հրավիրատոմսի պատրաստման նպատակով և չեն տրամադրվում երրորդ կողմերի։",
+          )}
         </div>
         <div className="ui-copyright">
-  <p>
-    UInvite-ի բոլոր ձևանմուշները և դրանց ստեղծագործական լուծումները հեղինակային աշխատանք են։
-    Առանց թույլտվության դրանց ամբողջական կամ մասնակի կրկնօրինակումը, վերարտադրումը կամ օգտագործումն արգելվում է։
-  </p>
-</div>
-        <div className="ui-footer-bottom">© {new Date().getFullYear()} uInvite. Բոլոր իրավունքները պաշտպանված են։</div>
+          <p>
+            {tr(
+              "UInvite-ի բոլոր ձևանմուշները և դրանց ստեղծագործական լուծումները հեղինակային աշխատանք են։ Առանց թույլտվության դրանց ամբողջական կամ մասնակի կրկնօրինակումը, վերարտադրումը կամ օգտագործումն արգելվում է։",
+            )}
+          </p>
+        </div>
+        <div className="ui-footer-bottom">
+          {tr("© ")}
+          {new Date().getFullYear()}
+          {tr(" uInvite. Բոլոր իրավունքները պաշտպանված են։")}
+        </div>
       </footer>
 
-      <a href="https://wa.me/37477198238" className="ui-whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Կապվել WhatsApp-ով՝ +374 77 198 238">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <a
+        href="https://wa.me/37477198238"
+        className="ui-whatsapp-float"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={tr("Կապվել WhatsApp-ով՝ +374 77 198 238")}
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
         <span className="ui-whatsapp-phone">+374 77 198 238</span>
       </a>
-
     </div>
   );
 }
@@ -875,6 +1260,7 @@ const styles = `
 `;
 
 function DiscountCountdown({ until }: { until: string }) {
+  const { tr } = useTranslation();
   const getRemaining = () => {
     const end = getDiscountDeadline(until);
     return Math.max(0, end - Date.now());
@@ -891,7 +1277,13 @@ function DiscountCountdown({ until }: { until: string }) {
     return () => window.clearInterval(timer);
   }, [until]);
 
-  if (remaining === null) return <div className="discount-deadline">Զեղչը գործում է մինչև {until.split("-").reverse().join(".")}</div>;
+  if (remaining === null)
+    return (
+      <div className="discount-deadline">
+        {tr("Զեղչը գործում է մինչև ")}
+        {tr(until.split("-").reverse().join("."))}
+      </div>
+    );
   const totalSeconds = Math.floor(remaining / 1000);
   const days = Math.floor(totalSeconds / 86400);
   const hours = Math.floor((totalSeconds % 86400) / 3600);
@@ -899,29 +1291,30 @@ function DiscountCountdown({ until }: { until: string }) {
   const seconds = totalSeconds % 60;
 
   if (remaining <= 0) {
-    return <div className="ct-countdown ct-countdown-ended">Զեղչն ավարտվել է</div>;
+    return <div className="ct-countdown ct-countdown-ended">{tr("Զեղչն ավարտվել է")}</div>;
   }
 
   return (
-    <div className="ct-countdown" aria-label="Զեղչի ավարտի հետհաշվարկ">
+    <div className="ct-countdown" aria-label={tr("Զեղչի ավարտի հետհաշվարկ")}>
       <div className="ct-countdown-heading">
-        <strong>Զեղչի ավարտը</strong>
-        <span>Մնացել է</span>
+        <strong>{tr("Զեղչի ավարտը")}</strong>
+        <span>{tr("Մնացել է")}</span>
       </div>
       <div className="ct-countdown-values">
         <strong>{days}</strong>
         <b>:</b>
-        <strong>{String(hours).padStart(2, "0")}</strong>
+        <strong>{tr(String(hours).padStart(2, "0"))}</strong>
         <b>:</b>
-        <strong>{String(minutes).padStart(2, "0")}</strong>
+        <strong>{tr(String(minutes).padStart(2, "0"))}</strong>
         <b>:</b>
-        <strong>{String(seconds).padStart(2, "0")}</strong>
+        <strong>{tr(String(seconds).padStart(2, "0"))}</strong>
       </div>
     </div>
   );
 }
 
 function CatalogTemplates() {
+  const { tr, language } = useTranslation();
   const TPL_DATA = useTemplates(Route.useLoaderData().catalogue);
   const FILTERS: { id: "all" | TplCat; label: string }[] = [
     { id: "all", label: "Ամբողջը" },
@@ -942,11 +1335,7 @@ function CatalogTemplates() {
     setShowAll(false);
   }, [cat]);
 
-  const list = (
-    cat === "all"
-      ? TPL_DATA
-      : TPL_DATA.filter((t) => t.category === cat)
-  );
+  const list = cat === "all" ? TPL_DATA : TPL_DATA.filter((t) => t.category === cat);
 
   const badgeLabel = (badge: string) => {
     if (badge === "top") return "TOP";
@@ -977,7 +1366,7 @@ function CatalogTemplates() {
             onClick={() => setCat(f.id)}
           >
             {f.id === "new-year" && <Sparkles size={14} aria-hidden="true" />}
-            {f.label}
+            {tr(f.label)}
           </button>
         ))}
       </div>
@@ -987,7 +1376,13 @@ function CatalogTemplates() {
       <div className="ct-grid">
         {(showAll ? list : list.slice(0, 15)).map((t) => {
           const orderMsg = encodeURIComponent(
-            `Բարև Ձեզ! Ուզում եմ պատվիրել թեմփլեյթ #${t.code} (${TPL_CAT_LABELS[t.category]}, ${TPL_TIER_LABELS[t.tier]} — ${t.price})։`,
+            orderMessage(
+              language,
+              t.code,
+              TPL_CAT_LABELS[t.category],
+              TPL_TIER_LABELS[t.tier],
+              t.price,
+            ),
           );
 
           return (
@@ -996,17 +1391,14 @@ function CatalogTemplates() {
                 to="/templates/$code"
                 params={{ code: t.code }}
                 className="ct-stage"
-                aria-label={`Դիտել թեմփլեյթ #${t.code}`}
+                aria-label={tr(`Դիտել թեմփլեյթ #${t.code}`)}
               >
                 {t.badges?.length > 0 && (
-                  <div className="ct-badges" aria-label="Թեմփլեյթի նշումներ">
+                  <div className="ct-badges" aria-label={tr("Թեմփլեյթի նշումներ")}>
                     {t.badges.map((badge) => (
-                      <span
-                        key={badge}
-                        className={`ct-badge ct-badge-${badge}`}
-                      >
+                      <span key={badge} className={`ct-badge ct-badge-${badge}`}>
                         {badgeIcon(badge)}
-                        {badgeLabel(badge)}
+                        {tr(badgeLabel(badge))}
                       </span>
                     ))}
                   </div>
@@ -1023,14 +1415,14 @@ function CatalogTemplates() {
                 <div className="ct-phone ct-phone-main">
                   <img
                     src={t.image}
-                    alt={`${TPL_CAT_LABELS[t.category]} հրավիրատոմսի նախադիտում՝ #${t.code}`}
+                    alt={tr(`${TPL_CAT_LABELS[t.category]} հրավիրատոմսի նախադիտում՝ #${t.code}`)}
                     loading="lazy"
                   />
                 </div>
 
                 <div className="ct-overlay">
                   <Eye size={18} />
-                  <span>Դիտել</span>
+                  <span>{tr("Դիտել")}</span>
                 </div>
               </Link>
 
@@ -1038,9 +1430,7 @@ function CatalogTemplates() {
                 <div className="ct-meta">
                   <span className="ct-code">#{t.code}</span>
                   <div className="ct-price-wrap">
-                    {t.discountUntil && (
-                      <s className="ct-old-price">{TPL_TIER_PRICES[t.tier]}</s>
-                    )}
+                    {t.discountUntil && <s className="ct-old-price">{TPL_TIER_PRICES[t.tier]}</s>}
                     <span className={`ct-price ${t.discountUntil ? "ct-sale-price" : ""}`}>
                       {t.price}
                     </span>
@@ -1050,13 +1440,9 @@ function CatalogTemplates() {
                   </div>
                 </div>
 
-                <h3 className="ct-title">
-                  {TPL_CAT_LABELS[t.category]}
-                </h3>
+                <h3 className="ct-title">{tr(TPL_CAT_LABELS[t.category])}</h3>
 
-                {t.discountUntil && (
-                  <DiscountCountdown until={t.discountUntil} />
-                )}
+                {t.discountUntil && <DiscountCountdown until={t.discountUntil} />}
 
                 <div className="ct-actions">
                   <Link
@@ -1064,7 +1450,8 @@ function CatalogTemplates() {
                     params={{ code: t.code }}
                     className="ct-btn ct-btn-ghost"
                   >
-                    <Eye size={14} /> Դիտել
+                    <Eye size={14} />
+                    {tr(" Դիտել")}
                   </Link>
 
                   <a
@@ -1073,7 +1460,8 @@ function CatalogTemplates() {
                     rel="noopener noreferrer"
                     className="ct-btn ct-btn-primary"
                   >
-                    <MessageCircle size={14} /> Պատվիրել
+                    <MessageCircle size={14} />
+                    {tr(" Պատվիրել")}
                   </a>
                 </div>
               </div>
@@ -1084,12 +1472,9 @@ function CatalogTemplates() {
 
       {list.length > 15 && !showAll && (
         <div style={{ textAlign: "center", marginTop: 40 }}>
-          <button
-            type="button"
-            className="ui-btn ui-btn-primary"
-            onClick={() => setShowAll(true)}
-          >
-            <ChevronDown size={16} /> Ավելին
+          <button type="button" className="ui-btn ui-btn-primary" onClick={() => setShowAll(true)}>
+            <ChevronDown size={16} />
+            {tr(" Ավելին")}
           </button>
         </div>
       )}
@@ -1097,7 +1482,8 @@ function CatalogTemplates() {
       {showAll && list.length > 15 && (
         <div style={{ textAlign: "center", marginTop: 40 }}>
           <Link to="/templates" className="ui-btn ui-btn-primary">
-            <Eye size={16} /> Տեսնել ամբողջ տեսականին
+            <Eye size={16} />
+            {tr(" Տեսնել ամբողջ տեսականին")}
           </Link>
         </div>
       )}

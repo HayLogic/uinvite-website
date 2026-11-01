@@ -1,3 +1,4 @@
+import { useTranslation } from "@/i18n/LanguageProvider";
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight, Crown, Eye, Sparkles } from "lucide-react";
 import {
@@ -11,17 +12,20 @@ import {
 import "./PricingSection.css";
 
 export function PricingSection() {
+  const { tr } = useTranslation();
   return (
     <section id="pricing" className="pricing-section ui-section ui-section-soft">
       <div className="ui-container">
         <div className="ui-section-head">
-          <span className="pricing-eyebrow">ՁԵՐ ՕՐԸ · ՁԵՐ ԸՆՏՐՈՒԹՅՈՒՆԸ</span>
-          <h2 className="ui-h2">Մեր փաթեթները</h2>
-          <p className="ui-muted">Երկու տեսակ, երեք տարբերակ՝ ձեզ հարմար հրավիրատոմսի համար։</p>
+          <span className="pricing-eyebrow">{tr("ՁԵՐ ՕՐԸ · ՁԵՐ ԸՆՏՐՈՒԹՅՈՒՆԸ")}</span>
+          <h2 className="ui-h2">{tr("Մեր փաթեթները")}</h2>
+          <p className="ui-muted">
+            {tr("Երկու տեսակ, երեք տարբերակ՝ ձեզ հարմար հրավիրատոմսի համար։")}
+          </p>
         </div>
         <div className="pricing-announcement">
           <Sparkles size={18} aria-hidden="true" />
-          <span>Այսուհետ առաջարկում ենք նաև Premium փաթեթներ</span>
+          <span>{tr("Այսուհետ առաջարկում ենք նաև Premium փաթեթներ")}</span>
         </div>
         {packageGroups.map((group) => (
           <section
@@ -36,9 +40,11 @@ export function PricingSection() {
               <div>
                 <h3 id={`pricing-${group}-title`}>{packageGroupLabels[group]}</h3>
                 <p>
-                  {group === "premium"
-                    ? "Հատուկ ընտրություն՝ ձեր կարևոր օրվա համար"
-                    : "Գեղեցիկ հրավեր՝ ձեր սիրելի առիթի համար"}
+                  {tr(
+                    group === "premium"
+                      ? "Հատուկ ընտրություն՝ ձեր կարևոր օրվա համար"
+                      : "Գեղեցիկ հրավեր՝ ձեր սիրելի առիթի համար",
+                  )}
                 </p>
               </div>
             </div>
@@ -52,7 +58,7 @@ export function PricingSection() {
                     <p className="pricing-option-price">{tierPrices[tier]}</p>
                     <Link to="/templates" hash={`tier-${tier}`} className="pricing-option-link">
                       <Eye size={15} aria-hidden="true" />
-                      <span>Դիտել տեսականին</span>
+                      <span>{tr("Դիտել տեսականին")}</span>
                       <ArrowUpRight size={15} aria-hidden="true" />
                     </Link>
                   </article>
@@ -63,11 +69,12 @@ export function PricingSection() {
         ))}
         <div className="pricing-custom">
           <div>
-            <h3>Ձեր պատմությունը՝ ձեր ձևով</h3>
-            <p>Ունե՞ք անհատական դիզայնի գաղափար։ Սիրով կքննարկենք այն ձեզ հետ։</p>
+            <h3>{tr("Ձեր պատմությունը՝ ձեր ձևով")}</h3>
+            <p>{tr("Ունե՞ք անհատական դիզայնի գաղափար։ Սիրով կքննարկենք այն ձեզ հետ։")}</p>
           </div>
           <a href="/#order">
-            Քննարկել գաղափարը <ArrowUpRight size={17} aria-hidden="true" />
+            {tr("Քննարկել գաղափարը ")}
+            <ArrowUpRight size={17} aria-hidden="true" />
           </a>
         </div>
       </div>
