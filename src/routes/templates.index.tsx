@@ -1,3 +1,5 @@
+import { useTemplates } from "@/components/useTemplates";
+import "@/components/PricingSection.css";
 import { NewYearSection } from "@/components/NewYearSection";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
@@ -5,6 +7,7 @@ import { Eye, MessageCircle, Crown, Tag, Sparkles, Gift } from "lucide-react";
 
 import {
   templates,
+  getDiscountDeadline,
   orderTemplates,
   categoryLabels,
   WHATSAPP_URL,
@@ -29,7 +32,7 @@ export const Route = createFileRoute("/templates/")({
       { property: "og:title", content: "Տեսականի — 50+ վեբ հրավիրատոմսերի ձևանմուշ | uInvite" },
       {
         property: "og:description",
-        content: "Ընտրեք Ձեր միջոցառմանը համապատասխան վեբ հրավիրատոմս՝ Start, Plus, Premium և Vip փաթեթներով։",
+        content: "Ընտրեք Ձեր միջոցառմանը համապատասխան վեբ հրավիրատոմս՝ Standart և Premium՝ Start, Classic և Plus փաթեթներով։",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: `${SITE_URL}/templates` },
@@ -59,22 +62,15 @@ const FILTERS: { id: Filter; label: string }[] = [
 
 const TIER_FILTERS: { id: TierFilter; label: string }[] = [
   { id: "all", label: "Բոլոր փաթեթները" },
-  { id: "start", label: tierLabels.start },
-  { id: "plus", label: tierLabels.plus },
-  { id: "premium", label: tierLabels.premium },
-  { id: "vip", label: tierLabels.vip },
+  ...Object.entries(tierLabels).map(([id, label]) => ({ id: id as TemplateTier, label })),
 ];
 
-
 function TemplatesPage() {
+  const templates = useTemplates();
   const getInitialTier = (): TierFilter => {
     if (typeof window === "undefined") return "all";
-    const hash = window.location.hash;
-    if (hash === "#tier-start") return "start";
-    if (hash === "#tier-plus") return "plus";
-    if (hash === "#tier-premium") return "premium";
-    if (hash === "#tier-vip") return "vip";
-    return "all";
+    const tier = window.location.hash.replace(/^#tier-/, "");
+    return Object.hasOwn(tierPrices, tier) ? tier as TemplateTier : "all";
   };
 
   const [filter, setFilter] = useState<Filter>("all");
@@ -88,10 +84,13 @@ function TemplatesPage() {
         setFilter(category as Filter);
         setTierFilter("all");
       }
-      if (hash === "#tier-start") setTierFilter("start");
-      else if (hash === "#tier-plus") setTierFilter("plus");
-      else if (hash === "#tier-premium") setTierFilter("premium");
-      else if (hash === "#tier-vip") setTierFilter("vip");
+      if (hash.startsWith("#tier-")) {
+        const tier = hash.replace("#tier-", "");
+        if (Object.hasOwn(tierPrices, tier)) {
+          setFilter("all");
+          setTierFilter(tier as TemplateTier);
+        }
+      }
     };
     applyHashFilter();
     window.addEventListener("hashchange", applyHashFilter);
@@ -107,7 +106,7 @@ function TemplatesPage() {
             (tierFilter === "all" || t.tier === tierFilter),
         ),
       ),
-    [filter, tierFilter],
+    [filter, tierFilter, templates],
   );
 
   return (
@@ -179,7 +178,7 @@ function BadgeIcon({ kind }: { kind: string }) {
 
 function Countdown({ until }: { until: string }) {
   const getRemaining = () => {
-    const end = new Date(`${until}T23:59:59`).getTime();
+    const end = getDiscountDeadline(until);
     return Math.max(0, end - Date.now());
   };
 
@@ -281,6 +280,7 @@ function TemplateCard({ t }: { t: (typeof templates)[number] }) {
         </div>
 
         <h3 className="tpl-card-title">{categoryLabels[t.category]}</h3>
+        {t.discountUntil && <Countdown until={t.discountUntil} />}
 
         <div className="tpl-card-actions">
           <Link

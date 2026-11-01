@@ -1,3 +1,5 @@
+import { PricingSection } from "@/components/PricingSection";
+import { useTemplates } from "@/components/useTemplates";
 import { NewYearSection } from "@/components/NewYearSection";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
@@ -20,6 +22,7 @@ import silkBgAsset from "@/assets/silk-bg.jpg.asset.json";
 const silkBg = silkBgAsset.url;
 import {
   templates as TPL_DATA,
+  getDiscountDeadline,
   categoryLabels as TPL_CAT_LABELS,
   tierLabels as TPL_TIER_LABELS,
   tierPrices as TPL_TIER_PRICES,
@@ -46,14 +49,14 @@ const CATEGORIES = [
 ];
 
 const TEMPLATES = [
-  { id: 1, code: "001", price: "4,900֏", category: "wedding", title: "Սև և սպիտակ", desc: "Էլեգանտ սև-սպիտակ ձևանմուշ՝ նուրբ տիպոգրաֆիայով։", Icon: Heart, theme: "dark", names: "Անի & Արամ", script: "Wedding", date: "12 · 09 · 2026", tag: "top" as const },
-  { id: 2, code: "002", price: "4,900֏", category: "wedding", title: "Սեր", desc: "Դասական էսթետիկա, որը միշտ արդիական է։", Icon: Gem, theme: "ivory", names: "Մարիամ & Դավիթ", script: "Save the date", date: "24 · 07 · 2026", tag: "new" as const },
-  { id: 3, code: "003", price: "4,900֏", category: "birthday", title: "Ծննդյան օր", desc: "Նուրբ և օդային հրավեր՝ տոնական տրամադրությամբ։", Icon: Cake, theme: "blush", names: "Նարեի 5-ամյակը", script: "Birthday", date: "03 · 06 · 2026", tag: "top" as const },
-  { id: 4, code: "004", price: "7,900֏", category: "engagement", title: "Նշանադրություն", desc: "Ռոմանտիկ ձևավորում՝ ձեր կարևոր օրվա համար։", Icon: Flower2, theme: "rose", names: "Լիլիթ & Տիգրան", script: "Engagement", date: "18 · 05 · 2026", tag: "new" as const },
-  { id: 5, code: "005", price: "4,900֏", category: "christening", title: "Կնունք", desc: "Հոգևոր և լուսավոր ձևանմուշ սուրբ արարողության համար։", Icon: Bird, theme: "ivory", names: "Արենի կնունքը", script: "Baptism", date: "07 · 04 · 2026" },
-  { id: 6, code: "006", price: "4,900֏", category: "kids", title: "Մանկական տոն", desc: "Վառ ու զվարճալի դիզայն փոքրիկների համար։", Icon: PartyPopper, theme: "mint", names: "Մայայի 3-ամյակը", script: "Party Time", date: "21 · 08 · 2026", tag: "new" as const },
-  { id: 7, code: "007", price: "7,900֏", category: "commercial", title: "Կորպորատիվ", desc: "Մինիմալիստական ձևանմուշ բիզնես միջոցառումների համար։", Icon: Building2, theme: "dark", names: "Brand Launch", script: "You're Invited", date: "15 · 10 · 2026" },
-  { id: 8, code: "008", price: "7,900֏", category: "other", title: "Հոբելյան", desc: "Հատուկ առիթի համար ստեղծված հրավիրատոմս։", Icon: Sparkles, theme: "blush", names: "25-ամյակ", script: "Anniversary", date: "30 · 11 · 2026", tag: "top" as const },
+  { id: 1, code: "001", price: TPL_DATA.find((t) => t.code === "001")!.price, category: "wedding", title: "Սև և սպիտակ", desc: "Էլեգանտ սև-սպիտակ ձևանմուշ՝ նուրբ տիպոգրաֆիայով։", Icon: Heart, theme: "dark", names: "Անի & Արամ", script: "Wedding", date: "12 · 09 · 2026", tag: "top" as const },
+  { id: 2, code: "002", price: TPL_DATA.find((t) => t.code === "002")!.price, category: "wedding", title: "Սեր", desc: "Դասական էսթետիկա, որը միշտ արդիական է։", Icon: Gem, theme: "ivory", names: "Մարիամ & Դավիթ", script: "Save the date", date: "24 · 07 · 2026", tag: "new" as const },
+  { id: 3, code: "003", price: TPL_DATA.find((t) => t.code === "003")!.price, category: "birthday", title: "Ծննդյան օր", desc: "Նուրբ և օդային հրավեր՝ տոնական տրամադրությամբ։", Icon: Cake, theme: "blush", names: "Նարեի 5-ամյակը", script: "Birthday", date: "03 · 06 · 2026", tag: "top" as const },
+  { id: 4, code: "004", price: TPL_DATA.find((t) => t.code === "004")!.price, category: "engagement", title: "Նշանադրություն", desc: "Ռոմանտիկ ձևավորում՝ ձեր կարևոր օրվա համար։", Icon: Flower2, theme: "rose", names: "Լիլիթ & Տիգրան", script: "Engagement", date: "18 · 05 · 2026", tag: "new" as const },
+  { id: 5, code: "005", price: TPL_DATA.find((t) => t.code === "005")!.price, category: "christening", title: "Կնունք", desc: "Հոգևոր և լուսավոր ձևանմուշ սուրբ արարողության համար։", Icon: Bird, theme: "ivory", names: "Արենի կնունքը", script: "Baptism", date: "07 · 04 · 2026" },
+  { id: 6, code: "006", price: TPL_DATA.find((t) => t.code === "006")!.price, category: "kids", title: "Մանկական տոն", desc: "Վառ ու զվարճալի դիզայն փոքրիկների համար։", Icon: PartyPopper, theme: "mint", names: "Մայայի 3-ամյակը", script: "Party Time", date: "21 · 08 · 2026", tag: "new" as const },
+  { id: 7, code: "007", price: TPL_DATA.find((t) => t.code === "007")!.price, category: "commercial", title: "Կորպորատիվ", desc: "Մինիմալիստական ձևանմուշ բիզնես միջոցառումների համար։", Icon: Building2, theme: "dark", names: "Brand Launch", script: "You're Invited", date: "15 · 10 · 2026" },
+  { id: 8, code: "008", price: TPL_DATA.find((t) => t.code === "008")!.price, category: "other", title: "Հոբելյան", desc: "Հատուկ առիթի համար ստեղծված հրավիրատոմս։", Icon: Sparkles, theme: "blush", names: "25-ամյակ", script: "Anniversary", date: "30 · 11 · 2026", tag: "top" as const },
 ];
 
 function Index() {
@@ -235,97 +238,7 @@ function IndexInner() {
         </div>
       </section>
 
-      <section id="pricing" className="ui-section ui-section-soft">
-        <div className="ui-container">
-          <div className="ui-section-head">
-            <h2 className="ui-h2">Մեր փաթեթները</h2>
-            <p className="ui-muted">Ընտրեք ձեզ հարմարը՝ պարզ ու թափանցիկ գներով</p>
-          </div>
-          <div className="ui-pricing">
-               {[
-            {
-                name: "Start",
-                Icon: Zap,
-                price: "4,900֏",
-                old: "6,000֏",
-                badge: null,
-                tier: "start" as const,
-                catalogTier: "start" as const,
-               
-              },
-              {
-                name: "Plus",
-                Icon: Star,
-                price:  "6,900֏",
-                old: "10,000֏",
-                badge: null,
-                tier: "start" as const,
-                catalogTier: "plus" as const,
-               
-              },
-              {
-                name: "Premium",
-                Icon: Gem,
-                price: "9,900֏",
-                old: "18,000֏",
-                badge: "Ամենապահանջված",
-                featured: true,
-                tier: "premium" as const,
-                catalogTier: "premium" as const,
-                
-              },
-              {
-                name: "Vip",
-                Icon: Crown,
-                price: "11,900֏",
-                old: "25,000֏",
-                badge: null,
-                tier: "vip" as const,
-                catalogTier: "vip" as const,
-              
-              },
-            ].map((p) => (
-              <div key={p.name} className={`ui-price-card ${p.featured ? "featured" : ""} ui-price-card-${p.tier}`}>
-                {p.badge && (
-                  <span className="ui-price-badge">
-                    <Star size={12} strokeWidth={2.4} fill="currentColor" /> {p.badge}
-                  </span>
-                )}
-                <div className={`ui-price-icon ui-price-icon-${p.tier}`}>
-                  <p.Icon size={26} strokeWidth={1.8} />
-                </div>
-                <h3 className="ui-price-name">{p.name}</h3>
-                <div className="ui-price-row">
-                  <span className="ui-price-old">{p.old}</span>
-                  <span className="ui-price-now">{p.price}</span>
-                </div>
-              
-                <div className="ui-price-actions">
-                  <Link
-                    to="/templates" hash={`#tier-${p.tier}`}
-                    className="ui-btn ui-btn-ghost ui-price-view-btn"
-                  >
-                    <Eye size={14} /> Դիտել տեսականին
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="ui-custom-card">
-            <div className="ui-bg-photo" aria-hidden style={{ backgroundImage: `url(${weddingBg})` }} />
-            <div className="ui-custom-card-body">
-              <h3><PenTool size={20} strokeWidth={1.6} /> Անհատական դիզայն</h3>
-              <p>Ամբողջովին ձեր ոճով ստեղծված եզակի հրավիրատոմս՝ առանց ձևանմուշների։</p>
-            </div>
-            <div className="ui-custom-price">
-              <span>Սկսած</span>
-              <strong>15,000֏-ից</strong>
-              <a href="#order" className="ui-btn ui-btn-primary">Քննարկել</a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <PricingSection />
 
       <section id="why" className="ui-section ui-section-soft">
         <div className="ui-container">
@@ -427,9 +340,9 @@ function IndexInner() {
           </div>
           <div className="ui-faq">
             {[
-              { q: "Ինչ արժեքից են սկսվում հրավիրատոմսերը։", a: "Մեր մոտ աշնանային զեղչեր են՝ հրավիրատոմսերն արդեն սկսվում են 4,900֏-ից։" },
+              { q: "Ինչ արժեքից են սկսվում հրավիրատոմսերը։", a: `Standart փաթեթները՝ ${TPL_TIER_PRICES["standart-start"]}, ${TPL_TIER_PRICES["standart-classic"]} և ${TPL_TIER_PRICES["standart-plus"]}։ Premium փաթեթները՝ ${TPL_TIER_PRICES["premium-start"]}, ${TPL_TIER_PRICES["premium-classic"]} և ${TPL_TIER_PRICES["premium-plus"]}։` },
               { q: "Որքա՞ն ժամանակում է պատրաստվում հրավիրատոմսը։", a: "Հրավիրատոմսը պատրաստվում է 48 ժամվա ընթացքում՝ պատվերը հաստատելուց հետո։" },
-              { q: "Արդյո՞ք կարող ենք փոխել երաժշտությունը կամ ավելացնել։", a: "Start և Plus փաթեթներում երաժշտություն ավելացնելը կամ փոփոխելը արժե 1000֏։ Premium և Vip փաթեթի դեպքում կարող եք փոփոխել անվճար։" },
+              { q: "Արդյո՞ք կարող ենք փոխել երաժշտությունը կամ ավելացնել։", a: "Երաժշտության ընտրությունն ու փոփոխման պայմանները կճշտենք ձեր ընտրած փաթեթի համար պատվերի ժամանակ։" },
               { q: "Արդյո՞ք կարող եմ տեքստերը փոփոխել։", a: "Այո, տեքստերը խմբագրում ենք անվճար՝ ձեր ցանկացած ձևով։" },
               { q: "Կարո՞ղ ենք ավելացնել dress code-ի հատված։", a: "Այո, կարող եք ավելացնել՝ 500֏։" },
                             { q: "Ցանկանում եմ վեբ հրավիրատոմս պատվիրել․ ինչպե՞ս պատվիրեմ։", a: "Մեր կայքում ընտրում եք Ձեզ դուր եկած հրավիրատոմսի օրինակը, այնուհետև ներքևում սեղմում եք «Պատվիրել» կոճակը և լրացնում պատվերի անհրաժեշտ տվյալները։ Կարող եք նաև ընտրել «Պատվիրել WhatsApp-ով» կոճակը և կապ հաստատել մեզ հետ WhatsApp-ի միջոցով։ " },
@@ -976,7 +889,7 @@ const styles = `
 
 function DiscountCountdown({ until }: { until: string }) {
   const getRemaining = () => {
-    const end = new Date(`${until}T23:59:59`).getTime();
+    const end = getDiscountDeadline(until);
     return Math.max(0, end - Date.now());
   };
 
@@ -1020,6 +933,7 @@ function DiscountCountdown({ until }: { until: string }) {
 }
 
 function CatalogTemplates() {
+  const TPL_DATA = useTemplates();
   const FILTERS: { id: "all" | TplCat; label: string }[] = [
     { id: "all", label: "Ամբողջը" },
     { id: "wedding", label: TPL_CAT_LABELS.wedding },

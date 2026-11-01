@@ -4,6 +4,7 @@ import { ArrowLeft, MessageCircle, Phone } from "lucide-react";
 import {
   getTemplate,
   categoryLabels,
+  tierLabels,
   WHATSAPP_URL,
   type TemplateCategory,
 } from "@/data/templates";
@@ -75,7 +76,7 @@ function TemplateViewer() {
   const orderMsg = encodeURIComponent(
     `Բարև Ձեզ! Ուզում եմ պատվիրել թեմփլեյթ #${template.code} (${categoryLabels[
       template.category as TemplateCategory
-    ]}, ${template.price})։`,
+    ]}, ${tierLabels[template.tier]} — ${template.price})։`,
   );
 
   return (
