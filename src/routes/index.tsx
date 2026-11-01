@@ -746,6 +746,7 @@ function IndexInner() {
           </div>
           <div>
             <h3>{tr("Կապ")}</h3>
+            <Link to="/corporate">{tr("Կորպորատիվ առաջարկ")}</Link>
             <a href="mailto:info@uinvite.am">info@uinvite.am</a>
             <a href="tel:+37477198238">+374 77 198 238</a>
             <a href="https://wa.me/37477198238" target="_blank" rel="noopener noreferrer">

@@ -11,6 +11,7 @@ const NAV = [
   { id: "pricing", label: "Փաթեթներ", to: "/", hash: "pricing" },
   { id: "why", label: "Ինչու մենք", to: "/", hash: "why" },
   { id: "steps", label: "Աշխատանքի փուլեր", to: "/", hash: "steps" },
+  { id: "corporate", label: "Կորպորատիվ առաջարկ", to: "/corporate" },
   { id: "faq", label: "ՀՏՀ", to: "/", hash: "faq" },
 ] as const;
 
@@ -73,7 +74,11 @@ export function Header() {
     ? location.hash.replace(/^#/, "").startsWith("category-new-year")
       ? "new-year"
       : "templates"
-    : section;
+    : location.pathname === "/corporate"
+      ? "corporate"
+      : location.pathname === "/"
+        ? section
+        : "";
   const top = () => {
     setOpen(false);
     if (location.pathname === "/")

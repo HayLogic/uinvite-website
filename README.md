@@ -60,7 +60,7 @@ Existing preview entrypoints also repaired without removing originals: 037 was n
 
 ## SEO, prerendering and hosting
 
-TanStack Start's native prerendering generates 82 public routes: `/`, `/templates` and `/templates/001`–`080`. The built HTML includes the actual Armenian content, navigation, prices and FAQ, plus static canonical/Open Graph/Twitter tags and Organization/FAQPage JSON-LD. Each route has one h1. The 1200×630 share image uses the existing logo and hero phones (166,163 bytes).
+TanStack Start's native prerendering generates 83 public routes: `/`, `/templates`, `/corporate` and `/templates/001`–`080`. The built HTML includes the actual Armenian content, navigation, prices and FAQ, plus static canonical/Open Graph/Twitter tags and Organization/FAQPage JSON-LD. Each route has one h1. The 1200×630 share image uses the existing logo and hero phones (166,163 bytes).
 
 Upload the **contents of `.output/public/`**, including the hidden `.htaccess`, to the Apache document root. This serves `/templates` directly, maps `/templates/NNN` to `templates/NNN.html`, and returns HTTP 404 for unknown routes. Keep `templates/NNN/index.html`: those are the original standalone invitations used by the viewer iframe. Do not replace the routing with an unconditional rewrite to the homepage, which would return HTTP 200 for missing pages. Other hosts need equivalent rules; Cloudflare's existing worker build remains available separately.
 
@@ -69,3 +69,11 @@ The header's HY/RU/EN structure lives in `src/i18n/languages.ts`. All three webs
 See [SEO verification](docs/SEO-VERIFICATION.md) for test results and deployment limits.
 
 Latest locale verification: TypeScript, production build and SEO checks passed. Chromium checks at 360/390/768/1440 px covered HY/RU/EN switching, reload persistence, translated FAQ/order messages, all 80 cards, single countdown per discounted card, cross-route anchors and no horizontal overflow or application console errors. The 055 viewer retained its Armenian iframe across language switches and reloads. The static 404 respects the saved language. All existing CSS strings and numbered invitation files are unchanged.
+
+## Corporate partnership page
+
+`/corporate` introduces cooperation with wedding venues/restaurants, event planners, agencies, decorators, photographers and other event professionals. Available in HY/RU/EN through the existing switcher, with links in the shared header and homepage footer. Both partnership CTAs open the existing WhatsApp number (+37477198238) with a locale-specific, prefilled enquiry. No message is sent automatically. Commercial terms are discussed individually; no unapproved rates or commissions are advertised.
+
+The page is prerendered with its own metadata/canonical and included in the 83-URL sitemap. Apache rewrite rules preserve direct reloads; the static preview serves its generated directory index. Existing invitation files, prices and URLs are unchanged.
+
+Verification: TypeScript, production build, SEO check, targeted ESLint, and Chromium at 360/390/768/1210/1440 px. Each width covers all three locales, direct load/reload, WhatsApp targets, header/footer entrypoints, active navigation and returning to homepage pricing with header offset. No overflow, header overlap or application errors; external analytics stubbed as in the SEO verification. The prerendered page and enquiry links also work without JavaScript. No live deployment performed.

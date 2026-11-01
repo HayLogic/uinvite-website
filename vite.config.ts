@@ -20,6 +20,10 @@ export default defineConfig({
         path: "/templates",
         prerender: { outputPath: "/templates/index.html", autoSubfolderIndex: false },
       },
+      {
+        path: "/corporate",
+        prerender: { outputPath: "/corporate/index.html", autoSubfolderIndex: false },
+      },
       ...codes.map((code) => ({
         path: `/templates/${code}`,
         prerender: { outputPath: `/templates/${code}.html`, autoSubfolderIndex: false },

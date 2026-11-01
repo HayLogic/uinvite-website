@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CorporateRouteImport } from './routes/corporate'
 import { Route as TemplatesIndexRouteImport } from './routes/templates.index'
 import { Route as TemplatesCodeRouteImport } from './routes/templates.$code'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CorporateRoute = CorporateRouteImport.update({
+  id: '/corporate',
+  path: '/corporate',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TemplatesIndexRoute = TemplatesIndexRouteImport.update({
@@ -31,30 +37,34 @@ const TemplatesCodeRoute = TemplatesCodeRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/corporate': typeof CorporateRoute
   '/templates/$code': typeof TemplatesCodeRoute
   '/templates/': typeof TemplatesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/corporate': typeof CorporateRoute
   '/templates/$code': typeof TemplatesCodeRoute
   '/templates': typeof TemplatesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/corporate': typeof CorporateRoute
   '/templates/$code': typeof TemplatesCodeRoute
   '/templates/': typeof TemplatesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/templates/$code' | '/templates/'
+  fullPaths: '/' | '/corporate' | '/templates/$code' | '/templates/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/templates/$code' | '/templates'
-  id: '__root__' | '/' | '/templates/$code' | '/templates/'
+  to: '/' | '/corporate' | '/templates/$code' | '/templates'
+  id: '__root__' | '/' | '/corporate' | '/templates/$code' | '/templates/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CorporateRoute: typeof CorporateRoute
   TemplatesCodeRoute: typeof TemplatesCodeRoute
   TemplatesIndexRoute: typeof TemplatesIndexRoute
 }
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/corporate': {
+      id: '/corporate'
+      path: '/corporate'
+      fullPath: '/corporate'
+      preLoaderRoute: typeof CorporateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/templates/': {
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CorporateRoute: CorporateRoute,
   TemplatesCodeRoute: TemplatesCodeRoute,
   TemplatesIndexRoute: TemplatesIndexRoute,
 }

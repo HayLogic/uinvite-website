@@ -8,6 +8,7 @@ RewriteCond %{DOCUMENT_ROOT}/templates/$1.html -f
 RewriteRule ^templates/([0-9]{3})/?$ templates/$1.html [END]
 # Direct catalogue refresh uses the prerendered document, not a missing SPA route.
 RewriteRule ^templates/?$ templates/index.html [END]
+RewriteRule ^corporate/?$ corporate/index.html [END]
 # Existing assets and standalone invitation pages retain their normal URLs.
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d

@@ -10,24 +10,33 @@ export function LanguageMetadata() {
   const pathname = useLocation({ select: (location) => location.pathname });
   useEffect(() => {
     const frame = requestAnimationFrame(() => {
+      const isCorporate = pathname === "/corporate" || pathname === "/corporate/";
       const isCatalogue = /^\/templates\/?$/.test(pathname);
       const code = pathname.match(/^\/templates\/(\d{3})\/?$/)?.[1];
       const title = code
         ? `${tr(`Թեմփլեյթ #${code}`)} — uInvite`
-        : tr(isCatalogue ? "Տեսականի — 80 վեբ հրավիրատոմսերի ձևանմուշ | uInvite" : SITE_TITLE);
+        : tr(
+            isCorporate
+              ? "Կորպորատիվ առաջարկ — uInvite"
+              : isCatalogue
+                ? "Տեսականի — 80 վեբ հրավիրատոմսերի ձևանմուշ | uInvite"
+                : SITE_TITLE,
+          );
       const description = tr(
-        isCatalogue
-          ? "Դիտեք uInvite-ի ամբողջ տեսականին՝ հարսանիք, նշանադրություն, կնունք, ծնունդ, մանկական, ամանորյա և կորպորատիվ վեբ հրավիրատոմսեր՝ 4,900֏-ից։"
-          : SITE_DESCRIPTION,
+        isCorporate
+          ? "Համագործակցություն հարսանյաց սրահների, միջոցառումների կազմակերպիչների և այլ գործընկերների հետ՝ էլեկտրոնային հրավիրատոմսերի պատրաստման համար։"
+          : isCatalogue
+            ? "Դիտեք uInvite-ի ամբողջ տեսականին՝ հարսանիք, նշանադրություն, կնունք, ծնունդ, մանկական, ամանորյա և կորպորատիվ վեբ հրավիրատոմսեր՝ 4,900֏-ից։"
+            : SITE_DESCRIPTION,
       );
       document.title = title;
       for (const [attribute, key, value] of [
         ["name", "description", description],
         ["property", "og:title", title],
-        ["property", "og:description", tr(SHARE_DESCRIPTION)],
+        ["property", "og:description", isCorporate ? description : tr(SHARE_DESCRIPTION)],
         ["property", "og:locale", { hy: "hy_AM", ru: "ru_RU", en: "en_US" }[language]],
         ["name", "twitter:title", title],
-        ["name", "twitter:description", tr(SHARE_DESCRIPTION)],
+        ["name", "twitter:description", isCorporate ? description : tr(SHARE_DESCRIPTION)],
       ])
         document.querySelector(`meta[${attribute}="${key}"]`)?.setAttribute("content", value);
       if (pathname === "/") {
