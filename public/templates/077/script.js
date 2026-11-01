@@ -61,6 +61,6 @@ let opened=false;
 $('#open-envelope').addEventListener('click',()=>{
  if(opened)return;opened=true;$('#open-envelope').disabled=true;$('#open-envelope').setAttribute('aria-expanded','true');$('#entry-cover').classList.add('opening');
  const reduced=motion.matches;
- setTimeout(()=>{$('#invitation').hidden=false;$('#entry-cover').classList.add('leaving');document.body.classList.remove('cover-active');},reduced?0:1400);
- setTimeout(()=>{$('#entry-cover').hidden=true;window.scrollTo({top:0,behavior:'instant'});$('h1').tabIndex=-1;$('h1').focus({preventScroll:true});},reduced?0:2200);
+ setTimeout(()=>{$('#invitation').hidden=false;$('#entry-cover').classList.add('leaving');document.body.classList.remove('cover-active');},reduced?0:3800);
+ setTimeout(()=>{$('#entry-cover').hidden=true;window.scrollTo({top:0,behavior:'instant'});$('h1').tabIndex=-1;$('h1').focus({preventScroll:true});},reduced?0:5300);
 });
