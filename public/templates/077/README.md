@@ -1,13 +1,30 @@
-# 077 · Մեր հարսանիքը
+# 077 · Լևոն և Մելինե
 
-Standalone Armenian wedding invitation following the burgundy silk/ivory romantic editorial reference. Entry: portrait burgundy envelope following the owner’s latest reference, diagonal side folds and a red wax seal with gold LM lettering. Click/Enter/Space slowly opens the side flaps and reveals/focuses the invitation (about 5.3 seconds total); double opening is prevented and reduced-motion opening is immediate. Only the entry cover and its animation were changed; invitation content/names remain unchanged. CSS/script cache keys are updated.
+The owner supplied the names and wedding date: **7 August 2027**. Ceremony: **14:00, Սուրբ Գայանե եկեղեցի**. Reception: **17:30, Ադան Կոմպլեքս**. The supplied names/spelling are retained; no street addresses or coordinates were invented. Map links use Google Maps searches for those exact names.
 
-Inside: full wedding portrait hero with names/date; love story and tilted keepsake portrait with wax seal/botanical illustration; burgundy details and dress palette; candlelit table photo; five-step timeline; garden venue; RSVP and portrait thank-you footer. Generated imagery is illustrative, not actual couple or venue photography. No inherited corporate/New Year text or festive snow/tree imagery. No music requested for 077 (earlier collection-wide request explicitly covered 067–076).
+Entry: portrait burgundy envelope, red wax seal with gold LM, and a slow side-flap opening (~5.3 seconds). Keyboard support, one activation and immediate reduced-motion opening remain intact.
 
-CONFIG in script.js: example names Մարիամ and Արամ, date 14 June 2027 at 16:00 Armenia (+04:00), example story/program. Names/date/time/program remain illustrative until supplied. Venue/city are placeholders; exact address/map are empty and hidden. Do not invent venue information. Data-note clearly marks example content. Explicit Armenian dates use Asia/Yerevan.
+Opening content order:
 
-RSVP requires name/surname and yes/no attendance. With no rsvpEndpoint, form is explicitly a preview and sends/stores nothing. HTTP(S) endpoint receives fullName, attendance, comment (empty) JSON. Timeout, duplicate-submit guard and error/retry handling retained; never put secrets in browser code.
+1. Full-screen portrait hero with curved photo edge, Լևոն և Մելինե and 07.08.2027 below.
+2. Armenian invitation greeting and two unattributed aphorisms.
+3. Ivory calendar card; the wedding week runs Monday 2 to Sunday 8 August, with Saturday 7 marked by a heart. Calendar derives from CONFIG.eventDate in Armenia (+04:00).
+4. Separate ceremony/reception cards with times and map links.
+5. Timeline: 10:00 groom's home; 12:00 bride's home; 14:00 ceremony; 17:30 wedding celebration.
+6. Dress code: existing five wine/rose/taupe/ivory/sage swatches on a burgundy background.
+7. Existing story, details and decorative photographs.
+8. RSVP form, then closing portrait with full names and date.
 
-Local licensed Armenian font and imagery, HTML/CSS/vanilla JS, no build/dependencies. Relative asset paths support cPanel upload. From this folder: npx serve . -p 3000. Previous numbered invitations remain unchanged. One-time opacity reveals avoid flicker; keyboard focus, menu Escape/outside close and reduced-motion supported.
+The story remains example copy and is marked accordingly. Existing illustrative photography is retained; the website catalogue preview is recaptured from the updated invitation.
 
-Verified at 390 and 1440 px: gold LM visible, invitation remains hidden during early opening, one activation, final reveal, keyboard access and reduced-motion mode; no runtime errors. Production build and SEO checks passed.
+## Music
+
+`assets/la-boheme.m4a` is the owner's uploaded **La boheme music.m4a** (original file, approximately 4:15). Playback is requested only inside the user's envelope click, at 35% volume, looping. The accessible toggle allows pause/resume and reflects actual playback; a rejected play request is handled. No automatic playback before interaction. Mobile/desktop playback tested in Chromium.
+
+## RSVP
+
+`CONFIG.rsvpEndpoint` is still empty: the form explicitly reports preview mode and sends/stores nothing. Name/surname and attendance validation, duplicate-submit prevention and the existing optional HTTP(S) JSON endpoint integration are preserved. Configure a real endpoint before collecting responses; do not put secrets in browser code.
+
+## Verification
+
+Production build and SEO check; 390/1440 px checks for names/date, heart on Saturday 7 August 2027, section order, two map links, four timeline times, five dress colours, no overflow or runtime errors; real supplied audio play/pause/resume after interaction; final RSVP and closing names; truthful preview form behavior. Original slow envelope, keyboard and reduced-motion behavior retained. Only 077 and its catalogue image are updated; no live deployment.

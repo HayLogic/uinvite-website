@@ -1,18 +1,18 @@
 'use strict';
-// Օրինակային անուններ և օր․ իրական տվյալները դեռ չեն տրամադրվել։
+// Անունները, օրը և վայրերի ժամերը տրամադրված են․ պատմությունը օրինակային է։
 const CONFIG=Object.freeze({
- invitationNumber:'077',brideName:'Մարիամ',groomName:'Արամ',monogram:'Ա / Մ',
- eventDate:'2027-06-14T16:00:00+04:00',city:'Քաղաքը կհստակեցվի',
- venueName:'Վայրը կհստակեցվի',address:'',mapsUrl:'',rsvpEndpoint:'',
+ invitationNumber:'077',brideName:'Մելինե',groomName:'Լևոն',monogram:'LM',
+ eventDate:'2027-08-07T14:00:00+04:00',city:'',
+ venueName:'Ադան Կոմպլեքս',address:'',mapsUrl:'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent('Ադան Կոմպլեքս'),rsvpEndpoint:'',
  story:'Մի պատահական հանդիպում դարձավ մեր ամենասիրելի պատմությունը։ Այսօր մենք ընտրում ենք միասին անցնել կյանքի նոր ճանապարհը և ուզում ենք, որ դուք լինեք մեր կողքին։ Ձեր ներկայությունը մեր օրը կդարձնի ավելի ջերմ ու անմոռանալի։',
- program:[{time:'16:00',title:'Հյուրերի դիմավորում',description:'Գրկախառնություններ և առաջին ժպիտները'},{time:'17:00',title:'Արարողություն',description:'Մեր ամենակարևոր «այո»-ն'},{time:'18:00',title:'Տոնական ընթրիք',description:'Կենացներ, համեր և սիրելի մարդիկ'},{time:'20:00',title:'Տորթի պահը',description:'Մեր կյանքի ամենաքաղցր սկիզբը'},{time:'21:00',title:'Պարեր և երաժշտություն',description:'Տոնենք սերը մինչև ուշ երեկո'}]
+ program:[{time:'10:00',title:'Փեսայի տուն',description:''},{time:'12:00',title:'Հարսի տուն',description:''},{time:'14:00',title:'Պսակադրություն',description:'Սուրբ Գայանե եկեղեցի'},{time:'17:30',title:'Հարսանյաց հանդես',description:'Ադան Կոմպլեքս'}]
 });
 const $=selector=>document.querySelector(selector);
 document.querySelectorAll('[data-bride]').forEach(e=>e.textContent=CONFIG.brideName);
 document.querySelectorAll('[data-groom]').forEach(e=>e.textContent=CONFIG.groomName);
 document.querySelectorAll('[data-monogram]').forEach(e=>e.textContent=CONFIG.monogram);
 document.querySelectorAll('[data-venue]').forEach(e=>e.textContent=CONFIG.venueName);
-document.title=`${CONFIG.brideName} և ${CONFIG.groomName} · Մեր հարսանիքը · 077`;
+document.title=`${CONFIG.groomName} և ${CONFIG.brideName} · Մեր հարսանիքը · 077`;
 $('#story-text').textContent=CONFIG.story;$('#hero-city').textContent=CONFIG.city;
 $('#detail-address').textContent=CONFIG.address;$('#detail-address').hidden=!CONFIG.address;
 function safeURL(value,relative=false){if(!value)return '';try{const url=relative?new URL(value,location.href):new URL(value);return ['http:','https:'].includes(url.protocol)?url.href:'';}catch{return '';}}
@@ -21,10 +21,22 @@ const date=new Date(CONFIG.eventDate),valid=Number.isFinite(date.getTime())&&/\+
 if(valid){
  const parts=Object.fromEntries(new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'2-digit',year:'numeric',timeZone:'Asia/Yerevan'}).formatToParts(date).map(p=>[p.type,p.value]));
 const allMonths=['հունվարի','փետրվարի','մարտի','ապրիլի','մայիսի','հունիսի','հուլիսի','օգոստոսի','սեպտեմբերի','հոկտեմբերի','նոյեմբերի','դեկտեմբերի'];
- const numeric=`${parts.day} · ${parts.month} · ${parts.year}`;
+ const numeric=`${parts.day}.${parts.month}.${parts.year}`;
+ const civil=new Date(Date.UTC(Number(parts.year),Number(parts.month)-1,Number(parts.day)));
+ const monday=new Date(civil);monday.setUTCDate(civil.getUTCDate()-((civil.getUTCDay()+6)%7));
+ $('#calendar-month').textContent=['Հունվար','Փետրվար','Մարտ','Ապրիլ','Մայիս','Հունիս','Հուլիս','Օգոստոս','Սեպտեմբեր','Հոկտեմբեր','Նոյեմբեր','Դեկտեմբեր'][Number(parts.month)-1];
+ $('#calendar-year').textContent=parts.year;
+ for(let i=0;i<7;i++){
+  const day=new Date(monday);day.setUTCDate(monday.getUTCDate()+i);
+  const item=document.createElement('time');item.className='wedding-calendar-day';item.dateTime=day.toISOString().slice(0,10);
+  const label=`${day.getUTCDate()} ${allMonths[day.getUTCMonth()]} ${day.getUTCFullYear()}`;
+  const selected=day.getTime()===civil.getTime();item.setAttribute('aria-label',selected?`Հարսանիքի օրը՝ ${label}`:label);
+  if(selected){item.classList.add('is-wedding');item.innerHTML='<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 41C17 34 4 25 5 15C6 5 19 5 24 14C29 4 43 6 43 16C43 26 29 37 24 41Z"/></svg>';}
+  const number=document.createElement('strong');number.textContent=String(day.getUTCDate()).padStart(2,'0');item.append(number);$('#wedding-week-days').append(item);
+ }
  $('#hero-date').textContent=numeric;$('#footer-date').textContent=numeric;
  $('#detail-date').textContent=`${Number(parts.day)} ${allMonths[Number(parts.month)-1]} ${parts.year}`;
- $('#detail-time').textContent=new Intl.DateTimeFormat('en-GB',{hour:'2-digit',minute:'2-digit',hourCycle:'h23',timeZone:'Asia/Yerevan'}).format(date);
+ $('#detail-time').textContent='14։00՝ Պսակադրություն · 17։30՝ Հարսանյաց հանդես';
 }else{$('#detail-date').textContent='Օրը կհստակեցվի';$('#detail-time').textContent='Ժամը կհստակեցվի';}
 CONFIG.program.forEach(item=>{const li=document.createElement('li');li.className='reveal';const time=document.createElement('time');time.dateTime=item.time;time.textContent=item.time;const block=document.createElement('div');const title=document.createElement('h3');title.textContent=item.title;const description=document.createElement('p');description.textContent=item.description;block.append(title,description);li.append(time,block);$('#program-items').append(li);});
 // Native navigation with Escape/outside-close support.
@@ -57,9 +69,16 @@ form.addEventListener('submit',async event=>{
 $('#full-name').addEventListener('input',event=>event.target.setCustomValidity(''));
 document.dispatchEvent(new Event('invitation:opened'));
 
+const weddingMusic=$('#wedding-music'),musicButton=$('#music-toggle');
+weddingMusic.volume=.35;
+function syncMusic(){const playing=!weddingMusic.paused;musicButton.classList.toggle('is-playing',playing);musicButton.setAttribute('aria-pressed',String(playing));musicButton.setAttribute('aria-label',playing?'Դադարեցնել երաժշտությունը':'Միացնել երաժշտությունը');}
+function playMusic(){const request=weddingMusic.play();if(request&&request.catch)request.catch(syncMusic);}
+weddingMusic.addEventListener('play',syncMusic);weddingMusic.addEventListener('pause',syncMusic);weddingMusic.addEventListener('error',syncMusic);
+musicButton.addEventListener('click',()=>{if(weddingMusic.paused)playMusic();else weddingMusic.pause();});
 let opened=false;
 $('#open-envelope').addEventListener('click',()=>{
  if(opened)return;opened=true;$('#open-envelope').disabled=true;$('#open-envelope').setAttribute('aria-expanded','true');$('#entry-cover').classList.add('opening');
+ playMusic();
  const reduced=motion.matches;
  setTimeout(()=>{$('#invitation').hidden=false;$('#entry-cover').classList.add('leaving');document.body.classList.remove('cover-active');},reduced?0:3800);
  setTimeout(()=>{$('#entry-cover').hidden=true;window.scrollTo({top:0,behavior:'instant'});$('h1').tabIndex=-1;$('h1').focus({preventScroll:true});},reduced?0:5300);

@@ -16,6 +16,7 @@ const mime = {
   ".webp": "image/webp",
   ".svg": "image/svg+xml",
   ".mp3": "audio/mpeg",
+  ".m4a": "audio/mp4",
   ".ttf": "font/ttf",
   ".woff2": "font/woff2",
   ".txt": "text/plain; charset=utf-8",
