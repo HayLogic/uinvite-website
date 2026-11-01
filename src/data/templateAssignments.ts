@@ -404,8 +404,8 @@ export const templateAssignments: Record<string, TemplateAssignment> = {
   },
   "075": {
     category: "other",
-    tier: "standart-classic",
-    badges: ["top"],
+    tier: "standart-plus",
+    badges: ["new"],
   },
   "076": {
     category: "other",

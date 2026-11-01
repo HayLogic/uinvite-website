@@ -268,3 +268,5 @@ html::-webkit-scrollbar,body::-webkit-scrollbar{display:none;width:0;height:0}
 @media(min-width:768px){.details.festive-edges{padding-left:12%;padding-right:12%}.dress.festive-edges{padding-top:65px;padding-bottom:65px}}
 
 .details.festive-edges .venue-card{max-width:560px;grid-template-columns:1fr}
+
+.qr-share-section{text-align:center;padding-bottom:75px;border-top:1px solid var(--border)}.qr-preview-frame{display:block;max-width:260px;padding:14px;margin:28px auto;background:#fff8e8;border:2px solid var(--gold);outline:1px solid #d5b57777;outline-offset:6px;border-radius:12px;box-shadow:0 12px 35px #16060c55}.qr-preview-frame img{display:block;width:100%;height:auto}.qr-share-section>.button{display:inline-flex;margin-top:15px}

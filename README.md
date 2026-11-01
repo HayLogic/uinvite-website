@@ -95,3 +95,5 @@ Verified: TypeScript, production build and SEO checks; representative document l
 ## Latest owner update: 077 and 078 removed
 
 Invitations 077 and 078, their catalogue images and assignment entries have been removed at the owner’s request. Their prior versions remain recoverable from Git history. There are now 78 published invitations (001–076, 079–080) and 81 prerendered public routes. Catalogue text/translations, the homepage count, sitemap and verification checks are updated. Apache explicitly returns 404 for the retired URLs even if an older hosting copy still exists. No other invitation data or files were changed. Earlier verification notes above describe the catalogue before this removal. Local review only; no live deployment.
+
+Latest New Year package update: 075 is Standart Plus (10,900 ֏), with only the New badge and no TOP. 068 has a final QR sharing section and matching `templates/068/qr.html` utility page. The real QR opens `https://uinvite.am/templates/068/index.html`. Seating-plan work awaits the owner’s reference. Other templates are unchanged; local review only.
