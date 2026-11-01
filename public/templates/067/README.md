@@ -1,0 +1,61 @@
+# Հրավիրատոմս 067 — սև և ոսկեգույն տոնական երեկո
+
+Առանձին հայերեն HTML/CSS/vanilla JavaScript տարբերակ՝ առանց build-ի կամ տեղադրվող կախվածությունների։ Նախորդ հրավիրատոմսերի էջի ֆայլերը չեն փոփոխվում։
+
+## Դիզայն և անիմացիա
+
+Մուտքի էկրանը սև է՝ ոսկեգույն փայլերով, լուսավոր «Դուք հրավիրված եք» գրությամբ և սպիտակ թղթե ծրարով։ «2027» թիվը, ոսկեգույն ժապավենը և ճյուղի պատկերով կնիքը/բանտը առանձին շերտեր են։ Սեղմելիս բացվում են ծրարի փեղկերն ու գլխավոր էջը։ Կրկնակի սեղմումները կանխված են։
+
+Գլխավոր սկզբնական հատվածն այժմ ամբողջական սև/ոսկեգույն տոնական ֆոնով է՝ մոմերը, ճյուղերը, շամպայնն ու նվերները եզրերին և ներքևում։ Ընկերության նշանն ու նավիգացիան, կենտրոնական մեծ վերնագիրը, օր/ժամ/վայր տվյալների բլոկը, հետհաշվարկը և հաստատման կոճակը տեղադրված են այդ ֆոնի վրա։ Նկարը այլևս առանձին ներքևի բլոկ չէ։ Հետևում են հրավերի տեքստը, երեք SVG պատկերակներով բաժինը, ծրագիրը, վայրի տվյալները, RSVP ձևը և վերջնամասը։
+
+Բոլոր տեքստային խմբերը և ծրագրի տողերը սքրոլի ընթացքում մեղմ հայտնվում են, հեռանալիս վերադառնում են սկզբնական վիճակին և նորից անիմացվում են վերև վերադառնալիս։ Նավիգացիան հեռախոսում բացվող իրական ցանկ է՝ Escape-ով փակմամբ։ Անիմացիաներն ու փայլերը հարգում են նվազեցված շարժման նախապատվությունը, թաքնված ներդիրում Canvas-ը կանգ է առնում։
+
+## Տվյալներ
+
+Ընկերությունը՝ TT Group, ժամը՝ 18։00, վայրը՝ Adana complex։ Օրը դեռ օրինակային է։ `script.js`-ի սկզբի `CONFIG`-ում կենտրոնացված են ընկերությունը, դիմավորվող տարին, օրինակային 31․12․2026 օրը և հաստատված 18։00 ժամը, հրավերի տեքստը, ծրագիրը, վայրի լուսանկարը, քարտեզը և RSVP endpoint-ը։ Նախորդ տարբերակների SS group/AMA/Codu տվյալները չեն փոխանցվել։
+
+Օրը ISO ձևաչափով է՝ `+04:00` Հայաստանի offset-ով։ Ցուցադրված ամսաթիվն ու ժամը անկախ են այցելուի ժամային գոտուց, հետհաշվարկը մեկնարկից հետո բացասական չի դառնում։
+
+Վայրը՝ Adana complex։ Ճշգրիտ հասցե, քարտեզի հղում և իրական լուսանկար դեռ չկան։ Վայրի լուսանկարի բլոկը չի ցուցադրվում, մինչև `venueImage`-ում իրական լուսանկար չլրացվի և այն հաջողությամբ բեռնվի։ Չկա դատարկ նկար կամ հորինված սրահի լուսանկար։ Քարտեզի կոճակը բացում է Adana complex անվանմամբ որոնում, ոչ հաստատված հասցե։ Դատարկ/անվավեր URL-ի դեպքում այն թաքնված է։
+
+## Գործարկում և cPanel
+
+Պահոցի արմատից՝ `python3 -m http.server 8000`, ապա օգտագործեք `/invitations/067/` ուղին։ Կամ հենց այս պանակում՝ `npx serve . -p 3000`։ Կարելի է անմիջապես բացել `index.html`-ը։ cPanel-ում վերբեռնեք `index.html`, `style.css`, `script.js` և `assets/`-ը՝ հարաբերական հղումներով։
+
+Եթե տերմինալը 071-ի պանակում է՝ `cd ../067`։ Եթե պահոցի արմատում է՝ `cd invitations/067`։
+
+## Մասնակցության հաստատում
+
+Ձևի դաշտերը՝ անուն/ազգանուն, մասնակցելու եմ/չեմ մասնակցելու, ոչ պարտադիր մեկնաբանություն։ Առանց `rsvpEndpoint`-ի ձևը հստակ ցուցադրական է, ոչինչ չի ուղարկում կամ պահպանում և հաջող առաքման կեղծ հաղորդագրություն չի ցուցադրում։
+
+Իրական ինտեգրացիայի հատվածը `sendRSVP()`-ն է՝ POST JSON (`fullName`, `attendance`: `yes`/`no`, `comment`)։ Endpoint-ը կարող է լինել հարաբերական կամ HTTP(S) URL։ Սերվերը պետք է վավերացնի տվյալները, սահմանափակի հարցումները և անհրաժեշտության դեպքում ապահովի CORS։ Միայն 2xx պատասխանը համարվում է հաջողություն։ Կրկնակի զուգահեռ ուղարկումը կանխվում է, timeout-ը՝ 15 վայրկյան, սխալից հետո կարելի է նորից փորձել։ Frontend-ում գաղտնի բանալիներ չկան։ Իրական backend կամ երաժշտություն դեռ միացված չեն։
+
+## Նյութեր և ստուգումներ
+
+`hero-background-mobile.png` և `hero-background-wide.png`-ը նոր սկզբնական հատվածի առանձին հեռախոսային/լայն ֆոներն են՝ առանց պատկերի մեջ գրված տեքստի։ `gold-bow-seal.png`-ը մուտքի առանձին պատկերն է։ Նախորդ `celebration-scene.png` և `gold-streamer.png` նյութերը պահպանված են, բայց ներկայիս սկզբնական հատվածում չեն օգտագործվում։ `white-paper.png`-ը առանձին թղթե տեքստուրա է։ Noto Serif Armenian տառատեսակը տեղային է՝ իր SIL Open Font License-ով։ Ամբողջ հղում-նկարը որպես կայքի ֆոն չի օգտագործվում․ տեքստերը, տվյալներն ու կոճակները իրական HTML են։
+
+Ստուգված են 360, 390, 768, 1440px լայնությունները, բացման անիմացիան և կրկնակի սեղմումների կանխումը, սքրոլի մուտք/ելք/կրկնակի մուտքը, հեռախոսի ցանկը և Escape-ը, Հայաստանի ժամային գոտին, հետհաշվարկի ավարտը, իրական տվյալների բացակայության դեպքում վայրի/քարտեզի թաքցնելը, ստեղնաշարը և նվազեցված շարժումը։ RSVP-ի վավերացումը, ցուցադրական ռեժիմը, ինչպես նաև փորձնական API-ի հաջողության, սխալի և կրկնակի ուղարկման վարքը ստուգված են․ իրական endpoint չի միացվել։
+
+
+## Latest confirmed details
+Company: TT Group. Start: 18:00 Armenia. Venue: Adana complex. The existing 31 December 2026 date remains illustrative; no new date was supplied. The provisional program starts at 18:00. Exact address/map remain unset.
+
+The decorative fireworks interlude appears AFTER welcome/features and BEFORE the program, not in the hero. The user explicitly authorized creating images: assets/celebration-fireworks.png (portrait) and celebration-fireworks-wide.png (wide) are generated festive artwork, not photographs of Adana complex. The responsive picture has dark fade edges, a gold Armenian caption, scroll reveal and TT Group signature. It appears only on successful image load. The existing hero and entrance are unchanged.
+
+
+## Dress code and venue layout
+Black Tie section added after venue and before RSVP, matching the reference editorial strip. Four equal fashion cards use generated black-tie-collection.png: tuxedo, gown, heels and gold-accent clutch. Two columns on phones, four on tablets and a side-by-side copy/gallery layout on desktop. Existing reveal/reduced-motion behavior applies. Venue uses left-aligned typography, a diagonal photo frame when an actual CONFIG.venueImage is provided, and a venue-name Google Maps SEARCH link (not an asserted exact pin). An actual Adana interior photo has not been supplied; no generated artwork is presented as the real restaurant.
+
+
+## Մեր պահերը միասին
+A compact five-image gallery appears before venue, matching the requested horizontal strip. Generated illustrative mood images (not actual company-event photographs) show table, toast, tree, hall and dinner details in assets/moments-collection.png. Real photos can replace the artwork later. Gallery supports named previous/next buttons, horizontal swipe/trackpad, left/right keyboard keys, scroll snapping and reduced motion. No autoplay or dependency. Arrows disable at boundaries and re-evaluate on resize/open.
+
+
+## Latest venue card
+Venue is now a wide photo-led section with a translucent dark rounded location card over its lower center: pin, CONFIG.venueName, optional CONFIG.address and map search button. Generated assets/venue-atmosphere.png is used as clearly labeled illustrative hall art via venueArtwork; it is NOT an Adana photograph. Set venueImage to a real photo to replace the illustration and hide the artwork label. The user explicitly requested a blank address. Keep CONFIG.address empty and hide its line; do not invent it. Map remains a venue-name search.
+
+Latest dress-code edit: removed the shoe and clutch cards at the user’s request. Only tuxedo and gown remain, in two columns at all widths. Shared generated contact sheet remains as the source for those two cards.
+
+
+## Music added across the collection
+The user explicitly authorized adding music to all 067–076 invitations that lacked it. This folder now includes their previously supplied Happy-New-Year(chosic.com).mp3 as assets/music.mp3, plus a self-contained music.js (upload it with the HTML/CSS/script/assets). CONFIG.musicUrl owns the track path. Playback begins from the first visitor click (including the entry opening when present), never on page load. Persistent icon-only play/pause control uses actual media events and accessible Armenian labels; failed playback/missing file cannot block invitation opening or RSVP. Volume .45, loop enabled, no preload. Existing templates with music were preserved.

@@ -31,9 +31,12 @@ function EvergreenCorner({ className }: { className: string }) {
   );
 }
 
-export function NewYearSection() {
+export function NewYearSection({ available = false }: { available?: boolean }) {
   return (
-    <section className="new-year-section" aria-labelledby="new-year-title">
+    <section
+      className={`new-year-section ${available ? "new-year-section-available" : ""}`}
+      aria-labelledby="new-year-title"
+    >
       <div className="new-year-glow" aria-hidden="true" />
       <EvergreenCorner className="new-year-evergreen new-year-evergreen-left" />
       <EvergreenCorner className="new-year-evergreen new-year-evergreen-right" />
@@ -66,7 +69,9 @@ export function NewYearSection() {
           Ջերմ հանդիպումներ, փայլուն պահեր
           <br />և միասին ստեղծվող նոր հիշողություններ։
         </p>
-        <span className="new-year-soon">Տոնական հավաքածուն՝ շուտով</span>
+        <span className="new-year-soon">
+          {available ? "Ընտրեք ձեր ամանորյա հրավիրատոմսը" : "Տոնական հավաքածուն՝ շուտով"}
+        </span>
       </div>
     </section>
   );

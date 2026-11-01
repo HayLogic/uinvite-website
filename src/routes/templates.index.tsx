@@ -23,13 +23,13 @@ const SITE_URL = "https://uinvite-invites-forever.lovable.app";
 export const Route = createFileRoute("/templates/")({
   head: () => ({
     meta: [
-      { title: "Տեսականի — 50+ վեբ հրավիրատոմսերի ձևանմուշ | uInvite" },
+      { title: "Տեսականի — 80 վեբ հրավիրատոմսերի ձևանմուշ | uInvite" },
       {
         name: "description",
         content:
           "Դիտեք uInvite-ի ամբողջ տեսականին՝ հարսանիք, նշանադրություն, կնունք, ծնունդ, մանկական, ամանորյա և կորպորատիվ վեբ հրավիրատոմսեր՝ 4,900֏-ից։",
       },
-      { property: "og:title", content: "Տեսականի — 50+ վեբ հրավիրատոմսերի ձևանմուշ | uInvite" },
+      { property: "og:title", content: "Տեսականի — 80 վեբ հրավիրատոմսերի ձևանմուշ | uInvite" },
       {
         property: "og:description",
         content: "Ընտրեք Ձեր միջոցառմանը համապատասխան վեբ հրավիրատոմս՝ Standart և Premium՝ Start, Classic և Plus փաթեթներով։",
@@ -38,7 +38,7 @@ export const Route = createFileRoute("/templates/")({
       { property: "og:url", content: `${SITE_URL}/templates` },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Տեսականի — uInvite վեբ հրավիրատոմսեր" },
-      { name: "twitter:description", content: "50+ պատրաստի վեբ հրավիրատոմսեր ցանկացած առիթի համար։" },
+      { name: "twitter:description", content: "80 պատրաստի վեբ հրավիրատոմսեր ցանկացած առիթի համար։" },
     ],
     links: [{ rel: "canonical", href: `${SITE_URL}/templates` }],
   }),
@@ -139,7 +139,7 @@ function TemplatesPage() {
             ))}
           </div>
 
-          {filter !== "new-year" && <div className="tpl-tiers">
+          <div className="tpl-tiers">
             {TIER_FILTERS.map((f) => (
               <button
                 key={f.id}
@@ -149,9 +149,9 @@ function TemplatesPage() {
                 {f.label}
               </button>
             ))}
-          </div>}
+          </div>
 
-          {filter === "new-year" && <NewYearSection />}
+          {filter === "new-year" && <NewYearSection available />}
 
           <div className="tpl-grid">
             {list.map((t) => (

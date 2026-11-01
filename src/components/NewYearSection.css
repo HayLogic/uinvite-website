@@ -179,3 +179,19 @@
     opacity: 0.35;
   }
 }
+
+.new-year-section-available {
+  padding-block: 32px;
+}
+.new-year-section-available .new-year-emblem {
+  display: none;
+}
+.new-year-section-available .new-year-copy h2 {
+  font-size: clamp(26px, 3.5vw, 36px);
+}
+.new-year-section-available .new-year-kicker {
+  margin-bottom: 12px;
+}
+.new-year-section-available .new-year-copy p {
+  margin-bottom: 16px;
+}

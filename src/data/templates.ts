@@ -61,6 +61,25 @@ import t060 from "@/assets/templateImages/060.webp";
 import t061 from "@/assets/templateImages/061.webp";
 import t062 from "@/assets/templateImages/062.webp";
 
+import t063 from "@/assets/templateImages/063.webp";
+import t064 from "@/assets/templateImages/064.webp";
+import t065 from "@/assets/templateImages/065.webp";
+import t066 from "@/assets/templateImages/066.webp";
+import t067 from "@/assets/templateImages/067.webp";
+import t068 from "@/assets/templateImages/068.webp";
+import t069 from "@/assets/templateImages/069.webp";
+import t070 from "@/assets/templateImages/070.webp";
+import t071 from "@/assets/templateImages/071.webp";
+import t072 from "@/assets/templateImages/072.webp";
+import t073 from "@/assets/templateImages/073.webp";
+import t074 from "@/assets/templateImages/074.webp";
+import t075 from "@/assets/templateImages/075.webp";
+import t076 from "@/assets/templateImages/076.webp";
+import t077 from "@/assets/templateImages/077.webp";
+import t078 from "@/assets/templateImages/078.webp";
+import t079 from "@/assets/templateImages/079.webp";
+import t080 from "@/assets/templateImages/080.webp";
+
 export type TemplateCategory =
   | "wedding"
   | "engagement"
@@ -93,7 +112,7 @@ export interface Template {
   discountUntil?: string;
 }
 
-// Only the existing 001–062 cards are published; later files remain drafts.
+// All 001–080 cards are now published at the owner’s request.
 const catalogueImages: Record<string, string> = {
   "001": t001,
   "002": t002,
@@ -157,6 +176,24 @@ const catalogueImages: Record<string, string> = {
   "060": t060,
   "061": t061,
   "062": t062,
+  "063": t063,
+  "064": t064,
+  "065": t065,
+  "066": t066,
+  "067": t067,
+  "068": t068,
+  "069": t069,
+  "070": t070,
+  "071": t071,
+  "072": t072,
+  "073": t073,
+  "074": t074,
+  "075": t075,
+  "076": t076,
+  "077": t077,
+  "078": t078,
+  "079": t079,
+  "080": t080,
 };
 
 export function getDiscountDeadline(until: string): number {
@@ -168,7 +205,7 @@ export function getTemplates(now = Date.now()): Template[] {
     const assignment = templateAssignments[code];
     const activeSale = Boolean(assignment.discountTo && assignment.discountUntil && now <= getDiscountDeadline(assignment.discountUntil));
     return {
-      code, image, category: assignment.category, tier: assignment.tier,
+      code, image, category: (Number(code) >= 67 && Number(code) <= 76 ? "new-year" : assignment.category) as TemplateCategory, tier: assignment.tier,
       badges: assignment.badges.filter((badge) => badge !== "discount" || activeSale),
       price: tierPrices[activeSale ? assignment.discountTo! : assignment.tier],
       ...(activeSale ? { discountTo: assignment.discountTo, discountUntil: assignment.discountUntil } : {}),
@@ -176,23 +213,11 @@ export function getTemplates(now = Date.now()): Template[] {
   }));
 }
 
-const badgePriority: Record<TemplateBadge, number> = {
-  top: 1,
-  discount: 2,
-  new: 3,
-  "gift-music": 4,
-};
-
-function badgeRank(t: Template): number {
-  if (!t.badges.length) return 99;
-  return Math.min(...t.badges.map((b) => badgePriority[b]));
-}
-
 export const templates: Template[] = getTemplates();
 
 export function orderTemplates(list: Template[]): Template[] {
   return [...list].sort((a, b) => {
-    const rank = badgeRank(a) - badgeRank(b);
+    const rank = Number(b.badges.includes("top")) - Number(a.badges.includes("top"));
     if (rank !== 0) return rank;
     return Number(b.code) - Number(a.code);
   });

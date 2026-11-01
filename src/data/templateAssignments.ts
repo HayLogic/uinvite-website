@@ -1,5 +1,5 @@
 // Imported from the owner-provided uinvite_templates_001_080.xlsx.
-// Metadata for 063–080 does not publish those templates in the catalogue.
+// Catalogue publication is controlled separately by catalogueImages in templates.ts.
 import type { TemplateTier } from "./pricing";
 import type { TemplateCategory, TemplateBadge } from "./templates";
 export interface TemplateAssignment {

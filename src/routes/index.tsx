@@ -188,7 +188,7 @@ function IndexInner() {
             </div>
             <div className="ui-hero-stats">
               <div><strong>500+</strong><span>գոհ հաճախորդ</span></div>
-              <div><strong>50+</strong><span>ձևանմուշ</span></div>
+              <div><strong>80</strong><span>ձևանմուշ</span></div>
               <div><strong>48ժ</strong><span>պատրաստման ժամկետ</span></div>
             </div>
           </div>
@@ -993,7 +993,7 @@ function CatalogTemplates() {
         ))}
       </div>
 
-      {cat === "new-year" && <NewYearSection />}
+      {cat === "new-year" && <NewYearSection available />}
 
       <div className="ct-grid">
         {(showAll ? list : list.slice(0, 15)).map((t) => {

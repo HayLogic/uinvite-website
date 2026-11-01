@@ -1,0 +1,184 @@
+@font-face{font-family:Pinyon;src:url('assets/PinyonScript-Regular.ttf') format('truetype');font-display:swap}
+:root{color-scheme:light;--cream:#e6e6d8;--ink:#4c4d3e;--gold:#8c7c58;--sage:#888d73}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;scrollbar-width:none}body{background:var(--cream);color:var(--ink);font-family:Georgia,'Sylfaen',serif}body::-webkit-scrollbar{display:none}button{font:inherit;color:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}button:focus-visible{outline:2px solid #625d36;outline-offset:8px}[hidden]{display:none!important}
+.winter-scene{min-height:100svh;position:relative;isolation:isolate;display:grid;place-items:center;padding:45px 18px;background-color:var(--cream);background-image:linear-gradient(#ecebdf22,#e8e8db33),url('assets/winter-forest.png');background-size:cover;background-position:center}
+.winter-scene::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#ecebdf33,transparent 55%,#e9e8dd22);pointer-events:none}
+.invitation-cover{width:min(100%,570px);text-align:center;transition:opacity 1.2s ease,transform 1.6s ease}
+.invitation-from{font-family:Georgia,serif;font-size:11px;line-height:1.18;font-weight:400;margin:0 0 18px;color:#555746}
+.hosts{font-family:Pinyon,Georgia,serif;font-weight:400;font-size:clamp(42px,10vw,67px);line-height:1.1;margin:0 0 15px;color:var(--gold);text-shadow:0 1px 0 #f9f7ec77;overflow-wrap:anywhere}
+.envelope{display:block;position:relative;width:min(100%,440px);aspect-ratio:1.54;margin:12px auto 0;border:0;padding:0;background:none;border-radius:2px;perspective:1300px;isolation:isolate;filter:drop-shadow(0 5px 4px #30332066);transition:filter 1.4s ease}
+.paper{position:absolute;inset:0;background-color:var(--sage);background-image:url('assets/sage-paper.svg');background-size:250px 250px}
+.envelope-back{border:1px solid #515741;border-radius:2px;box-shadow:inset 0 0 28px #323c1d33;transition:opacity 1.7s ease .9s}
+.envelope-pocket{z-index:2;clip-path:polygon(0 100%,50% 28%,100% 100%);background-color:#91967c;box-shadow:inset 0 -1px #4f573f;transform-origin:center bottom;transition:transform 2.1s ease 1s,opacity 1.2s ease 1.3s}
+.fold{z-index:1;backface-visibility:hidden;transition:transform 2.1s ease .7s,opacity 1.2s ease 1.2s}
+.fold-left{clip-path:polygon(0 0,55% 59%,0 100%);transform-origin:left;background-color:#92967e;background-image:linear-gradient(135deg,#b5b99c33,#2b361e15),url('assets/sage-paper.svg')}
+.fold-right{clip-path:polygon(100% 0,45% 59%,100% 100%);transform-origin:right;background-color:#969b82;background-image:linear-gradient(225deg,#b9bea133,#2b361e15),url('assets/sage-paper.svg')}
+.flap{z-index:4;height:67%;clip-path:polygon(0 0,100% 0,98% 15%,50% 96%,2% 15%);transform-origin:center top;background-color:#91967b;background-image:linear-gradient(170deg,#cad0af22,#38432b22),url('assets/sage-paper.svg');backface-visibility:hidden;transition:transform 2.4s cubic-bezier(.22,.61,.36,1) .4s,opacity 1.2s ease 1.5s}
+.flap svg{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:#d0d1b566;stroke-width:1}
+.flap-shadow{position:absolute;inset:0;z-index:3;transform-origin:top;transition:transform 2.4s cubic-bezier(.22,.61,.36,1) .4s,opacity 1.2s ease 1.5s}
+.flap-shadow svg{width:100%;height:100%;fill:#222b16bb;filter:blur(4px);transform:translateY(4px)}
+.seal-decoration{position:absolute;z-index:5;width:45%;height:64%;left:27.5%;top:35%;pointer-events:none;filter:drop-shadow(0 3px 3px #20281a66);transition:opacity .8s ease,transform 1s ease}
+.seal-decoration img{display:block;width:100%;height:100%;object-fit:contain}
+.open-caption{font-size:12px;color:#424734;line-height:1.6;margin:20px 0 0;transition:opacity .6s ease}
+.opening .seal-decoration{opacity:0;transform:translateY(12px) scale(1.02)}
+.opening .flap,.opening .flap-shadow{transform:rotateX(165deg);opacity:0}
+.opening .fold-left{transform:rotateY(-100deg);opacity:0}
+.opening .fold-right{transform:rotateY(100deg);opacity:0}
+.opening .envelope-pocket{transform:rotateX(-100deg);opacity:0}
+.opening .envelope-back,.opening .open-caption{opacity:0}
+.leaving{opacity:0;transform:translateY(-10px)}
+.inside{text-align:center;max-width:560px;padding:45px 30px;border:1px solid #9c9f7b55;background:#eeeee266;backdrop-filter:blur(4px);box-shadow:0 10px 60px #42452c0d;animation:reveal 1.3s ease both}
+.inside .hosts{margin:25px 0;font-size:clamp(43px,10vw,69px)}
+.inside-rule{display:block;width:65px;height:1px;background:#9d926b88;margin:25px auto}
+.inside-message{font-size:14px;line-height:2.2;max-width:370px}
+.close-invitation{border:0;border-bottom:1px solid #878b6b;background:transparent;font-size:11px;padding:9px 3px;margin-top:20px}
+.noscript{position:fixed;bottom:10px;background:#eeeee5;padding:12px;font-size:12px}
+@keyframes reveal{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:768px){.winter-scene{padding:60px 30px;background-position:center 60%}.invitation-from{font-size:13px;margin-bottom:22px}.hosts{font-size:69px;margin-bottom:15px}.envelope{width:490px}.open-caption{font-size:14px;margin-top:23px}}
+@media(max-height:550px) and (min-width:700px){.winter-scene{padding:25px}.hosts{font-size:43px;margin-bottom:10px}.invitation-from{font-size:10px;margin-bottom:10px}.envelope{width:330px}.open-caption{margin-top:13px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* 069 inner invitation: ivory paper, botanical imagery and quiet antique gold. */
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+.winter-scene.is-open{display:block;padding:18px 12px 30px;background-color:#c6c7b4;background-image:linear-gradient(#d4d6c5ee,#c7cab8ee),url('assets/winter-forest.png');background-size:cover;background-position:center}
+.inside{max-width:900px;width:100%;margin:0 auto;padding:0;border:0;background:transparent;box-shadow:none;backdrop-filter:none;animation:reveal 1.1s ease both}
+.invitation-section{position:relative;isolation:isolate;overflow:hidden;text-align:center;background:#e7e8d9;border:1px solid #f7f5e377;border-radius:24px;padding:50px 24px;margin-bottom:20px;box-shadow:0 3px 12px #45472b25}
+.small-caps{font-size:10px;line-height:1.8;letter-spacing:2px;color:#565b47;margin:0 0 10px}
+.sample-note{font-family:Georgia,serif;font-size:9px;letter-spacing:.6px;color:#747861;line-height:1.6;margin:0 auto 10px;max-width:290px}
+
+.stars-hero{top:40px;right:5px}
+.party-hero{padding-top:24px;padding-bottom:26px}
+.christmas-tree{display:block;max-width:100%;width:310px;height:390px;object-fit:contain;margin:0 auto 8px;filter:drop-shadow(0 12px 9px #6b6c4920)}
+.script-title{display:block;font-family:Pinyon,Georgia,serif;font-weight:400;color:#4f5642;font-size:clamp(62px,15vw,100px);line-height:.95}
+.roman-title{display:block;font-family:Georgia,serif;font-weight:400;line-height:1.1;font-size:clamp(40px,11vw,64px);letter-spacing:1px;color:#454c3a}
+h2,h3{font-weight:400}.party-hero h2{margin:5px 0 20px}.party-hero .script-title{font-size:clamp(75px,18vw,115px)}
+.hosted-label{font-size:9px;letter-spacing:2.7px}
+.inside .hosts{font-size:clamp(38px,9vw,57px);margin:10px auto;color:#636b4f;max-width:95%}
+.down-link{display:inline-block;padding:5px 20px;color:#83866c;font-size:24px;margin:0 auto}
+.section-title{margin:0 auto 35px}.section-title .script-title{font-size:84px}.section-title .roman-title{font-size:46px;line-height:1.2}
+.party-details{padding-top:45px;padding-bottom:60px}
+.party-details::before{content:'';position:absolute;z-index:-1;inset:90px 0 5px;background:url('assets/christmas-tree.png') center/contain no-repeat;opacity:.17;pointer-events:none}
+.stars-details{top:0;right:-5px}
+.detail-stack{display:grid;gap:32px;max-width:400px;margin:0 auto}
+.event-detail h3{font-size:15px;line-height:1.4;letter-spacing:2.5px;margin:0 0 9px}
+.sage-pill{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#4e5844;color:#faf8e9;border:1px solid #f3f0d833;border-radius:45px;min-height:80px;padding:16px 22px;text-decoration:none;box-shadow:inset 0 1px #ffffff0d}
+.sage-pill p{font-size:11px;line-height:1.8;letter-spacing:1px;margin:0;text-transform:uppercase;overflow-wrap:anywhere}
+.date-pill p:first-child{max-width:250px}
+.location-pill{flex-direction:row;gap:16px;text-align:center}
+.location-pill img{width:70px;height:70px;object-fit:cover;border-radius:50%;border:2px solid #eeead2;flex-shrink:0}
+.location-icon{width:31px;height:38px;fill:none;stroke:#e8e1c5;stroke-width:1;flex-shrink:0}
+.rsvp-pill{font-size:10px;letter-spacing:.8px;line-height:1.8}
+.rsvp-pill span{font-size:9px;letter-spacing:.2px;margin-top:6px;color:#e2e4d6}
+.gold-button{display:inline-flex;justify-content:center;align-items:center;max-width:100%;min-height:45px;min-width:min(100%,230px);padding:11px 27px;border:1px solid #bda25d;border-radius:40px;background:linear-gradient(90deg,#b89542,#f0dda0 7%,#fff5cc 16%,#dac07e 38%,#fff2ba 76%,#f7e7af 89%,#b99746);box-shadow:inset 0 0 0 2px #fff8d399,inset 0 -2px 3px #94743955,0 2px 6px #4a4c2822;color:#333421;font-family:Georgia,serif;font-size:12px;text-decoration:none;line-height:1.5;transition:filter .2s,transform .2s;cursor:pointer}
+.gold-button:hover{filter:brightness(1.05);transform:translateY(-1px)}
+.gold-button:disabled{opacity:.6;cursor:wait}
+.event-detail .gold-button{margin-top:18px}
+.gift-exchange{padding-top:50px;padding-bottom:35px}
+.gift-exchange>h2{font-size:26px;color:#8c7c58;letter-spacing:2px;margin:20px 0}
+.gift-message,.gift-budget{font-size:12px;line-height:2;max-width:380px;margin:0 auto;color:#535b45}
+.gift-budget{margin-top:13px;font-style:italic;color:#8a7951}
+.gift-picture{display:block;width:min(100%,470px);height:auto;margin:25px auto 0;filter:drop-shadow(0 8px 10px #56503918)}
+.fine-divider{display:block;width:85px;height:1px;background:linear-gradient(90deg,transparent,#ad9b64,transparent);margin:20px auto 0}
+.party-rsvp{padding-top:30px;padding-bottom:40px}
+.botanical-rsvp{display:block;width:min(100%,330px);height:auto;margin:0 auto 15px}
+.rsvp-intro{font-size:13px;line-height:1.8;color:#555b44;margin:10px auto 22px}
+.deadline{font-size:11px;letter-spacing:1px;margin:15px auto}
+#rsvp-form-panel{max-width:430px;margin:30px auto 0;padding-top:25px;border-top:1px solid #9c9f7b44}
+#rsvp-form{text-align:left}#rsvp-form label,#rsvp-form legend{font-size:12px;line-height:1.7;margin-bottom:7px;display:block;color:#434c37}
+#rsvp-form input:not([type=radio]),#rsvp-form textarea{display:block;width:100%;min-height:46px;border:1px solid #8c94736b;border-radius:4px;background:#f9f9ed80;color:#303923;padding:12px;font:13px/1.6 Georgia,serif;margin:0 0 21px}
+#rsvp-form textarea{resize:vertical}
+#rsvp-form input::placeholder,#rsvp-form textarea::placeholder{color:#81856f}
+#rsvp-form fieldset{border:0;padding:0;margin:0 0 21px;min-width:0}
+.attendance-options{display:grid;gap:9px}
+#rsvp-form .attendance-options label{display:flex;align-items:center;gap:8px;border:1px solid #8c947344;border-radius:4px;padding:11px;margin:0;font-size:12px}
+.attendance-options input{accent-color:#526044;margin:0;width:15px;height:15px;flex-shrink:0}
+.attendance-options label:has(input:checked){background:#73845b19;border-color:#6d7c52}
+.optional{font-size:10px;color:#7d836b}
+.preview-form-note{font-size:10px;color:#70765e;line-height:1.8;margin:0 0 18px}
+#form-status{font-size:12px;line-height:1.8;color:#4b6140;margin:16px 0 0}
+#form-status.error{color:#92443d}
+#submit-rsvp{width:100%}
+.thank-you{padding-top:24px;padding-bottom:40px;margin-bottom:0}
+.thank-tree{display:block;width:145px;height:185px;object-fit:contain;margin:0 auto 13px}
+.thank-you h2{font-size:clamp(72px,18vw,105px);margin:10px auto 0;white-space:nowrap}
+.thank-message{font-size:10px;line-height:2.1;letter-spacing:.7px;max-width:380px;margin:24px auto;color:#4f5842}
+.with-love{font-size:9px;letter-spacing:1.7px;margin:28px 0 17px}
+.stars-thanks{right:0;bottom:60px}
+.close-invitation{display:block;margin:26px auto 0;color:#73795f}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+a:focus-visible,input:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid #7c7547;outline-offset:5px}
+@media(min-width:768px){
+ .winter-scene.is-open{padding:30px 35px 45px}.invitation-section{margin-bottom:28px;padding-left:70px;padding-right:70px;border-radius:28px}
+ .party-hero{min-height:880px;display:flex;flex-direction:column;align-items:center;justify-content:center}.christmas-tree{width:380px;height:470px}.stars-hero{right:90px;top:80px;width:160px;height:240px}
+ .party-hero .script-title{font-size:125px}.party-hero .roman-title{font-size:73px}.inside .hosts{font-size:61px}
+ .party-details{padding-top:60px;padding-bottom:70px}.section-title .script-title{font-size:100px}.section-title .roman-title{font-size:55px}.detail-stack{max-width:460px;gap:38px}.sage-pill{min-height:90px}.sage-pill p{font-size:12px}.rsvp-pill{font-size:11px}
+ .gift-exchange{padding-top:65px}.gift-exchange>h2{font-size:32px}.gift-message{font-size:14px;max-width:460px}.gift-picture{width:540px}.botanical-rsvp{width:370px}.party-rsvp{padding-top:45px;padding-bottom:55px}.thank-tree{width:180px;height:235px}.thank-message{font-size:12px;line-height:2;max-width:470px}.thank-you{padding-bottom:50px}.thank-you h2{font-size:115px}.attendance-options{grid-template-columns:1fr 1fr}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.inside{animation:none}.gold-button{transition:none}}
+
+/* Armenian edition: a local Armenian serif and balanced multiline headings. */
+@font-face{font-family:NotoArmenian;src:url('assets/NotoSerifArmenian.ttf') format('truetype');font-weight:100 900;font-display:swap}
+html[lang=hy] body{font-family:NotoArmenian,Georgia,serif}
+html[lang=hy] .invitation-from,html[lang=hy] .gold-button{font-family:NotoArmenian,Georgia,serif}
+html[lang=hy] .invitation-from{font-size:10px;letter-spacing:1px;line-height:1.9}
+html[lang=hy] .open-caption{font-size:10px;letter-spacing:.6px}
+html[lang=hy] .script-title{font-family:NotoArmenian,Georgia,serif;font-style:italic;font-size:clamp(28px,7vw,48px);line-height:1.7;letter-spacing:0;text-wrap:balance}
+html[lang=hy] .roman-title{font-family:NotoArmenian,Georgia,serif;font-size:clamp(23px,5.7vw,38px);line-height:1.7;letter-spacing:0;text-wrap:balance}
+html[lang=hy] .party-hero .script-title{font-size:clamp(40px,10vw,70px);line-height:1.5}
+html[lang=hy] .party-hero .roman-title{font-size:clamp(23px,5.5vw,37px);line-height:1.7}
+html[lang=hy] .small-caps{font-size:9px;letter-spacing:1.1px;line-height:1.9}
+html[lang=hy] .sage-pill p{font-size:11px;text-transform:none;letter-spacing:.2px;line-height:2}
+html[lang=hy] .rsvp-pill{letter-spacing:.2px;font-size:10px}
+html[lang=hy] .event-detail h3{font-size:13px;letter-spacing:1.4px}
+html[lang=hy] .gift-exchange>h2{font-size:23px;letter-spacing:.8px;line-height:1.8;text-wrap:balance}
+html[lang=hy] .thank-you h2{font-size:clamp(29px,7vw,46px);line-height:1.7;white-space:normal;text-wrap:balance}
+html[lang=hy] .thank-message{font-size:12px;line-height:2.3;letter-spacing:0}
+html[lang=hy] #rsvp-form input:not([type=radio]),html[lang=hy] #rsvp-form textarea{font-family:NotoArmenian,Georgia,serif}
+.rsvp-title{font-size:clamp(24px,5vw,35px);font-weight:400;color:#4e5a42;line-height:1.8;margin:10px auto 0;text-wrap:balance}
+.rsvp-seal{display:block;width:min(80%,245px);height:auto;margin:10px auto 0}
+.event-calendar{width:100%;max-width:520px;border-collapse:collapse;table-layout:fixed;margin:0 auto;font-variant-numeric:tabular-nums}
+.event-calendar caption{font-size:21px;color:#68704f;margin:0 0 23px;line-height:1.8}
+.event-calendar th{height:35px;color:#7e846a;font-size:10px;font-weight:400}
+.event-calendar abbr{text-decoration:none}
+.event-calendar td{height:55px;position:relative;font-size:18px;color:#4b5542;text-align:center}
+.event-calendar time{display:inline-grid;place-items:center;position:relative;z-index:1;min-width:26px;height:28px}
+.calendar-event-day time{color:#fff8df;font-weight:600;top:6px}
+.date-tree{position:absolute;left:50%;top:50%;width:51px;height:58px;transform:translate(-50%,-50%);filter:drop-shadow(0 3px 5px #3d50202b)}
+.calendar-note,.program-note,.dress-note{font-size:10px;line-height:1.9;color:#7d8168;max-width:450px;margin:25px auto 0}
+.calendar-section .section-title{margin-bottom:25px}
+.day-program{list-style:none;padding:0;max-width:500px;margin:15px auto 0;text-align:left}
+.day-program li{display:grid;grid-template-columns:61px minmax(0,1fr);gap:25px;position:relative;padding:4px 0 35px}
+.day-program li::before{content:'';position:absolute;left:72px;top:17px;bottom:-14px;width:1px;background:linear-gradient(#a5ab8d,#b7ac7d77)}
+.day-program li:last-child::before{display:none}
+.day-program li::after{content:'';position:absolute;left:69px;top:14px;width:7px;height:7px;transform:rotate(45deg);background:#99a17a;box-shadow:0 0 0 3px #d8dac5}
+.day-program time{font-family:Georgia,serif;font-size:22px;font-style:italic;color:#78835d;line-height:1.65}
+.day-program h3{font-size:14px;line-height:1.9;color:#49563e;margin:0 0 7px}
+.day-program p{font-size:11px;line-height:1.9;color:#7a8069;margin:0}
+.dress-description{font-size:17px;line-height:2;color:#58664b;max-width:500px;margin:0 auto;text-wrap:balance}
+.dress-colors{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;max-width:480px;list-style:none;padding:0;margin:35px auto 0}
+.dress-colors li{display:flex;flex-direction:column;align-items:center;gap:17px;min-width:0}
+.dress-swatch{display:block;width:clamp(43px,12vw,75px);aspect-ratio:1;border-radius:50%;background:radial-gradient(ellipse at 30% 20%,#ffffff40,transparent 60%),var(--swatch);border:4px solid #e7e8d9;outline:1px solid #a5aa8788;box-shadow:0 5px 12px #53603c22,inset 0 1px 7px #ffffff44}
+.dress-colors li>span:last-child{font-size:9px;line-height:1.8;color:#6b7358;text-align:center;overflow-wrap:anywhere}
+@media(min-width:768px){
+ html[lang=hy] .small-caps{font-size:10px}.event-calendar td{height:67px;font-size:21px}.event-calendar th{font-size:12px}.date-tree{width:60px;height:69px}.event-calendar caption{font-size:25px}.day-program time{font-size:26px}.day-program h3{font-size:17px}.day-program p{font-size:12px}.day-program li{gap:35px;grid-template-columns:70px minmax(0,1fr);padding-bottom:40px}.day-program li::before{left:86px}.day-program li::after{left:83px}.dress-description{font-size:22px}.dress-colors{gap:24px}.dress-colors li>span:last-child{font-size:11px}.calendar-note,.program-note,.dress-note{font-size:11px}
+}
+
+.company-botanical{display:block;width:min(100%,330px);height:auto;margin:22px auto 18px}
+#thank-message{white-space:pre-line}
+@media(min-width:768px){.company-botanical{width:370px}}
+
+.dress-colors li>span:last-child{overflow-wrap:normal;word-break:normal;text-wrap:balance}
+@media(max-width:767px){.dress-colors li>span:last-child{font-size:8px}}
+
+/* Continuous snowfall replaces the stationary golden star decorations. */
+.snowfall{position:fixed;inset:0;display:block;width:100%;height:100%;z-index:10;pointer-events:none;user-select:none}
+
+/* Icon-only audio control; a quiet sage accent on the ivory invitation. */
+.music-button{position:fixed;right:16px;bottom:18px;z-index:20;width:46px;height:46px;display:grid;place-items:center;border:1px solid #a5ae8b;border-radius:50%;padding:12px;background:#e8eadbd9;color:#4e5a40;box-shadow:0 4px 16px #41503022;backdrop-filter:blur(5px)}
+.music-button svg{width:20px;height:20px;display:block}
+.music-button .music-play{fill:currentColor;stroke:none}
+.music-button .music-pause{display:none;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round}
+.music-button[aria-pressed=true] .music-play{display:none}
+.music-button[aria-pressed=true] .music-pause{display:block}
+.music-button:disabled{opacity:.45;cursor:default}
+@media(min-width:768px){.music-button{right:25px;bottom:25px}}
