@@ -14,7 +14,7 @@ export function HashScroll() {
     const observer = new ResizeObserver(measure);
     if (header) observer.observe(header);
     return () => observer.disconnect();
-  }, []);
+  }, [location.pathname]);
   useEffect(() => {
     if (location.pathname !== "/") return;
     const behavior = matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";

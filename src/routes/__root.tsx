@@ -133,12 +133,14 @@ function MetaPixelTracker() {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useLocation({ select: (location) => location.pathname });
+  const invitationOpen = /^\/templates\/\d{3}\/?$/.test(pathname);
 
   return (
     <QueryClientProvider client={queryClient}>
       <MetaPixelTracker />
       <LanguageMetadata />
-      <Header />
+      {!invitationOpen && <Header />}
       <HashScroll />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />

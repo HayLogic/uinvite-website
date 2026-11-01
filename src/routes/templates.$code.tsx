@@ -1,9 +1,10 @@
+import { createPortal } from "react-dom";
 import { templateShareImage } from "@/lib/share-image";
 import { orderMessage } from "@/i18n/translate";
 import { useTranslation } from "@/i18n/LanguageProvider";
 import { useTemplates } from "@/components/useTemplates";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, MessageCircle, Phone } from "lucide-react";
 import {
   getTemplate,
@@ -80,7 +81,11 @@ function TemplateViewer() {
   const template =
     useTemplates([initialTemplate]).find((item) => item.code === initialTemplate.code) ??
     initialTemplate;
-  const [loaded, setLoaded] = useState(false);
+  const [loadedCode, setLoadedCode] = useState<string | null>(null);
+  const loaded = loadedCode === template.code;
+  const frameRef = useRef<HTMLIFrameElement>(null);
+  const [footerHost, setFooterHost] = useState<HTMLElement | null>(null);
+  useEffect(() => () => footerHost?.remove(), [footerHost]);
 
   useEffect(() => {
     document.body.classList.add("template-preview-mode");
@@ -88,6 +93,29 @@ function TemplateViewer() {
       document.body.classList.remove("template-preview-mode");
     };
   }, []);
+
+  useEffect(() => {
+    const frame = frameRef.current;
+    if (!frame) return;
+    const attachFooter = () => {
+      const doc = frame.contentDocument;
+      if (!doc?.body || doc.URL === "about:blank") return;
+      let host = doc.querySelector<HTMLElement>("[data-uinvite-footer]");
+      if (!host) {
+        host = doc.createElement("div");
+        host.dataset.uinviteFooter = "true";
+        host.style.cssText =
+          "display:block;position:relative;width:100%;clear:both;flex-shrink:0;grid-column:1/-1;z-index:10";
+        doc.body.append(host);
+      }
+      setFooterHost(host);
+      setLoadedCode(template.code);
+    };
+    frame.addEventListener("load", attachFooter);
+    // Cached invitation documents can finish loading before React hydrates.
+    if (frame.contentDocument?.readyState === "complete") attachFooter();
+    return () => frame.removeEventListener("load", attachFooter);
+  }, [template.code]);
 
   const previewUrl = `/templates/${template.code}/index.html`;
 
@@ -118,35 +146,44 @@ function TemplateViewer() {
         )}
 
         <iframe
+          ref={frameRef}
+          key={template.code}
           src={previewUrl}
           title={tr(`Թեմփլեյթ #${template.code}`)}
           className="tv-frame"
-          onLoad={() => setLoaded(true)}
+
           style={{ opacity: loaded ? 1 : 0 }}
         />
       </main>
 
-      <div className="tv-bottom-bar">
-        <a
-          className="tv-action tv-order"
-          href={`${WHATSAPP_URL}?text=${orderMsg}`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <MessageCircle size={19} />
-          <span>{tr("Պատվիրել")}</span>
-        </a>
+      {footerHost &&
+        createPortal(
+          <>
+            <style>{footerStyles}</style>
+            <div className="tv-bottom-bar" role="navigation" aria-label={tr("Պատվիրել")}>
+              <a
+                className="tv-action tv-order"
+                href={`${WHATSAPP_URL}?text=${orderMsg}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MessageCircle size={19} />
+                <span>{tr("Պատվիրել")}</span>
+              </a>
 
-        <a className="tv-action tv-call" href="tel:+37477198238">
-          <Phone size={19} />
-          <span>{tr("Զանգել")}</span>
-        </a>
+              <a className="tv-action tv-call" href="tel:+37477198238">
+                <Phone size={19} />
+                <span>{tr("Զանգել")}</span>
+              </a>
 
-        <Link className="tv-action tv-back" to="/templates">
-          <ArrowLeft size={19} />
-          <span>{tr("Հետ գնալ")}</span>
-        </Link>
-      </div>
+              <Link className="tv-action tv-back" to="/templates">
+                <ArrowLeft size={19} />
+                <span>{tr("Հետ գնալ")}</span>
+              </Link>
+            </div>
+          </>,
+          footerHost,
+        )}
     </div>
   );
 }
@@ -156,7 +193,7 @@ const styles = `
   position: relative;
   width: 100%;
   height: 100vh;
-  min-height: 520px;
+  height: 100dvh;
   background: #0f0f10;
   overflow: hidden;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -206,12 +243,18 @@ const styles = `
   }
 }
 
+`;
+
+const footerStyles = `
+
 .tv-bottom-bar {
-  position: fixed;
+  position: relative;
   z-index: 20;
-  left: 50%;
-  bottom: 18px;
-  transform: translateX(-50%);
+  margin: 24px auto;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  letter-spacing: normal;
   width: min(620px, calc(100% - 32px));
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -273,13 +316,8 @@ const styles = `
 }
 
 @media (max-width: 640px) {
-  .tv-page {
-    height: 100vh;
-    min-height: 500px;
-  }
-
   .tv-bottom-bar {
-    bottom: 10px;
+    margin: 18px auto;
     width: calc(100% - 20px);
     gap: 7px;
     padding: 7px;
@@ -299,6 +337,7 @@ const styles = `
     height: 17px;
   }
 }
+
 `;
 
 function SiteText({ text }: { text: string }) {
