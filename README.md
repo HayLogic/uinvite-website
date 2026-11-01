@@ -30,3 +30,7 @@ node .output/server/index.mjs
 ```
 
 This avoids the existing `vite preview` path mismatch that searches for `dist/server/server.js`. Do not commit `node_modules` or `.output`.
+
+## Drafts 079 and 080
+
+`public/templates/079/` (baptism) and `public/templates/080/` (first birthday) follow 055's exact fixed-background/transparent-sections structure with adapted Armenian copy and sample event data. They are not catalogue entries and have no assigned prices. Original 055 is unchanged. Their user-supplied inline photographs are still pending downloadable JPG/PNG files; each draft's README explains the expected `hero-bg.jpg`/`CONFIG.backgroundImage` setting. Do not generate replacements without permission.
