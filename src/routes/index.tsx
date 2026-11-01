@@ -413,7 +413,7 @@ function IndexInner() {
             </div>
           </div>
           <div className="ui-hero-visual">
-            {["063", "078", "064"].map((code, index) => {
+            {["055", "078", "064"].map((code, index) => {
               const invitation = TPL_DATA.find((template) => template.code === code)!;
               return (
                 <div key={code} className={`ui-phone ui-phone-${index + 1}`}>

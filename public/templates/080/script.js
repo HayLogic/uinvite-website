@@ -1,6 +1,6 @@
-// 080 · ծնունդ. Նկարը դեռ պետք է կցվի որպես ֆայլ։
+// 080 · ծնունդ. Օգտագործվում է տրամադրված hero-bg.png նկարը։
 'use strict';
-const CONFIG=Object.freeze({invitationNumber:'080',childName:'Լիա',eventDate:'2027-05-24T15:00:00+04:00',backgroundImage:'',rsvpEndpoint:''});
+const CONFIG=Object.freeze({invitationNumber:'080',childName:'Լիա',eventDate:'2027-05-24T15:00:00+04:00',backgroundImage:'hero-bg.png',rsvpEndpoint:''});
 
 if(CONFIG.backgroundImage){const image=new Image();image.addEventListener('load',()=>document.documentElement.style.setProperty('--event-photo',`url("${image.src}")`));image.src=CONFIG.backgroundImage;}
 const eventDate=new Date(CONFIG.eventDate);

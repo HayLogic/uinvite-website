@@ -1,6 +1,6 @@
-// 079 · կնունք. Նկարը դեռ պետք է կցվի որպես ֆայլ։
+// 079 · կնունք. Օգտագործվում է տրամադրված hero-bg.png նկարը։
 'use strict';
-const CONFIG=Object.freeze({invitationNumber:'079',childName:'Մարի',eventDate:'2027-05-24T15:00:00+04:00',backgroundImage:'',rsvpEndpoint:''});
+const CONFIG=Object.freeze({invitationNumber:'079',childName:'Մարի',eventDate:'2027-05-24T15:00:00+04:00',backgroundImage:'hero-bg.png',rsvpEndpoint:''});
 
 if(CONFIG.backgroundImage){const image=new Image();image.addEventListener('load',()=>document.documentElement.style.setProperty('--event-photo',`url("${image.src}")`));image.src=CONFIG.backgroundImage;}
 const eventDate=new Date(CONFIG.eventDate);

@@ -9,7 +9,7 @@ The festive placeholder uses evergreen/burgundy/gold colours, decorative SVG bra
 
 The owner has now authorized publishing **all 001–080 invitations**. Both catalogues use the same card fields: number, live price, full package label, category, badges, preview and WhatsApp order links. TOP records appear first in descending code order; all other records follow in descending code order (New/Discount badges do not override that order). The New Year category contains 067–076 and its “coming soon” notice has been replaced by the available collection. Those Excel rows remain tagged Other in the source assignment table, and are exposed under New Year in the catalogue based on their seasonal content.
 
-All public/template entrypoints exist, including a new `066/index.html` copied from its original Armenian-named HTML file. Existing original 066 file is retained. Templates 067–078 are imported from the separate numbered invitation repository, including local assets and music where present. Card previews for 063–080 are WebP captures of the actual invitations. 079/080 still have neutral backgrounds pending the owner's supplied photos (see below).
+All public/template entrypoints exist, including a new `066/index.html` copied from its original Armenian-named HTML file. Existing original 066 file is retained. Templates 067–078 are imported from the separate numbered invitation repository, including local assets and music where present. Card previews for 063–080 are WebP captures of the actual invitations. 079/080 use the owner-supplied baptism and birthday photographs (see below).
 
 ## Local development
 
@@ -34,9 +34,9 @@ npm run check:seo
 
 The preview serves `.output/public` at port 4173 (override with `-- --port 8037`). The existing Nitro preset is Cloudflare; its server module is a worker handler, not a standalone Node HTTP server. The custom preview also avoids the old `vite preview` path mismatch. Do not commit `node_modules` or `.output`.
 
-## Drafts 079 and 080
+## Invitations 079 and 080
 
-`public/templates/079/` (baptism) and `public/templates/080/` (first birthday) follow 055's exact fixed-background/transparent-sections structure with adapted Armenian copy and sample event data. They are now published catalogue entries with package metadata from the owner-provided 001–080 assignment table. Original 055 is unchanged. Their user-supplied inline photographs are still pending downloadable JPG/PNG files; each draft's README explains the expected `hero-bg.jpg`/`CONFIG.backgroundImage` setting. Do not generate replacements without permission.
+`public/templates/079/` (baptism) and `public/templates/080/` (first birthday) follow 055's exact fixed-background/transparent-sections structure with adapted Armenian copy and sample event data. They are now published catalogue entries with package metadata from the owner-provided 001–080 assignment table. Original 055 is unchanged. The owner-supplied `hero-bg.png` photographs are now connected through `CONFIG.backgroundImage` and the CSS fallback. The original PNG files and existing design are preserved. Catalogue WebP previews have been recaptured from the actual invitations.
 
 
 ## Six-package pricing (latest owner update)
@@ -77,3 +77,5 @@ Latest locale verification: TypeScript, production build and SEO checks passed. 
 The page is prerendered with its own metadata/canonical and included in the 83-URL sitemap. Apache rewrite rules preserve direct reloads; the static preview serves its generated directory index. Existing invitation files, prices and URLs are unchanged.
 
 Verification: TypeScript, production build, SEO check, targeted ESLint, and Chromium at 360/390/768/1210/1440 px. Each width covers all three locales, direct load/reload, WhatsApp targets, header/footer entrypoints, active navigation and returning to homepage pricing with header offset. No overflow, header overlap or application errors; external analytics stubbed as in the SEO verification. The prerendered page and enquiry links also work without JavaScript. No live deployment performed.
+
+Homepage hero phones now show the catalogue images for 055 (left), 078 (centre) and 064 (right), keeping the existing phone frames and layout.
