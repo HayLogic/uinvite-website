@@ -78,7 +78,7 @@ The page is prerendered with its own metadata/canonical and included in the 83-U
 
 Verification: TypeScript, production build, SEO check, targeted ESLint, and Chromium at 360/390/768/1210/1440 px. Each width covers all three locales, direct load/reload, WhatsApp targets, header/footer entrypoints, active navigation and returning to homepage pricing with header offset. No overflow, header overlap or application errors; external analytics stubbed as in the SEO verification. The prerendered page and enquiry links also work without JavaScript. No live deployment performed.
 
-Homepage hero phones now show the catalogue images for 055 (left), 078 (centre) and 064 (right), keeping the existing phone frames and layout.
+Homepage hero phones now show the catalogue images for 063 baptism (left), 055 wedding (centre) and 064 birthday (right), keeping the existing phone frames and layout.
 
 ## Category sharing images (pending photo files)
 
