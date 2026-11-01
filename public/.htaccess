@@ -1,0 +1,17 @@
+Options -MultiViews
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+<IfModule mod_rewrite.c>
+RewriteEngine On
+# React viewer routes are distinct from standalone invitation /index.html URLs.
+RewriteCond %{DOCUMENT_ROOT}/templates/$1.html -f
+RewriteRule ^templates/([0-9]{3})/?$ templates/$1.html [END]
+# Direct catalogue refresh uses the prerendered document, not a missing SPA route.
+RewriteRule ^templates/?$ templates/index.html [END]
+# Existing assets and standalone invitation pages retain their normal URLs.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [END]
+# There are no other application routes: unknown URLs must keep HTTP 404.
+RewriteRule ^ - [R=404,END]
+</IfModule>

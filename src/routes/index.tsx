@@ -1,10 +1,14 @@
+import { faqs } from "@/data/faq";
+import { faqSchema } from "@/lib/seo";
 import { PricingSection } from "@/components/PricingSection";
 import { useTemplates } from "@/components/useTemplates";
 import { NewYearSection } from "@/components/NewYearSection";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
+  loader: () => ({ catalogue: getTemplates() }),
   head: () => ({
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }],
     meta: [
       { title: "uInvite — Էլեկտրոնային հրավիրատոմսեր" },
       { name: "description", content: "Ստեղծեք գեղեցիկ էլեկտրոնային հրավիրատոմսեր հարսանիքի, նշանադրության, կնունքի, ծննդյան և այլ առիթների համար։" },
@@ -18,10 +22,10 @@ export const Route = createFileRoute("/")({
 import { useEffect, useState } from "react";
 import logoUrl from "@/assets/logo-full.png";
 import weddingBg from "@/assets/wedding-bg.jpg";
-import silkBgAsset from "@/assets/silk-bg.jpg.asset.json";
-const silkBg = silkBgAsset.url;
+
 import {
   templates as TPL_DATA,
+  getTemplates,
   getDiscountDeadline,
   categoryLabels as TPL_CAT_LABELS,
   tierLabels as TPL_TIER_LABELS,
@@ -64,15 +68,11 @@ function Index() {
 }
 
 function FaqItem({ q, a }: { q: string; a: string }) {
-  const [open, setOpen] = useState(false);
   return (
-    <div className={`ui-faq-item ${open ? "open" : ""}`}>
-      <button className="ui-faq-q" onClick={() => setOpen((o) => !o)} aria-expanded={open}>
-        <span>{q}</span>
-        <ChevronDown size={20} strokeWidth={2} />
-      </button>
+    <details className="ui-faq-item">
+      <summary className="ui-faq-q"><span>{q}</span><ChevronDown size={20} strokeWidth={2} aria-hidden="true" /></summary>
       <div className="ui-faq-a"><p>{a}</p></div>
-    </div>
+    </details>
   );
 }
 
@@ -92,7 +92,7 @@ function WebInviteScreen({ screen, tpl }: { screen: "cover" | "schedule" | "map"
           <div className="ui-wi-hero">
             <tpl.Icon size={22} strokeWidth={1.3} />
             <span className="ui-wi-script">{tpl.script}</span>
-            <h4>{tpl.names}</h4>
+            <div className="ui-wi-demo-title">{tpl.names}</div>
             <div className="ui-wi-divider" />
             <span className="ui-wi-date">{tpl.date}</span>
           </div>
@@ -132,7 +132,7 @@ function WebInviteScreen({ screen, tpl }: { screen: "cover" | "schedule" | "map"
       {screen === "map" && (
         <div className="ui-webinvite-scroll">
           <span className="ui-wi-eyebrow ui-wi-eyebrow-top">Վայր</span>
-          <h4 className="ui-wi-place">Tsitsernakaberd Hall</h4>
+          <div className="ui-wi-place">Tsitsernakaberd Hall</div>
           <p className="ui-wi-addr">Երևան, Սարյան 12</p>
           <div className="ui-wi-map">
             <svg viewBox="0 0 120 80" preserveAspectRatio="none" aria-hidden>
@@ -153,7 +153,7 @@ function WebInviteScreen({ screen, tpl }: { screen: "cover" | "schedule" | "map"
       {screen === "rsvp" && (
         <div className="ui-webinvite-scroll">
           <span className="ui-wi-eyebrow ui-wi-eyebrow-top">RSVP</span>
-          <h4 className="ui-wi-place">Կլինե՞ք մեզ հետ</h4>
+          <div className="ui-wi-place">Կլինե՞ք մեզ հետ</div>
           <div className="ui-wi-field"><span>Անուն</span><em>Անի Հակոբյան</em></div>
           <div className="ui-wi-field"><span>Հյուրեր</span><em>2 հոգի</em></div>
           <div className="ui-wi-choices">
@@ -171,7 +171,7 @@ function WebInviteScreen({ screen, tpl }: { screen: "cover" | "schedule" | "map"
 function IndexInner() {
   const [active, setActive] = useState<string>("all");
   return (
-    <div className="ui-root" style={{ ["--ui-silk-bg" as string]: `url(${silkBg})` }}>
+    <div className="ui-root">
       <style>{styles}</style>
 
       <section id="home" className="ui-hero">
@@ -184,7 +184,7 @@ function IndexInner() {
             </p>
             <div className="ui-hero-cta">
               <Link to="/templates" className="ui-btn ui-btn-ghost"><Eye size={16} /> Դիտել տեսականին</Link>
-              <a href="#pricing" className="ui-btn ui-btn-primary"><ShoppingBag size={16} /> Պատվիրել հիմա</a>
+              <a href="/#pricing" className="ui-btn ui-btn-primary"><ShoppingBag size={16} /> Պատվիրել հիմա</a>
             </div>
             <div className="ui-hero-stats">
               <div><strong>500+</strong><span>գոհ հաճախորդ</span></div>
@@ -255,7 +255,7 @@ function IndexInner() {
             ].map((f) => (
               <div key={f.t} className="ui-feature">
                 <div className="ui-feature-icon"><f.I size={26} strokeWidth={1.5} /></div>
-                <h4>{f.t}</h4>
+                <h3>{f.t}</h3>
                 <p>{f.d}</p>
               </div>
             ))}
@@ -339,26 +339,7 @@ function IndexInner() {
             <p className="ui-muted">Ամենից շատ տրվող հարցերի պատասխանները՝ մեկ տեղում</p>
           </div>
           <div className="ui-faq">
-            {[
-              { q: "Ինչ արժեքից են սկսվում հրավիրատոմսերը։", a: `Standart փաթեթները՝ ${TPL_TIER_PRICES["standart-start"]}, ${TPL_TIER_PRICES["standart-classic"]} և ${TPL_TIER_PRICES["standart-plus"]}։ Premium փաթեթները՝ ${TPL_TIER_PRICES["premium-start"]}, ${TPL_TIER_PRICES["premium-classic"]} և ${TPL_TIER_PRICES["premium-plus"]}։` },
-              { q: "Որքա՞ն ժամանակում է պատրաստվում հրավիրատոմսը։", a: "Հրավիրատոմսը պատրաստվում է 48 ժամվա ընթացքում՝ պատվերը հաստատելուց հետո։" },
-              { q: "Արդյո՞ք կարող ենք փոխել երաժշտությունը կամ ավելացնել։", a: "Երաժշտության ընտրությունն ու փոփոխման պայմանները կճշտենք ձեր ընտրած փաթեթի համար պատվերի ժամանակ։" },
-              { q: "Արդյո՞ք կարող եմ տեքստերը փոփոխել։", a: "Այո, տեքստերը խմբագրում ենք անվճար՝ ձեր ցանկացած ձևով։" },
-              { q: "Կարո՞ղ ենք ավելացնել dress code-ի հատված։", a: "Այո, կարող եք ավելացնել՝ 500֏։" },
-                            { q: "Ցանկանում եմ վեբ հրավիրատոմս պատվիրել․ ինչպե՞ս պատվիրեմ։", a: "Մեր կայքում ընտրում եք Ձեզ դուր եկած հրավիրատոմսի օրինակը, այնուհետև ներքևում սեղմում եք «Պատվիրել» կոճակը և լրացնում պատվերի անհրաժեշտ տվյալները։ Կարող եք նաև ընտրել «Պատվիրել WhatsApp-ով» կոճակը և կապ հաստատել մեզ հետ WhatsApp-ի միջոցով։ " },
-
-              { q: "Կարո՞ղ ենք փոփոխել գույները։", a: "Եթե արդեն ընտրված է պատրաստի ձևանմուշ, գունային փոփոխություն չենք կատարում։" },
-              { q: "Կարո՞ղ ենք փոխել լուսանկարների քանակը։", a: "Այո, յուրաքանչյուր լրացուցիչ լուսանկար՝ +1000֏։" },
-              { q: "Հյուրերի մասնակցության հատվածը հանելու դեպքում գինը փոխվու՞մ է։", a: "Ոչ, արժեքը չի փոխվում։" },
-              { q: "Արժեքը մեկ հրավիրատոմսի՞ համար է։", a: "Այո, արժեքը մեկ հրավիրատոմսի համար է, սակայն այն ուղարկում եք ձեր բոլոր հյուրերին։" },
-              { q: "Ինչպե՞ս է աշխատում RSVP համակարգը։", a: "Հյուրերը մեկ սեղմումով հաստատում կամ մերժում են մասնակցությունը, իսկ դուք ստանում եք բոլոր պատասխանները ձեր անձնական էջում՝ իրական ժամանակում։" },
-              { q: "Ինչքա՞ն ժամանակ է ակտիվ հղումը։", a: "Հղումը ակտիվ է մինչև միջոցառման օրվանից 2 ամիս անց, որից հետո այն ապաակտիվանում է։" },
-              { q: "Կարո՞ղ եմ փոփոխություններ կատարել պատվիրելուց հետո։", a: "Այո, մինչև վերջնական հաստատումը կարող եք ազատ կերպով խնդրել փոփոխություններ՝ տեքստերի և լուսանկարների սահմանափակ քանակությամբ։" },
-              { q: "Ինչպե՞ս կարող եմ վճարել։", a: "Վճարումը կատարվում է բանկային փոխանցմամբ։ Աշխատանքը սկսում ենք վճարման հաստատումից անմիջապես հետո։" },
-              { q: "Կարո՞ղ եմ ուղարկել հղումը WhatsApp-ով կամ Instagram-ով։", a: "Այո, հղումը հեշտությամբ կարող եք ուղարկել WhatsApp-ով, Messenger-ով, Instagram-ով, Telegram-ով կամ SMS-ով։" },
-              { q: "Իսկ եթե միջոցառումը հետաձգվում է։", a: "Դա խնդիր չէ՝ մենք անվճար փոխում ենք ամսաթիվը հրավիրատոմսի վրա, և հղումը մնում է ակտիվ։" },
-
-            ].map((item, i) => (
+            {faqs.map((item, i) => (
               <FaqItem key={i} q={item.q} a={item.a} />
             ))}
           </div>
@@ -384,7 +365,7 @@ function IndexInner() {
               <div key={s.t} className="ui-step">
                 <span className="ui-step-num">{i + 1}</span>
                 <div className="ui-step-icon"><s.I size={22} strokeWidth={1.6} /></div>
-                <h4>{s.t}</h4>
+                <h3>{s.t}</h3>
                 <p>{s.d}</p>
               </div>
             ))}
@@ -415,20 +396,23 @@ function IndexInner() {
         <div className="ui-container ui-footer-grid">
           <div>
             <div className="ui-logo">
-              <img src={logoUrl} alt="uInvite" className="ui-logo-img ui-logo-img-lg" />
+              <img src={logoUrl} alt="uInvite՝ էլեկտրոնային հրավիրատոմսեր" className="ui-logo-img ui-logo-img-lg" />
             </div>
             <p className="ui-muted">Էլեկտրոնային հրավիրատոմսեր ամեն առիթի համար։</p>
           </div>
           <div>
-            <h5>Կատեգորիաներ</h5>
+            <h3>Կատեգորիաներ</h3>
             {CATEGORIES.map((c) => (
               <Link key={c.id} to="/templates" hash={`category-${c.id}`}>{c.label}</Link>
             ))}
           </div>
           <div>
-            <h5>Կապ</h5>
+            <h3>Կապ</h3>
             <a href="mailto:info@uinvite.am">info@uinvite.am</a>
             <a href="tel:+37477198238">+374 77 198 238</a>
+            <a href="https://wa.me/37477198238" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="viber://chat?number=%2B37477198238">Viber</a>
+            <a href="https://t.me/+37477198238" target="_blank" rel="noopener noreferrer">Telegram</a>
           </div>
         </div>
         <div className="ui-footer-socials">
@@ -457,7 +441,7 @@ function IndexInner() {
         <div className="ui-footer-bottom">© {new Date().getFullYear()} uInvite. Բոլոր իրավունքները պաշտպանված են։</div>
       </footer>
 
-      <a href="https://wa.me/37477198238" className="ui-whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+      <a href="https://wa.me/37477198238" className="ui-whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Կապվել WhatsApp-ով՝ +374 77 198 238">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         <span className="ui-whatsapp-phone">+374 77 198 238</span>
       </a>
@@ -486,7 +470,7 @@ const styles = `
   background-color: var(--ui-white);
   background-image:
     linear-gradient(rgba(255,255,255,0.78), rgba(255,255,255,0.78)),
-    var(--ui-silk-bg);
+    var(--ui-silk-bg, none);
   background-size: auto, 1600px auto;
   background-position: center, top center;
   background-repeat: repeat, repeat-y;
@@ -621,7 +605,7 @@ const styles = `
 .ui-features { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .ui-feature { background: var(--ui-white); border-radius: 18px; padding: 28px; border: 1px solid var(--ui-border); }
 .ui-feature-icon { width: 48px; height: 48px; border-radius: 14px; background: var(--ui-accent-soft); color: var(--ui-accent); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-.ui-feature h4 { margin: 0 0 8px; font-size: 17px; font-weight: 700; }
+.ui-feature h3 { margin: 0 0 8px; font-size: 17px; font-weight: 700; }
 .ui-feature p { margin: 0; color: var(--ui-muted); font-size: 14px; }
 
 .ui-why-list { margin-top: 48px; background: var(--ui-white); border: 1px solid var(--ui-border); border-radius: 22px; padding: 36px 40px; max-width: 880px; margin-left: auto; margin-right: auto; }
@@ -647,7 +631,7 @@ const styles = `
 
 .ui-footer { background: var(--ui-white); border-top: 1px solid var(--ui-border); padding: 60px 0 24px; }
 .ui-footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-.ui-footer-grid h5 { margin: 0 0 14px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+.ui-footer-grid h3 { margin: 0 0 14px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
 .ui-footer-grid a { display: block; color: var(--ui-muted); text-decoration: none; font-size: 14px; padding: 4px 0; }
 .ui-footer-grid a:hover { color: var(--ui-accent); }
 .ui-footer-bottom { text-align: center; color: var(--ui-muted); font-size: 13px; padding-top: 24px; border-top: 1px solid var(--ui-border); }
@@ -717,7 +701,7 @@ const styles = `
 .ui-step:hover { background: rgba(255,255,255,.10); border-color: var(--ui-accent); transform: translateY(-3px); }
 .ui-step-num { position: absolute; top: -14px; left: 22px; width: 32px; height: 32px; border-radius: 999px; background: var(--ui-accent); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; box-shadow: 0 8px 18px -4px rgba(49,147,233,.55); }
 .ui-step-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(49,147,233,.16); color: var(--ui-accent); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px; }
-.ui-step h4 { margin: 0 0 8px; font-size: 16px; font-weight: 700; line-height: 1.3; color: #fff; }
+.ui-step h3 { margin: 0 0 8px; font-size: 16px; font-weight: 700; line-height: 1.3; color: #fff; }
 .ui-step p { margin: 0; font-size: 13.5px; line-height: 1.55; color: rgba(255,255,255,.72); }
 
 .ui-info-note { display: flex; align-items: flex-start; gap: 14px; max-width: 760px; margin: 0 auto 50px; background: rgba(49,147,233,.14); border: 1px solid rgba(49,147,233,.35); border-radius: 16px; padding: 18px 22px; color: #fff; }
@@ -766,7 +750,7 @@ const styles = `
 .ui-webinvite-bar > em { font-style: normal; margin-left: 6px; font-size: 8.5px; opacity: .55; letter-spacing: .02em; font-family: 'JetBrains Mono', ui-monospace, monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .ui-webinvite-scroll { flex: 1; overflow: hidden; padding: 14px 14px 16px; display: flex; flex-direction: column; gap: 14px; }
 .ui-wi-hero { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; padding: 6px 0 14px; border-bottom: 1px dashed currentColor; }
-.ui-wi-hero h4 { margin: 2px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 500; line-height: 1.1; }
+.ui-wi-hero .ui-wi-demo-title { margin: 2px 0 0; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 500; line-height: 1.1; }
 .ui-wi-script { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-size: 10px; letter-spacing: .25em; text-transform: uppercase; opacity: .65; }
 .ui-wi-divider { width: 28px; height: 1px; background: currentColor; opacity: .45; margin: 4px 0; }
 .ui-wi-date { font-size: 9.5px; letter-spacing: .3em; text-transform: uppercase; opacity: .8; }
@@ -862,28 +846,31 @@ const styles = `
 .ui-faq { max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
 .ui-faq-item { background: var(--ui-white); border: 1px solid var(--ui-border); border-radius: 16px; overflow: hidden; transition: border-color .2s, box-shadow .2s; }
 .ui-faq-item:hover { border-color: #d6d7da; }
-.ui-faq-item.open { border-color: var(--ui-accent); box-shadow: 0 16px 36px -16px rgba(49,147,233,.25); }
+.ui-faq-item[open] { border-color: var(--ui-accent); box-shadow: 0 16px 36px -16px rgba(49,147,233,.25); }
 .ui-faq-q { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; background: none; border: 0; padding: 20px 24px; cursor: pointer; font-size: 16px; font-weight: 600; color: var(--ui-black); text-align: left; font-family: inherit; }
+.ui-faq-q { list-style:none; } .ui-faq-q::-webkit-details-marker { display:none; }
 .ui-faq-q svg { flex-shrink: 0; transition: transform .25s ease; color: var(--ui-muted); }
-.ui-faq-item.open .ui-faq-q svg { transform: rotate(180deg); color: var(--ui-accent); }
+.ui-faq-item[open] .ui-faq-q { list-style:none; } .ui-faq-q::-webkit-details-marker { display:none; }
+.ui-faq-q svg { transform: rotate(180deg); color: var(--ui-accent); }
 .ui-faq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
-.ui-faq-item.open .ui-faq-a { grid-template-rows: 1fr; }
+.ui-faq-item[open] .ui-faq-a { grid-template-rows: 1fr; }
 .ui-faq-a > p { overflow: hidden; margin: 0; padding: 0 24px; color: var(--ui-muted); font-size: 15px; line-height: 1.6; }
-.ui-faq-item.open .ui-faq-a > p { padding-bottom: 22px; }
+.ui-faq-item[open] .ui-faq-a > p { padding-bottom: 22px; }
 
 .ui-footer-socials { display: flex; justify-content: center; gap: 14px; margin: 0 auto 18px; }
 .ui-footer-socials a { width: 40px; height: 40px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; background: var(--ui-primary); border: 1px solid var(--ui-border); color: var(--ui-muted); transition: all .2s; }
 .ui-footer-socials a:hover { background: var(--ui-accent); color: #fff; border-color: var(--ui-accent); transform: translateY(-2px); }
 .ui-footer-socials svg { width: 18px; height: 18px; }
 
-.ui-whatsapp-float { position: fixed; bottom: 22px; right: 22px; z-index: 90; display: inline-flex; align-items: center; gap: 10px; background: #25d366; color: #fff; border-radius: 999px; padding: 12px 18px; font-weight: 700; font-size: 14px; text-decoration: none; box-shadow: 0 8px 24px -6px rgba(37,211,102,.55); transition: all .2s; animation: ui-fade .4s ease .8s both; }
+.ui-whatsapp-float { position: fixed; bottom: 22px; right: 22px; z-index: 90; display: inline-flex; align-items: center; gap: 10px; background: #25d366; color: #fff; border-radius: 999px; padding: 9px 13px; font-weight: 700; font-size: 12px; text-decoration: none; box-shadow: 0 8px 24px -6px rgba(37,211,102,.55); transition: all .2s; animation: ui-fade .4s ease .8s both; }
 .ui-whatsapp-float:hover { transform: translateY(-2px); box-shadow: 0 12px 32px -8px rgba(37,211,102,.65); }
 .ui-whatsapp-float svg { width: 22px; height: 22px; }
 .ui-whatsapp-phone { white-space: nowrap; }
+@media (max-width:1200px) { .ui-whatsapp-float { width:44px; height:44px; padding:11px; right:14px; bottom:max(14px,env(safe-area-inset-bottom)); justify-content:center; } .ui-whatsapp-phone { display:none; } }
 
 @media (max-width: 560px) {
-  .ui-whatsapp-float { padding: 12px 14px; }
-  .ui-whatsapp-phone { font-size: 13px; }
+  .ui-whatsapp-float { width:44px; height:44px; padding:11px; right:14px; bottom:max(14px,env(safe-area-inset-bottom)); justify-content:center; }
+  .ui-whatsapp-phone { display:none; }
 }
 `;
 
@@ -893,9 +880,10 @@ function DiscountCountdown({ until }: { until: string }) {
     return Math.max(0, end - Date.now());
   };
 
-  const [remaining, setRemaining] = useState(getRemaining);
+  const [remaining, setRemaining] = useState<number | null>(null);
 
   useEffect(() => {
+    setRemaining(getRemaining());
     const timer = window.setInterval(() => {
       setRemaining(getRemaining());
     }, 1000);
@@ -903,6 +891,7 @@ function DiscountCountdown({ until }: { until: string }) {
     return () => window.clearInterval(timer);
   }, [until]);
 
+  if (remaining === null) return <div className="discount-deadline">Զեղչը գործում է մինչև {until.split("-").reverse().join(".")}</div>;
   const totalSeconds = Math.floor(remaining / 1000);
   const days = Math.floor(totalSeconds / 86400);
   const hours = Math.floor((totalSeconds % 86400) / 3600);
@@ -933,7 +922,7 @@ function DiscountCountdown({ until }: { until: string }) {
 }
 
 function CatalogTemplates() {
-  const TPL_DATA = useTemplates();
+  const TPL_DATA = useTemplates(Route.useLoaderData().catalogue);
   const FILTERS: { id: "all" | TplCat; label: string }[] = [
     { id: "all", label: "Ամբողջը" },
     { id: "wedding", label: TPL_CAT_LABELS.wedding },
@@ -1034,7 +1023,7 @@ function CatalogTemplates() {
                 <div className="ct-phone ct-phone-main">
                   <img
                     src={t.image}
-                    alt={`Թեմփլեյթ #${t.code}`}
+                    alt={`${TPL_CAT_LABELS[t.category]} հրավիրատոմսի նախադիտում՝ #${t.code}`}
                     loading="lazy"
                   />
                 </div>

@@ -1,12 +1,13 @@
 import { useTemplates } from "@/components/useTemplates";
 import "@/components/PricingSection.css";
 import { NewYearSection } from "@/components/NewYearSection";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useLocation, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { Eye, MessageCircle, Crown, Tag, Sparkles, Gift } from "lucide-react";
 
 import {
   templates,
+  getTemplates,
   getDiscountDeadline,
   orderTemplates,
   categoryLabels,
@@ -18,9 +19,10 @@ import {
   badgeLabels,
 } from "@/data/templates";
 
-const SITE_URL = "https://uinvite-invites-forever.lovable.app";
+const SITE_URL = "https://uinvite.am";
 
 export const Route = createFileRoute("/templates/")({
+  loader: () => ({ catalogue: getTemplates() }),
   head: () => ({
     meta: [
       { title: "Տեսականի — 80 վեբ հրավիրատոմսերի ձևանմուշ | uInvite" },
@@ -40,7 +42,7 @@ export const Route = createFileRoute("/templates/")({
       { name: "twitter:title", content: "Տեսականի — uInvite վեբ հրավիրատոմսեր" },
       { name: "twitter:description", content: "80 պատրաստի վեբ հրավիրատոմսեր ցանկացած առիթի համար։" },
     ],
-    links: [{ rel: "canonical", href: `${SITE_URL}/templates` }],
+
   }),
   component: TemplatesPage,
 });
@@ -66,36 +68,24 @@ const TIER_FILTERS: { id: TierFilter; label: string }[] = [
 ];
 
 function TemplatesPage() {
-  const templates = useTemplates();
-  const getInitialTier = (): TierFilter => {
-    if (typeof window === "undefined") return "all";
-    const tier = window.location.hash.replace(/^#tier-/, "");
-    return Object.hasOwn(tierPrices, tier) ? tier as TemplateTier : "all";
-  };
-
+  const templates = useTemplates(Route.useLoaderData().catalogue);
   const [filter, setFilter] = useState<Filter>("all");
-  const [tierFilter, setTierFilter] = useState<TierFilter>(getInitialTier);
+  const [tierFilter, setTierFilter] = useState<TierFilter>("all");
 
+  const routeHash = useLocation({ select: location => location.hash });
+  const navigate = useNavigate();
   useEffect(() => {
-    const applyHashFilter = () => {
-      const hash = window.location.hash;
-      const category = hash.replace("#category-", "");
-      if (hash.startsWith("#category-") && FILTERS.some((f) => f.id === category)) {
-        setFilter(category as Filter);
-        setTierFilter("all");
-      }
-      if (hash.startsWith("#tier-")) {
-        const tier = hash.replace("#tier-", "");
-        if (Object.hasOwn(tierPrices, tier)) {
-          setFilter("all");
-          setTierFilter(tier as TemplateTier);
-        }
-      }
-    };
-    applyHashFilter();
-    window.addEventListener("hashchange", applyHashFilter);
-    return () => window.removeEventListener("hashchange", applyHashFilter);
-  }, []);
+    const parts = routeHash.replace(/^#/, "").split("&");
+    const category = parts.find(part => part.startsWith("category-"))?.replace("category-", "");
+    const tier = parts.find(part => part.startsWith("tier-"))?.replace("tier-", "");
+    setFilter(category && FILTERS.some(f => f.id === category) ? category as Filter : "all");
+    setTierFilter(tier && Object.hasOwn(tierPrices, tier) ? tier as TemplateTier : "all");
+  }, [routeHash]);
+  const selectFilters = (category: Filter, tier: TierFilter) => {
+    setFilter(category); setTierFilter(tier);
+    const hash = [category !== "all" ? `category-${category}` : "", tier !== "all" ? `tier-${tier}` : ""].filter(Boolean).join("&");
+    void navigate({ to: "/templates", hash, replace: true, resetScroll: false });
+  };
 
   const list = useMemo(
     () =>
@@ -131,7 +121,7 @@ function TemplatesPage() {
                 key={f.id}
                 className={`tpl-tab ${f.id === "new-year" ? "new-year-tab" : ""} ${filter === f.id ? "active" : ""}`}
                 aria-pressed={filter === f.id}
-                onClick={() => setFilter(f.id)}
+                onClick={() => selectFilters(f.id, tierFilter)}
               >
                 {f.id === "new-year" && <Sparkles size={14} aria-hidden="true" />}
                 {f.label}
@@ -144,7 +134,7 @@ function TemplatesPage() {
               <button
                 key={f.id}
                 className={`tpl-tier-tab tpl-tier-${f.id} ${tierFilter === f.id ? "active" : ""}`}
-                onClick={() => setTierFilter(f.id)}
+                onClick={() => selectFilters(filter, f.id)}
               >
                 {f.label}
               </button>
@@ -182,13 +172,15 @@ function Countdown({ until }: { until: string }) {
     return Math.max(0, end - Date.now());
   };
 
-  const [remaining, setRemaining] = useState(getRemaining);
+  const [remaining, setRemaining] = useState<number | null>(null);
 
   useEffect(() => {
+    setRemaining(getRemaining());
     const timer = window.setInterval(() => setRemaining(getRemaining()), 1000);
     return () => window.clearInterval(timer);
   }, [until]);
 
+  if (remaining === null) return <div className="discount-deadline">Զեղչը գործում է մինչև {until.split("-").reverse().join(".")}</div>;
   if (remaining <= 0) {
     return <div className="tpl-sale-ended">Զեղչն ավարտվել է</div>;
   }
@@ -244,7 +236,7 @@ function TemplateCard({ t }: { t: (typeof templates)[number] }) {
           <img src={t.image} alt="" loading="lazy" />
         </div>
         <div className="tpl-phone tpl-phone-main">
-          <img src={t.image} alt={`Թեմփլեյթ #${t.code}`} loading="lazy" />
+          <img src={t.image} alt={`${categoryLabels[t.category]} հրավիրատոմսի նախադիտում՝ #${t.code}`} loading="lazy" />
         </div>
 
         <div className="tpl-card-overlay">

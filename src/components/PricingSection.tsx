@@ -66,7 +66,7 @@ export function PricingSection() {
             <h3>Ձեր պատմությունը՝ ձեր ձևով</h3>
             <p>Ունե՞ք անհատական դիզայնի գաղափար։ Սիրով կքննարկենք այն ձեզ հետ։</p>
           </div>
-          <a href="#order">
+          <a href="/#order">
             Քննարկել գաղափարը <ArrowUpRight size={17} aria-hidden="true" />
           </a>
         </div>

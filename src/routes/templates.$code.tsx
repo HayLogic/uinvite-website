@@ -1,3 +1,4 @@
+import { useTemplates } from "@/components/useTemplates";
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { ArrowLeft, MessageCircle, Phone } from "lucide-react";
@@ -36,7 +37,7 @@ export const Route = createFileRoute("/templates/$code")({
           },
           {
             property: "og:image",
-            content: loaderData.template.image,
+            content: new URL(loaderData.template.image, "https://uinvite.am").href,
           },
         ]
       : [],
@@ -61,7 +62,8 @@ export const Route = createFileRoute("/templates/$code")({
 });
 
 function TemplateViewer() {
-  const { template } = Route.useLoaderData();
+  const { template: initialTemplate } = Route.useLoaderData();
+  const template = useTemplates([initialTemplate]).find(item => item.code === initialTemplate.code) ?? initialTemplate;
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -83,6 +85,7 @@ function TemplateViewer() {
     <div className="tv-page">
       <style>{styles}</style>
 
+      <h1 className="sr-only">Հրավիրատոմս #{template.code}</h1>
       <main className="tv-preview">
         {!loaded && (
           <div className="tv-loader">

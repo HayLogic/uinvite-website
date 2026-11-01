@@ -25,13 +25,14 @@ npm exec -- tsc --noEmit
 npm run build
 ```
 
-Production output is generated under `.output/`. To run its server directly after building:
+Production output is generated under `.output/`. Preview the prerendered production site with:
 
 ```sh
-node .output/server/index.mjs
+npm run preview
+npm run check:seo
 ```
 
-This avoids the existing `vite preview` path mismatch that searches for `dist/server/server.js`. Do not commit `node_modules` or `.output`.
+The preview serves `.output/public` at port 4173 (override with `-- --port 8037`). The existing Nitro preset is Cloudflare; its server module is a worker handler, not a standalone Node HTTP server. The custom preview also avoids the old `vite preview` path mismatch. Do not commit `node_modules` or `.output`.
 
 ## Drafts 079 and 080
 
@@ -56,3 +57,13 @@ Verification: TypeScript and production build; responsive 360/390/768/1440 prici
 Latest catalogue verification: 80 unique cards and valid image/static-preview URLs; TOP order 075, 068, 066, 060, 055, 035 then descending remaining IDs; category and package filters; representative iframe routes; mobile/desktop layout and production build. No prices were changed by this catalogue publication.
 
 Existing preview entrypoints also repaired without removing originals: 037 was nested under 031/037 and is now copied to its own numbered folder; 059 had Index.html and now also has lowercase index.html for Linux/cPanel routing. All 80 image URLs and static entrypoints were verified. 066 also retains its original Armenian filename alongside index.html.
+
+## SEO, prerendering and hosting
+
+TanStack Start's native prerendering generates 82 public routes: `/`, `/templates` and `/templates/001`–`080`. The built HTML includes the actual Armenian content, navigation, prices and FAQ, plus static canonical/Open Graph/Twitter tags and Organization/FAQPage JSON-LD. Each route has one h1. The 1200×630 share image uses the existing logo and hero phones (166,163 bytes).
+
+Upload the **contents of `.output/public/`**, including the hidden `.htaccess`, to the Apache document root. This serves `/templates` directly, maps `/templates/NNN` to `templates/NNN.html`, and returns HTTP 404 for unknown routes. Keep `templates/NNN/index.html`: those are the original standalone invitations used by the viewer iframe. Do not replace the routing with an unconditional rewrite to the homepage, which would return HTTP 200 for missing pages. Other hosts need equivalent rules; Cloudflare's existing worker build remains available separately.
+
+The header's HY/RU/EN structure lives in `src/i18n/languages.ts`. Armenian is active; RU/EN are disabled and marked Շուտով. No translations were generated. Cross-route section links use the homepage pathname and hash; shared scrolling accounts for the sticky header and reduced motion.
+
+See [SEO verification](docs/SEO-VERIFICATION.md) for test results and deployment limits.

@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-import { getTemplates, getDiscountDeadline } from "@/data/templates";
+import { getTemplates, getDiscountDeadline, type Template } from "@/data/templates";
 
 /** Refresh prices at the Armenian discount deadline, even on an open tab. */
-export function useTemplates() {
-  const [items, setItems] = useState(() => getTemplates());
+export function useTemplates(initialItems?: Template[]) {
+  const [items, setItems] = useState(() => initialItems ?? getTemplates());
+  useEffect(() => {
+    setItems(getTemplates());
+  }, []);
   useEffect(() => {
     const now = Date.now();
     const deadlines = items
