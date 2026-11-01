@@ -25,7 +25,7 @@ const CONFIG = Object.freeze({
     {name:'Արծաթագույն',color:'#bec5c9'}
   ],
   rsvpEndpoint: '', // Առանց backend-ի ձևը ցուցադրական է։ Գաղտնի բանալիներ չտեղադրել։
-  musicUrl: 'assets/music.mp3',
+  musicUrl:'/assets/music/new-year/jingle-bell-rock.mp3',
   snowEnabled: true
 });
 const $ = selector => document.querySelector(selector);

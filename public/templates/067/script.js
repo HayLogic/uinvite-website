@@ -1,7 +1,7 @@
 'use strict';
 // Հաստատված են՝ TT Group, 18:00, Adana complex։ Օրը և ծրագիրը դեռ օրինակային են։
 const CONFIG=Object.freeze({
-  musicUrl:'assets/music.mp3',
+  musicUrl:'/assets/music/new-year/all-i-want-for-christmas-is-you.mp3',
   invitationNumber:'067',
   companyName:'TT Group',
   celebrationYear:'2027',

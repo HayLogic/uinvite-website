@@ -3,7 +3,7 @@
 const CONFIG = Object.freeze({
   invitationNumber: '069',
   snowEnabled: true,
-  musicUrl: 'assets/music.mp3',
+  musicUrl:'/assets/music/new-year/jingle-bell-rock.mp3',
   companyName: 'Codu',
   eventTitle: 'Ամանորյա կորպորատիվ երեկույթ',
   companyArtwork: 'assets/botanical-codu.png',

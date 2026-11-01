@@ -1,7 +1,7 @@
 'use strict';
 // Հաստատված են՝ Վահագնի ռեստորան, 18:00։ Ընկերությունը, օրը և ծրագիրը դեռ օրինակային են։
 const CONFIG=Object.freeze({
-  musicUrl:'assets/music.mp3',
+  musicUrl:'/assets/music/new-year/jingle-bell-rock.mp3',
   invitationNumber:'074',
   companyName:'Ձեր ընկերությունը',
   celebrationYear:'2027',

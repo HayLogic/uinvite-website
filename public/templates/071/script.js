@@ -21,7 +21,7 @@ const CONFIG = Object.freeze({
   dressDescription:'Շամպայնի երանգների նրբությունը, ոսկու փայլը և սևի դասական շքեղությունը։',
   dressColors:[{name:'Շամպայն',color:'#d9c5a2'},{name:'Ոսկեգույն',color:'#d1aa56'},{name:'Սև',color:'#262018'}],
   rsvpEndpoint:'', // Առանց endpoint-ի ձևը ցուցադրական է։ Գաղտնի բանալիներ չտեղադրել։
-  musicUrl:'assets/music.mp3',
+  musicUrl:'/assets/music/new-year/all-i-want-for-christmas-is-you.mp3',
   bubblesEnabled:true
 });
 const $=selector=>document.querySelector(selector);
