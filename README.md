@@ -97,3 +97,11 @@ Verified: TypeScript, production build and SEO checks; representative document l
 Invitations 077 and 078, their catalogue images and assignment entries have been removed at the owner’s request. Their prior versions remain recoverable from Git history. There are now 78 published invitations (001–076, 079–080) and 81 prerendered public routes. Catalogue text/translations, the homepage count, sitemap and verification checks are updated. Apache explicitly returns 404 for the retired URLs even if an older hosting copy still exists. No other invitation data or files were changed. Earlier verification notes above describe the catalogue before this removal. Local review only; no live deployment.
 
 Latest New Year package update: 075 is Standart Plus (10,900 ֏), with only the New badge and no TOP. 068 has a final QR sharing section and matching `templates/068/qr.html` utility page. The real QR opens `https://uinvite.am/templates/068/index.html`. Seating-plan work awaits the owner’s reference. Other templates are unchanged; local review only.
+
+## Premium seating and latest badge/price update
+
+All ten published Premium Start/Classic/Plus invitations (003, 006, 064, 068–073, 076) now link to their own `seating.html`. These pages use the owner's supplied 10-table/120-seat example, with search, matching-table highlights, named popup seats and keyboard-safe modal behavior. The example label is visible; no actual event seating has been inferred. Existing invitation design is unchanged outside the added button. `public/templates/shared/` contains shared assets and documentation; `scripts/sync-premium-seating.mjs` regenerates the links/pages.
+
+Per the owner’s clarification: 079 and 071 have TOP, with unchanged 4,900 ֏ and 28,900 ֏ base prices respectively. Only 073 has the new Discount badge: its Premium Plus base price is discounted to 10,900 ֏ (Standart Plus price) until the established 31 December 2026 deadline.
+
+The 068 QR page now matches the active origin rather than always encoding the public hostname. For local phone scanning, open it via the computer's LAN address on the same Wi-Fi. Public hosting retains the exact public 068 target. Static fallback, download and supported native sharing remain available. No live deployment.

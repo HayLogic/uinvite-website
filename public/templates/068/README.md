@@ -19,4 +19,8 @@ The final section links to `qr.html`, an invitation-styled burgundy/gold utility
 
 Verified at 390/1440 px: final section, direct QR page, loaded image, download filename and correct invitation return. QR decoding of both the source PNG and rendered mobile page matches the exact target. Native file sharing tested with a mock (no actual messages sent). TypeScript, build and SEO checks pass.
 
-Seating-plan button/page are pending the owner's promised reference; no table numbers or guest assignments have been invented.
+The owner’s supplied seating HTML is now linked through the Premium seating button and local `seating.html`. The 10-table guest list is labelled as example data; no guest assignments have been invented.
+
+QR follow-up: `qr.html` now generates its downloadable/shared PNG using the current page origin. Public hosting points to the actual public 068 URL; a LAN-hosted local page points to that same LAN host. A localhost note explains phone testing. No external QR service is used. The static PNG is retained for JavaScript-disabled/public fallback.
+
+The generated local-host QR PNG was independently decoded and matches the exact local `/templates/068/index.html` URL. Premium page/button checks and responsive tests pass at 320/390/768/1440 px. Public-domain deployment remains outside this local review.

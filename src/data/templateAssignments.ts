@@ -385,7 +385,7 @@ export const templateAssignments: Record<string, TemplateAssignment> = {
   "071": {
     category: "other",
     tier: "premium-plus",
-    badges: [],
+    badges: ["top"],
   },
   "072": {
     category: "other",
@@ -395,7 +395,9 @@ export const templateAssignments: Record<string, TemplateAssignment> = {
   "073": {
     category: "other",
     tier: "premium-plus",
-    badges: [],
+    badges: ["discount"],
+    discountTo: "standart-plus",
+    discountUntil: "2026-12-31",
   },
   "074": {
     category: "other",
@@ -415,7 +417,7 @@ export const templateAssignments: Record<string, TemplateAssignment> = {
   "079": {
     category: "baptism",
     tier: "standart-start",
-    badges: [],
+    badges: ["top"],
   },
   "080": {
     category: "birthday",
