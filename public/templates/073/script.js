@@ -1,7 +1,7 @@
 'use strict';
 // Հաստատված են՝ Dvin Hall, 17:00։ Ընկերությունը, օրը և ծրագիրը դեռ օրինակային են։
 const CONFIG=Object.freeze({
-  musicUrl:'/assets/music/new-year/last-christmas.mp3',
+  musicUrl:'/assets/music/new-year/last-christmas.mp3?v=20261102-short',
   invitationNumber:'073',
   companyName:'Ձեր ընկերությունը',
   celebrationYear:'2027',

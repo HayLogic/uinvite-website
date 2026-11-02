@@ -78,8 +78,10 @@ export const templateAssignments: Record<string, TemplateAssignment> = {
   },
   "014": {
     category: "wedding",
-    tier: "standart-start",
-    badges: ["gift-music"],
+    tier: "standart-classic",
+    badges: ["discount", "gift-music"],
+    discountTo: "standart-start",
+    discountUntil: "2026-12-31",
   },
   "015": {
     category: "other",
@@ -189,16 +191,12 @@ export const templateAssignments: Record<string, TemplateAssignment> = {
   "036": {
     category: "wedding",
     tier: "standart-plus",
-    badges: ["discount"],
-    discountTo: "standart-classic",
-    discountUntil: "2026-12-31",
+    badges: ["top"],
   },
   "037": {
     category: "baptism",
     tier: "standart-classic",
-    badges: ["discount"],
-    discountTo: "standart-start",
-    discountUntil: "2026-12-31",
+    badges: [],
   },
   "038": {
     category: "wedding",
@@ -304,14 +302,14 @@ export const templateAssignments: Record<string, TemplateAssignment> = {
   "057": {
     category: "wedding",
     tier: "standart-plus",
-    badges: ["discount"],
-    discountTo: "standart-classic",
-    discountUntil: "2026-12-31",
+    badges: [],
   },
   "058": {
     category: "birthday",
-    tier: "standart-start",
-    badges: ["new"],
+    tier: "standart-classic",
+    badges: ["discount"],
+    discountTo: "standart-start",
+    discountUntil: "2026-12-31",
   },
   "059": {
     category: "engagement",
@@ -329,7 +327,7 @@ export const templateAssignments: Record<string, TemplateAssignment> = {
   "061": {
     category: "baptism",
     tier: "standart-plus",
-    badges: ["new"],
+    badges: ["discount"],
     notes: "from Plus to classic till 31.12.2026",
     discountTo: "standart-classic",
     discountUntil: "2026-12-31",
@@ -337,7 +335,7 @@ export const templateAssignments: Record<string, TemplateAssignment> = {
   "062": {
     category: "baptism",
     tier: "standart-plus",
-    badges: ["new"],
+    badges: ["discount"],
     notes: "from Plus to classic till 31.12.2026",
     discountTo: "standart-classic",
     discountUntil: "2026-12-31",

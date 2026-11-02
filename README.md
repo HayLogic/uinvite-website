@@ -50,7 +50,7 @@ The preview serves `.output/public` at port 4173 (override with `-- --port 8037`
 
 Homepage pricing shows two groups with three cards each and announces Premium availability. Catalog filters, labels, FAQ and WhatsApp order messages use the new labels/prices. Old struck-through marketing prices and stale autumn-sale copy were removed. No new service benefits were invented. Individual-design pricing is discussed rather than retaining the outdated 15,000 ֏ figure.
 
-Discounts end 31 December 2026, 23:59:59.999 Armenia (+04:00), per the owner's clarification. 036, 056, 057, 061, 062: Standart Plus → Classic (6,900 ֏). 037, 053, 059: Standart Classic → Start (4,900 ֏). The owner explicitly corrected 057 to Plus → Classic; 036/037 retain the prior one-level-discount pattern. Badge-only discounts without a target/end date are never advertised. After the deadline, prices revert to the base package and discount indicators disappear; open catalogues refresh at the deadline.
+Discounts end 31 December 2026, 23:59:59.999 Armenia (+04:00), per the owner's clarification. 056, 061, 062: Standart Plus → Classic (6,900 ֏). 014, 053, 058, 059: Standart Classic → Start (4,900 ֏). The latest owner update makes 057 regular Standart Plus (10,900 ֏), with no discount; 036 is regular Standart Plus (10,900 ֏) with TOP; 037 is regular Standart Classic (6,900 ֏), without discounts. Badge-only discounts without a target/end date are never advertised. After the deadline, prices revert to the base package and discount indicators disappear; open catalogues refresh at the deadline.
 
 Verification: TypeScript and production build; responsive 360/390/768/1440 pricing/filter/order flows; all 80 assignment records, all 80 published records, and pre/post-deadline price resolution.
 
@@ -109,3 +109,9 @@ The 068 QR page now matches the active origin rather than always encoding the pu
 Latest follow-up: 072 is Standart Plus at its regular 10,900 ֏ price, with no new discount. Its Premium seating button/page are removed (nine eligible Premium invitations remain). Homepage menu New Year now has a tree icon and green/gold pill; 065 uses the supplied Let It Snow track through its existing music controls.
 
 070 is now Premium Plus (28,900 ֏), retaining its New badge, track and Premium seating page. 065’s countdown/music helper name collision was fixed so the existing page script and real MP3 playback initialize correctly.
+
+Latest badge/price corrections: 061 and 062 show Discount instead of New, retaining their 10,900 → 6,900 ֏ sale. 057 is 10,900 ֏ without a sale. 058 is Standart Classic 6,900 → 4,900 ֏, with the Discount badge instead of New. The established discount deadline remains 31 December 2026.
+
+036/037 follow-up: remove both discounts; keep 036 at 10,900 ֏ and add TOP, keep 037 at 6,900 ֏ without a badge.
+
+014 now has a Standart Classic base price of 6,900 ֏, discounted to 4,900 ֏ until 31 December 2026. Discount is added and the existing Music Gift badge is retained.

@@ -10,7 +10,7 @@ const CONFIG = Object.freeze({
   venueName: 'Ադանա Կոմպլեքս',
   address: 'Միջոցառման հասցեն կճշտվի',
   mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Adana+Complex+Armenia',
-  musicUrl:'/assets/music/new-year/all-i-want-for-christmas-is-you.mp3',
+  musicUrl:'/assets/music/new-year/all-i-want-for-christmas-is-you.mp3?v=20261102-short',
   rsvpEndpoint: '', // HTTPS POST endpoint; JSON body; հաջողություն՝ HTTP 2xx։
   demoMode: false
 });

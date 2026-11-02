@@ -20,3 +20,5 @@ Mapping: `assignments.json`. The updated script query string refreshes cached co
 Verified on the local production build: all ten invitations select the assigned track, contain one audio element, start after a visitor interaction, pause/resume correctly and loop. The four source files decode successfully. Production build and SEO checks passed; other invitation content and styling are unchanged.
 
 Follow-up: 065 now also uses the supplied Dean Martin “Let It Snow” recording. Its existing music button and pause/resume logic are preserved; the malformed audio source markup was repaired so it plays the real MP3 instead of the generated fallback melody.
+
+2 November 2026: replaced only Mariah Carey and Wham! with the owner’s shortened MP3 uploads (about 2:20 and 2:35). Existing assignments are retained: Mariah on 067/068/071; Wham! on 072/073. Audio/config version queries refresh cached files. Other tracks and invitation content are unchanged.
