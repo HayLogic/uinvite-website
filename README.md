@@ -115,3 +115,9 @@ Latest badge/price corrections: 061 and 062 show Discount instead of New, retain
 036/037 follow-up: remove both discounts; keep 036 at 10,900 ֏ and add TOP, keep 037 at 6,900 ֏ without a badge.
 
 014 now has a Standart Classic base price of 6,900 ֏, discounted to 4,900 ֏ until 31 December 2026. Discount is added and the existing Music Gift badge is retained.
+
+## cPanel migration: preserve the existing live site
+
+The root `.htaccess` has been merged with the owner's actual live configuration. It keeps the two legacy customer redirects (`styop-varduhi` → `varduhi-styop`, `avo-anna` → `anna-avo`) and `/preview/{code}` → `preview.php?code={code}` with QSA. Existing files, directories and symlinks bypass the missing-route 404. `L` preserves normal subdirectory rewrite processing. Only the empty domain-root URL maps to the new index.html; existing customer DirectoryIndex and MultiViews settings are not overridden, preserving their PHP entrypoint behavior. Unknown routes return a real 404 instead of the previous homepage fallback, matching the SEO requirement.
+
+Deploy only after a full downloaded backup. Merge the contents of `.output/public/` into the domain's cPanel Document Root, preserving all unrelated named customer directories, existing assets, `preview.php`, `.well-known`, FTP state files and other live-only files. Do not replace entire directories or delete old hashed assets. Install the merged `.htaccess`, not the earlier static-only version. The existing PHP handler is live-only and remains on the host; the Node preview does not execute PHP. The rules were reviewed, but the production Apache/PHP server is not accessible from this environment: verify the old redirects, `/preview/` handler and real customer links on the hosting server after upload. No live deployment has been performed here.

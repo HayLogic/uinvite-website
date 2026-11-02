@@ -80,3 +80,20 @@ const corporate = await readFile(resolve(root, "corporate/index.html"), "utf8");
 assert.equal((corporate.match(/<h1\b/g) || []).length, 1);
 assert(corporate.includes("https://uinvite.am/corporate"));
 assert(corporate.includes("Քննարկել համագործակցությունը"));
+
+// The owner's live cPanel handlers must survive static-site updates.
+const hostingRules = await readFile(resolve(root, ".htaccess"), "utf8");
+for (const rule of [
+  "RewriteRule ^styop-varduhi/?(.*)$ /varduhi-styop/$1 [R=301,L]",
+  "RewriteRule ^avo-anna/?(.*)$ /anna-avo/$1 [R=301,L]",
+  "RewriteRule ^preview/([^/]+)/?$ preview.php?code=$1 [L,QSA]",
+  "RewriteCond %{REQUEST_FILENAME} !-f",
+  "RewriteCond %{REQUEST_FILENAME} !-d",
+  "RewriteCond %{REQUEST_FILENAME} !-l",
+])
+  assert(hostingRules.includes(rule), `Missing legacy hosting rule: ${rule}`);
+assert(
+  !/^\s*DirectoryIndex\s/m.test(hostingRules),
+  "Do not override customer PHP directory indexes",
+);
+assert(!/^\s*Options\s/m.test(hostingRules), "Preserve live MultiViews/Options settings");
