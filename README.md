@@ -105,3 +105,7 @@ All ten published Premium Start/Classic/Plus invitations (003, 006, 064, 068–0
 Per the owner’s clarification: 079 and 071 have TOP, with unchanged 4,900 ֏ and 28,900 ֏ base prices respectively. Only 073 has the new Discount badge: its Premium Plus base price is discounted to 10,900 ֏ (Standart Plus price) until the established 31 December 2026 deadline.
 
 The 068 QR page now matches the active origin rather than always encoding the public hostname. For local phone scanning, open it via the computer's LAN address on the same Wi-Fi. Public hosting retains the exact public 068 target. Static fallback, download and supported native sharing remain available. No live deployment.
+
+Latest follow-up: 072 is Standart Plus at its regular 10,900 ֏ price, with no new discount. Its Premium seating button/page are removed (nine eligible Premium invitations remain). Homepage menu New Year now has a tree icon and green/gold pill; 065 uses the supplied Let It Snow track through its existing music controls.
+
+070 is now Premium Plus (28,900 ֏), retaining its New badge, track and Premium seating page. 065’s countdown/music helper name collision was fixed so the existing page script and real MP3 playback initialize correctly.

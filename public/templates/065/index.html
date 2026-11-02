@@ -241,9 +241,7 @@ footer { position: relative; z-index: 1; max-width: 440px; margin: 56px auto 0; 
 
 <footer>VOID COMPANY · 2026</footer>
 
-<audio id="bgm" loop preload="auto">
-  src="music.mp3"
-</audio>
+<audio id="bgm" loop preload="none" src="/assets/music/new-year/let-it-snow.mp3"></audio>
 <button class="music" id="music" type="button" aria-pressed="false" aria-label="Միացնել երաժշտությունը" title="Միացնել երաժշտությունը">
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <path d="M9 17V5.5l10-2V15"/>
@@ -322,6 +320,7 @@ footer { position: relative; z-index: 1; max-width: 440px; margin: 56px auto 0; 
 
   /* music: starts with the page, icon toggles it. Plays #bgm if it has a src, otherwise a generated melody. */
   var mBtn = document.getElementById("music"), bgm = document.getElementById("bgm");
+  bgm.volume = .45;
   var useFile = !!bgm.getAttribute("src");
   var actx = null, master = null, timer = null, nextBar = 0, barIdx = 0, playing = false, armed = true;
   var BAR = 3.2, STEP = 0.4;
@@ -338,7 +337,7 @@ footer { position: relative; z-index: 1; max-width: 440px; margin: 56px auto 0; 
       o.connect(v); v.connect(master); o.start(t); o.stop(t + 1.9);
     });
   }
-  function pad(f, t) {
+  function musicPad(f, t) {
     var o = actx.createOscillator(), v = actx.createGain();
     o.type = "sine"; o.frequency.value = f;
     v.gain.setValueAtTime(0.0001, t);
@@ -348,7 +347,7 @@ footer { position: relative; z-index: 1; max-width: 440px; margin: 56px auto 0; 
   }
   function scheduleBar(t) {
     var ch = chords[barIdx % 4];
-    ch.forEach(function (f) { pad(f, t); });
+    ch.forEach(function (f) { musicPad(f, t); });
     pattern.forEach(function (idx, i) { bell(ch[idx] * 2, t + i * STEP, 0.07); });
     if (barIdx % 2 === 1) bell(ch[2] * 4, t + 6 * STEP, 0.045);
     barIdx++;

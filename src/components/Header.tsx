@@ -1,3 +1,4 @@
+import { TreePine } from "lucide-react";
 import { useTranslation } from "@/i18n/LanguageProvider";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "@tanstack/react-router";
@@ -113,6 +114,9 @@ export function Header() {
                 aria-current={active === item.id ? "location" : undefined}
                 onClick={item.id === "home" ? top : () => setOpen(false)}
               >
+                {item.id === "new-year" && (
+                  <TreePine className="new-year-nav-icon" size={18} aria-hidden="true" />
+                )}
                 {tr(item.label)}
               </Link>
             ))}
@@ -171,6 +175,7 @@ const headerStyles = `
 :root{--site-header-height:72px}html{scroll-padding-top:calc(var(--site-header-height) + 16px);scroll-behavior:smooth}
 .shared-header{position:sticky;top:0;z-index:100;background:rgba(250,250,248,.94);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid rgba(0,0,0,.04)}
 .shared-container{max-width:1280px;margin:0 auto;padding:0 24px}.shared-nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}.shared-logo{display:flex;align-items:center;text-decoration:none;flex-shrink:0}.shared-logo-img{height:36px;width:auto;display:block}.shared-menu{display:flex;align-items:center;gap:2px}.shared-menu a{text-decoration:none;color:#555;font-size:12px;font-weight:500;padding:8px 9px;border-radius:10px;white-space:nowrap}.shared-menu a:hover,.shared-menu a.is-current{color:#0f0f10;background:rgba(0,0,0,.04)}.shared-controls{display:flex;align-items:center;gap:12px}.shared-menu .header-order,.header-order{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:10px 15px;border-radius:10px;background:#0f0f10;color:#fff;text-decoration:none;font-size:12px;white-space:nowrap}.shared-menu .header-order:hover,.header-order:hover{background:#29292c;color:#fff}.shared-controls .header-compact-order{display:none}.header-languages{display:flex;align-items:center;gap:3px}.header-languages button{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px;min-width:27px;min-height:38px;border:0;background:none;color:#181818;font:600 10px/1.5 system-ui}.header-languages button[aria-pressed=true]{border-bottom:1px solid #79715e}.header-languages button:disabled{color:#98958c;cursor:default}.header-languages small{font-size:6px;font-weight:400}.shared-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:42px;background:transparent;border:none;cursor:pointer;padding:8px}.shared-burger span{display:block;width:100%;height:2px;background:#0f0f10;border-radius:2px}.shared-header :focus-visible{outline:2px solid #977541;outline-offset:3px}
+.shared-menu a.new-year-nav-link{display:inline-flex;align-items:center;gap:7px;margin-inline:4px;padding:8px 11px;border:1px solid #b99552;border-radius:999px;background:linear-gradient(115deg,#183f31,#284f3b);color:#fff2d3;font-weight:700;box-shadow:inset 0 0 0 2px #ffffff08,0 2px 6px #173e311c}.shared-menu .new-year-nav-icon{flex-shrink:0;color:#e8c67d}.shared-menu a.new-year-nav-link:hover,.shared-menu a.new-year-nav-link.is-current{background:linear-gradient(115deg,#254f3c,#173d30);color:#fff5df;border-color:#d5b577;box-shadow:inset 0 0 0 2px #d5b57733,0 2px 7px #173e3126}
 @media(max-width:1200px){.shared-container{padding:0 18px}.shared-nav{gap:10px}.shared-menu{display:none;position:fixed;inset:72px 0 auto 0;background:rgba(250,250,248,.99);backdrop-filter:blur(14px);flex-direction:column;align-items:stretch;padding:18px 24px 28px;gap:4px;border-bottom:1px solid #0001;max-height:calc(100dvh - 72px);overflow-y:auto}.shared-menu.open{display:flex}.shared-menu a{padding:12px 16px;font-size:15px}.shared-menu .header-order{margin-top:8px}.shared-controls .header-compact-order{display:inline-flex;font-size:10px;min-height:36px;padding:8px 10px}.shared-burger{display:flex}.shared-controls{gap:7px}.header-languages{gap:1px}.header-languages button{min-width:24px}.shared-logo-img{height:34px}}
 @media(max-width:375px){.shared-container{padding:0 12px}.shared-controls{gap:3px}.header-languages button{min-width:22px;font-size:9px}.shared-controls .header-compact-order{font-size:9px;padding-inline:8px}.shared-burger{width:35px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

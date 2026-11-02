@@ -18,3 +18,5 @@ Four original MP3 files supplied by the owner, randomly assigned once across 067
 Mapping: `assignments.json`. The updated script query string refreshes cached configurations. No live deployment.
 
 Verified on the local production build: all ten invitations select the assigned track, contain one audio element, start after a visitor interaction, pause/resume correctly and loop. The four source files decode successfully. Production build and SEO checks passed; other invitation content and styling are unchanged.
+
+Follow-up: 065 now also uses the supplied Dean Martin “Let It Snow” recording. Its existing music button and pause/resume logic are preserved; the malformed audio source markup was repaired so it plays the real MP3 instead of the generated fallback melody.
