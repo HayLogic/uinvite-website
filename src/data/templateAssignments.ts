@@ -353,12 +353,12 @@ export const templateAssignments: Record<string, TemplateAssignment> = {
     badges: ["new"],
   },
   "065": {
-    category: "other",
+    category: "new-year",
     tier: "standart-classic",
     badges: ["new"],
   },
   "066": {
-    category: "other",
+    category: "new-year",
     tier: "standart-classic",
     badges: ["top"],
   },
